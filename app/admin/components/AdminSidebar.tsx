@@ -99,6 +99,7 @@ const NAV_GROUPS: NavGroup[] = [
     label: "Intelligence",
     defaultOpen: true,
     items: [
+      { label: "Research Workspace", href: "/admin/research", icon: FlaskConical },
       { label: "Research Tools", href: "/admin/tools", icon: Globe },
     ],
   },
