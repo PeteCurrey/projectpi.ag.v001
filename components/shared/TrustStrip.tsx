@@ -1,8 +1,18 @@
-import React from "react";
 import { ShieldCheck, Scale, FileCheck, Clock, Award } from "lucide-react";
+import { getVerifiedCredentials } from "@/lib/config/credentials";
 
 export default function TrustStrip() {
-  const credentials = [
+  const verifiedList = getVerifiedCredentials();
+
+  const iconMap: Record<string, typeof Scale> = {
+    CPR_COMPLIANCE: Scale,
+    ICO_REGISTRATION: ShieldCheck,
+    PROOF_OF_SERVICE: FileCheck,
+    PROFESSIONAL_INDEMNITY: Award,
+    BS_102000_STANDARD: FileCheck,
+  };
+
+  const displayCredentials = [
     {
       icon: Scale,
       label: "CPR PART 6 & 31 COMPLIANT",
@@ -25,15 +35,15 @@ export default function TrustStrip() {
     },
     {
       icon: Award,
-      label: "£5,000,000 INDEMNITY COVER",
-      sub: "Professional indemnity insured",
+      label: "PROFESSIONAL INDEMNITY INSURED",
+      sub: "Comprehensive liability coverage",
     },
   ];
 
   return (
     <section className="bg-obsidian-surface/80 border-y border-oliveGrey/60 py-6 px-6 lg:px-12">
       <div className="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
-        {credentials.map((cred, idx) => {
+        {displayCredentials.map((cred, idx) => {
           const Icon = cred.icon;
           return (
             <div key={idx} className="flex items-start gap-3">

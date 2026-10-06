@@ -105,13 +105,13 @@ export default function ClientPortalOverview() {
 
         <div className="p-6 bg-obsidian-surface/60 border border-oliveGrey/60 space-y-2">
           <span className="text-[10px] font-mono text-stone-muted uppercase tracking-wider block">
-            PRIVILEGE STATUS
+            CONFIDENTIALITY PROTOCOL
           </span>
           <span className="text-sm font-mono text-emerald-400 block pt-2">
-            LITIGATION PRIVILEGE
+            STRICT SOLICITOR BRIEF
           </span>
           <span className="text-[11px] text-stone-muted font-light block">
-            Section 31 CPR safe harbour
+            Litigation privilege structured where instructed by counsel
           </span>
         </div>
       </div>

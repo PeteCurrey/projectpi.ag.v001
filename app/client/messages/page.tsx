@@ -2,7 +2,7 @@ import React from "react";
 import { MessageSquare, Send, ShieldCheck, Lock } from "lucide-react";
 
 export const metadata = {
-  title: "Privileged Client Communications | Private Intelligence Client Portal",
+  title: "Confidential Case Communications | Private Intelligence Client Portal",
   robots: "noindex, nofollow",
 };
 
@@ -29,7 +29,7 @@ export default function ClientMessagesPage() {
       <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-oliveGrey/70 pb-6 gap-4">
         <div>
           <span className="text-[10px] font-mono tracking-ultra uppercase text-brass block">
-            PRIVILEGED COMMUNICATIONS CHANNEL
+            CONFIDENTIAL COMMUNICATIONS CHANNEL
           </span>
           <h1 className="text-2xl sm:text-3xl font-light font-serif text-warmWhite">
             Encrypted Case Messages
@@ -38,7 +38,7 @@ export default function ClientMessagesPage() {
 
         <div className="flex items-center gap-2 text-xs font-mono text-emerald-400">
           <ShieldCheck className="w-4 h-4" />
-          <span>END-TO-END SECURE · NON-DISCLOSABLE</span>
+          <span>END-TO-END SECURE · ACCESS CONTROLLED</span>
         </div>
       </div>
 
@@ -82,7 +82,7 @@ export default function ClientMessagesPage() {
         <div className="flex justify-end">
           <button className="inline-flex items-center gap-2 bg-brass text-obsidian text-xs font-mono uppercase tracking-wider font-medium px-6 py-3 hover:bg-brass/90 transition-colors">
             <Send className="w-3.5 h-3.5" />
-            <span>TRANSMIT PRIVILEGED MESSAGE</span>
+            <span>TRANSMIT ENCRYPTED MESSAGE</span>
           </button>
         </div>
       </div>

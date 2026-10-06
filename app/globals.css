@@ -9,6 +9,10 @@
     --text-stone: #DCD8CF;
     --border-brass: #A58A5C;
     --border-structural: #343832;
+
+    /* Admin OS custom properties */
+    --admin-sidebar-width: 256px;
+    --admin-topbar-height: 48px;
   }
 
   body {
@@ -21,7 +25,7 @@
     overflow-x: hidden;
   }
 
-  /* Custom subtle scrollbar */
+  /* Custom subtle scrollbar — public site */
   ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
@@ -43,7 +47,24 @@
   }
 }
 
+/* Admin OS scrollbar — light theme context */
+.admin-scroll::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.admin-scroll::-webkit-scrollbar-track {
+  background: #F2F0EB;
+}
+.admin-scroll::-webkit-scrollbar-thumb {
+  background: #CCC9C1;
+  border-radius: 2px;
+}
+.admin-scroll::-webkit-scrollbar-thumb:hover {
+  background: #A58A5C;
+}
+
 @layer utilities {
+  /* Public site utilities */
   .hairline-b {
     border-bottom: 1px solid rgba(52, 56, 50, 0.6);
   }
@@ -83,5 +104,49 @@
   .grain-overlay {
     background-image: radial-gradient(rgba(245, 243, 238, 0.03) 1px, transparent 0);
     background-size: 24px 24px;
+  }
+
+  /* Admin OS utilities */
+  .admin-hairline-b {
+    border-bottom: 1px solid #E2E0DA;
+  }
+  .admin-hairline-t {
+    border-top: 1px solid #E2E0DA;
+  }
+  .admin-hairline-l {
+    border-left: 1px solid #E2E0DA;
+  }
+  .admin-hairline-r {
+    border-right: 1px solid #E2E0DA;
+  }
+
+  /* Admin label pattern — monospaced category labels */
+  .admin-label {
+    font-size: 9px;
+    font-family: var(--font-mono), monospace;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #9E9A92;
+    font-weight: 500;
+  }
+
+  /* Admin section heading */
+  .admin-section-label {
+    font-size: 9px;
+    font-family: var(--font-mono), monospace;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #9E9A92;
+    font-weight: 600;
+    padding: 0 12px;
+    margin-bottom: 2px;
+  }
+
+  /* Truncate with ellipsis */
+  .truncate-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 }

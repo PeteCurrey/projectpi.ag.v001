@@ -558,7 +558,7 @@ export interface ClientPortalDocument {
   document_type: string;
   uploaded_at: string;
   file_size: number;
-  download_token?: string; // Short-lived signed URL token
+  download_url: string; // Dynamic secure endpoint: /api/client/documents/[id]/download
 }
 
 export interface ClientPortalReport {
@@ -567,7 +567,7 @@ export interface ClientPortalReport {
   report_type: string;
   version: number;
   delivered_at?: string;
-  download_token?: string;
+  download_url: string; // Dynamic secure endpoint: /api/client/reports/[id]/download
 }
 
 export interface ClientPortalMessage {

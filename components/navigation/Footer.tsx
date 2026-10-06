@@ -175,7 +175,7 @@ export default function Footer() {
             </div>
             <div className="flex items-center space-x-2">
               <Building className="w-4 h-4 text-brass" />
-              <span>£5,000,000 Professional Indemnity Cover</span>
+              <span>Professional Indemnity Insured</span>
             </div>
           </div>
           <div className="text-stone-dark font-mono text-[10px]">

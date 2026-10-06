@@ -28,7 +28,7 @@ export default function ConfidentialEnquiryPage() {
             </h1>
 
             <p className="text-sm sm:text-base font-light text-stone-light leading-relaxed">
-              All communications are handled with strict professional discretion under legal professional privilege protocols. Complete the intake steps below to initiate case evaluation.
+              All communications are handled with strict professional discretion and Data Protection Act 2018 controls. Legal professional privilege applies where instructed directly by legal counsel in connection with legal advice or litigation.
             </p>
           </div>
         </div>

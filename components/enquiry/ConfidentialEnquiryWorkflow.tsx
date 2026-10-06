@@ -508,7 +508,7 @@ export default function ConfidentialEnquiryWorkflow() {
           <div className="p-4 bg-obsidian-surface/60 border border-oliveGrey/60 flex items-start gap-3">
             <ShieldCheck className="w-4 h-4 text-brass shrink-0 mt-0.5" />
             <p className="text-[11px] text-stone-muted font-light leading-relaxed">
-              By submitting this enquiry, you acknowledge that communications are protected under professional privilege protocols. No data is stored on public networks.
+              By submitting this enquiry, you acknowledge that initial communications are treated with strict professional confidentiality under the Data Protection Act 2018. Legal professional privilege attaches where instructions are formally commissioned through legal counsel.
             </p>
           </div>
 
