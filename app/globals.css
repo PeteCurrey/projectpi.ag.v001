@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-obsidian: #111111;
+    --text-warm-white: #F5F3EE;
+    --text-stone: #DCD8CF;
+    --border-brass: #A58A5C;
+    --border-structural: #343832;
+  }
+
+  body {
+    background-color: #111111;
+    color: #F5F3EE;
+    font-family: var(--font-work-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    letter-spacing: -0.01em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* Custom subtle scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0B0C0C;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #343832;
+    border-radius: 1px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #A58A5C;
+  }
+
+  ::selection {
+    background-color: #A58A5C;
+    color: #111111;
+  }
+}
+
+@layer utilities {
+  .hairline-b {
+    border-bottom: 1px solid rgba(52, 56, 50, 0.6);
+  }
+  .hairline-t {
+    border-top: 1px solid rgba(52, 56, 50, 0.6);
+  }
+  .hairline-l {
+    border-left: 1px solid rgba(52, 56, 50, 0.6);
+  }
+  .hairline-r {
+    border-right: 1px solid rgba(52, 56, 50, 0.6);
+  }
+  .hairline-all {
+    border: 1px solid rgba(52, 56, 50, 0.6);
+  }
+
+  .brass-border {
+    border-color: rgba(165, 138, 92, 0.35);
+  }
+  .brass-border-subtle {
+    border-color: rgba(165, 138, 92, 0.15);
+  }
+
+  .brass-accent-rule {
+    position: relative;
+  }
+  .brass-accent-rule::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 32px;
+    height: 1px;
+    background-color: #A58A5C;
+  }
+
+  .grain-overlay {
+    background-image: radial-gradient(rgba(245, 243, 238, 0.03) 1px, transparent 0);
+    background-size: 24px 24px;
+  }
+}
