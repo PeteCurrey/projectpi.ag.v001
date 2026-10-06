@@ -5,6 +5,8 @@ import Link from "next/link";
 import { ArrowRight, ArrowLeft, Clock, ShieldCheck, Lock, CheckCircle2 } from "lucide-react";
 import { insightsData } from "@/lib/data/insightsData";
 
+import { getCanonicalUrl, getSiteUrl, BRAND_PREFERRED } from "@/lib/config/brand";
+
 interface InsightPageProps {
   params: Promise<{
     slug: string;
@@ -27,16 +29,18 @@ export async function generateMetadata({ params }: InsightPageProps): Promise<Me
     };
   }
 
+  const canonicalUrl = getCanonicalUrl(`/insights/${article.slug}`);
+
   return {
     title: article.metaTitle,
     description: article.metaDescription,
     alternates: {
-      canonical: `https://private-intelligence.co.uk/insights/${article.slug}`,
+      canonical: canonicalUrl,
     },
     openGraph: {
       title: article.metaTitle,
       description: article.metaDescription,
-      url: `https://private-intelligence.co.uk/insights/${article.slug}`,
+      url: canonicalUrl,
       type: "article",
     },
   };
@@ -50,23 +54,26 @@ export default async function InsightPage({ params }: InsightPageProps) {
     notFound();
   }
 
+  const siteUrl = getSiteUrl();
+  const canonicalUrl = getCanonicalUrl(`/insights/${article.slug}`);
+
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": article.title,
-    "description": article.metaDescription,
-    "author": {
+    headline: article.title,
+    description: article.metaDescription,
+    author: {
       "@type": "Organization",
-      "name": "Private Intelligence & Investigations",
-      "url": "https://private-intelligence.co.uk"
+      name: BRAND_PREFERRED,
+      url: siteUrl,
     },
-    "publisher": {
+    publisher: {
       "@type": "Organization",
-      "name": "Private Intelligence & Investigations",
-      "logo": "https://private-intelligence.co.uk/logo.png"
+      name: BRAND_PREFERRED,
+      logo: `${siteUrl}/logo.png`,
     },
-    "datePublished": "2024-05-01",
-    "mainEntityOfPage": `https://private-intelligence.co.uk/insights/${article.slug}`
+    datePublished: "2024-05-01",
+    mainEntityOfPage: canonicalUrl,
   };
 
   return (

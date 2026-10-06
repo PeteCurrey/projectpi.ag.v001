@@ -114,7 +114,7 @@ export const servicesData: Record<string, ServiceDetail> = {
       { question: "Are your findings admissible in UK civil or criminal proceedings?", answer: "Yes. All intelligence is gathered strictly in accordance with UK statutory standards including the Data Protection Act 2018, CPR Part 31, and applicable evidence rules, ensuring complete evidentiary integrity." },
       { question: "Can investigations proceed without alerting internal staff or executive suspects?", answer: "Discretion is our foundational tenet. We operate external digital intelligence, off-site analysis, and non-intrusive inquiries that preserve complete containment until formal confrontational stages are authorized." },
     ],
-    metaTitle: "Corporate Investigations London & UK | Private Intelligence Firm",
+    metaTitle: "Corporate Investigations London & UK | TFTS",
     metaDescription: "Discreet corporate investigations into internal fraud, executive misconduct, IP leakage, and counterparty risks. Serving general counsel, boards, and institutional clients.",
   },
 
@@ -249,7 +249,7 @@ export const servicesData: Record<string, ServiceDetail> = {
       { question: "Can the report be used in Employment Tribunal hearings?", answer: "Yes. Our reports are authored to the highest evidentiary standard and our operatives are experienced in providing witness testimony." },
       { question: "How do you evidence non-solicitation breaches?", answer: "By establishing physical meetings with protected clients, competitor employment contracts, joint commercial tenders, and verifiable commercial interactions." },
     ],
-    metaTitle: "Employee Investigations & Restrictive Covenants UK | Private Intelligence",
+    metaTitle: "Employee Investigations & Restrictive Covenants UK | TFTS",
     metaDescription: "Lawful, discreet employee investigations for UK businesses. Enforcing restrictive covenants, evidencing gross misconduct, and protecting corporate assets.",
   },
 

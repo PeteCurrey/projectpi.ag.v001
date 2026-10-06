@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { servicesData } from "@/lib/data/servicesData";
 import ServicePageTemplate from "@/components/services/ServicePageTemplate";
 
+import { getCanonicalUrl } from "@/lib/config/brand";
+
 interface ServicePageProps {
   params: Promise<{
     slug: string;
@@ -26,20 +28,23 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
     };
   }
 
+  const canonicalUrl = getCanonicalUrl(`/services/${service.slug}`);
+
   return {
     title: service.metaTitle,
     description: service.metaDescription,
     alternates: {
-      canonical: `https://private-intelligence.co.uk/services/${service.slug}`,
+      canonical: canonicalUrl,
     },
     openGraph: {
       title: service.metaTitle,
       description: service.metaDescription,
-      url: `https://private-intelligence.co.uk/services/${service.slug}`,
+      url: canonicalUrl,
       type: "website",
     },
   };
 }
+
 
 export default async function ServicePage({ params }: ServicePageProps) {
   const { slug } = await params;

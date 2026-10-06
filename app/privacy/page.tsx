@@ -2,10 +2,14 @@ import React from "react";
 import { Metadata } from "next";
 import Link from "next/link";
 import { Lock, ShieldCheck } from "lucide-react";
+import { BRAND_PREFERRED, EMAIL_DPO, getCanonicalUrl } from "@/lib/config/brand";
 
 export const metadata: Metadata = {
-  title: "Privacy & Data Protection Notice | Private Intelligence & Investigations",
+  title: "Privacy & Data Protection Notice | TFTS — Tactical Field Intelligence Service",
   description: "Data protection protocols, GDPR Article 6 legitimate interests compliance, and data subject rights under the Data Protection Act 2018.",
+  alternates: {
+    canonical: getCanonicalUrl("/privacy"),
+  },
 };
 
 export default function PrivacyPage() {
@@ -28,7 +32,7 @@ export default function PrivacyPage() {
           <section className="space-y-3">
             <h2 className="text-xl font-light text-warmWhite font-serif">1. Regulatory Framework & Data Controller</h2>
             <p>
-              Private Intelligence & Investigations operates as a registered data controller under the
+              {BRAND_PREFERRED} operates as a registered data controller under the
               Data Protection Act 2018 (DPA 2018) and the UK General Data Protection Regulation (UK GDPR).
               We are registered with the Information Commissioner's Office (ICO).
             </p>
@@ -67,7 +71,7 @@ export default function PrivacyPage() {
             <h2 className="text-xl font-light text-warmWhite font-serif">5. Enquiries</h2>
             <p>
               For any regulatory inquiries regarding data processing, contact our Data Protection Officer at:{" "}
-              <span className="text-warmWhite font-mono">dpo@private-intelligence.co.uk</span>.
+              <span className="text-warmWhite font-mono">{EMAIL_DPO}</span>.
             </p>
           </section>
         </div>

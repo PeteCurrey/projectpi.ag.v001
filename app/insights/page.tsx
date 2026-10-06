@@ -4,13 +4,16 @@ import Link from "next/link";
 import { ArrowRight, BookOpen, Clock, Tag } from "lucide-react";
 import { insightsData } from "@/lib/data/insightsData";
 
+import { getCanonicalUrl } from "@/lib/config/brand";
+
 export const metadata: Metadata = {
   title: "Intelligence & Insights | Analysis on Law, OSINT & Fraud",
   description: "Authoritative intelligence doctrine, legal analyses, surveillance law in the UK, open-source intelligence methods, and corporate due diligence papers.",
   alternates: {
-    canonical: "https://private-intelligence.co.uk/insights",
+    canonical: getCanonicalUrl("/insights"),
   },
 };
+
 
 export default function InsightsPage() {
   const categories = ["ALL", "CORPORATE", "LEGAL", "INTELLIGENCE", "SURVEILLANCE", "FRAUD", "DUE DILIGENCE"];

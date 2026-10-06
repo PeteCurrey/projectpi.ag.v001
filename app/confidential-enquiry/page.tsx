@@ -4,11 +4,17 @@ import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import TrustStrip from "@/components/shared/TrustStrip";
 import ConfidentialEnquiryWorkflow from "@/components/enquiry/ConfidentialEnquiryWorkflow";
 
+import { getCanonicalUrl } from "@/lib/config/brand";
+
 export const metadata: Metadata = {
-  title: "Begin a Confidential Enquiry | Private Intelligence & Investigations",
+  title: "Begin a Confidential Enquiry | TFTS — Tactical Field Intelligence Service",
   description:
     "Secure, encrypted instruction portal for solicitors, insolvency practitioners, corporate executives, and select private clients. 256-bit encryption.",
+  alternates: {
+    canonical: getCanonicalUrl("/confidential-enquiry"),
+  },
 };
+
 
 export default function ConfidentialEnquiryPage() {
   return (

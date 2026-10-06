@@ -4,13 +4,16 @@ import Link from "next/link";
 import Image from "next/image";
 import { ShieldCheck, Lock, Building, Scale, ArrowRight, Award } from "lucide-react";
 
+import { getCanonicalUrl } from "@/lib/config/brand";
+
 export const metadata: Metadata = {
-  title: "The Firm & Establishment | Private Intelligence & Investigations",
+  title: "The Firm & Establishment | TFTS — Tactical Field Intelligence Service",
   description: "An established UK private intelligence and investigations consultancy operating from central London. Discretion, proportionality, and empirical certainty for serious matters.",
   alternates: {
-    canonical: "https://private-intelligence.co.uk/about",
+    canonical: getCanonicalUrl("/about"),
   },
 };
+
 
 export default function AboutPage() {
   return (

@@ -31,6 +31,7 @@ export default async function CaseWorkspaceLayout({
 
   const tabs = [
     { label: "Overview", href: `/admin/cases/${currentCase.reference}` },
+    { label: "Research", href: `/admin/cases/${currentCase.reference}/research` },
     { label: "Timeline", href: `/admin/cases/${currentCase.reference}/timeline` },
     { label: "Subjects", href: `/admin/cases/${currentCase.reference}/subjects` },
     { label: "Tasks", href: `/admin/cases/${currentCase.reference}/tasks` },

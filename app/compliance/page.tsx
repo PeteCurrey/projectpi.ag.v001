@@ -3,10 +3,16 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { Shield, Scale, FileText, CheckCircle2 } from "lucide-react";
 
+import { getCanonicalUrl } from "@/lib/config/brand";
+
 export const metadata: Metadata = {
-  title: "Legal Standards & RIPA Compliance | Private Intelligence",
+  title: "Legal Standards & RIPA Compliance | TFTS — Tactical Field Intelligence Service",
   description: "Comprehensive statutory framework governing private intelligence and corporate investigations in England and Wales. CPR, RIPA, and human rights standards.",
+  alternates: {
+    canonical: getCanonicalUrl("/compliance"),
+  },
 };
+
 
 export default function CompliancePage() {
   return (

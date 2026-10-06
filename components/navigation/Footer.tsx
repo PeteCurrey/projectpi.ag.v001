@@ -17,10 +17,10 @@ export default function Footer() {
             </p>
           </div>
           <Link
-            href="/contact"
+            href="/confidential-enquiry"
             className="inline-flex items-center space-x-3 border border-brass/70 px-6 py-3 text-xs tracking-widest uppercase hover:bg-brass hover:text-obsidian transition-colors text-warmWhite rounded-xs w-fit"
           >
-            <span>Begin Confidential Consultation</span>
+            <span>BEGIN A CONFIDENTIAL ENQUIRY</span>
             <ArrowUpRight className="w-3.5 h-3.5 text-brass group-hover:text-obsidian" />
           </Link>
         </div>
@@ -32,52 +32,61 @@ export default function Footer() {
         <div className="lg:col-span-2 space-y-5">
           <div className="space-y-1">
             <div className="text-xs uppercase tracking-[0.24em] font-light text-warmWhite">
-              PRIVATE INTELLIGENCE & INVESTIGATIONS
+              TFTS
             </div>
             <div className="text-[10px] uppercase font-mono tracking-widest text-stone-muted">
-              LONDON · UNITED KINGDOM · INTERNATIONAL
+              TACTICAL FIELD INTELLIGENCE SERVICE · LONDON
             </div>
           </div>
           <p className="text-xs text-stone-muted leading-relaxed max-w-sm">
-            A discreet private intelligence and investigative consultancy serving legal counsel,
-            corporate boards, financial institutions, insolvency practitioners, and select private offices.
+            Private intelligence, investigations and specialist field services. Serving solicitors, corporate counsel, insolvency practitioners, financial institutions and select private clients.
           </p>
           <div className="pt-2 text-xs text-stone font-mono space-y-1.5">
             <div>CENTRAL LONDON CONSULTING SUITE: <span className="text-stone-light">MAYFAIR, LONDON W1</span></div>
             <div>OPERATIONAL COVERAGE: <span className="text-stone-light">UNITED KINGDOM · GLOBAL NETWORKS</span></div>
-            <div>ENCRYPTED DISPATCH: <span className="text-stone-light">CONFIDENTIAL@PRIVATE-INTELLIGENCE.CO.UK</span></div>
+            <div>ENCRYPTED DISPATCH: <span className="text-stone-light">ENQUIRIES@TFTS.CO.UK</span></div>
           </div>
         </div>
 
-        {/* Col 2: Four Core Disciplines */}
+        {/* Col 2: Core Disciplines */}
         <div className="space-y-4">
           <h4 className="text-[11px] uppercase tracking-ultra font-mono text-brass">
             CORE DISCIPLINES
           </h4>
           <ul className="space-y-2.5 text-xs text-stone">
             <li>
+              <Link href="/services/process-serving" className="hover:text-warmWhite transition-colors">
+                01 Process Serving
+              </Link>
+            </li>
+            <li>
               <Link href="/services/corporate-investigations" className="hover:text-warmWhite transition-colors">
-                01 Corporate Inquiries
+                02 Corporate Investigations
               </Link>
             </li>
             <li>
               <Link href="/services/intelligence" className="hover:text-warmWhite transition-colors">
-                02 Strategic Intelligence
+                03 Strategic Intelligence
               </Link>
             </li>
             <li>
-              <Link href="/services/legal" className="hover:text-warmWhite transition-colors">
-                03 Legal & Litigation
+              <Link href="/services/people-tracing" className="hover:text-warmWhite transition-colors">
+                04 People & Asset Tracing
               </Link>
             </li>
             <li>
-              <Link href="/services/field" className="hover:text-warmWhite transition-colors">
-                04 Field Surveillance
+              <Link href="/services/covert-surveillance" className="hover:text-warmWhite transition-colors">
+                05 Surveillance Operations
+              </Link>
+            </li>
+            <li>
+              <Link href="/services/litigation-support" className="hover:text-warmWhite transition-colors">
+                06 Legal & Litigation Support
               </Link>
             </li>
             <li>
               <Link href="/services" className="text-brass hover:text-brass-light pt-1 inline-block transition-colors">
-                Complete Index (20 Services) →
+                Complete Index (20 Capabilities) →
               </Link>
             </li>
           </ul>
@@ -130,7 +139,7 @@ export default function Footer() {
           <ul className="space-y-2.5 text-xs text-stone">
             <li>
               <Link href="/about" className="hover:text-warmWhite transition-colors">
-                About The Firm
+                About TFTS
               </Link>
             </li>
             <li>
@@ -149,8 +158,13 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/contact" className="hover:text-warmWhite transition-colors">
-                Confidential Consultation
+              <Link href="/professional-clients" className="hover:text-warmWhite transition-colors">
+                Professional Clients
+              </Link>
+            </li>
+            <li>
+              <Link href="/confidential-enquiry" className="hover:text-warmWhite transition-colors">
+                Confidential Enquiry
               </Link>
             </li>
           </ul>
@@ -188,7 +202,7 @@ export default function Footer() {
       <div className="border-t border-oliveGrey/40 px-6 lg:px-12 py-6">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-[10px] text-stone-muted font-mono uppercase tracking-wider">
           <div>
-            © {new Date().getFullYear()} PRIVATE INTELLIGENCE & INVESTIGATIONS. ALL RIGHTS RESERVED.
+            © {new Date().getFullYear()} TFTS. ALL RIGHTS RESERVED.
           </div>
           <div className="flex items-center space-x-6">
             <Link href="/privacy" className="hover:text-stone transition-colors">

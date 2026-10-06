@@ -6,24 +6,27 @@ import TrustStrip from "@/components/shared/TrustStrip";
 import FAQSection from "@/components/shared/FAQSection";
 import ConfidentialEnquiryCTA from "@/components/shared/ConfidentialEnquiryCTA";
 import { ProfessionalClientPage } from "@/lib/data/professionalClientsData";
+import { getSiteUrl, BRAND_PREFERRED } from "@/lib/config/brand";
 
 interface ProfessionalClientTemplateProps {
   data: ProfessionalClientPage;
 }
 
 export default function ProfessionalClientTemplate({ data }: ProfessionalClientTemplateProps) {
+  const siteUrl = getSiteUrl();
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: `${data.headline} | Private Intelligence`,
+    name: `${data.headline} | TFTS`,
     description: data.metaDescription,
     provider: {
       "@type": "ProfessionalService",
-      name: "Private Intelligence & Investigations",
-      url: "https://private-intelligence.co.uk",
+      name: BRAND_PREFERRED,
+      url: siteUrl,
     },
     areaServed: "United Kingdom",
   };
+
 
   return (
     <div className="bg-obsidian min-h-screen text-warmWhite">

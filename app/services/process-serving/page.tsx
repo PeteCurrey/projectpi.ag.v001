@@ -16,12 +16,12 @@ export default function ProcessServingHubPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "Process Serving UK",
+    name: "TFTS Process Serving UK",
     description: processServingHub.metaDescription,
     provider: {
       "@type": "ProfessionalService",
-      name: "Private Intelligence & Investigations",
-      url: "https://private-intelligence.co.uk",
+      name: "TFTS — Tactical Field Intelligence Service",
+      url: "https://tfts.co.uk",
     },
     areaServed: "United Kingdom",
   };

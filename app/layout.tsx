@@ -19,13 +19,16 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://private-intelligence.co.uk"),
+  metadataBase: new URL("https://tfts.co.uk"),
   title: {
-    default: "Private Intelligence & Investigations | London & UK",
-    template: "%s | Private Intelligence & Investigations",
+    default: "TFTS — Tactical Field Intelligence Service | UK",
+    template: "%s | TFTS",
   },
-  description: "Discreet UK private intelligence and corporate investigations firm. Providing intelligence for decisions and investigations for certainty across legal, corporate, and financial matters.",
+  description:
+    "TFTS — Tactical Field Intelligence Service. Private intelligence, investigations and specialist field services for matters where certainty matters. London and UK-wide.",
   keywords: [
+    "TFTS",
+    "Tactical Field Intelligence Service",
     "Private Intelligence",
     "Private Investigations",
     "Corporate Investigations",
@@ -33,30 +36,32 @@ export const metadata: Metadata = {
     "Asset Tracing",
     "OSINT Investigations",
     "Covert Surveillance",
+    "Process Serving",
     "Corporate Fraud Investigations",
     "Due Diligence",
     "London Private Investigator",
   ],
-  authors: [{ name: "Private Intelligence & Investigations" }],
-  creator: "Private Intelligence & Investigations",
-  publisher: "Private Intelligence & Investigations",
+  authors: [{ name: "TFTS — Tactical Field Intelligence Service" }],
+  creator: "TFTS",
+  publisher: "TFTS — Tactical Field Intelligence Service",
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
   openGraph: {
-    title: "Private Intelligence & Investigations | London & UK",
-    description: "Intelligence for decisions. Investigations for certainty. Serving solicitors, corporate counsel, family offices, and institutional investors.",
-    url: "https://private-intelligence.co.uk",
-    siteName: "Private Intelligence & Investigations",
+    title: "TFTS — Tactical Field Intelligence Service | UK",
+    description:
+      "Private intelligence, investigations and specialist field services for matters where certainty matters.",
+    url: "https://tfts.co.uk",
+    siteName: "TFTS — Tactical Field Intelligence Service",
     locale: "en_GB",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Private Intelligence & Investigations | London & UK",
-    description: "Intelligence for decisions. Investigations for certainty.",
+    title: "TFTS — Tactical Field Intelligence Service",
+    description: "Private intelligence, investigations and specialist field services.",
   },
   robots: {
     index: true,
@@ -81,39 +86,41 @@ export default function RootLayout({
     "@graph": [
       {
         "@type": "Organization",
-        "@id": "https://private-intelligence.co.uk/#organization",
-        "name": "Private Intelligence & Investigations",
-        "url": "https://private-intelligence.co.uk",
-        "logo": "https://private-intelligence.co.uk/logo.png",
-        "description": "Premium UK private intelligence and investigations firm serving legal teams, corporates, insolvency practitioners, insurers, and private clients.",
-        "areaServed": [
-          { "@type": "Country", "name": "United Kingdom" },
-          { "@type": "AdministrativeArea", "name": "International" }
+        "@id": "https://tfts.co.uk/#organization",
+        name: "TFTS — Tactical Field Intelligence Service",
+        url: "https://tfts.co.uk",
+        logo: "https://tfts.co.uk/logo.png",
+        description:
+          "Premium UK private intelligence and investigations firm. Process serving, corporate investigations, OSINT, surveillance and litigation support.",
+        areaServed: [
+          { "@type": "Country", name: "United Kingdom" },
+          { "@type": "AdministrativeArea", name: "International" },
         ],
-        "knowsAbout": [
+        knowsAbout: [
           "Private Investigations",
           "Corporate Intelligence",
           "Asset Tracing",
           "Litigation Support",
+          "Process Serving",
           "Covert Surveillance",
           "Forensic OSINT",
-          "Fraud Investigations"
-        ]
+          "Fraud Investigations",
+        ],
       },
       {
         "@type": "ProfessionalService",
-        "@id": "https://private-intelligence.co.uk/#service",
-        "name": "Private Intelligence & Investigations",
-        "serviceType": "Private Intelligence & Corporate Investigations",
-        "address": {
+        "@id": "https://tfts.co.uk/#service",
+        name: "TFTS — Tactical Field Intelligence Service",
+        serviceType: "Private Intelligence, Investigations & Process Serving",
+        address: {
           "@type": "PostalAddress",
-          "addressLocality": "London",
-          "addressCountry": "GB"
+          addressLocality: "London",
+          addressCountry: "GB",
         },
-        "priceRange": "££££",
-        "telephone": "+44-20-7946-0188"
-      }
-    ]
+        priceRange: "££££",
+        telephone: "+44-20-7946-0188",
+      },
+    ],
   };
 
   return (

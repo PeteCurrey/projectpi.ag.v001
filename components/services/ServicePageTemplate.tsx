@@ -2,30 +2,34 @@ import React from "react";
 import Link from "next/link";
 import { ArrowRight, ShieldCheck, Lock, Check, HelpCircle, FileText, ArrowUpRight } from "lucide-react";
 import { ServiceDetail } from "@/lib/data/servicesData";
+import { getSiteUrl, BRAND_PREFERRED, TELEPHONE } from "@/lib/config/brand";
 
 interface ServicePageTemplateProps {
   service: ServiceDetail;
 }
 
 export default function ServicePageTemplate({ service }: ServicePageTemplateProps) {
+  const siteUrl = getSiteUrl();
+
   // Schema.org structured data for this specific service
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": service.title,
-    "description": service.summary,
-    "provider": {
+    name: service.title,
+    description: service.summary,
+    provider: {
       "@type": "ProfessionalService",
-      "name": "Private Intelligence & Investigations",
-      "url": "https://private-intelligence.co.uk",
-      "telephone": "+44-20-7946-0188",
-      "priceRange": "££££",
-      "address": {
+      name: BRAND_PREFERRED,
+      url: siteUrl,
+      telephone: TELEPHONE,
+      priceRange: "££££",
+      address: {
         "@type": "PostalAddress",
-        "addressLocality": "London",
-        "addressCountry": "GB"
-      }
+        addressLocality: "London",
+        addressCountry: "GB",
+      },
     },
+
     "areaServed": "United Kingdom",
     "hasOfferCatalog": {
       "@type": "OfferCatalog",

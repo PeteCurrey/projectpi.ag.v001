@@ -2,9 +2,10 @@ import React from "react";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Terms of Instruction & Retainer | Private Intelligence & Investigations",
+  title: "Terms of Instruction & Retainer | TFTS — Tactical Field Intelligence Service",
   description: "Standard terms of professional instruction, confidentiality obligations, and fee structures for private intelligence services.",
 };
+
 
 export default function TermsPage() {
   return (

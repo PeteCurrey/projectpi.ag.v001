@@ -50,8 +50,8 @@ interface WithAdminAuthOptions {
 export function withAdminAuth(
   options: WithAdminAuthOptions,
   handler: RouteHandler
-): (req: NextRequest, context?: { params: Record<string, string> }) => Promise<Response> {
-  return async (req: NextRequest, context?: { params: Record<string, string> }) => {
+): (req: NextRequest, context: { params: Promise<Record<string, string>> }) => Promise<Response> {
+  return async (req: NextRequest, context: { params: Promise<Record<string, string>> }) => {
     // 1. Session verification
     const session = await getSession();
     if (!session) {
@@ -95,7 +95,8 @@ export function withAdminAuth(
 
     // 4. Execute handler
     try {
-      return await handler(req, session, context?.params);
+      const resolvedParams = context?.params ? await context.params : undefined;
+      return await handler(req, session, resolvedParams);
     } catch (err: unknown) {
       const error = err as { code?: number; message?: string };
 

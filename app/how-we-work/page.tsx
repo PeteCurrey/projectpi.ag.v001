@@ -3,13 +3,16 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { ShieldCheck, Lock, Scale, FileText, ArrowRight, CheckCircle2, AlertCircle } from "lucide-react";
 
+import { getCanonicalUrl } from "@/lib/config/brand";
+
 export const metadata: Metadata = {
-  title: "How We Work & Standards | Private Intelligence Operating Methodology",
+  title: "How We Work & Standards | TFTS Operating Methodology",
   description: "Exhaustive operating methodology and legal compliance standards governing private investigations in the UK. RIPA, CPR Part 31, GDPR, and BS 102000.",
   alternates: {
-    canonical: "https://private-intelligence.co.uk/how-we-work",
+    canonical: getCanonicalUrl("/how-we-work"),
   },
 };
+
 
 export default function HowWeWorkPage() {
   const lifecycle = [

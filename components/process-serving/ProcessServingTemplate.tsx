@@ -6,12 +6,14 @@ import TrustStrip from "@/components/shared/TrustStrip";
 import FAQSection from "@/components/shared/FAQSection";
 import ConfidentialEnquiryCTA from "@/components/shared/ConfidentialEnquiryCTA";
 import { ProcessServingPageData } from "@/lib/data/processServingData";
+import { getSiteUrl, BRAND_PREFERRED } from "@/lib/config/brand";
 
 interface ProcessServingTemplateProps {
   data: ProcessServingPageData;
 }
 
 export default function ProcessServingTemplate({ data }: ProcessServingTemplateProps) {
+  const siteUrl = getSiteUrl();
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -20,9 +22,10 @@ export default function ProcessServingTemplate({ data }: ProcessServingTemplateP
     serviceType: "Legal Process Serving",
     provider: {
       "@type": "ProfessionalService",
-      name: "Private Intelligence & Investigations",
-      url: "https://private-intelligence.co.uk",
+      name: BRAND_PREFERRED,
+      url: siteUrl,
     },
+
     areaServed: {
       "@type": "Country",
       name: "United Kingdom",

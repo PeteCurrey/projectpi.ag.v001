@@ -14,21 +14,27 @@ export async function generateStaticParams() {
   }));
 }
 
+import { getCanonicalUrl } from "@/lib/config/brand";
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { document } = await params;
   const data = processServingPages[document];
 
   if (!data) {
     return {
-      title: "Document Service | Private Intelligence & Investigations",
+      title: "Document Service | TFTS",
     };
   }
 
   return {
     title: data.metaTitle,
     description: data.metaDescription,
+    alternates: {
+      canonical: getCanonicalUrl(`/services/process-serving/${document}`),
+    },
   };
 }
+
 
 export default async function ProcessServingDocumentPage({ params }: PageProps) {
   const { document } = await params;

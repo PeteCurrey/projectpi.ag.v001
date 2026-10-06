@@ -3,9 +3,10 @@ import { servicesData } from "@/lib/data/servicesData";
 import { insightsData } from "@/lib/data/insightsData";
 import { processServingPages, processServerLocations } from "@/lib/data/processServingData";
 import { professionalClientPages } from "@/lib/data/professionalClientsData";
+import { getSiteUrl } from "@/lib/config/brand";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://private-intelligence.co.uk";
+  const baseUrl = getSiteUrl();
 
   const coreRoutes = [
     "",

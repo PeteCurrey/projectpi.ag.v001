@@ -4,13 +4,16 @@ import Link from "next/link";
 import { ArrowRight, ShieldCheck, Lock, CheckCircle2 } from "lucide-react";
 import { casesData } from "@/lib/data/casesData";
 
+import { getCanonicalUrl } from "@/lib/config/brand";
+
 export const metadata: Metadata = {
-  title: "Anonymised Case Studies & Casework Archive | Private Intelligence",
+  title: "Anonymised Case Studies & Casework Archive | TFTS",
   description: "Anonymised casework briefs detailing investigation questions, methodologies, verified findings, and legal/commercial outcomes across London and global jurisdictions.",
   alternates: {
-    canonical: "https://private-intelligence.co.uk/cases",
+    canonical: getCanonicalUrl("/cases"),
   },
 };
+
 
 export default function CasesPage() {
   return (

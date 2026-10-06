@@ -47,7 +47,7 @@ export default function EditorialMenu({ isOpen, onClose }: EditorialMenuProps) {
         <div className="flex items-center space-x-3">
           <span className="w-2 h-2 rounded-full bg-brass animate-pulse" />
           <span className="text-xs uppercase tracking-ultra font-mono text-stone">
-            LONDON ESTABLISHMENT · CLASSIFIED DIRECTORY
+            TFTS · TACTICAL FIELD INTELLIGENCE SERVICE
           </span>
         </div>
         <button
@@ -69,7 +69,7 @@ export default function EditorialMenu({ isOpen, onClose }: EditorialMenuProps) {
               DISCIPLINE 01
             </span>
             <h3 className="text-lg font-light tracking-wide text-warmWhite font-serif">
-              Corporate Risk & Fraud
+              Corporate Investigations
             </h3>
           </div>
           <p className="text-xs text-stone-muted leading-relaxed">

@@ -76,10 +76,18 @@ export type AuditEventType =
   | "LEAD_STATUS_CHANGED"
   | "LEAD_CONVERTED_TO_CASE"
   | "LEAD_CLOSED"
-  // ── Intelligence ─────────────────────────────────────────
+  // ── Intelligence & Research ──────────────────────────────
   | "INTELLIGENCE_CREATED"
   | "INTELLIGENCE_EDITED"
   | "INTELLIGENCE_DELETED"
+  | "RESEARCH_ACCESSED"
+  | "RESEARCH_FINDING_CREATED"
+  | "RESEARCH_FINDING_EDITED"
+  | "RESEARCH_FINDING_PROMOTED"
+  | "RESEARCH_FINDING_REJECTED"
+  | "RESEARCH_PIVOT_CREATED"
+  | "RESEARCH_PIVOT_UPDATED"
+  | "RESEARCH_OBJECTIVE_UPDATED"
   // ── Data Exports ─────────────────────────────────────────
   | "EXPORT_PDF"
   | "EXPORT_CSV"

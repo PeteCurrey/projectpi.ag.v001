@@ -3,13 +3,16 @@ import { Metadata } from "next";
 import { Lock, ShieldCheck, Key, Phone, Mail, Building, MapPin } from "lucide-react";
 import ConfidentialEnquiryForm from "@/components/enquiry/ConfidentialEnquiryForm";
 
+import { getCanonicalUrl, EMAIL_ENQUIRIES } from "@/lib/config/brand";
+
 export const metadata: Metadata = {
-  title: "Confidential Enquiry & Private Consultation | London UK",
+  title: "Confidential Enquiry & Private Consultation | TFTS",
   description: "Discreet encrypted enquiry portal for legal counsel, corporate executives, and private offices. Mayfair, London consulting rooms by appointment.",
   alternates: {
-    canonical: "https://private-intelligence.co.uk/contact",
+    canonical: getCanonicalUrl("/contact"),
   },
 };
+
 
 export default function ContactPage() {
   return (
@@ -62,7 +65,7 @@ export default function ContactPage() {
                     <span className="text-[10px] font-mono text-stone-muted uppercase block">
                       ENCRYPTED DISPATCH INBOX
                     </span>
-                    <p className="text-warmWhite font-mono text-xs">confidential@private-intelligence.co.uk</p>
+                    <p className="text-warmWhite font-mono text-xs">{EMAIL_ENQUIRIES}</p>
                     <p className="text-stone-dark text-[11px]">Monitored 24/7 on air-gapped terminal.</p>
                   </div>
 

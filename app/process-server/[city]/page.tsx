@@ -14,21 +14,27 @@ export async function generateStaticParams() {
   }));
 }
 
+import { getCanonicalUrl } from "@/lib/config/brand";
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { city } = await params;
   const data = processServerLocations[city as keyof typeof processServerLocations];
 
   if (!data) {
     return {
-      title: "Process Server UK | Private Intelligence & Investigations",
+      title: "Process Server UK | TFTS",
     };
   }
 
   return {
     title: data.metaTitle,
     description: data.metaDescription,
+    alternates: {
+      canonical: getCanonicalUrl(`/process-server/${city}`),
+    },
   };
 }
+
 
 export default async function ProcessServerCityPage({ params }: PageProps) {
   const { city } = await params;

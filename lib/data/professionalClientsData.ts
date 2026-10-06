@@ -1,6 +1,6 @@
 // ============================================================
 // PROFESSIONAL CLIENT PAGES DATA
-// Private Intelligence & Investigations
+// TFTS — Tactical Field Intelligence Service
 // ============================================================
 
 export interface ProfessionalClientPage {
@@ -20,7 +20,7 @@ export interface ProfessionalClientPage {
 }
 
 export const professionalClientsHub = {
-  metaTitle: "Professional Client Services | PI Investigations",
+  metaTitle: "Professional Client Services | TFTS",
   metaDescription:
     "We work with law firms, insolvency practitioners, accountants, insurers, corporate clients and private capital. Discreet. Precise. Professional.",
   headline: "We Work With Professionals",
@@ -49,7 +49,7 @@ export const professionalClientPages: Record<string, ProfessionalClientPage> = {
     clientType: "Solicitors & Law Firms",
     headline: "Working With Solicitors & Law Firms",
     subheadline: "Investigations and process serving in support of litigation, insolvency and client advisory work",
-    metaTitle: "Investigations for Solicitors | PI Investigations",
+    metaTitle: "Investigations for Solicitors | TFTS",
     metaDescription:
       "Private investigations and process serving for solicitors and law firms. Evidence gathering, tracing, surveillance, due diligence and expert witness support. Discreet. Precise. CPR-compliant.",
     intro:
@@ -101,7 +101,7 @@ export const professionalClientPages: Record<string, ProfessionalClientPage> = {
     clientType: "Insolvency Practitioners",
     headline: "Working With Insolvency Practitioners",
     subheadline: "Process serving, asset tracing, fraud investigation and debtor intelligence for insolvency offices",
-    metaTitle: "Investigations for Insolvency Practitioners | PI Investigations",
+    metaTitle: "Investigations for Insolvency Practitioners | TFTS",
     metaDescription:
       "Process serving and investigations for insolvency practitioners. Statutory demands, petitions, asset tracing, director investigations, antecedent transaction analysis. Instructed by IPs across England and Wales.",
     intro:
@@ -152,7 +152,7 @@ export const professionalClientPages: Record<string, ProfessionalClientPage> = {
     clientType: "Forensic Accountants",
     headline: "Working With Forensic Accountants",
     subheadline: "Field intelligence, surveillance and evidence to complement forensic financial analysis",
-    metaTitle: "Investigations for Forensic Accountants | PI Investigations",
+    metaTitle: "Investigations for Forensic Accountants | TFTS",
     metaDescription:
       "Private investigations to support forensic accounting engagements. Evidence gathering, surveillance, subject intelligence and company investigation. Instructed by forensic accountants in fraud and disputes.",
     intro:
@@ -193,7 +193,7 @@ export const professionalClientPages: Record<string, ProfessionalClientPage> = {
     clientType: "Insurers",
     headline: "Working With Insurers",
     subheadline: "Claims intelligence, surveillance, fraud investigation and background investigation for underwriters and claims teams",
-    metaTitle: "Insurance Fraud Investigation | PI Investigations",
+    metaTitle: "Insurance Fraud Investigation | TFTS",
     metaDescription:
       "Claims investigation and surveillance for insurers. Personal injury, property, employers liability and professional indemnity fraud. Instructed by claims teams, loss adjusters and legal panels.",
     intro:
@@ -238,7 +238,7 @@ export const professionalClientPages: Record<string, ProfessionalClientPage> = {
     clientType: "Commercial Litigation Teams",
     headline: "Working With Commercial Litigation Teams",
     subheadline: "Evidence, intelligence and process serving in support of commercial proceedings",
-    metaTitle: "Investigations for Commercial Litigation | PI Investigations",
+    metaTitle: "Investigations for Commercial Litigation | TFTS",
     metaDescription:
       "Evidence gathering, surveillance, process serving and intelligence for commercial litigation teams. Fraud, asset tracing, director investigations, CPR-compliant evidence.",
     intro:
@@ -279,7 +279,7 @@ export const professionalClientPages: Record<string, ProfessionalClientPage> = {
     clientType: "Property & Real Estate",
     headline: "Working With Property Professionals",
     subheadline: "Due diligence, occupant investigation, process serving and fraud prevention for property transactions",
-    metaTitle: "Property Investigation Services | PI Investigations",
+    metaTitle: "Property Investigation Services | TFTS",
     metaDescription:
       "Property due diligence, tenant investigation, fraud prevention and process serving for property professionals. Instructed by property companies, investors and landlords.",
     intro:
@@ -318,7 +318,7 @@ export const professionalClientPages: Record<string, ProfessionalClientPage> = {
     clientType: "Family Offices",
     headline: "Working With Family Offices",
     subheadline: "Discreet intelligence for high-net-worth families and their advisers",
-    metaTitle: "Private Investigations for Family Offices | PI Investigations",
+    metaTitle: "Private Investigations for Family Offices | TFTS",
     metaDescription:
       "Discreet intelligence and investigation services for family offices and high-net-worth families. Due diligence, relationship background, asset intelligence and protection.",
     intro:
@@ -358,7 +358,7 @@ export const professionalClientPages: Record<string, ProfessionalClientPage> = {
     clientType: "Corporate Legal Teams",
     headline: "Working With In-House Legal Teams",
     subheadline: "Intelligence, investigation and process serving for corporate legal and compliance functions",
-    metaTitle: "Investigations for Corporate Legal Teams | PI Investigations",
+    metaTitle: "Investigations for Corporate Legal Teams | TFTS",
     metaDescription:
       "Corporate investigation services for in-house legal and compliance teams. Due diligence, employee investigation, fraud response, counterparty intelligence and process serving.",
     intro:
@@ -399,7 +399,7 @@ export const professionalClientPages: Record<string, ProfessionalClientPage> = {
     clientType: "Debt Recovery",
     headline: "Working With Debt Recovery Teams",
     subheadline: "Process serving, tracing and asset intelligence for commercial and consumer debt recovery",
-    metaTitle: "Debt Recovery Investigation Support | PI Investigations",
+    metaTitle: "Debt Recovery Investigation Support | TFTS",
     metaDescription:
       "Process serving and tracing for debt recovery solicitors and credit teams. Statutory demands, court document service, address tracing, asset intelligence.",
     intro:
@@ -438,7 +438,7 @@ export const professionalClientPages: Record<string, ProfessionalClientPage> = {
     clientType: "Private Equity & Investors",
     headline: "Working With Private Equity & Investors",
     subheadline: "Due diligence, management background investigation and portfolio intelligence",
-    metaTitle: "Due Diligence for Private Equity | PI Investigations",
+    metaTitle: "Due Diligence for Private Equity | TFTS",
     metaDescription:
       "Investigative due diligence for private equity investors and institutional investors. Management background, counterparty integrity, acquisition target investigation.",
     intro:
@@ -473,7 +473,7 @@ export const professionalClientPages: Record<string, ProfessionalClientPage> = {
     clientType: "Banks & Lenders",
     headline: "Working With Banks & Lenders",
     subheadline: "Fraud investigation, KYC enhancement, asset intelligence and process serving for financial institutions",
-    metaTitle: "Investigations for Banks & Lenders | PI Investigations",
+    metaTitle: "Investigations for Banks & Lenders | TFTS",
     metaDescription:
       "Fraud investigation and due diligence for banks, lenders and financial institutions. KYC enhancement, application fraud, asset intelligence and enforcement support.",
     intro:
@@ -508,7 +508,7 @@ export const professionalClientPages: Record<string, ProfessionalClientPage> = {
     clientType: "Compliance & Risk",
     headline: "Working With Compliance & Risk Functions",
     subheadline: "Intelligence and investigation to support compliance, risk management and regulatory requirements",
-    metaTitle: "Compliance Investigations | PI Investigations",
+    metaTitle: "Compliance Investigations | TFTS",
     metaDescription:
       "Intelligence and investigation for compliance and risk functions. Enhanced due diligence, employee misconduct, regulatory investigation support, third-party risk.",
     intro:
@@ -542,7 +542,7 @@ export const professionalClientPages: Record<string, ProfessionalClientPage> = {
     clientType: "Private Clients",
     headline: "Private Client Investigations",
     subheadline: "Discreet investigations for personal and family matters",
-    metaTitle: "Private Investigations | PI Investigations",
+    metaTitle: "Private Investigations | TFTS",
     metaDescription:
       "Discreet private investigations for individuals and families. Relationship matters, background investigations, tracing, fraud and personal protection.",
     intro:

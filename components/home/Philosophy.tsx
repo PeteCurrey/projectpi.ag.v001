@@ -1,74 +1,59 @@
 import React from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight, ShieldCheck, Scale, Compass } from "lucide-react";
+
+const principles = [
+  {
+    code: "I",
+    title: "We do not speculate.",
+    body: "Our reports contain verified findings, not conjecture. Where something cannot be confirmed, we say so.",
+  },
+  {
+    code: "II",
+    title: "We operate within the law.",
+    body: "Every method is lawful. We do not obtain information through deception, interference, or methods that would compromise evidential value or our professional standing.",
+  },
+  {
+    code: "III",
+    title: "We protect what you share.",
+    body: "Instructions and client information are treated as strictly confidential. We do not disclose who instructs us or the nature of any engagement.",
+  },
+  {
+    code: "IV",
+    title: "We are selective.",
+    body: "We decline instructions we cannot execute properly, and we decline instructions that we consider ethically unsuitable. Selectivity protects our clients and our standing.",
+  },
+];
 
 export default function Philosophy() {
   return (
-    <section className="relative py-32 md:py-44 bg-obsidian-pure overflow-hidden border-b border-oliveGrey/70">
-      {/* Background Architectural Texture */}
-      <div className="absolute inset-0 z-0 opacity-15 pointer-events-none">
-        <Image
-          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2400&q=80"
-          alt="London stone architecture background texture"
-          fill
-          sizes="100vw"
-          className="object-cover grayscale"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-obsidian via-obsidian/90 to-obsidian" />
-      </div>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 text-center md:text-left">
-        <div className="max-w-5xl mx-auto space-y-12">
-          {/* Eyebrow Label */}
-          <div className="inline-flex items-center space-x-3 px-3 py-1 border border-oliveGrey/70 bg-obsidian-surface rounded-xs">
-            <span className="w-1.5 h-1.5 bg-brass rounded-xs" />
-            <span className="text-[10px] uppercase font-mono tracking-ultra text-stone">
-              ETHOS & METHODOLOGICAL CERTAINTY
-            </span>
-          </div>
-
-          {/* Monumental Typographic Statement */}
-          <div className="space-y-4">
-            <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-light text-warmWhite tracking-tight leading-[1.05] font-serif uppercase">
-              We don't sell suspicion. <br />
-              <span className="text-brass italic font-normal">We establish facts.</span>
-            </h2>
-          </div>
-
-          {/* Supporting Copy */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pt-6 border-t border-oliveGrey/60 items-start text-left">
-            <div className="md:col-span-8 space-y-4">
-              <p className="text-lg md:text-xl text-warmWhite font-light leading-relaxed">
-                Every investigation begins with a question. Our role is to establish what can be known,
-                what can be evidenced, and what should happen next.
-              </p>
-              <p className="text-sm text-stone-muted leading-relaxed font-light">
-                Sensationalist assumptions, confirmation bias, and unsubstantiated conjecture have no place
-                in serious commercial governance or legal disputes. We conduct rigorous, lawful inquiry that
-                withstands the intense adversarial scrutiny of High Court cross-examination.
-              </p>
-            </div>
-
-            <div className="md:col-span-4 space-y-4 bg-obsidian-surface/60 border border-oliveGrey/80 p-6 rounded-xs">
-              <span className="text-[10px] font-mono uppercase tracking-widest text-brass block">
-                THE THREE DISCIPLINARY GATES
+    <section className="py-24 md:py-32 border-b border-oliveGrey/60 bg-obsidian">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+          <div className="lg:col-span-4 space-y-6">
+            <div className="flex items-center space-x-2">
+              <span className="w-6 h-[1px] bg-brass" />
+              <span className="text-[10px] font-mono tracking-ultra uppercase text-brass">
+                OPERATIONAL PRINCIPLES
               </span>
-              <ul className="space-y-3 text-xs text-stone">
-                <li className="flex items-start space-x-2">
-                  <span className="font-mono text-brass text-[10px]">01</span>
-                  <span><strong>WHAT CAN BE KNOWN:</strong> Exhaustive multi-source intelligence gathering.</span>
-                </li>
-                <li className="flex items-start space-x-2">
-                  <span className="font-mono text-brass text-[10px]">02</span>
-                  <span><strong>WHAT CAN BE EVIDENCED:</strong> CPR-compliant proofs of fact and exhibits.</span>
-                </li>
-                <li className="flex items-start space-x-2">
-                  <span className="font-mono text-brass text-[10px]">03</span>
-                  <span><strong>WHAT HAPPENS NEXT:</strong> Strategic counsel for litigation or board action.</span>
-                </li>
-              </ul>
             </div>
+            <h2 className="text-3xl md:text-4xl font-light font-serif text-warmWhite">
+              How we conduct
+              <br />
+              <span className="italic text-stone-light">our work.</span>
+            </h2>
+            <p className="text-sm text-stone-muted font-light leading-relaxed">
+              The following are not marketing claims. They are the operating standards by which every
+              TFTS engagement is conducted.
+            </p>
+          </div>
+
+          <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-8">
+            {principles.map((p) => (
+              <div key={p.code} className="space-y-3 border-t border-oliveGrey/50 pt-6">
+                <div className="text-[10px] font-mono text-brass/60 tracking-ultra">{p.code}</div>
+                <h3 className="text-base font-normal text-warmWhite font-serif">{p.title}</h3>
+                <p className="text-sm text-stone-muted font-light leading-relaxed">{p.body}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>

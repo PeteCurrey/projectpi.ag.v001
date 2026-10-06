@@ -39,18 +39,35 @@ import { FIXTURE_CASES } from "@/lib/admin/fixtures/cases";
 import { FIXTURE_SUBJECTS } from "@/lib/admin/fixtures/subjects";
 import { FIXTURE_USERS } from "@/lib/admin/fixtures/users";
 
-export default function DedicatedResearchWorkspacePage() {
+interface WorkspaceProps {
+  initialCaseRef?: string;
+  initialFindings?: ResearchItem[];
+  initialPivots?: ResearchPivot[];
+  initialObjective?: string;
+}
+
+export default function DedicatedResearchWorkspacePage({
+  initialCaseRef,
+  initialFindings,
+  initialPivots,
+  initialObjective,
+}: WorkspaceProps = {}) {
   // Session Header Context state
-  const [selectedCaseRef, setSelectedCaseRef] = useState<string>("MAT-2501-001");
+  const [selectedCaseRef, setSelectedCaseRef] = useState<string>(initialCaseRef || "MAT-2501-001");
   const [selectedSubjectName, setSelectedSubjectName] = useState<string>("Arthur Pendelton");
   const [selectedInvestigator, setSelectedInvestigator] = useState<string>("Sarah Chen");
   const [researchObjective, setResearchObjective] = useState<string>(
-    "Trace beneficial overseas corporate holdings, hidden directorships, and undisclosed property assets."
+    initialObjective ||
+      "Trace beneficial overseas corporate holdings, hidden directorships, and undisclosed property assets."
   );
 
   // Findings & Pivots state
-  const [researchItems, setResearchItems] = useState<ResearchItem[]>(INITIAL_RESEARCH_ITEMS);
-  const [pivots, setPivots] = useState<ResearchPivot[]>(INITIAL_PIVOTS);
+  const [researchItems, setResearchItems] = useState<ResearchItem[]>(
+    initialFindings && initialFindings.length > 0 ? initialFindings : INITIAL_RESEARCH_ITEMS
+  );
+  const [pivots, setPivots] = useState<ResearchPivot[]>(
+    initialPivots && initialPivots.length > 0 ? initialPivots : INITIAL_PIVOTS
+  );
 
   // Filters
   const [filterConfidence, setFilterConfidence] = useState<string>("ALL");
@@ -94,14 +111,17 @@ export default function DedicatedResearchWorkspacePage() {
       source_type: newSourceType,
       date_accessed: new Date().toISOString().slice(0, 16).replace("T", " "),
       researcher: selectedInvestigator,
+      created_by_user_id: "usr-chen",
       finding: newFinding.trim(),
       confidence: newConfidence,
       case_reference: selectedCaseRef,
+      matter_id: selectedCaseRef,
       subject_name: selectedSubjectName,
       notes: newNotes.trim() || undefined,
       evidence_attachment: newAttachmentRef.trim() || undefined,
       saved_to_case: false,
       created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString(),
     };
 
     setResearchItems((prev) => [item, ...prev]);
@@ -122,12 +142,16 @@ export default function DedicatedResearchWorkspacePage() {
 
     const newPiv: ResearchPivot = {
       id: `piv-${Date.now()}`,
+      case_reference: selectedCaseRef,
       pivot_type: newPivotType,
       input_value: newPivotInput.trim(),
       output_lead: newPivotOutput.trim(),
       status: "OPEN",
       target_tool: newPivotTargetTool.trim() || undefined,
+      created_by_user_id: "usr-chen",
+      created_by_name: selectedInvestigator,
       created_at: new Date().toISOString().slice(0, 16).replace("T", " "),
+      updated_at: new Date().toISOString().slice(0, 16).replace("T", " "),
     };
 
     setPivots((prev) => [newPiv, ...prev]);

@@ -4,13 +4,16 @@ import Link from "next/link";
 import { ArrowRight, Building2, Binary, Scale, Eye, Lock, ShieldCheck } from "lucide-react";
 import { servicesData } from "@/lib/data/servicesData";
 
+import { getCanonicalUrl } from "@/lib/config/brand";
+
 export const metadata: Metadata = {
-  title: "Specialist Capabilities & Practice Index | Private Intelligence Firm",
+  title: "Specialist Capabilities & Practice Index | TFTS",
   description: "Exhaustive index of corporate investigations, OSINT, litigation support, asset tracing, and covert surveillance capabilities. London and UK-wide operations.",
   alternates: {
-    canonical: "https://private-intelligence.co.uk/services",
+    canonical: getCanonicalUrl("/services"),
   },
 };
+
 
 export default function ServicesIndexPage() {
   const allServices = Object.values(servicesData);

@@ -1,6 +1,6 @@
 // ============================================================
 // PROCESS SERVING DATA
-// Private Intelligence & Investigations
+// TFTS — Tactical Field Intelligence Service
 // ============================================================
 
 export interface ProcessServingPageData {
@@ -22,7 +22,7 @@ export interface ProcessServingPageData {
 }
 
 export const processServingHub = {
-  metaTitle: "Process Serving Services | PI Investigations",
+  metaTitle: "Process Serving Services | TFTS",
   metaDescription:
     "Professional process serving across England and Wales. Court documents, statutory demands, bankruptcy and winding-up petitions. Instructed by law firms, insolvency practitioners and creditors. Proof of service provided.",
   intro:
@@ -80,7 +80,7 @@ export const processServingPages: Record<string, ProcessServingPageData> = {
     slug: "court-papers",
     title: "Court Document Service",
     subtitle: "Formal service of court proceedings on respondents across England and Wales",
-    metaTitle: "Court Document Process Serving | PI Investigations",
+    metaTitle: "Court Document Process Serving | TFTS",
     metaDescription:
       "Professional service of court documents including claims, orders, injunctions and freezing orders. Instructed by solicitors. Proof of service provided. Nationwide coverage.",
     documentCategory: "Court Documents",
@@ -162,7 +162,7 @@ export const processServingPages: Record<string, ProcessServingPageData> = {
     slug: "statutory-demand",
     title: "Statutory Demand Service",
     subtitle: "Correct service of Section 268 and Section 123 demands — the essential precursor to insolvency proceedings",
-    metaTitle: "Statutory Demand Service | PI Investigations",
+    metaTitle: "Statutory Demand Service | TFTS",
     metaDescription:
       "Professional service of statutory demands on individuals and companies. Instructed by insolvency practitioners, solicitors and creditors. Correct service is essential to valid insolvency proceedings.",
     documentCategory: "Statutory Demands",
@@ -244,7 +244,7 @@ export const processServingPages: Record<string, ProcessServingPageData> = {
     slug: "bankruptcy-petition",
     title: "Bankruptcy Petition Service",
     subtitle: "Personal service of bankruptcy petitions — professional, documented, defensible",
-    metaTitle: "Bankruptcy Petition Process Serving | PI Investigations",
+    metaTitle: "Bankruptcy Petition Process Serving | TFTS",
     metaDescription:
       "Expert personal service of bankruptcy petitions on individual debtors. Instructed by insolvency practitioners and creditors' solicitors. Correct service documentation provided.",
     documentCategory: "Bankruptcy Petitions",
@@ -321,7 +321,7 @@ export const processServingPages: Record<string, ProcessServingPageData> = {
     slug: "winding-up-petition",
     title: "Winding-Up Petition Service",
     subtitle: "Correct service of compulsory winding-up petitions on companies — precision execution for insolvency proceedings",
-    metaTitle: "Winding-Up Petition Process Serving | PI Investigations",
+    metaTitle: "Winding-Up Petition Process Serving | TFTS",
     metaDescription:
       "Professional service of winding-up petitions on companies. Registered office and principal place of business service. Instructed by insolvency practitioners and creditors' solicitors.",
     documentCategory: "Winding-Up Petitions",
@@ -395,7 +395,7 @@ export const processServingPages: Record<string, ProcessServingPageData> = {
     slug: "urgent",
     title: "Urgent Process Serving",
     subtitle: "Same-day and next-day service for time-critical legal documents",
-    metaTitle: "Urgent Process Serving — Same Day | PI Investigations",
+    metaTitle: "Urgent Process Serving — Same Day | TFTS",
     metaDescription:
       "Urgent same-day and next-day process serving across England and Wales. Court documents, statutory demands, petitions. Available for time-critical injunctive and insolvency matters.",
     documentCategory: "Urgent Service",
@@ -468,7 +468,7 @@ export const processServingPages: Record<string, ProcessServingPageData> = {
     slug: "difficult-subject",
     title: "Service on Difficult or Evasive Subjects",
     subtitle: "Where conventional service has failed or where evasion is anticipated",
-    metaTitle: "Service on Evasive or Difficult Subjects | PI Investigations",
+    metaTitle: "Service on Evasive or Difficult Subjects | TFTS",
     metaDescription:
       "Specialist process serving on subjects who are evading service, changing addresses or refusing to accept documents. Professional, documented and legally defensible. Instructed by solicitors.",
     documentCategory: "Difficult Subjects",
@@ -545,7 +545,7 @@ export const processServingPages: Record<string, ProcessServingPageData> = {
     slug: "address-tracing",
     title: "Address Tracing for Process Serving",
     subtitle: "Locating individuals and companies to enable formal service of legal documents",
-    metaTitle: "Address Tracing for Process Serving | PI Investigations",
+    metaTitle: "Address Tracing for Process Serving | TFTS",
     metaDescription:
       "Professional address tracing to locate individuals and companies for process serving purposes. Used by insolvency practitioners, solicitors and creditors across England and Wales.",
     documentCategory: "Address Tracing",
@@ -630,7 +630,7 @@ export const processServerLocations = {
     slug: "london",
     cityName: "London",
     regionName: "Greater London & South East",
-    metaTitle: "Process Server London | PI Investigations",
+    metaTitle: "Process Server London | TFTS",
     metaDescription:
       "Professional process serving in London and Greater London. Court documents, statutory demands, bankruptcy and winding-up petitions. Instructed by law firms and insolvency practitioners. Same-day service available.",
     headline: "London Process Server",
@@ -653,7 +653,7 @@ export const processServerLocations = {
     ],
     schema: {
       "@type": "LocalBusiness",
-      name: "PI Investigations — London Process Server",
+      name: "TFTS — London Process Server",
       addressLocality: "London",
       addressRegion: "Greater London",
       addressCountry: "GB",
@@ -664,7 +664,7 @@ export const processServerLocations = {
     slug: "manchester",
     cityName: "Manchester",
     regionName: "Greater Manchester & North West",
-    metaTitle: "Process Server Manchester | PI Investigations",
+    metaTitle: "Process Server Manchester | TFTS",
     metaDescription:
       "Professional process serving in Manchester and Greater Manchester. Court documents, statutory demands, bankruptcy and winding-up petitions. Instructed by solicitors and insolvency practitioners. Business and Property Courts Manchester.",
     headline: "Manchester Process Server",
@@ -685,7 +685,7 @@ export const processServerLocations = {
     ],
     schema: {
       "@type": "LocalBusiness",
-      name: "PI Investigations — Manchester Process Server",
+      name: "TFTS — Manchester Process Server",
       addressLocality: "Manchester",
       addressRegion: "Greater Manchester",
       addressCountry: "GB",
@@ -696,7 +696,7 @@ export const processServerLocations = {
     slug: "birmingham",
     cityName: "Birmingham",
     regionName: "West Midlands",
-    metaTitle: "Process Server Birmingham | PI Investigations",
+    metaTitle: "Process Server Birmingham | TFTS",
     metaDescription:
       "Professional process serving in Birmingham and the West Midlands. Court documents, statutory demands, bankruptcy and winding-up petitions. Business and Property Courts Birmingham.",
     headline: "Birmingham Process Server",
@@ -717,7 +717,7 @@ export const processServerLocations = {
     ],
     schema: {
       "@type": "LocalBusiness",
-      name: "PI Investigations — Birmingham Process Server",
+      name: "TFTS — Birmingham Process Server",
       addressLocality: "Birmingham",
       addressRegion: "West Midlands",
       addressCountry: "GB",
@@ -728,7 +728,7 @@ export const processServerLocations = {
     slug: "leeds",
     cityName: "Leeds",
     regionName: "West Yorkshire",
-    metaTitle: "Process Server Leeds | PI Investigations",
+    metaTitle: "Process Server Leeds | TFTS",
     metaDescription:
       "Professional process serving in Leeds and West Yorkshire. Court documents, statutory demands, bankruptcy and winding-up petitions. Business and Property Courts Leeds. Instructed by solicitors and insolvency practitioners.",
     headline: "Leeds Process Server",
@@ -749,7 +749,7 @@ export const processServerLocations = {
     ],
     schema: {
       "@type": "LocalBusiness",
-      name: "PI Investigations — Leeds Process Server",
+      name: "TFTS — Leeds Process Server",
       addressLocality: "Leeds",
       addressRegion: "West Yorkshire",
       addressCountry: "GB",

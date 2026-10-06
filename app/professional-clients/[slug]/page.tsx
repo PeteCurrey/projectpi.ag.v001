@@ -14,21 +14,27 @@ export async function generateStaticParams() {
   }));
 }
 
+import { getCanonicalUrl } from "@/lib/config/brand";
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const data = professionalClientPages[slug];
 
   if (!data) {
     return {
-      title: "Professional Client Services | Private Intelligence & Investigations",
+      title: "Professional Client Services | TFTS",
     };
   }
 
   return {
     title: data.metaTitle,
     description: data.metaDescription,
+    alternates: {
+      canonical: getCanonicalUrl(`/professional-clients/${slug}`),
+    },
   };
 }
+
 
 export default async function ProfessionalClientDetailPage({ params }: PageProps) {
   const { slug } = await params;

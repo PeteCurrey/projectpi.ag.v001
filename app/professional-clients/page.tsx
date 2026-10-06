@@ -7,10 +7,16 @@ import TrustStrip from "@/components/shared/TrustStrip";
 import ConfidentialEnquiryCTA from "@/components/shared/ConfidentialEnquiryCTA";
 import { professionalClientsHub } from "@/lib/data/professionalClientsData";
 
+import { getCanonicalUrl } from "@/lib/config/brand";
+
 export const metadata: Metadata = {
   title: professionalClientsHub.metaTitle,
   description: professionalClientsHub.metaDescription,
+  alternates: {
+    canonical: getCanonicalUrl("/professional-clients"),
+  },
 };
+
 
 export default function ProfessionalClientsHubPage() {
   return (
