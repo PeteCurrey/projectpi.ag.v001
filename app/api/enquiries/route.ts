@@ -1,26 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { checkRateLimit } from "@/lib/security/rateLimit";
 import { logAuditEvent } from "@/lib/security/audit";
-
-// In-memory enquiry store for active demo/verification
-interface StoredEnquiry {
-  id: string;
-  reference: string;
-  submittedAt: string;
-  status: string;
-  urgency: string;
-  matterType: string;
-  documentType?: string;
-  narrative: string;
-  professionalClientType: string;
-  contactName: string;
-  contactEmail: string;
-  contactPhone?: string;
-  organisationName?: string;
-  location?: string;
-}
-
-export const enquiriesStore: StoredEnquiry[] = [];
+import { addStoredEnquiry, type StoredEnquiry } from "@/lib/enquiries/store";
 
 export async function POST(req: NextRequest) {
   try {
@@ -91,7 +72,7 @@ export async function POST(req: NextRequest) {
       location: typeof location === "string" ? location.slice(0, 100) : undefined,
     };
 
-    enquiriesStore.push(newEnquiry);
+    addStoredEnquiry(newEnquiry);
 
     // 4. Record audit log without leaking sensitive personal narrative
     await logAuditEvent({
