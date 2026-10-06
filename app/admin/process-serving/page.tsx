@@ -21,7 +21,7 @@ export default function AdminProcessServingPage() {
       <AdminPageHeader
         label="SPECIALIST VERTICAL"
         title="Process Serving Operations & Court Filings"
-        description="High Court writs, statutory demands, winding-up petitions, and proof of service compliance under CPR Part 6."
+        description="Operational tracking of statutory demands, winding-up petitions, and court document service attempts under CPR Part 6 procedural guidelines."
         actions={
           <div className="flex items-center gap-2">
             <span className="text-[11px] font-mono text-admin-text-muted">

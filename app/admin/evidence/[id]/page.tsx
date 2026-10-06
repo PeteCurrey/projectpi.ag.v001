@@ -57,11 +57,19 @@ export default async function AdminEvidenceDetailPage({
             </p>
 
             <div className="p-4 bg-admin-surface/50 border border-admin-border rounded-xs space-y-2">
-              <span className="text-[11px] font-mono uppercase text-admin-text-faint block">
-                Cryptographic Checksum (SHA-256)
-              </span>
+              <div className="flex items-center justify-between">
+                <span className="text-[11px] font-mono uppercase text-admin-text-faint">
+                  Cryptographic Integrity Checksum (SHA-256)
+                </span>
+                <span className="text-[10px] font-mono text-admin-text-muted">
+                  Verifies file unchanged since entry
+                </span>
+              </div>
               <p className="font-mono text-xs text-admin-text break-all bg-white p-2.5 border border-admin-border rounded-xs">
-                {item.integrity_hash || "NO CHECKSUM RECORDED — REQUIRES IMMEDIATE AUDIT"}
+                {item.integrity_hash || "NO CHECKSUM RECORDED — REQUIRES IMMEDIATE VERIFICATION"}
+              </p>
+              <p className="text-[10px] text-admin-text-muted leading-relaxed">
+                Note: A cryptographic hash confirms data integrity from time of recording; formal evidence admissibility and provenance remain subject to procedural rules and operative statement.
               </p>
             </div>
           </div>

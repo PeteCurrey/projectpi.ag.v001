@@ -16,8 +16,8 @@ export default function AdminEvidencePage() {
     <div className="p-6 max-w-[1600px] mx-auto space-y-6">
       <AdminPageHeader
         label="FORENSIC & INVESTIGATIVE REGISTER"
-        title="Evidence Inventory & Cryptographic Chain of Custody"
-        description="Tamper-evident logs, digital forensics, field photography, audio transcripts and source integrity records."
+        title="Evidence Inventory & Cryptographic Checksum Register"
+        description="Records file metadata, source notes, and SHA-256 checksums to demonstrate that recorded digital items remain unchanged since entry into the register."
         actions={
           <div className="flex items-center gap-2">
             <span className="text-[11px] font-mono text-admin-text-muted">

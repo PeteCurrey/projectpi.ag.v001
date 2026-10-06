@@ -32,19 +32,19 @@ export default function AdminBillingPage() {
 
         <div className="pt-4 border-t border-admin-border grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
           <div className="p-4 bg-admin-surface/40 border border-admin-border rounded-xs">
-            <span className="text-[11px] font-mono text-admin-text-faint uppercase block">Pending Disbursements</span>
+            <span className="text-[11px] font-mono text-admin-text-faint uppercase block">Recorded Disbursements</span>
             <p className="text-2xl font-serif font-semibold text-admin-text mt-1">£3,450.00</p>
-            <p className="text-[11px] text-admin-text-muted mt-1">Court fees, agent mileage, search registries</p>
+            <p className="text-[11px] text-admin-text-muted mt-1">Recorded operational expenses awaiting billing generation</p>
           </div>
           <div className="p-4 bg-admin-surface/40 border border-admin-border rounded-xs">
-            <span className="text-[11px] font-mono text-admin-text-faint uppercase block">Unbilled Fieldwork</span>
+            <span className="text-[11px] font-mono text-admin-text-faint uppercase block">Logged Billable Hours</span>
             <p className="text-2xl font-serif font-semibold text-admin-text mt-1">£12,800.00</p>
-            <p className="text-[11px] text-admin-text-muted mt-1">Active surveillance and forensic hours</p>
+            <p className="text-[11px] text-admin-text-muted mt-1">Investigative and fieldwork time recorded on active matters</p>
           </div>
           <div className="p-4 bg-admin-surface/40 border border-admin-border rounded-xs">
-            <span className="text-[11px] font-mono text-admin-text-faint uppercase block">Retainer Funds Held</span>
+            <span className="text-[11px] font-mono text-admin-text-faint uppercase block">Agreed Retainer Baseline</span>
             <p className="text-2xl font-serif font-semibold text-emerald-800 mt-1">£25,000.00</p>
-            <p className="text-[11px] text-admin-text-muted mt-1">Client trust account balance</p>
+            <p className="text-[11px] text-admin-text-muted mt-1">Contractual advance funds recorded on matter files</p>
           </div>
         </div>
       </div>

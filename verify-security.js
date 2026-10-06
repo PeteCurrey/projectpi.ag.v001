@@ -310,6 +310,20 @@ results.push({
   passed: cleanedMetadata.narrative === "[REDACTED]" && cleanedMetadata.contactName === "[REDACTED]" && cleanedMetadata.matterType === "PROCESS_SERVING",
 });
 
+// 9. Legal Hold Deletion Protection
+function canDeleteRecord(retentionStatus, legalHoldFlag) {
+  if (retentionStatus === "LEGAL_HOLD" || legalHoldFlag === true) {
+    return false; // Absolute hold override
+  }
+  return retentionStatus === "DELETE_PENDING";
+}
+
+results.push({
+  suite: "Retention & Legal Hold",
+  test: "Expired Retention with Legal Hold Flag Cannot Be Deleted",
+  passed: canDeleteRecord("LEGAL_HOLD", true) === false && canDeleteRecord("DELETE_PENDING", false) === true,
+});
+
 // ============================================================================
 // REPORTING
 // ============================================================================

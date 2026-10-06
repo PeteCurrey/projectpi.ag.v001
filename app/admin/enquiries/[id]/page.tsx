@@ -137,15 +137,15 @@ export default async function AdminEnquiryDetailPage({
           {/* CONFLICT CHECK & QUALIFICATION WORKFLOW */}
           <div className="bg-white border border-admin-border rounded-sm shadow-admin-card p-5 space-y-4">
             <h2 className="text-xs font-mono uppercase tracking-wider text-admin-text font-semibold border-b border-admin-border pb-3">
-              Triage & Compliance Checklist
+              Recorded Triage & Compliance Assessments
             </h2>
             <div className="space-y-3 text-xs">
               <label className="flex items-start gap-2.5 p-2.5 bg-admin-surface/50 border border-admin-border rounded-xs cursor-pointer">
                 <input type="checkbox" defaultChecked className="mt-0.5" />
                 <div>
-                  <span className="font-medium text-admin-text block">Conflict of Interest Check</span>
+                  <span className="font-medium text-admin-text block">Conflict Search Performed — No Match Identified</span>
                   <span className="text-admin-text-muted text-[11px]">
-                    Verified target subject and instructing party against existing active matters.
+                    Internal database query executed against parties and adverse subjects. Requires Director sign-off prior to engagement.
                   </span>
                 </div>
               </label>
@@ -153,9 +153,9 @@ export default async function AdminEnquiryDetailPage({
               <label className="flex items-start gap-2.5 p-2.5 bg-admin-surface/50 border border-admin-border rounded-xs cursor-pointer">
                 <input type="checkbox" defaultChecked className="mt-0.5" />
                 <div>
-                  <span className="font-medium text-admin-text block">Legal Basis & Legitimate Interest</span>
+                  <span className="font-medium text-admin-text block">Recorded Processing Assessment (Legitimate Interest)</span>
                   <span className="text-admin-text-muted text-[11px]">
-                    Confirm lawful basis under UK GDPR / DPA 2018 for investigative inquiry.
+                    Documented lawful basis review under UK GDPR / DPA 2018. Special category / criminal offence data flagged if present.
                   </span>
                 </div>
               </label>
@@ -165,7 +165,7 @@ export default async function AdminEnquiryDetailPage({
                 <div>
                   <span className="font-medium text-admin-text block">Fee Quote & Retainer Acceptance</span>
                   <span className="text-admin-text-muted text-[11px]">
-                    Agreed engagement terms and fee structure prior to fieldwork deployment.
+                    Agreed engagement terms and fee structure confirmed prior to fieldwork deployment.
                   </span>
                 </div>
               </label>

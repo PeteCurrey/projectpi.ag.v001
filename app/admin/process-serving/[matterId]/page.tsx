@@ -57,7 +57,7 @@ export default async function AdminProcessServingDetailPage({
           <div className="bg-white border border-admin-border rounded-sm shadow-admin-card p-5 space-y-4">
             <div className="flex items-center justify-between border-b border-admin-border pb-3">
               <h2 className="text-xs font-mono uppercase tracking-wider text-admin-text font-semibold">
-                Service Attempts Register (CPR Part 6 Compliance)
+                Service Attempts Register (Factual Attempt Log)
               </h2>
               <button className="px-3 py-1 text-xs font-mono uppercase bg-admin-text text-white rounded-xs">
                 Log New Attempt
@@ -77,7 +77,7 @@ export default async function AdminProcessServingDetailPage({
                     <p className="text-admin-text leading-relaxed">{evt.description}</p>
                     <div className="pt-2 border-t border-admin-border flex items-center justify-between text-[11px] text-admin-text-muted">
                       <span>Operative: {operative ? operative.name : "T. Hardy"}</span>
-                      <span className="font-mono text-emerald-700">GPS Timestamped</span>
+                      <span className="font-mono text-emerald-700">Timestamped Record</span>
                     </div>
                   </div>
                 ))}
@@ -89,15 +89,15 @@ export default async function AdminProcessServingDetailPage({
         <div className="space-y-6">
           <div className="bg-white border border-admin-border rounded-sm shadow-admin-card p-5 space-y-3">
             <h2 className="text-xs font-mono uppercase tracking-wider text-admin-text font-semibold border-b border-admin-border pb-2">
-              Statutory Proof of Service
+              Certificate / Statement of Service
             </h2>
             <div className="text-xs space-y-2 text-admin-text-secondary">
               <p>
-                A formal Certificate / Affidavit of Service will only be prepared upon confirmed personal service or compliance with substituted service requirements.
+                Assembles recorded factual details (date, time, address, method, operative notes). A formal Certificate or Affidavit of Service requires human review and confirmation of personal service or CPR Part 6 compliance prior to issue.
               </p>
               <div className="pt-2">
                 <button className="w-full py-2 bg-admin-surface border border-admin-border text-admin-text text-xs font-mono uppercase rounded-xs hover:bg-admin-hover">
-                  Draft Certificate of Service
+                  Assemble Draft Certificate
                 </button>
               </div>
             </div>

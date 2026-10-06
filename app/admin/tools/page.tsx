@@ -62,15 +62,15 @@ export default function AdminToolsPage() {
         description="Authorised OSINT, corporate registries and public database tools for operative research."
       />
 
-      {/* COMPLIANCE WARNING */}
+      {/* COMPLIANCE & OPERATIONAL SECURITY WARNING */}
       <div className="p-4 bg-amber-50 border border-amber-300 rounded-sm flex items-start gap-3">
         <ShieldAlert className="w-5 h-5 text-amber-700 shrink-0 mt-0.5" />
         <div className="text-xs text-amber-950 space-y-1">
           <p className="font-semibold uppercase tracking-wider font-mono">
-            Data Protection & Operational Security Notice (UK GDPR / DPA 2018)
+            External Research Services & Data Protection Warning
           </p>
           <p className="leading-relaxed">
-            Never submit raw client enquiry text, confidential case identifiers, or non-public sensitive matter details directly into third-party query engines. All public search queries must be conducted via segregated research environments. Verify legitimate interest assessment prior to personal data extraction.
+            External research services process queries outside the firm&apos;s infrastructure. Listing in this directory does not constitute an endorsement or data-sharing agreement. Do not submit client confidential data, subject personal details, or sensitive matter identifiers to third-party services unless the specific service has been approved for that purpose and the processing is lawful and authorised under a documented legitimate interest assessment.
           </p>
         </div>
       </div>
@@ -93,14 +93,16 @@ export default function AdminToolsPage() {
             </p>
 
             <div className="pt-2 border-t border-admin-border flex justify-between items-center text-xs">
-              <span className="text-[11px] font-mono text-emerald-700">Authorised Source</span>
+              <span className="text-[10px] font-mono px-1.5 py-0.5 bg-emerald-50 text-emerald-700 border border-emerald-200">
+                APPROVED FOR MANUAL SEARCH
+              </span>
               <a
                 href={tool.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[11px] font-mono text-admin-accent hover:underline flex items-center gap-1"
               >
-                Launch Tool <ExternalLink className="w-3 h-3" />
+                Launch External Service <ExternalLink className="w-3 h-3" />
               </a>
             </div>
           </div>

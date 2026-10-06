@@ -71,10 +71,10 @@ export default function AdminDashboardPage() {
       {/* ── KPI Grid ──────────────────────────────────── */}
       <div className="grid grid-cols-4 gap-3 mb-6">
         <MetricCard
-          label="Active Cases"
+          label="Active Matters"
           value={metrics.activeCases}
           subtext="investigations in progress"
-          href="/admin/cases"
+          href="/admin/matters"
         />
         <MetricCard
           label="New Enquiries"
@@ -82,7 +82,7 @@ export default function AdminDashboardPage() {
           subtext={metrics.newEnquiries > 0 ? "awaiting review" : "no new enquiries"}
           alert={metrics.newEnquiries > 0}
           alertLabel={`${metrics.newEnquiries} require triage`}
-          href="/admin/leads"
+          href="/admin/enquiries"
         />
         <MetricCard
           label="Overdue Tasks"
@@ -93,31 +93,31 @@ export default function AdminDashboardPage() {
           href="/admin/tasks"
         />
         <MetricCard
-          label="Cases Requiring Action"
+          label="Matters Requiring Action"
           value={metrics.casesRequiringAction}
           alert={metrics.casesRequiringAction > 0}
           alertLabel={metrics.casesRequiringAction > 0 ? "waiting on client or assignment" : undefined}
           subtext="all cases progressing"
-          href="/admin/cases"
+          href="/admin/matters"
         />
         <MetricCard
-          label="Open Leads"
+          label="Open Pipeline"
           value={metrics.openLeads}
-          subtext="in pipeline"
-          href="/admin/leads"
+          subtext="in qualification pipeline"
+          href="/admin/enquiries"
         />
         <MetricCard
-          label="Today's Tasks"
+          label="Tasks Due 7 Days"
           value={metrics.upcomingAppointments}
-          subtext="due in next 7 days"
+          subtext="upcoming milestones"
           href="/admin/tasks"
         />
         <MetricCard
-          label="Evidence Awaiting Review"
+          label="Evidence Awaiting Checksum"
           value={metrics.evidenceAwaitingReview}
           alert={metrics.evidenceAwaitingReview > 0}
-          alertLabel={metrics.evidenceAwaitingReview > 0 ? "integrity unverified" : undefined}
-          subtext="all evidence verified"
+          alertLabel={metrics.evidenceAwaitingReview > 0 ? "checksum uncalculated" : undefined}
+          subtext="all checksums recorded"
           href="/admin/evidence"
         />
         <MetricCard
@@ -134,12 +134,12 @@ export default function AdminDashboardPage() {
         <div className="col-span-2">
           <div className="bg-white border border-admin-border rounded-sm shadow-admin-card">
             <div className="flex items-center justify-between px-4 py-3 border-b border-admin-border">
-              <span className="text-[12px] font-medium text-admin-text">Active Cases</span>
+              <span className="text-[12px] font-medium text-admin-text">Active Matters</span>
               <Link
-                href="/admin/cases"
+                href="/admin/matters"
                 className="text-[10px] text-admin-text-muted hover:text-admin-accent font-mono uppercase tracking-wider flex items-center gap-0.5 transition-colors"
               >
-                All cases <ChevronRight className="w-3 h-3" />
+                All matters <ChevronRight className="w-3 h-3" />
               </Link>
             </div>
 
@@ -164,7 +164,7 @@ export default function AdminDashboardPage() {
                     >
                       <td className="px-4 py-2.5">
                         <Link
-                          href={`/admin/cases/${c.reference}`}
+                          href={`/admin/matters/${c.caseId}`}
                           className="text-[11px] font-mono text-admin-accent hover:underline"
                         >
                           {c.reference}
@@ -173,7 +173,7 @@ export default function AdminDashboardPage() {
                       <td className="px-4 py-2.5">
                         <div>
                           <Link
-                            href={`/admin/cases/${c.reference}`}
+                            href={`/admin/matters/${c.caseId}`}
                             className="text-[12px] text-admin-text hover:text-admin-accent transition-colors line-clamp-1"
                           >
                             {c.title}
@@ -229,12 +229,9 @@ export default function AdminDashboardPage() {
                     <div className="flex items-start gap-2">
                       <PriorityIndicator priority={item.priority} />
                       <div className="flex-1 min-w-0">
-                        <Link
-                          href={`/admin/tasks/${item.id}`}
-                          className="text-[12px] text-admin-text hover:text-admin-accent transition-colors line-clamp-2"
-                        >
+                        <p className="text-[12px] text-admin-text font-medium line-clamp-2">
                           {item.title}
-                        </Link>
+                        </p>
                         <p className="text-[10px] text-admin-text-muted mt-0.5 font-mono">
                           {item.caseReference}
                         </p>
@@ -251,10 +248,10 @@ export default function AdminDashboardPage() {
             <div className="flex items-center justify-between px-4 py-3 border-b border-admin-border">
               <span className="text-[12px] font-medium text-admin-text">New Enquiries</span>
               <Link
-                href="/admin/leads"
+                href="/admin/enquiries"
                 className="text-[10px] text-admin-text-muted hover:text-admin-accent font-mono uppercase tracking-wider flex items-center gap-0.5 transition-colors"
               >
-                All leads <ChevronRight className="w-3 h-3" />
+                All enquiries <ChevronRight className="w-3 h-3" />
               </Link>
             </div>
 
@@ -267,7 +264,7 @@ export default function AdminDashboardPage() {
                 newEnquiries.map((enq) => (
                   <Link
                     key={enq.id}
-                    href={`/admin/leads/${enq.id}`}
+                    href={`/admin/enquiries/${enq.id}`}
                     className="flex items-start gap-3 px-4 py-2.5 hover:bg-admin-surface/50 transition-colors block"
                   >
                     <div className="flex-1 min-w-0">
