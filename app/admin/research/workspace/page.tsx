@@ -1,28 +1,22 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import Link from "next/link";
 import {
-  Search,
   ExternalLink,
-  ShieldCheck,
-  AlertTriangle,
-  FolderOpen,
-  User,
   Plus,
   GitBranch,
   FileCheck,
   CheckCircle2,
-  Clock,
   Layers,
-  Sparkles,
   Link2,
   BookOpen,
   X,
-  FileText,
   Save,
-  ArrowRight,
   Filter,
+  History,
+  AlertCircle,
+  HelpCircle,
 } from "lucide-react";
 import AdminPageHeader from "@/app/admin/components/AdminPageHeader";
 import {
@@ -30,16 +24,13 @@ import {
   ResearchPivot,
   ResearchConfidence,
   PivotType,
-  INITIAL_RESEARCH_ITEMS,
-  INITIAL_PIVOTS,
   PIVOT_OPTIONS,
   CONFIDENCE_LEVELS,
 } from "@/lib/admin/research/data";
 import { FIXTURE_CASES } from "@/lib/admin/fixtures/cases";
 import { FIXTURE_SUBJECTS } from "@/lib/admin/fixtures/subjects";
-import { FIXTURE_USERS } from "@/lib/admin/fixtures/users";
 
-interface WorkspaceProps {
+interface Props {
   initialCaseRef?: string;
   initialFindings?: ResearchItem[];
   initialPivots?: ResearchPivot[];
@@ -51,38 +42,58 @@ export default function DedicatedResearchWorkspacePage({
   initialFindings,
   initialPivots,
   initialObjective,
-}: WorkspaceProps = {}) {
+}: Props) {
   // Session Header Context state
-  const [selectedCaseRef, setSelectedCaseRef] = useState<string>(initialCaseRef || "MAT-2501-001");
-  const [selectedSubjectName, setSelectedSubjectName] = useState<string>("Arthur Pendelton");
-  const [selectedInvestigator, setSelectedInvestigator] = useState<string>("Sarah Chen");
+  const [selectedCaseRef, setSelectedCaseRef] = useState<string>(
+    initialCaseRef || "MAT-2501-001"
+  );
+
+  // Derive relevant subjects for the active matter
+  const activeMatter = useMemo(
+    () => FIXTURE_CASES.find((c) => c.reference.toUpperCase() === selectedCaseRef.toUpperCase()),
+    [selectedCaseRef]
+  );
+
+  const availableSubjects = useMemo(() => {
+    if (!activeMatter) return FIXTURE_SUBJECTS;
+    return FIXTURE_SUBJECTS.filter((s) => s.matter_id === activeMatter.id);
+  }, [activeMatter]);
+
+  const [selectedSubjectId, setSelectedSubjectId] = useState<string>("ALL");
+
+  // Research Objective state
   const [researchObjective, setResearchObjective] = useState<string>(
     initialObjective ||
       "Trace beneficial overseas corporate holdings, hidden directorships, and undisclosed property assets."
   );
+  const [isSavingObjective, setIsSavingObjective] = useState(false);
+  const [objectiveChangeReason, setObjectiveChangeReason] = useState("");
+  const [showObjectiveHistoryModal, setShowObjectiveHistoryModal] = useState(false);
 
   // Findings & Pivots state
-  const [researchItems, setResearchItems] = useState<ResearchItem[]>(
-    initialFindings && initialFindings.length > 0 ? initialFindings : INITIAL_RESEARCH_ITEMS
-  );
-  const [pivots, setPivots] = useState<ResearchPivot[]>(
-    initialPivots && initialPivots.length > 0 ? initialPivots : INITIAL_PIVOTS
-  );
+  const [researchItems, setResearchItems] = useState<ResearchItem[]>(initialFindings || []);
+  const [pivots, setPivots] = useState<ResearchPivot[]>(initialPivots || []);
 
-  // Filters
+  // Filter state
   const [filterConfidence, setFilterConfidence] = useState<string>("ALL");
-  const [filterCaseOnly, setFilterCaseOnly] = useState<boolean>(true);
+  const [filterSourceType, setFilterSourceType] = useState<string>("ALL");
+  const [filterPromotedState, setFilterPromotedState] = useState<string>("ALL");
+
+  // Loading & notification states
+  const [actionNotice, setActionNotice] = useState<{ msg: string; type: "success" | "error" } | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // New Finding Modal State
   const [isAddFindingOpen, setIsAddFindingOpen] = useState(false);
   const [newTitle, setNewTitle] = useState("");
   const [newUrl, setNewUrl] = useState("");
   const [newSourceName, setNewSourceName] = useState("");
-  const [newSourceType, setNewSourceType] = useState("Official Public Register");
+  const [newSourceType, setNewSourceType] = useState("Statutory Corporate Registry");
   const [newFinding, setNewFinding] = useState("");
   const [newConfidence, setNewConfidence] = useState<ResearchConfidence>("Corroborated");
   const [newNotes, setNewNotes] = useState("");
   const [newAttachmentRef, setNewAttachmentRef] = useState("");
+  const [newFindingSubjectIds, setNewFindingSubjectIds] = useState<string[]>([]);
 
   // New Pivot Modal State
   const [isAddPivotOpen, setIsAddPivotOpen] = useState(false);
@@ -90,104 +101,272 @@ export default function DedicatedResearchWorkspacePage({
   const [newPivotInput, setNewPivotInput] = useState("");
   const [newPivotOutput, setNewPivotOutput] = useState("");
   const [newPivotTargetTool, setNewPivotTargetTool] = useState("Companies House");
+  const [newPivotNotes, setNewPivotNotes] = useState("");
 
-  // Save to Case Action state (toast simulation)
-  const [actionNotice, setActionNotice] = useState<string | null>(null);
-
-  const showNotification = (msg: string) => {
-    setActionNotice(msg);
-    setTimeout(() => setActionNotice(null), 4000);
+  const showNotification = (msg: string, type: "success" | "error" = "success") => {
+    setActionNotice({ msg, type });
+    setTimeout(() => setActionNotice(null), 4500);
   };
 
-  const handleCreateFinding = (e: React.FormEvent) => {
+  // Synchronize when matter changes (if in global mode)
+  const handleCaseChange = async (newRef: string) => {
+    setSelectedCaseRef(newRef);
+    setSelectedSubjectId("ALL");
+    try {
+      const res = await fetch(`/api/admin/research/findings?case=${newRef}`);
+      const data = await res.json();
+      if (data.success) {
+        setResearchItems(data.data);
+      }
+
+      const pivRes = await fetch(`/api/admin/research/pivots?case=${newRef}`);
+      const pivData = await pivRes.json();
+      if (pivData.success) {
+        setPivots(pivData.data);
+      }
+
+      const objRes = await fetch(`/api/admin/research/objective?case=${newRef}`);
+      const objData = await objRes.json();
+      if (objData.success && objData.data.current) {
+        setResearchObjective(objData.data.current.objective);
+      }
+    } catch {
+      // Fallback
+    }
+  };
+
+  const handleSaveObjective = async () => {
+    if (!researchObjective.trim()) return;
+    setIsSavingObjective(true);
+    try {
+      const res = await fetch("/api/admin/research/objective", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          case_reference: selectedCaseRef,
+          objective: researchObjective,
+          change_reason: objectiveChangeReason || "Investigator instruction refinement",
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        throw new Error(data.message || "Failed to update objective");
+      }
+      showNotification(`Research objective updated and versioned for ${selectedCaseRef}`);
+      setObjectiveChangeReason("");
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : "Error saving objective";
+      showNotification(msg, "error");
+    } finally {
+      setIsSavingObjective(false);
+    }
+  };
+
+  const handleCreateFinding = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!newTitle.trim() || !newFinding.trim()) return;
+    setIsSubmitting(true);
 
-    const item: ResearchItem = {
-      id: `ri-${Date.now()}`,
-      title: newTitle.trim(),
-      source_url: newUrl.trim() || "https://local-investigator-note.internal",
-      source_name: newSourceName.trim() || "Internal Intelligence Observation",
-      source_type: newSourceType,
-      date_accessed: new Date().toISOString().slice(0, 16).replace("T", " "),
-      researcher: selectedInvestigator,
-      created_by_user_id: "usr-chen",
-      finding: newFinding.trim(),
-      confidence: newConfidence,
-      case_reference: selectedCaseRef,
-      matter_id: selectedCaseRef,
-      subject_name: selectedSubjectName,
-      notes: newNotes.trim() || undefined,
-      evidence_attachment: newAttachmentRef.trim() || undefined,
-      saved_to_case: false,
-      created_at: new Date().toISOString(),
-      updated_at: new Date().toISOString(),
-    };
+    try {
+      const res = await fetch("/api/admin/research/findings", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          title: newTitle,
+          source_url: newUrl,
+          source_name: newSourceName,
+          source_type: newSourceType,
+          date_accessed: new Date().toISOString().slice(0, 16).replace("T", " "),
+          finding: newFinding,
+          confidence: newConfidence,
+          case_reference: selectedCaseRef,
+          subject_name:
+            newFindingSubjectIds.length > 0
+              ? availableSubjects
+                  .filter((s) => newFindingSubjectIds.includes(s.id))
+                  .map((s) => s.name)
+                  .join(", ")
+              : undefined,
+          subject_ids: newFindingSubjectIds,
+          notes: newNotes,
+          evidence_attachment: newAttachmentRef,
+        }),
+      });
 
-    setResearchItems((prev) => [item, ...prev]);
-    setIsAddFindingOpen(false);
-    // Reset
-    setNewTitle("");
-    setNewUrl("");
-    setNewSourceName("");
-    setNewFinding("");
-    setNewNotes("");
-    setNewAttachmentRef("");
-    showNotification("New research finding logged with complete source attribution.");
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        throw new Error(data.message || "Failed to record finding");
+      }
+
+      setResearchItems((prev) => [data.data, ...prev]);
+      setIsAddFindingOpen(false);
+      setNewTitle("");
+      setNewUrl("");
+      setNewSourceName("");
+      setNewFinding("");
+      setNewNotes("");
+      setNewAttachmentRef("");
+      setNewFindingSubjectIds([]);
+      showNotification("Finding persisted with full source attribution and audit trail.");
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : "Error saving finding";
+      showNotification(msg, "error");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
-  const handleCreatePivot = (e: React.FormEvent) => {
+  const handleCreatePivot = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!newPivotInput.trim() || !newPivotOutput.trim()) return;
+    setIsSubmitting(true);
 
-    const newPiv: ResearchPivot = {
-      id: `piv-${Date.now()}`,
-      case_reference: selectedCaseRef,
-      pivot_type: newPivotType,
-      input_value: newPivotInput.trim(),
-      output_lead: newPivotOutput.trim(),
-      status: "OPEN",
-      target_tool: newPivotTargetTool.trim() || undefined,
-      created_by_user_id: "usr-chen",
-      created_by_name: selectedInvestigator,
-      created_at: new Date().toISOString().slice(0, 16).replace("T", " "),
-      updated_at: new Date().toISOString().slice(0, 16).replace("T", " "),
-    };
+    try {
+      const res = await fetch("/api/admin/research/pivots", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          case_reference: selectedCaseRef,
+          pivot_type: newPivotType,
+          input_value: newPivotInput,
+          output_lead: newPivotOutput,
+          target_tool: newPivotTargetTool,
+          notes: newPivotNotes,
+        }),
+      });
 
-    setPivots((prev) => [newPiv, ...prev]);
-    setIsAddPivotOpen(false);
-    setNewPivotInput("");
-    setNewPivotOutput("");
-    showNotification(`Investigative pivot added: ${newPivotType}`);
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        throw new Error(data.message || "Failed to record pivot");
+      }
+
+      setPivots((prev) => [data.data, ...prev]);
+      setIsAddPivotOpen(false);
+      setNewPivotInput("");
+      setNewPivotOutput("");
+      setNewPivotNotes("");
+      showNotification(`Investigative pivot added: [${newPivotType}]`);
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : "Error saving pivot";
+      showNotification(msg, "error");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
-  const handleSaveToCase = (
-    itemId: string,
-    action: "INTELLIGENCE" | "EVIDENCE" | "TIMELINE" | "SUBJECT"
+  const handleUpdatePivotStatus = async (
+    pivotId: string,
+    newStatus: ResearchPivot["status"]
   ) => {
-    setResearchItems((prev) =>
-      prev.map((item) =>
-        item.id === itemId
-          ? { ...item, saved_to_case: true, linked_entity_type: action }
-          : item
-      )
-    );
+    try {
+      const res = await fetch("/api/admin/research/pivots", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id: pivotId, status: newStatus }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        throw new Error(data.message || "Failed to update pivot");
+      }
 
-    const labels: Record<string, string> = {
-      INTELLIGENCE: "Created Intelligence Item in Case Dossier",
-      EVIDENCE: "Logged as Cryptographic Evidence Exhibit",
-      TIMELINE: "Committed to Immutable Case Chronology",
-      SUBJECT: "Linked to Subject Profile Dossier",
-    };
-    showNotification(`Finding successfully saved to ${selectedCaseRef}: ${labels[action]}`);
+      setPivots((prev) => prev.map((p) => (p.id === pivotId ? data.data : p)));
+      showNotification(`Pivot transitioned to ${newStatus}`);
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : "Error updating pivot";
+      showNotification(msg, "error");
+    }
+  };
+
+  const handlePromoteFinding = async (
+    findingId: string,
+    target: "INTELLIGENCE" | "EVIDENCE" | "TIMELINE" | "SUBJECT"
+  ) => {
+    try {
+      const res = await fetch("/api/admin/research/promote", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ findingId, target }),
+      });
+
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        throw new Error(data.message || "Transactional promotion failed");
+      }
+
+      setResearchItems((prev) =>
+        prev.map((item) =>
+          item.id === findingId
+            ? {
+                ...item,
+                saved_to_case: true,
+                linked_entity_type: target,
+                promoted_entity_id: data.data.promotedEntityId,
+              }
+            : item
+        )
+      );
+
+      const labels = {
+        INTELLIGENCE: "Created Intelligence Record in Case Dossier",
+        EVIDENCE: "Committed as Cryptographic Evidence Exhibit",
+        TIMELINE: "Committed to Immutable Case Chronology",
+        SUBJECT: "Linked to Subject Profile Dossier",
+      };
+      showNotification(`Transactional success: ${labels[target]}`);
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : "Promotion failed";
+      showNotification(msg, "error");
+    }
   };
 
   // Filter items
-  const filteredFindings = researchItems.filter((item) => {
-    if (filterCaseOnly && item.case_reference !== selectedCaseRef) return false;
-    if (filterConfidence !== "ALL" && item.confidence !== filterConfidence) return false;
-    return true;
-  });
+  const filteredFindings = useMemo(() => {
+    return researchItems.filter((item) => {
+      if (item.case_reference.toUpperCase() !== selectedCaseRef.toUpperCase()) return false;
+      if (filterConfidence !== "ALL" && item.confidence !== filterConfidence) return false;
+      if (filterSourceType !== "ALL" && item.source_type !== filterSourceType) return false;
+      if (filterPromotedState === "PROMOTED" && !item.saved_to_case) return false;
+      if (filterPromotedState === "UNCOMMITTED" && item.saved_to_case) return false;
+      if (selectedSubjectId !== "ALL") {
+        if (!item.subject_ids || !item.subject_ids.includes(selectedSubjectId)) return false;
+      }
+      return true;
+    });
+  }, [
+    researchItems,
+    selectedCaseRef,
+    filterConfidence,
+    filterSourceType,
+    filterPromotedState,
+    selectedSubjectId,
+  ]);
+
+  // Metric summaries (computed strictly from real data)
+  const stats = useMemo(() => {
+    const caseFindings = researchItems.filter(
+      (i) => i.case_reference.toUpperCase() === selectedCaseRef.toUpperCase()
+    );
+    const casePivots = pivots.filter(
+      (p) => p.case_reference.toUpperCase() === selectedCaseRef.toUpperCase()
+    );
+
+    return {
+      totalFindings: caseFindings.length,
+      verified: caseFindings.filter((i) => i.confidence === "Verified").length,
+      corroborated: caseFindings.filter((i) => i.confidence === "Corroborated").length,
+      possible: caseFindings.filter((i) => i.confidence === "Possible").length,
+      unverified: caseFindings.filter((i) => i.confidence === "Unverified").length,
+      disputed: caseFindings.filter((i) => i.confidence === "Disputed").length,
+      rejected: caseFindings.filter((i) => i.confidence === "Rejected").length,
+      promoted: caseFindings.filter((i) => i.saved_to_case).length,
+
+      totalPivots: casePivots.length,
+      openPivots: casePivots.filter((p) => p.status === "OPEN").length,
+      corroboratingPivots: casePivots.filter((p) => p.status === "CORROBORATING").length,
+      resolvedPivots: casePivots.filter((p) => p.status === "RESOLVED").length,
+      deadEnds: casePivots.filter((p) => p.status === "DEAD_END").length,
+    };
+  }, [researchItems, pivots, selectedCaseRef]);
 
   const getConfidenceBadge = (confidence: ResearchConfidence) => {
     switch (confidence) {
@@ -231,12 +410,12 @@ export default function DedicatedResearchWorkspacePage({
   };
 
   return (
-    <div className="p-6 max-w-[1700px] mx-auto space-y-5">
+    <div className="p-6 max-w-[1750px] mx-auto space-y-5">
       {/* HEADER SECTION */}
       <AdminPageHeader
-        label="INTELLIGENCE / RESEARCH WORKSPACE"
-        title="Open-Source Research & Investigative Pivots"
-        description="Controlled investigator workbench. Organize OSINT discoveries, track source attribution, formulate investigative pivots, and promote findings to formal case files."
+        label={`RESEARCH WORKSPACE / ${selectedCaseRef}`}
+        title="Open-Source Investigation Workbench"
+        description="Controlled investigator launchpad. Organise findings, track immutable source provenance, formulate pivot chains, and execute transactional promotion into case evidence and intelligence."
         actions={
           <div className="flex items-center gap-2">
             <Link
@@ -260,29 +439,39 @@ export default function DedicatedResearchWorkspacePage({
 
       {/* ACTION NOTICE TOAST */}
       {actionNotice && (
-        <div className="p-3 bg-emerald-50 border border-emerald-300 rounded-sm text-xs text-emerald-950 flex items-center justify-between shadow-xs">
+        <div
+          className={`p-3 border rounded-sm text-xs flex items-center justify-between shadow-xs ${
+            actionNotice.type === "success"
+              ? "bg-emerald-50 border-emerald-300 text-emerald-950"
+              : "bg-red-50 border-red-300 text-red-950"
+          }`}
+        >
           <div className="flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-emerald-700 shrink-0" />
-            <span className="font-medium">{actionNotice}</span>
+            {actionNotice.type === "success" ? (
+              <CheckCircle2 className="w-4 h-4 text-emerald-700 shrink-0" />
+            ) : (
+              <AlertCircle className="w-4 h-4 text-red-700 shrink-0" />
+            )}
+            <span className="font-medium">{actionNotice.msg}</span>
           </div>
-          <button onClick={() => setActionNotice(null)} className="text-emerald-700 hover:text-emerald-900">
+          <button onClick={() => setActionNotice(null)} className="text-admin-text-faint hover:text-admin-text">
             <X className="w-3.5 h-3.5" />
           </button>
         </div>
       )}
 
-      {/* WORKSPACE CASE CONTEXT BAR */}
+      {/* MATTER CONTEXT & OBJECTIVE BAR */}
       <div className="bg-white border border-admin-border rounded-sm shadow-admin-card p-4 space-y-3">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
-          {/* Active Case Selector */}
+          {/* Matter Selector */}
           <div>
             <label className="text-[10px] font-mono uppercase text-admin-text-faint block mb-1">
               Active Matter Reference
             </label>
             <select
               value={selectedCaseRef}
-              onChange={(e) => setSelectedCaseRef(e.target.value)}
-              className="w-full p-1.5 bg-admin-surface border border-admin-border rounded-xs text-xs font-mono text-admin-text focus:outline-none focus:border-admin-accent"
+              onChange={(e) => handleCaseChange(e.target.value)}
+              className="w-full p-1.5 bg-admin-surface border border-admin-border rounded-xs text-xs font-mono font-medium text-admin-text focus:outline-none focus:border-admin-accent"
             >
               {FIXTURE_CASES.map((c) => (
                 <option key={c.id} value={c.reference}>
@@ -292,52 +481,48 @@ export default function DedicatedResearchWorkspacePage({
             </select>
           </div>
 
-          {/* Subject Selector */}
+          {/* Subject Filter */}
           <div>
             <label className="text-[10px] font-mono uppercase text-admin-text-faint block mb-1">
-              Target Subject
+              Scoped Subject Filter
             </label>
             <select
-              value={selectedSubjectName}
-              onChange={(e) => setSelectedSubjectName(e.target.value)}
-              className="w-full p-1.5 bg-admin-surface border border-admin-border rounded-xs text-xs font-medium text-admin-text focus:outline-none focus:border-admin-accent"
+              value={selectedSubjectId}
+              onChange={(e) => setSelectedSubjectId(e.target.value)}
+              className="w-full p-1.5 bg-admin-surface border border-admin-border rounded-xs text-xs text-admin-text focus:outline-none focus:border-admin-accent"
             >
-              {FIXTURE_SUBJECTS.map((s) => (
-                <option key={s.id} value={s.name}>
+              <option value="ALL">All Subjects / General Matter ({availableSubjects.length})</option>
+              {availableSubjects.map((s) => (
+                <option key={s.id} value={s.id}>
                   {s.name} ({s.role || "SUBJECT"})
                 </option>
               ))}
             </select>
           </div>
 
-          {/* Lead Investigator */}
+          {/* Authenticated Actor Info */}
           <div>
             <label className="text-[10px] font-mono uppercase text-admin-text-faint block mb-1">
-              Investigator Lead
+              Session Investigator
             </label>
-            <select
-              value={selectedInvestigator}
-              onChange={(e) => setSelectedInvestigator(e.target.value)}
-              className="w-full p-1.5 bg-admin-surface border border-admin-border rounded-xs text-xs text-admin-text focus:outline-none focus:border-admin-accent"
-            >
-              {FIXTURE_USERS.map((u) => (
-                <option key={u.id} value={u.name}>
-                  {u.name} ({u.role})
-                </option>
-              ))}
-            </select>
+            <div className="p-1.5 bg-admin-surface border border-admin-border rounded-xs text-admin-text font-medium text-xs flex justify-between items-center">
+              <span>{activeMatter ? "Assigned Lead: " + (activeMatter.lead_investigator_id || "Officer") : "Active Officer"}</span>
+              <span className="text-[10px] font-mono text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded-xs">
+                Authenticated
+              </span>
+            </div>
           </div>
 
-          {/* Active Case Link */}
+          {/* Case Navigation link */}
           <div>
             <label className="text-[10px] font-mono uppercase text-admin-text-faint block mb-1">
               Matter Workspace Link
             </label>
             <div className="flex items-center justify-between p-1.5 bg-admin-surface border border-admin-border rounded-xs">
-              <span className="font-mono text-admin-accent font-medium">{selectedCaseRef}</span>
+              <span className="font-mono text-admin-accent font-semibold">{selectedCaseRef}</span>
               <Link
                 href={`/admin/cases/${selectedCaseRef}`}
-                className="text-[11px] text-admin-text hover:text-admin-accent font-medium flex items-center gap-1"
+                className="text-[11px] text-admin-text hover:text-admin-accent font-medium"
               >
                 Go to Matter &rarr;
               </Link>
@@ -345,8 +530,8 @@ export default function DedicatedResearchWorkspacePage({
           </div>
         </div>
 
-        {/* Research Objective Input */}
-        <div className="pt-2 border-t border-admin-border-subtle flex flex-col md:flex-row items-start md:items-center gap-2 text-xs">
+        {/* Research Objective Versioning Row */}
+        <div className="pt-2.5 border-t border-admin-border-subtle flex flex-col md:flex-row items-start md:items-center gap-2 text-xs">
           <span className="font-mono uppercase text-[10px] text-admin-text-faint whitespace-nowrap">
             Research Objective:
           </span>
@@ -356,6 +541,49 @@ export default function DedicatedResearchWorkspacePage({
             onChange={(e) => setResearchObjective(e.target.value)}
             className="flex-1 w-full bg-admin-surface border border-admin-border rounded-xs px-2.5 py-1 text-xs text-admin-text focus:outline-none focus:border-admin-accent"
           />
+          <button
+            onClick={handleSaveObjective}
+            disabled={isSavingObjective}
+            className="px-2.5 py-1 bg-admin-surface hover:bg-admin-hover text-admin-text border border-admin-border rounded-xs font-mono text-[10px] shrink-0"
+          >
+            {isSavingObjective ? "Saving..." : "Save Objective"}
+          </button>
+        </div>
+      </div>
+
+      {/* COMPACT REAL RESEARCH SUMMARY PANEL */}
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
+        <div className="bg-white border border-admin-border rounded-sm p-3 shadow-xs">
+          <span className="text-[10px] font-mono text-admin-text-faint uppercase block">Total Findings</span>
+          <div className="text-xl font-serif font-semibold text-admin-text mt-1">{stats.totalFindings}</div>
+          <span className="text-[10px] text-emerald-700 font-mono">{stats.promoted} promoted to case</span>
+        </div>
+        <div className="bg-white border border-admin-border rounded-sm p-3 shadow-xs">
+          <span className="text-[10px] font-mono text-admin-text-faint uppercase block">Verified / Corroborated</span>
+          <div className="text-xl font-serif font-semibold text-emerald-800 mt-1">
+            {stats.verified + stats.corroborated}
+          </div>
+          <span className="text-[10px] text-admin-text-muted font-mono">{stats.verified} Verified · {stats.corroborated} Corroborated</span>
+        </div>
+        <div className="bg-white border border-admin-border rounded-sm p-3 shadow-xs">
+          <span className="text-[10px] font-mono text-admin-text-faint uppercase block">Possible Leads</span>
+          <div className="text-xl font-serif font-semibold text-amber-800 mt-1">{stats.possible}</div>
+          <span className="text-[10px] text-amber-700 font-mono">Requires corroboration</span>
+        </div>
+        <div className="bg-white border border-admin-border rounded-sm p-3 shadow-xs">
+          <span className="text-[10px] font-mono text-admin-text-faint uppercase block">Disputed / Rejected</span>
+          <div className="text-xl font-serif font-semibold text-red-800 mt-1">{stats.disputed + stats.rejected}</div>
+          <span className="text-[10px] text-red-700 font-mono">{stats.rejected} rejected paths</span>
+        </div>
+        <div className="bg-white border border-admin-border rounded-sm p-3 shadow-xs">
+          <span className="text-[10px] font-mono text-admin-text-faint uppercase block">Active Pivots</span>
+          <div className="text-xl font-serif font-semibold text-admin-text mt-1">{stats.openPivots + stats.corroboratingPivots}</div>
+          <span className="text-[10px] text-admin-text-muted font-mono">{stats.openPivots} open · {stats.corroboratingPivots} pending</span>
+        </div>
+        <div className="bg-white border border-admin-border rounded-sm p-3 shadow-xs">
+          <span className="text-[10px] font-mono text-admin-text-faint uppercase block">Resolved / Dead Ends</span>
+          <div className="text-xl font-serif font-semibold text-admin-text mt-1">{stats.resolvedPivots + stats.deadEnds}</div>
+          <span className="text-[10px] text-stone-600 font-mono">{stats.deadEnds} dead ends retained</span>
         </div>
       </div>
 
@@ -383,7 +611,7 @@ export default function DedicatedResearchWorkspacePage({
             </div>
 
             <p className="text-[11px] text-admin-text-muted leading-relaxed">
-              Trace lead transitions across identities, corporate veils, phone handles, and property cadastres.
+              Trace transitions across identities, corporate veils, phone handles, and property records. Failed paths are kept as auditable methodology records.
             </p>
 
             <div className="space-y-2.5">
@@ -396,17 +624,26 @@ export default function DedicatedResearchWorkspacePage({
                     <span className="font-mono text-[10px] font-semibold text-admin-accent bg-admin-surface px-1 py-0.5 border border-admin-border-subtle rounded-xs">
                       {piv.pivot_type}
                     </span>
-                    <span
-                      className={`text-[9px] font-mono px-1 rounded-xs ${
+                    <select
+                      value={piv.status}
+                      onChange={(e) =>
+                        handleUpdatePivotStatus(piv.id, e.target.value as ResearchPivot["status"])
+                      }
+                      className={`text-[9px] font-mono px-1 py-0.5 rounded-xs border cursor-pointer ${
                         piv.status === "RESOLVED"
-                          ? "bg-emerald-50 text-emerald-800"
+                          ? "bg-emerald-50 text-emerald-800 border-emerald-200"
                           : piv.status === "CORROBORATING"
-                          ? "bg-sky-50 text-sky-800"
-                          : "bg-amber-50 text-amber-800"
+                          ? "bg-sky-50 text-sky-800 border-sky-200"
+                          : piv.status === "DEAD_END"
+                          ? "bg-stone-100 text-stone-700 border-stone-300"
+                          : "bg-amber-50 text-amber-800 border-amber-200"
                       }`}
                     >
-                      {piv.status}
-                    </span>
+                      <option value="OPEN">OPEN</option>
+                      <option value="CORROBORATING">CORROBORATING</option>
+                      <option value="RESOLVED">RESOLVED</option>
+                      <option value="DEAD_END">DEAD_END</option>
+                    </select>
                   </div>
 
                   <div className="text-[11px] text-admin-text-secondary mt-1">
@@ -428,36 +665,36 @@ export default function DedicatedResearchWorkspacePage({
             </div>
           </div>
 
-          {/* VERIFIED SOURCES INVENTORY */}
+          {/* VERIFIED ATTRIBUTED SOURCES */}
           <div className="bg-white border border-admin-border rounded-sm shadow-admin-card p-4 space-y-3">
             <h3 className="text-xs font-mono uppercase tracking-wider text-admin-text-muted border-b border-admin-border pb-2 flex items-center justify-between">
-              <span>Attributed Sources</span>
+              <span>Attributed Statutory Registries</span>
               <BookOpen className="w-3.5 h-3.5 text-admin-text-faint" />
             </h3>
 
             <div className="space-y-2 text-xs">
               <div className="p-2 bg-admin-surface border border-admin-border rounded-xs">
-                <span className="font-semibold text-admin-text block">Companies House UK</span>
-                <span className="text-[10px] font-mono text-admin-text-muted">Statutory Registry · 05/10/25</span>
+                <span className="font-semibold text-admin-text block">Companies House (UK)</span>
+                <span className="text-[10px] font-mono text-admin-text-muted">Primary Statutory Authority</span>
               </div>
               <div className="p-2 bg-admin-surface border border-admin-border rounded-xs">
                 <span className="font-semibold text-admin-text block">HM Land Registry</span>
-                <span className="text-[10px] font-mono text-admin-text-muted">Cadastral Deed · 06/10/25</span>
-              </div>
-              <div className="p-2 bg-admin-surface border border-admin-border rounded-xs">
-                <span className="font-semibold text-admin-text block">Sharjah Media City (SHAMS)</span>
-                <span className="text-[10px] font-mono text-admin-text-muted">Free Zone Portal · 05/10/25</span>
+                <span className="text-[10px] font-mono text-admin-text-muted">Cadastral Title Register</span>
               </div>
               <div className="p-2 bg-admin-surface border border-admin-border rounded-xs">
                 <span className="font-semibold text-admin-text block">Internet Archive Wayback</span>
-                <span className="text-[10px] font-mono text-admin-text-muted">Historical Snapshot · 05/10/25</span>
+                <span className="text-[10px] font-mono text-admin-text-muted">Historical Snapshot Provenance</span>
+              </div>
+              <div className="p-2 bg-admin-surface border border-admin-border rounded-xs">
+                <span className="font-semibold text-admin-text block">Sharjah Media City (SHAMS)</span>
+                <span className="text-[10px] font-mono text-admin-text-muted">Overseas Free Zone Register</span>
               </div>
             </div>
           </div>
         </div>
 
         {/* ============================================================== */}
-        {/* CENTRE COLUMN: RESEARCH NOTES & FINDINGS (6 COLS) */}
+        {/* CENTRE COLUMN: RESEARCH FINDINGS & PROMOTION (6 COLS) */}
         {/* ============================================================== */}
         <div className="lg:col-span-6 space-y-4">
           <div className="bg-white border border-admin-border rounded-sm shadow-admin-card p-4 space-y-3">
@@ -471,7 +708,7 @@ export default function DedicatedResearchWorkspacePage({
                 </span>
               </div>
 
-              {/* Filters */}
+              {/* Multi-facet Filter Controls */}
               <div className="flex items-center gap-2 text-xs">
                 <select
                   value={filterConfidence}
@@ -486,28 +723,27 @@ export default function DedicatedResearchWorkspacePage({
                   ))}
                 </select>
 
-                <button
-                  onClick={() => setFilterCaseOnly((v) => !v)}
-                  className={`px-2 py-1 text-[10px] font-mono border rounded-xs ${
-                    filterCaseOnly
-                      ? "bg-admin-accent/15 border-admin-accent text-admin-text"
-                      : "bg-admin-surface border-admin-border text-admin-text-muted"
-                  }`}
+                <select
+                  value={filterPromotedState}
+                  onChange={(e) => setFilterPromotedState(e.target.value)}
+                  className="p-1 text-xs bg-admin-surface border border-admin-border rounded-xs text-admin-text font-mono"
                 >
-                  {filterCaseOnly ? "Case Scoped" : "All Matters"}
-                </button>
+                  <option value="ALL">All States</option>
+                  <option value="PROMOTED">Promoted Only</option>
+                  <option value="UNCOMMITTED">Uncommitted Only</option>
+                </select>
               </div>
             </div>
 
             {/* Findings List */}
             {filteredFindings.length === 0 ? (
               <div className="p-8 text-center text-xs text-admin-text-muted space-y-2">
-                <p>No findings recorded under current filter parameters.</p>
+                <p>No research findings match the current filter criteria for {selectedCaseRef}.</p>
                 <button
                   onClick={() => setIsAddFindingOpen(true)}
                   className="text-admin-accent hover:underline font-mono"
                 >
-                  + Log first finding for this case
+                  + Log initial finding for this case
                 </button>
               </div>
             ) : (
@@ -525,9 +761,14 @@ export default function DedicatedResearchWorkspacePage({
                           {getConfidenceBadge(item.confidence)}
                         </div>
                         <div className="text-[11px] text-admin-text-muted flex items-center gap-2 mt-0.5">
-                          <span>Target: <strong className="text-admin-text">{item.subject_name}</strong></span>
+                          <span>
+                            Target:{" "}
+                            <strong className="text-admin-text">
+                              {item.subject_name || "Case General / All Subjects"}
+                            </strong>
+                          </span>
                           <span>·</span>
-                          <span className="font-mono">{item.case_reference}</span>
+                          <span className="font-mono text-admin-accent">{item.case_reference}</span>
                         </div>
                       </div>
 
@@ -576,43 +817,45 @@ export default function DedicatedResearchWorkspacePage({
                       </div>
                     )}
 
-                    {/* ACTION ROW: SAVE TO CASE */}
+                    {/* ACTION ROW: TRANSACTIONAL PROMOTION CONTROLS */}
                     <div className="pt-2 border-t border-admin-border flex flex-wrap justify-between items-center gap-2 text-xs">
                       {item.saved_to_case ? (
                         <div className="flex items-center gap-1 text-[11px] text-emerald-700 font-mono">
                           <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-                          <span>Committed to Case Dossier ({item.linked_entity_type})</span>
+                          <span>
+                            Persisted to Case Dossier ({item.linked_entity_type})
+                          </span>
                         </div>
                       ) : (
                         <span className="text-[10px] font-mono text-admin-text-faint">
-                          Uncommitted Investigation Lead
+                          Uncommitted Research Finding
                         </span>
                       )}
 
                       <div className="flex items-center gap-1.5">
                         <button
-                          onClick={() => handleSaveToCase(item.id, "INTELLIGENCE")}
+                          onClick={() => handlePromoteFinding(item.id, "INTELLIGENCE")}
                           className="px-2 py-1 bg-admin-surface hover:bg-admin-hover text-admin-text border border-admin-border text-[10px] font-mono rounded-xs transition-colors"
                           title="Save as Intelligence Dossier Item"
                         >
                           + Intel
                         </button>
                         <button
-                          onClick={() => handleSaveToCase(item.id, "EVIDENCE")}
+                          onClick={() => handlePromoteFinding(item.id, "EVIDENCE")}
                           className="px-2 py-1 bg-admin-surface hover:bg-admin-hover text-admin-text border border-admin-border text-[10px] font-mono rounded-xs transition-colors"
                           title="Register as Formal Evidence Exhibit"
                         >
                           + Evidence
                         </button>
                         <button
-                          onClick={() => handleSaveToCase(item.id, "TIMELINE")}
+                          onClick={() => handlePromoteFinding(item.id, "TIMELINE")}
                           className="px-2 py-1 bg-admin-surface hover:bg-admin-hover text-admin-text border border-admin-border text-[10px] font-mono rounded-xs transition-colors"
                           title="Add to Immutable Matter Chronology"
                         >
                           + Timeline
                         </button>
                         <button
-                          onClick={() => handleSaveToCase(item.id, "SUBJECT")}
+                          onClick={() => handlePromoteFinding(item.id, "SUBJECT")}
                           className="px-2 py-1 bg-admin-surface hover:bg-admin-hover text-admin-text border border-admin-border text-[10px] font-mono rounded-xs transition-colors"
                           title="Link Finding to Subject Dossier"
                         >
@@ -635,7 +878,7 @@ export default function DedicatedResearchWorkspacePage({
           <div className="bg-white border border-admin-border rounded-sm shadow-admin-card p-4 space-y-3">
             <div className="flex justify-between items-center border-b border-admin-border pb-2">
               <h3 className="text-xs font-mono uppercase tracking-wider text-admin-text font-semibold">
-                Promoted to Case ({researchItems.filter((i) => i.saved_to_case).length})
+                Promoted to Case ({stats.promoted})
               </h3>
               <span className="text-[10px] font-mono text-emerald-700 bg-emerald-50 px-1 py-0.5 rounded-xs">
                 Audited
@@ -643,12 +886,16 @@ export default function DedicatedResearchWorkspacePage({
             </div>
 
             <p className="text-[11px] text-admin-text-muted leading-relaxed">
-              Items committed to matter files carry full researcher timestamp, URL source integrity, and corroboration notes.
+              Items committed to matter files carry complete researcher timestamps, source integrity hashes, and audit log entries.
             </p>
 
             <div className="space-y-2">
               {researchItems
-                .filter((i) => i.saved_to_case)
+                .filter(
+                  (i) =>
+                    i.case_reference.toUpperCase() === selectedCaseRef.toUpperCase() &&
+                    i.saved_to_case
+                )
                 .map((comm) => (
                   <div key={comm.id} className="p-2 bg-admin-surface border border-admin-border rounded-xs text-xs space-y-1">
                     <div className="flex justify-between items-center text-[10px] font-mono">
@@ -657,7 +904,7 @@ export default function DedicatedResearchWorkspacePage({
                     </div>
                     <p className="font-medium text-admin-text text-[11px] line-clamp-1">{comm.title}</p>
                     <span className="text-[10px] text-admin-text-muted font-mono block">
-                      Ref: {comm.evidence_attachment || "Affidavit Note"}
+                      Ref: {comm.evidence_attachment || "Affidavit Item"}
                     </span>
                   </div>
                 ))}
@@ -667,44 +914,36 @@ export default function DedicatedResearchWorkspacePage({
           {/* ACTIVE INVESTIGATIVE ENTITIES */}
           <div className="bg-white border border-admin-border rounded-sm shadow-admin-card p-4 space-y-3">
             <h3 className="text-xs font-mono uppercase tracking-wider text-admin-text-muted border-b border-admin-border pb-2 flex items-center justify-between">
-              <span>Identified Entities</span>
+              <span>Scoped Subjects ({availableSubjects.length})</span>
               <Layers className="w-3.5 h-3.5 text-admin-text-faint" />
             </h3>
 
             <div className="space-y-2 text-xs">
-              <div className="p-2 border border-admin-border rounded-xs bg-admin-surface/40">
-                <span className="font-semibold text-admin-text block">Arthur Pendelton</span>
-                <span className="text-[10px] font-mono text-admin-text-muted">Primary Subject · London NW8</span>
-              </div>
-              <div className="p-2 border border-admin-border rounded-xs bg-admin-surface/40">
-                <span className="font-semibold text-admin-text block">Apex International Logistics FZE</span>
-                <span className="text-[10px] font-mono text-admin-text-muted">Target Entity · UAE Free Zone</span>
-              </div>
-              <div className="p-2 border border-admin-border rounded-xs bg-admin-surface/40">
-                <span className="font-semibold text-admin-text block">Oakwood Premier Properties Ltd</span>
-                <span className="text-[10px] font-mono text-admin-text-muted">Corporate Asset · Companies House</span>
-              </div>
-              <div className="p-2 border border-admin-border rounded-xs bg-admin-surface/40">
-                <span className="font-semibold text-admin-text block">Julian Vance</span>
-                <span className="text-[10px] font-mono text-admin-text-muted">Evasive Director · Ascot Address</span>
-              </div>
+              {availableSubjects.map((s) => (
+                <div key={s.id} className="p-2 border border-admin-border rounded-xs bg-admin-surface/40">
+                  <span className="font-semibold text-admin-text block">{s.name}</span>
+                  <span className="text-[10px] font-mono text-admin-text-muted">
+                    {s.role} · {s.confidence_rating || "CONFIRMED"}
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* NO AUTOMATIC SCRAPING GUARANTEE BANNER */}
+          {/* CONTROLLED RESEARCH DIRECTIVE */}
           <div className="p-3 bg-stone-100 border border-stone-300 rounded-sm space-y-1 text-xs">
             <span className="font-mono font-semibold text-[10px] uppercase text-stone-800 block">
-              Governance & Integrity Assurance
+              Governance & Integrity Directive
             </span>
             <p className="text-[11px] text-stone-700 leading-snug">
-              This system does not execute automated background web-scraping or unauthenticated third-party ingestions. All items originate from human investigator research with verifiable statutory or open provenance.
+              External tools serve strictly as launchpads for investigative leads. Algorithmic facial search or automated scraper matches never constitute confirmed identity without primary statutory corroboration.
             </p>
           </div>
         </div>
       </div>
 
       {/* ============================================================== */}
-      {/* MODAL: LOG NEW RESEARCH FINDING */}
+      {/* MODAL: LOG NEW ATTRIBUTED FINDING */}
       {/* ============================================================== */}
       {isAddFindingOpen && (
         <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex items-center justify-center p-4">
@@ -822,6 +1061,29 @@ export default function DedicatedResearchWorkspacePage({
 
                 <div>
                   <label className="block text-[11px] font-medium text-admin-text mb-1">
+                    Target Subject(s) Association
+                  </label>
+                  <select
+                    multiple
+                    value={newFindingSubjectIds}
+                    onChange={(e) => {
+                      const selected = Array.from(e.target.selectedOptions, (opt) => opt.value);
+                      setNewFindingSubjectIds(selected);
+                    }}
+                    className="w-full p-1.5 bg-admin-surface border border-admin-border rounded-xs text-xs text-admin-text focus:outline-none focus:border-admin-accent h-16"
+                  >
+                    {availableSubjects.map((s) => (
+                      <option key={s.id} value={s.id}>
+                        {s.name} ({s.role})
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-[11px] font-medium text-admin-text mb-1">
                     Evidence File / Screenshot Reference
                   </label>
                   <input
@@ -832,19 +1094,19 @@ export default function DedicatedResearchWorkspacePage({
                     className="w-full p-2 bg-admin-surface border border-admin-border rounded-xs text-xs font-mono text-admin-text focus:outline-none focus:border-admin-accent"
                   />
                 </div>
-              </div>
 
-              <div>
-                <label className="block text-[11px] font-medium text-admin-text mb-1">
-                  Investigator Notes & Operational Significance
-                </label>
-                <input
-                  type="text"
-                  value={newNotes}
-                  onChange={(e) => setNewNotes(e.target.value)}
-                  placeholder="e.g. Cross-check against bank statements disclosed in High Court discovery bundle."
-                  className="w-full p-2 bg-admin-surface border border-admin-border rounded-xs text-xs text-admin-text focus:outline-none focus:border-admin-accent"
-                />
+                <div>
+                  <label className="block text-[11px] font-medium text-admin-text mb-1">
+                    Investigator Notes & Operational Significance
+                  </label>
+                  <input
+                    type="text"
+                    value={newNotes}
+                    onChange={(e) => setNewNotes(e.target.value)}
+                    placeholder="e.g. Discrepancy observed against witness statement."
+                    className="w-full p-2 bg-admin-surface border border-admin-border rounded-xs text-xs text-admin-text focus:outline-none focus:border-admin-accent"
+                  />
+                </div>
               </div>
 
               <div className="pt-3 border-t border-admin-border flex justify-end gap-2">
@@ -857,10 +1119,11 @@ export default function DedicatedResearchWorkspacePage({
                 </button>
                 <button
                   type="submit"
+                  disabled={isSubmitting}
                   className="px-4 py-1.5 bg-admin-text hover:bg-admin-text/90 text-white font-medium rounded-xs flex items-center gap-1.5"
                 >
                   <Save className="w-3.5 h-3.5" />
-                  Save Finding
+                  {isSubmitting ? "Persisting..." : "Save Finding"}
                 </button>
               </div>
             </form>
@@ -877,7 +1140,7 @@ export default function DedicatedResearchWorkspacePage({
             <div className="flex justify-between items-center border-b border-admin-border pb-3">
               <div>
                 <span className="text-[10px] font-mono uppercase text-admin-text-faint">
-                  Methodology Engine
+                  Methodology Engine · {selectedCaseRef}
                 </span>
                 <h2 className="text-base font-semibold text-admin-text">New Investigative Pivot</h2>
               </div>
@@ -937,13 +1200,26 @@ export default function DedicatedResearchWorkspacePage({
 
               <div>
                 <label className="block text-[11px] font-medium text-admin-text mb-1">
-                  Recommended Investigative Tool
+                  Target Investigative Tool
                 </label>
                 <input
                   type="text"
                   value={newPivotTargetTool}
                   onChange={(e) => setNewPivotTargetTool(e.target.value)}
                   placeholder="e.g. Companies House / Maltego / Land Registry"
+                  className="w-full p-2 bg-admin-surface border border-admin-border rounded-xs text-xs text-admin-text focus:outline-none focus:border-admin-accent"
+                />
+              </div>
+
+              <div>
+                <label className="block text-[11px] font-medium text-admin-text mb-1">
+                  Investigative Notes
+                </label>
+                <input
+                  type="text"
+                  value={newPivotNotes}
+                  onChange={(e) => setNewPivotNotes(e.target.value)}
+                  placeholder="e.g. Verify whether nominee directors are registered."
                   className="w-full p-2 bg-admin-surface border border-admin-border rounded-xs text-xs text-admin-text focus:outline-none focus:border-admin-accent"
                 />
               </div>
@@ -958,10 +1234,11 @@ export default function DedicatedResearchWorkspacePage({
                 </button>
                 <button
                   type="submit"
+                  disabled={isSubmitting}
                   className="px-4 py-1.5 bg-admin-text hover:bg-admin-text/90 text-white font-medium rounded-xs flex items-center gap-1.5"
                 >
                   <Plus className="w-3.5 h-3.5" />
-                  Add Pivot
+                  {isSubmitting ? "Adding..." : "Add Pivot"}
                 </button>
               </div>
             </form>

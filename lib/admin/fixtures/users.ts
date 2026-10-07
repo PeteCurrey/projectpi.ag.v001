@@ -8,7 +8,7 @@ import type { User } from "@/lib/db/types";
 export const FIXTURE_USERS: User[] = [
   {
     id: "usr-001",
-    email: "d.mercer@private-intelligence.co.uk",
+    email: "d.mercer@tfts.co.uk",
     name: "David Mercer",
     telephone: "+44 20 7946 0100",
     role: "ADMIN",
@@ -20,7 +20,7 @@ export const FIXTURE_USERS: User[] = [
   },
   {
     id: "usr-002",
-    email: "s.chen@private-intelligence.co.uk",
+    email: "s.chen@tfts.co.uk",
     name: "Sarah Chen",
     telephone: "+44 20 7946 0101",
     role: "INVESTIGATOR",
@@ -32,7 +32,7 @@ export const FIXTURE_USERS: User[] = [
   },
   {
     id: "usr-003",
-    email: "j.whitfield@private-intelligence.co.uk",
+    email: "j.whitfield@tfts.co.uk",
     name: "James Whitfield",
     role: "INVESTIGATOR",
     status: "ACTIVE",
@@ -43,7 +43,7 @@ export const FIXTURE_USERS: User[] = [
   },
   {
     id: "usr-004",
-    email: "e.preston@private-intelligence.co.uk",
+    email: "e.preston@tfts.co.uk",
     name: "Emma Preston",
     role: "CASE_MANAGER",
     status: "ACTIVE",
@@ -54,7 +54,7 @@ export const FIXTURE_USERS: User[] = [
   },
   {
     id: "usr-005",
-    email: "t.hardy@private-intelligence.co.uk",
+    email: "t.hardy@tfts.co.uk",
     name: "Thomas Hardy",
     role: "INVESTIGATOR",
     status: "ACTIVE",

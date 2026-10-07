@@ -1,6 +1,6 @@
 // ============================================================
 // MFA — TOTP Implementation
-// Private Intelligence & Investigations Platform
+// TFTS — Tactical Field Intelligence Service
 // ============================================================
 // Time-based One-Time Passwords compatible with Google Authenticator,
 // Authy, 1Password, and other TOTP apps.
@@ -8,8 +8,9 @@
 
 import { generateSecret, generateURI, verifySync } from "otplib";
 import { randomBytes, createHash } from "crypto";
+import { BRAND_PREFERRED } from "@/lib/config/brand";
 
-const MFA_ISSUER = process.env.MFA_ISSUER ?? "Private Intelligence & Investigations";
+const MFA_ISSUER = process.env.MFA_ISSUER ?? BRAND_PREFERRED;
 const BACKUP_CODE_COUNT = 10;
 
 /**

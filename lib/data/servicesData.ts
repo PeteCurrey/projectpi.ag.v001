@@ -384,7 +384,7 @@ export const servicesData: Record<string, ServiceDetail> = {
       { question: "How do you protect the identity of the instructing client?", answer: "Client identity is strictly protected. Our investigations are conducted with complete operational independence, ensuring our client is never disclosed to targets or sources." },
       { question: "How quickly can an intelligence assessment be completed?", answer: "Urgent situational briefs can be delivered within 48 to 72 hours, while comprehensive multi-jurisdictional intelligence projects typically span 2 to 3 weeks." },
     ],
-    metaTitle: "Private Intelligence & Corporate Advisory UK | Strategic Intelligence Firm",
+    metaTitle: "Private Intelligence & Corporate Advisory UK | TFTS",
     metaDescription: "Strategic corporate intelligence and advisory services in London. Uncovering counterparty motives, competitive intelligence, and high-value risk factors.",
   },
 
@@ -519,7 +519,7 @@ export const servicesData: Record<string, ServiceDetail> = {
       { question: "Do you follow ACPO principles for digital evidence?", answer: "Yes, all data handling strictly conforms to the Good Practice Guide for Digital Evidence and ISO/IEC standards to ensure unimpeachable court admissibility." },
       { question: "Can you trace cryptocurrency stolen in an investment fraud?", answer: "Yes, our blockchain analytics specialists trace funds across transactions, identify mixing service interactions, and pinpoint regulated exchange off-ramps." },
     ],
-    metaTitle: "Digital Investigations & Cyber Forensics UK | Private Intelligence",
+    metaTitle: "Digital Investigations & Cyber Forensics UK | TFTS",
     metaDescription: "Discreet digital investigations into data exfiltration, business email compromise, online defamation, and cryptocurrency fraud. Court-compliant digital evidence.",
   },
 
@@ -587,7 +587,7 @@ export const servicesData: Record<string, ServiceDetail> = {
       { question: "How do you prove beneficial ownership behind offshore companies?", answer: "Through cross-border corporate filings, historic conveyancing documents, mortgage charges, planning applications, local human intelligence, and digital footprints." },
       { question: "What is the typical timeframe for an asset tracing investigation?", answer: "UK-focused asset tracing typically takes 5 to 10 working days; complex multi-jurisdictional offshore investigations require 2 to 4 weeks." },
     ],
-    metaTitle: "Asset Tracing & Recovery UK | International Private Intelligence",
+    metaTitle: "Asset Tracing & Recovery UK | TFTS",
     metaDescription: "Specialist asset tracing for commercial litigation, debt enforcement, and high-value divorce. Identifying hidden property, corporate shares, and offshore assets.",
   },
 
@@ -723,7 +723,7 @@ export const servicesData: Record<string, ServiceDetail> = {
       { question: "How does this compare to standard HR background screening?", answer: "Standard HR checks use automated software that ticks boxes. Our investigations are led by experienced intelligence analysts who cross-examine records, uncover hidden entities, and detect deliberate concealment." },
       { question: "Can you investigate international candidates?", answer: "Yes, we regularly investigate individuals across Europe, North America, the Middle East, Asia, and offshore jurisdictions." },
     ],
-    metaTitle: "Executive Background Investigations UK | Private Intelligence London",
+    metaTitle: "Executive Background Investigations UK | TFTS",
     metaDescription: "Comprehensive executive background checks and integrity vetting for board appointments, private equity partners, and family offices.",
   },
 
@@ -791,7 +791,7 @@ export const servicesData: Record<string, ServiceDetail> = {
       { question: "How do you ensure evidence is admissible in court?", answer: "All operations are carried out strictly within UK statutory guidelines, ensuring full compliance with CPR rules, PACE where relevant, and data protection legislation." },
       { question: "Do you assist with emergency injunctions?", answer: "Yes, our team can be mobilized on short notice to gather evidence required for ex-parte freezing injunctions and search orders." },
     ],
-    metaTitle: "Legal Investigations & Litigation Support UK | London Private Intelligence",
+    metaTitle: "Legal Investigations & Litigation Support UK | TFTS",
     metaDescription: "Discreet legal investigations for solicitors, barristers, and corporate counsel. Civil evidence gathering, witness tracing, and litigation support in London.",
   },
 
@@ -1197,7 +1197,7 @@ export const servicesData: Record<string, ServiceDetail> = {
       { question: "How do you manage operations in ultra-secure private members' clubs or hotels?", answer: "Our operatives possess the profile, demeanor, and resources to integrate seamlessly into exclusive London and international environments without attracting scrutiny." },
       { question: "Is covert surveillance permitted under UK human rights laws?", answer: "Yes, provided the surveillance is necessary, proportionate, and balances legitimate commercial or legal interests against the subject's reasonable expectation of privacy." },
     ],
-    metaTitle: "Covert Surveillance UK | High-Discretion Private Intelligence",
+    metaTitle: "Covert Surveillance UK | TFTS",
     metaDescription: "Elite covert surveillance operations in London and the UK. Former military and intelligence personnel delivering court-grade visual evidence.",
   },
 
@@ -1400,7 +1400,7 @@ export const servicesData: Record<string, ServiceDetail> = {
       { question: "What should I do immediately after discovering a major fraud?", answer: "Preserve all communications, transaction slips, and emails. Engage specialized investigators and legal counsel immediately before funds are transferred to uncooperative jurisdictions." },
       { question: "Can you coordinate with law enforcement (Action Fraud, Serious Fraud Office)?", answer: "Yes, we regularly assemble formal prosecution evidentiary files that can be submitted directly to the SFO, City of London Police, or National Crime Agency." },
     ],
-    metaTitle: "Financial & Fraud Investigations UK | Private Intelligence Firm",
+    metaTitle: "Financial & Fraud Investigations UK | TFTS",
     metaDescription: "Specialist financial and fraud investigations in London. Unmasking investment scams, asset stripping, civil deceit, and international financial crime.",
   },
 };

@@ -20,12 +20,12 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
     <div className="w-full max-w-sm px-6">
       {/* Branding */}
       <div className="mb-8 text-center">
-        <div className="w-8 h-8 bg-admin-text rounded-xs flex items-center justify-center mx-auto mb-4">
-          <span className="text-[11px] font-serif text-white font-medium">PI</span>
+        <div className="w-9 h-8 bg-admin-text rounded-xs flex items-center justify-center mx-auto mb-4">
+          <span className="text-[11px] font-mono text-white font-semibold tracking-wider">TFTS</span>
         </div>
-        <h1 className="text-base font-medium text-admin-text">Private Intelligence</h1>
+        <h1 className="text-base font-medium text-admin-text">TFTS Directorate</h1>
         <p className="text-[11px] text-admin-text-muted font-mono uppercase tracking-wider mt-1">
-          Secure Administration Console
+          Tactical Field Intelligence Service · Secure Console
         </p>
       </div>
 

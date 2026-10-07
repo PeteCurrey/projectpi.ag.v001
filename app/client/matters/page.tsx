@@ -3,7 +3,7 @@ import Link from "next/link";
 import { FolderKanban, ArrowRight, Search, Filter } from "lucide-react";
 
 export const metadata = {
-  title: "Client Matters Archive | Private Intelligence & Investigations",
+  title: "Client Matters Archive | TFTS Client Portal",
   robots: "noindex, nofollow",
 };
 

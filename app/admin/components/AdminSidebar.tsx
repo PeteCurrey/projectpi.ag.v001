@@ -194,15 +194,15 @@ export default function AdminSidebar() {
       {/* Logo / Branding */}
       <div className="px-4 py-4 border-b border-admin-border shrink-0">
         <div className="flex items-center gap-2.5">
-          <div className="w-6 h-6 bg-admin-text rounded-xs flex items-center justify-center shrink-0">
-            <span className="text-[9px] font-serif text-white font-medium">PI</span>
+          <div className="w-8 h-6 bg-admin-text rounded-xs flex items-center justify-center shrink-0">
+            <span className="text-[9px] font-mono text-white font-semibold tracking-wider">TFTS</span>
           </div>
           <div>
             <p className="text-[11px] font-medium text-admin-text leading-none">
-              Private Intelligence
+              TFTS Directorate
             </p>
             <p className="text-[9px] text-admin-text-faint font-mono uppercase tracking-wider mt-0.5">
-              Admin Console
+              Operations Console
             </p>
           </div>
         </div>

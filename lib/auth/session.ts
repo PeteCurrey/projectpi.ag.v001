@@ -131,7 +131,7 @@ import { ALL_PERMISSIONS } from "@/lib/rbac/permissions";
 const DEV_SESSION: AdminSession = {
   userId: "usr-dev-001",
   name: "Development User",
-  email: "dev@private-intelligence.co.uk",
+  email: "dev@tfts.co.uk",
   role: "SUPER_ADMIN",
   permissions: ALL_PERMISSIONS,
   mfaVerified: true,

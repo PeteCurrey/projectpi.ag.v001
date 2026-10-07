@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 
 export const metadata = {
-  title: "Client Portal Overview | Private Intelligence & Investigations",
+  title: "Client Portal Overview | TFTS Client Portal",
   robots: "noindex, nofollow",
 };
 

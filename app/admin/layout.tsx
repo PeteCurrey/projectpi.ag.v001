@@ -5,8 +5,8 @@ import { getUnreadNotifications } from "@/lib/admin/fixtures/notifications";
 
 export const metadata: Metadata = {
   title: {
-    template: "%s — PI Admin",
-    default: "Admin Console",
+    template: "%s — TFTS Directorate",
+    default: "TFTS Operations Console",
   },
   robots: "noindex, nofollow",
 };
