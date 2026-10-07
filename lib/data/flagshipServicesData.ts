@@ -359,7 +359,6 @@ export const FLAGSHIP_SERVICES: Record<string, FlagshipServiceConfig> = {
         {
           number: "02",
           name: "Network & Entity Profiling",
-          detail: "",
           description:
             "Interrogating domestic and international registries to reveal undisclosed ties between internal suspects and external vendors.",
         },

@@ -2,8 +2,9 @@ import React from "react";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { servicesData } from "@/lib/data/servicesData";
+import { FLAGSHIP_SERVICES } from "@/lib/data/flagshipServicesData";
 import ServicePageTemplate from "@/components/services/ServicePageTemplate";
-
+import FlagshipPageContainer from "@/components/services/flagship/FlagshipPageContainer";
 import { getCanonicalUrl } from "@/lib/config/brand";
 
 interface ServicePageProps {
@@ -20,39 +21,48 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: ServicePageProps): Promise<Metadata> {
   const { slug } = await params;
-  const service = servicesData[slug];
+  const flagship = FLAGSHIP_SERVICES[slug];
+  const standard = servicesData[slug];
 
-  if (!service) {
+  if (!flagship && !standard) {
     return {
       title: "Service Not Found",
     };
   }
 
-  const canonicalUrl = getCanonicalUrl(`/services/${service.slug}`);
+  const title = flagship ? flagship.metaTitle : standard.metaTitle;
+  const description = flagship ? flagship.metaDescription : standard.metaDescription;
+  const canonicalUrl = getCanonicalUrl(`/services/${slug}`);
 
   return {
-    title: service.metaTitle,
-    description: service.metaDescription,
+    title,
+    description,
     alternates: {
       canonical: canonicalUrl,
     },
     openGraph: {
-      title: service.metaTitle,
-      description: service.metaDescription,
+      title,
+      description,
       url: canonicalUrl,
       type: "website",
     },
   };
 }
 
-
 export default async function ServicePage({ params }: ServicePageProps) {
   const { slug } = await params;
-  const service = servicesData[slug];
+  const flagship = FLAGSHIP_SERVICES[slug];
+  const standard = servicesData[slug];
 
-  if (!service) {
+  if (!flagship && !standard) {
     notFound();
   }
 
-  return <ServicePageTemplate service={service} />;
+  // If this service is one of the ten flagship commercial services, render the elevated editorial container
+  if (flagship) {
+    return <FlagshipPageContainer service={flagship} />;
+  }
+
+  // Fallback to standard ServicePageTemplate for other services
+  return <ServicePageTemplate service={standard} />;
 }
