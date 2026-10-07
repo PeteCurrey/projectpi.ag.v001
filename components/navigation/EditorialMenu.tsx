@@ -68,7 +68,7 @@ export default function EditorialMenu({ isOpen, onClose }: EditorialMenuProps) {
             <span className="text-[10px] uppercase font-mono tracking-ultra text-brass block">
               DISCIPLINE 01
             </span>
-            <h3 className="text-lg font-light tracking-wide text-warmWhite font-serif">
+            <h3 className="text-lg font-light tracking-wide text-warmWhite">
               Corporate Investigations
             </h3>
           </div>
@@ -99,7 +99,7 @@ export default function EditorialMenu({ isOpen, onClose }: EditorialMenuProps) {
             <span className="text-[10px] uppercase font-mono tracking-ultra text-brass block">
               DISCIPLINE 02
             </span>
-            <h3 className="text-lg font-light tracking-wide text-warmWhite font-serif">
+            <h3 className="text-lg font-light tracking-wide text-warmWhite">
               Intelligence & OSINT
             </h3>
           </div>
@@ -130,7 +130,7 @@ export default function EditorialMenu({ isOpen, onClose }: EditorialMenuProps) {
             <span className="text-[10px] uppercase font-mono tracking-ultra text-brass block">
               DISCIPLINE 03
             </span>
-            <h3 className="text-lg font-light tracking-wide text-warmWhite font-serif">
+            <h3 className="text-lg font-light tracking-wide text-warmWhite">
               Legal & Litigation
             </h3>
           </div>
@@ -161,7 +161,7 @@ export default function EditorialMenu({ isOpen, onClose }: EditorialMenuProps) {
             <span className="text-[10px] uppercase font-mono tracking-ultra text-brass block">
               DISCIPLINE 04
             </span>
-            <h3 className="text-lg font-light tracking-wide text-warmWhite font-serif">
+            <h3 className="text-lg font-light tracking-wide text-warmWhite">
               Field & Surveillance
             </h3>
           </div>
@@ -206,7 +206,7 @@ export default function EditorialMenu({ isOpen, onClose }: EditorialMenuProps) {
             <Link
               href="/confidential-enquiry"
               onClick={onClose}
-              className="inline-flex items-center justify-center space-x-2 bg-brass hover:bg-brass-light text-obsidian px-5 py-2.5 text-xs uppercase tracking-widest font-medium transition-colors rounded-xs shadow-etched"
+              className="inline-flex items-center justify-center space-x-2 bg-brass hover:bg-brass-light text-obsidian px-5 py-2.5 text-xs uppercase tracking-widest font-light transition-colors rounded-xs shadow-etched"
             >
               <span>Begin Confidential Enquiry</span>
               <ArrowUpRight className="w-4 h-4" />

@@ -66,17 +66,27 @@ const config: Config = {
           "accent-subtle": "rgba(165,138,92,0.10)",
           "accent-border": "rgba(165,138,92,0.25)",
         },
+        // Editorial corporate palette (Rule 04)
+        editorial: {
+          bg: "#F5F3EE",
+          surface: "#E8E5DE",
+          text: "#111111",
+          muted: "#6F706A",
+          rule: "#D6D3CB",
+          brass: "#A58A5C",
+          oxblood: "#7D2424",
+        },
       },
       borderRadius: {
         none: "0px",
         xs: "1px",
         sm: "2px",
-        DEFAULT: "3px",
-        md: "4px",
+        DEFAULT: "0px",
+        md: "2px",
       },
       fontFamily: {
         sans: ["var(--font-work-sans)", "system-ui", "-apple-system", "sans-serif"],
-        serif: ["var(--font-serif)", "Georgia", "serif"],
+        serif: ["var(--font-work-sans)", "system-ui", "-apple-system", "sans-serif"],
         mono: ["var(--font-mono)", "monospace"],
       },
       letterSpacing: {

@@ -82,7 +82,7 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
           </div>
 
           <div className="max-w-4xl space-y-6">
-            <h1 className="text-4xl sm:text-6xl md:text-7xl font-light text-warmWhite tracking-tight leading-[1.08] font-serif uppercase">
+            <h1 className="text-4xl sm:text-6xl md:text-7xl font-light text-warmWhite tracking-tight leading-[1.08] uppercase">
               {service.title}
             </h1>
 
@@ -97,7 +97,7 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
               </div>
               <div className="flex items-center space-x-2 bg-obsidian px-3 py-1.5 border border-oliveGrey/60 rounded-xs">
                 <ShieldCheck className="w-3.5 h-3.5 text-brass" />
-                <span>CPR PART 31 / 32 COURT ADMISSIBLE</span>
+                <span>PREPARED FOR LEGAL & COMMERCIAL CONTEXTS</span>
               </div>
             </div>
           </div>
@@ -112,7 +112,7 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
               <span className="text-[10px] font-mono uppercase tracking-ultra text-brass block">
                 02 · THE CIRCUMSTANCES
               </span>
-              <h2 className="text-3xl sm:text-4xl font-light text-warmWhite font-serif">
+              <h2 className="text-3xl sm:text-4xl font-light text-warmWhite">
                 {service.theQuestion.subtitle}
               </h2>
               <p className="text-sm text-stone font-light leading-relaxed">
@@ -144,7 +144,7 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
             <span className="text-[10px] font-mono uppercase tracking-ultra text-brass block">
               03 · DETAILED CAPABILITY
             </span>
-            <h2 className="text-3xl sm:text-4xl font-light text-warmWhite font-serif">
+            <h2 className="text-3xl sm:text-4xl font-light text-warmWhite">
               What We Investigate
             </h2>
             <p className="text-sm text-stone font-light">
@@ -160,7 +160,7 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
               >
                 <div className="flex items-center space-x-3">
                   <span className="text-xs font-mono text-brass">0{idx + 1}</span>
-                  <h3 className="text-lg font-light text-warmWhite font-serif tracking-wide">
+                  <h3 className="text-lg font-light text-warmWhite tracking-wide">
                     {cap.name}
                   </h3>
                 </div>
@@ -180,7 +180,7 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
             <span className="text-[10px] font-mono uppercase tracking-ultra text-brass block">
               04 · THE PROCESS
             </span>
-            <h2 className="text-3xl sm:text-4xl font-light text-warmWhite font-serif">
+            <h2 className="text-3xl sm:text-4xl font-light text-warmWhite">
               Our Investigative Approach
             </h2>
             <p className="text-sm text-stone font-light">
@@ -197,7 +197,7 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
                 <div className="text-xl font-mono text-brass font-light">
                   {stage.step}
                 </div>
-                <h3 className="text-base font-light text-warmWhite font-serif">
+                <h3 className="text-base font-light text-warmWhite">
                   {stage.title}
                 </h3>
                 <p className="text-xs text-stone-muted leading-relaxed font-light">
@@ -217,7 +217,7 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
               <span className="text-[10px] font-mono uppercase tracking-ultra text-brass block">
                 05 · WORK PRODUCT & EVIDENCE
               </span>
-              <h2 className="text-3xl sm:text-4xl font-light text-warmWhite font-serif">
+              <h2 className="text-3xl sm:text-4xl font-light text-warmWhite">
                 What You Receive
               </h2>
               <p className="text-sm text-stone font-light leading-relaxed">
@@ -250,7 +250,7 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
             <span className="text-[10px] font-mono uppercase tracking-ultra text-brass block">
               06 · CLIENT PROFILE
             </span>
-            <h2 className="text-3xl sm:text-4xl font-light text-warmWhite font-serif">
+            <h2 className="text-3xl sm:text-4xl font-light text-warmWhite">
               Who We Work With
             </h2>
             <p className="text-sm text-stone font-light">
@@ -267,7 +267,7 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
                 <div className="text-[10px] font-mono uppercase tracking-widest text-brass">
                   PROFILE 0{idx + 1}
                 </div>
-                <h3 className="text-lg font-light text-warmWhite font-serif">
+                <h3 className="text-lg font-light text-warmWhite">
                   {client.title}
                 </h3>
                 <p className="text-xs text-stone leading-relaxed font-light">
@@ -287,7 +287,7 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
               <span className="text-[10px] font-mono uppercase tracking-ultra text-brass block">
                 07 · CONNECTED CAPABILITIES
               </span>
-              <h2 className="text-2xl sm:text-3xl font-light text-warmWhite font-serif">
+              <h2 className="text-2xl sm:text-3xl font-light text-warmWhite">
                 Related Services
               </h2>
             </div>
@@ -310,7 +310,7 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
                   <span className="text-[10px] font-mono text-stone-muted uppercase tracking-wider block">
                     {rel.discipline}
                   </span>
-                  <h3 className="text-base font-light text-warmWhite group-hover:text-brass transition-colors font-serif">
+                  <h3 className="text-base font-light text-warmWhite group-hover:text-brass transition-colors">
                     {rel.title}
                   </h3>
                 </div>
@@ -331,7 +331,7 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
             <span className="text-[10px] font-mono uppercase tracking-ultra text-brass block">
               08 · QUESTIONS & LEGAL CLARITY
             </span>
-            <h2 className="text-3xl sm:text-4xl font-light text-warmWhite font-serif">
+            <h2 className="text-3xl sm:text-4xl font-light text-warmWhite">
               Frequently Asked Questions
             </h2>
             <p className="text-sm text-stone font-light">
@@ -347,7 +347,7 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
               >
                 <div className="flex items-start space-x-3">
                   <HelpCircle className="w-4 h-4 text-brass mt-1 flex-shrink-0" />
-                  <h3 className="text-base sm:text-lg font-light text-warmWhite font-serif">
+                  <h3 className="text-base sm:text-lg font-light text-warmWhite">
                     {faq.question}
                   </h3>
                 </div>
@@ -368,7 +368,7 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
               <span className="text-[10px] font-mono uppercase tracking-ultra text-brass block">
                 09 · CONFIDENTIAL INTAKE
               </span>
-              <h2 className="text-3xl sm:text-5xl font-light text-warmWhite tracking-tight font-serif uppercase">
+              <h2 className="text-3xl sm:text-5xl font-light text-warmWhite tracking-tight uppercase">
                 Discuss the matter in confidence.
               </h2>
               <p className="text-stone text-sm sm:text-base font-light leading-relaxed">
@@ -379,7 +379,7 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
               <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center space-x-3 bg-brass hover:bg-brass-light text-obsidian px-8 py-4 text-xs tracking-widest uppercase font-medium transition-all duration-300 rounded-xs shadow-etched group"
+                  className="inline-flex items-center justify-center space-x-3 bg-brass hover:bg-brass-light text-obsidian px-8 py-4 text-xs tracking-widest uppercase font-light transition-all duration-300 rounded-xs shadow-etched group"
                 >
                   <span>BEGIN CONFIDENTIAL ENQUIRY</span>
                   <ArrowRight className="w-4 h-4 text-obsidian group-hover:translate-x-1 transition-transform" />

@@ -45,6 +45,20 @@
     background-color: #A58A5C;
     color: #111111;
   }
+
+  /* Public typography lock — Work Sans 200/300 exclusively (Rule 01) */
+  h1 {
+    font-weight: 200;
+  }
+  h2 {
+    font-weight: 200;
+  }
+  h3, h4, h5, h6 {
+    font-weight: 300;
+  }
+  p, span, nav, button, input, textarea, label {
+    font-weight: 300;
+  }
 }
 
 /* Admin OS scrollbar — light theme context */

@@ -26,9 +26,10 @@ export type EnquiryCategory =
   | "EMPLOYEE_WORKPLACE" | "OTHER";
 
 export type MatterStatus =
-  | "NEW" | "OPEN" | "IN_PROGRESS" | "AWAITING_CLIENT" | "AWAITING_INFORMATION"
+  | "NEW" | "ASSESSMENT" | "INSTRUCTION_PENDING" | "OPEN" | "IN_PROGRESS"
+  | "AWAITING_CLIENT" | "AWAITING_INFORMATION"
   | "FIELDWORK" | "REPORTING" | "CLIENT_REVIEW" | "COMPLETED" | "CLOSED"
-  | "ON_HOLD" | "DECLINED";
+  | "ON_HOLD" | "DECLINED" | "ARCHIVED";
 
 export type MatterType =
   | "PROCESS_SERVING" | "TRACING" | "SURVEILLANCE" | "CORPORATE_INVESTIGATION"
@@ -36,7 +37,11 @@ export type MatterType =
   | "ASSET_TRACING" | "LEGAL_INVESTIGATION" | "LITIGATION_SUPPORT"
   | "EVIDENCE_GATHERING" | "INSURANCE" | "EMPLOYEE_INVESTIGATION" | "OTHER";
 
-export type MatterPriority = "STANDARD" | "HIGH" | "URGENT";
+export type MatterPriority = "LOW" | "NORMAL" | "STANDARD" | "HIGH" | "URGENT";
+
+export type AssignmentRole =
+  | "LEAD_INVESTIGATOR" | "SUPPORTING_INVESTIGATOR" | "RESEARCHER"
+  | "FIELD_OPERATIVE" | "PROCESS_SERVER" | "SURVEILLANCE_OPERATIVE" | "CASE_MANAGER";
 export type TaskStatus = "TODO" | "IN_PROGRESS" | "BLOCKED" | "COMPLETED" | "CANCELLED";
 export type TaskPriority = "LOW" | "STANDARD" | "HIGH" | "CRITICAL";
 export type AccessLevel = "FULL" | "CASE_MANAGEMENT" | "FIELDWORK" | "READ_ONLY";
@@ -207,20 +212,41 @@ export interface EnquiryNote {
 
 export interface Matter {
   id: string;
-  reference: string; // MAT-YYMMDD-XXXX
+  reference: string; // MAT-YYMMDD-XXXX — immutable
   client_organisation_id: string;
   title: string;
   matter_type: MatterType;
   description?: string;
+  investigation_objective?: string;
+  instructions?: string;
+  legal_context?: string;
   status: MatterStatus;
   priority: MatterPriority;
+  confidentiality?: "STANDARD" | "CONFIDENTIAL" | "HIGHLY_CONFIDENTIAL";
   opened_at: string;
   target_date?: string;
   closed_at?: string;
   lead_investigator_id?: string;
   case_manager_id?: string;
   created_from_enquiry_id?: string;
+  created_by_user_id?: string;
+  estimated_value?: number; // £ pence
+  quoted_value?: number;    // £ pence
   retention_status: RetentionStatus;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface MatterAssignment {
+  id: string;
+  matter_id: string;
+  user_id: string;
+  assignment_role: AssignmentRole;
+  start_date: string;
+  end_date?: string;
+  status: "ACTIVE" | "COMPLETED" | "WITHDRAWN";
+  instructions?: string;
+  assigned_by_user_id?: string;
   created_at: string;
   updated_at: string;
 }

@@ -1,20 +1,13 @@
 import type { Metadata } from "next";
-import { Work_Sans, Cormorant_Garamond } from "next/font/google";
+import { Work_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/navigation/Header";
 import Footer from "@/components/navigation/Footer";
 
 const workSans = Work_Sans({
   subsets: ["latin"],
-  weight: ["200", "300", "400", "500"],
+  weight: ["200", "300"],
   variable: "--font-work-sans",
-  display: "swap",
-});
-
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-  variable: "--font-serif",
   display: "swap",
 });
 
@@ -124,7 +117,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`${workSans.variable} ${cormorant.variable} scroll-smooth`}>
+    <html lang="en" className={`${workSans.variable} scroll-smooth`}>
       <head>
         <script
           type="application/ld+json"

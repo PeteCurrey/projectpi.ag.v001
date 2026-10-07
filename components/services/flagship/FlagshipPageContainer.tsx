@@ -1,26 +1,70 @@
 import React from "react";
 import { FlagshipServiceConfig } from "@/lib/data/flagshipServicesData";
+import { EDITORIAL_SERVICE_IMAGES, ServiceEditorialImages } from "@/lib/data/editorialImagesData";
 import { getSiteUrl, BRAND_PREFERRED, TELEPHONE } from "@/lib/config/brand";
-import FlagshipHero from "./FlagshipHero";
-import FlagshipProblem from "./FlagshipProblem";
-import FlagshipCapabilities from "./FlagshipCapabilities";
-import FlagshipMethodology from "./FlagshipMethodology";
-import FlagshipEvidenceBundle from "./FlagshipEvidenceBundle";
-import FlagshipAudience from "./FlagshipAudience";
-import FlagshipProcessServingBridge from "./FlagshipProcessServingBridge";
-import FlagshipInsightsBridge from "./FlagshipInsightsBridge";
-import FlagshipRelatedServices from "./FlagshipRelatedServices";
-import FlagshipFAQ from "./FlagshipFAQ";
-import FlagshipCTA from "./FlagshipCTA";
+import InvestigationsLayout from "../editorial/layouts/InvestigationsLayout";
+import IntelligenceLayout from "../editorial/layouts/IntelligenceLayout";
+import TracingLayout from "../editorial/layouts/TracingLayout";
+import FieldOperationsLayout from "../editorial/layouts/FieldOperationsLayout";
+import LegalEvidenceLayout from "../editorial/layouts/LegalEvidenceLayout";
 
 interface FlagshipPageContainerProps {
   service: FlagshipServiceConfig;
 }
 
+const LAYOUT_FAMILY_MAP: Record<
+  string,
+  "INVESTIGATIONS" | "INTELLIGENCE" | "TRACING" | "FIELD_OPERATIONS" | "LEGAL_EVIDENCE"
+> = {
+  // Investigations Family (Rule 10)
+  "corporate-investigations": "INVESTIGATIONS",
+  "corporate-fraud-investigations": "INVESTIGATIONS",
+  "fraud-investigations": "INVESTIGATIONS",
+  "employee-investigations": "INVESTIGATIONS",
+
+  // Intelligence Family (Rule 10)
+  intelligence: "INTELLIGENCE",
+  "osint-investigations": "INTELLIGENCE",
+  "digital-investigations": "INTELLIGENCE",
+  "background-investigations": "INTELLIGENCE",
+
+  // Tracing Family (Rule 10)
+  "people-tracing": "TRACING",
+  "asset-tracing": "TRACING",
+  "due-diligence": "TRACING",
+
+  // Field Operations Family (Rule 10)
+  "private-surveillance": "FIELD_OPERATIONS",
+  "covert-surveillance": "FIELD_OPERATIONS",
+  "undercover-investigations": "FIELD_OPERATIONS",
+  "insurance-investigations": "FIELD_OPERATIONS",
+
+  // Legal & Evidence Family (Rule 10)
+  "litigation-support": "LEGAL_EVIDENCE",
+  "evidence-gathering": "LEGAL_EVIDENCE",
+  "witness-enquiries": "LEGAL_EVIDENCE",
+};
+
 export default function FlagshipPageContainer({ service }: FlagshipPageContainerProps) {
   const siteUrl = getSiteUrl();
 
-  // Schema.org structured data for this flagship service
+  // Curated architectural & documentary imagery
+  const images: ServiceEditorialImages = EDITORIAL_SERVICE_IMAGES[service.slug] || {
+    hero: {
+      src: service.image.src,
+      alt: service.image.alt,
+      caption: service.image.caption || "",
+    },
+    secondary: {
+      src: service.image.src,
+      alt: service.image.alt,
+      caption: service.image.caption || "",
+    },
+  };
+
+  const layoutFamily = LAYOUT_FAMILY_MAP[service.slug] || "INVESTIGATIONS";
+
+  // Schema.org structured data for this service
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -93,7 +137,7 @@ export default function FlagshipPageContainer({ service }: FlagshipPageContainer
   };
 
   return (
-    <article className="min-h-screen bg-obsidian text-warmWhite">
+    <>
       {/* Structured Data Scripts */}
       <script
         type="application/ld+json"
@@ -108,43 +152,22 @@ export default function FlagshipPageContainer({ service }: FlagshipPageContainer
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
-      {/* 01 HERO SECTION */}
-      <FlagshipHero service={service} />
-
-      {/* 02 THE PROBLEM / SCENARIOS */}
-      <FlagshipProblem problem={service.theProblem} accentColor={service.accentColor} />
-
-      {/* 03 DETAILED CAPABILITIES */}
-      <FlagshipCapabilities capabilities={service.capabilities} />
-
-      {/* 04 METHODOLOGY / APPROACH */}
-      <FlagshipMethodology approach={service.approach} />
-
-      {/* 05 EVIDENTIARY DELIVERABLES & CPR STANDARDS */}
-      <FlagshipEvidenceBundle evidence={service.evidence} serviceSlug={service.slug} />
-
-      {/* 06 AUDIENCE / INSTRUCTING SECTORS */}
-      <FlagshipAudience audience={service.audience} />
-
-      {/* 07 PROCESS SERVING CROSS-LINKING BRIDGE (IF APPLICABLE) */}
-      {service.processServingBridge && (
-        <FlagshipProcessServingBridge bridge={service.processServingBridge} />
+      {/* Dispatch to the appropriate editorial layout family (Rule 10) */}
+      {layoutFamily === "INVESTIGATIONS" && (
+        <InvestigationsLayout service={service} images={images} />
       )}
-
-      {/* 08 FROM THE TFTS INTELLIGENCE LIBRARY (INSIGHTS) */}
-      <FlagshipInsightsBridge insightSlugs={service.insightSlugs} />
-
-      {/* 09 FREQUENTLY ASKED QUESTIONS */}
-      <FlagshipFAQ faqs={service.faqs} />
-
-      {/* 10 RELATED SERVICES & PREV/NEXT NAVIGATION */}
-      <FlagshipRelatedServices
-        relatedSlugs={service.relatedSlugs}
-        currentSlug={service.slug}
-      />
-
-      {/* 11 FINAL CONFIDENTIAL ENQUIRY CTA */}
-      <FlagshipCTA serviceTitle={service.semanticH1} serviceSlug={service.slug} />
-    </article>
+      {layoutFamily === "INTELLIGENCE" && (
+        <IntelligenceLayout service={service} images={images} />
+      )}
+      {layoutFamily === "TRACING" && (
+        <TracingLayout service={service} images={images} />
+      )}
+      {layoutFamily === "FIELD_OPERATIONS" && (
+        <FieldOperationsLayout service={service} images={images} />
+      )}
+      {layoutFamily === "LEGAL_EVIDENCE" && (
+        <LegalEvidenceLayout service={service} images={images} />
+      )}
+    </>
   );
 }

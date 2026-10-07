@@ -12,7 +12,7 @@ export default function Footer() {
             <span className="text-[10px] uppercase font-mono tracking-ultra text-brass block">
               ESTABLISHMENT DIRECTIVE
             </span>
-            <p className="text-xl md:text-2xl font-light text-warmWhite tracking-tight font-serif">
+            <p className="text-xl md:text-2xl font-light text-warmWhite tracking-tight">
               Intelligence for decisions. Investigations for certainty.
             </p>
           </div>

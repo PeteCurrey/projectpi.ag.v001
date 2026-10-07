@@ -33,7 +33,7 @@ export default function Header() {
           >
             <div className="flex items-center space-x-2">
               <span className="w-1.5 h-1.5 bg-brass rounded-xs group-hover:scale-125 transition-transform" />
-              <span className="text-[13px] md:text-sm tracking-[0.24em] uppercase font-semibold text-warmWhite group-hover:text-brass transition-colors">
+              <span className="text-[13px] md:text-sm tracking-[0.24em] uppercase font-light text-warmWhite group-hover:text-brass transition-colors">
                 TFTS
               </span>
             </div>
