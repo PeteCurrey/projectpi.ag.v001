@@ -73,7 +73,7 @@ export default function CaseStudiesSection() {
                       THE QUESTION
                     </span>
                     <p className="text-warmWhite font-normal italic">
-                      "{item.question}"
+                      &ldquo;{item.question}&rdquo;
                     </p>
                     <p className="text-stone-muted leading-relaxed text-[11px] pt-1">
                       {item.investigation}

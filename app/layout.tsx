@@ -3,6 +3,7 @@ import { Work_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/navigation/Header";
 import Footer from "@/components/navigation/Footer";
+import TFTSMotionProvider from "@/components/experience/TFTSMotionProvider";
 
 const workSans = Work_Sans({
   subsets: ["latin"],
@@ -117,7 +118,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`${workSans.variable} scroll-smooth`}>
+    <html lang="en" className={workSans.variable}>
       <head>
         <script
           type="application/ld+json"
@@ -125,9 +126,11 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-paper text-ink min-h-screen selection:bg-ink selection:text-paper flex flex-col antialiased">
-        <Header />
-        <main className="flex-grow pt-20 md:pt-24">{children}</main>
-        <Footer />
+        <TFTSMotionProvider>
+          <Header />
+          <main className="flex-grow">{children}</main>
+          <Footer />
+        </TFTSMotionProvider>
       </body>
     </html>
   );

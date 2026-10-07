@@ -84,7 +84,7 @@ export default function CasesPage() {
                       THE INITIAL QUESTION
                     </span>
                     <p className="text-warmWhite text-base font-light italic">
-                      "{item.question}"
+                      &ldquo;{item.question}&rdquo;
                     </p>
                     <p className="text-stone text-xs leading-relaxed pt-1">
                       {item.investigation}

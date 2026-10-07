@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Lock, ShieldCheck, Upload, ArrowRight, CheckCircle2, AlertTriangle, Key } from "lucide-react";
 
 export default function ConfidentialEnquiryForm() {
@@ -13,7 +13,7 @@ export default function ConfidentialEnquiryForm() {
   const [phone, setPhone] = useState("");
   const [additionalInfo, setAdditionalInfo] = useState("");
   const [fileName, setFileName] = useState<string | null>(null);
-  const [submitted, setSubmitted] = useState(false);
+  const [submittedReference, setSubmittedReference] = useState<string | null>(null);
 
   const categories = [
     "Corporate",
@@ -34,10 +34,11 @@ export default function ConfidentialEnquiryForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    const generatedRef = `LON-${Math.floor(100000 + Math.random() * 900000)}`;
+    setSubmittedReference(generatedRef);
   };
 
-  if (submitted) {
+  if (submittedReference) {
     return (
       <div className="bg-obsidian-surface border border-brass/60 p-8 sm:p-14 rounded-xs shadow-brassPlaque text-center max-w-2xl mx-auto space-y-6">
         <div className="w-12 h-12 bg-brass/10 border border-brass rounded-full mx-auto flex items-center justify-center text-brass">
@@ -51,7 +52,7 @@ export default function ConfidentialEnquiryForm() {
             Mandate Received In Confidence
           </h3>
           <p className="text-xs font-mono text-stone-muted">
-            REFERENCE: LON-{Math.floor(100000 + Math.random() * 900000)}
+            REFERENCE: {submittedReference}
           </p>
         </div>
         <p className="text-xs sm:text-sm text-stone font-light leading-relaxed">
@@ -65,7 +66,7 @@ export default function ConfidentialEnquiryForm() {
         </div>
         <div className="pt-2">
           <button
-            onClick={() => setSubmitted(false)}
+            onClick={() => setSubmittedReference(null)}
             className="text-xs font-mono uppercase tracking-widest text-brass hover:text-warmWhite transition-colors"
           >
             ← Submit Additional Matter Parameters

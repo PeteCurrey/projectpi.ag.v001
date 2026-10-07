@@ -34,7 +34,7 @@ export default function PrivacyPage() {
             <p>
               {BRAND_PREFERRED} operates as a registered data controller under the
               Data Protection Act 2018 (DPA 2018) and the UK General Data Protection Regulation (UK GDPR).
-              We are registered with the Information Commissioner's Office (ICO).
+              We are registered with the Information Commissioner&apos;s Office (ICO).
             </p>
           </section>
 
@@ -54,7 +54,7 @@ export default function PrivacyPage() {
             <p>
               Prior to commencing any investigation, a formal Legitimate Interests Assessment is documented.
               This assessment rigorously balances the necessity and proportionality of the proposed inquiry against
-              the subject's reasonable expectations of privacy.
+              the subject&apos;s reasonable expectations of privacy.
             </p>
           </section>
 

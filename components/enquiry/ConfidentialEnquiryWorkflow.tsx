@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import {
   Lock,
@@ -57,24 +58,54 @@ const initialData: EnquiryFormData = {
 export default function ConfidentialEnquiryWorkflow() {
   const searchParams = useSearchParams();
   const [step, setStep] = useState<number>(1);
-  const [formData, setFormData] = useState<EnquiryFormData>(initialData);
+  const [formData, setFormData] = useState<EnquiryFormData>(() => {
+    const service = searchParams.get("service");
+    const matter = searchParams.get("matter");
+    const clientType = searchParams.get("clientType");
+    const locationParam = searchParams.get("location");
+
+    return {
+      ...initialData,
+      matterType: service === "process-serving" ? "PROCESS_SERVING" : initialData.matterType,
+      documentType: matter || initialData.documentType,
+      professionalClientType: clientType ? clientType.toUpperCase() : initialData.professionalClientType,
+      location: locationParam || initialData.location,
+    };
+  });
   const [submittedReference, setSubmittedReference] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
-  // Pre-fill from query params if directed from service/location page
+  // Synchronise if searchParams change dynamically after initial render
   useEffect(() => {
     const service = searchParams.get("service");
     const matter = searchParams.get("matter");
     const clientType = searchParams.get("clientType");
     const locationParam = searchParams.get("location");
 
-    setFormData((prev) => ({
-      ...prev,
-      matterType: service === "process-serving" ? "PROCESS_SERVING" : prev.matterType,
-      documentType: matter || prev.documentType,
-      professionalClientType: clientType ? clientType.toUpperCase() : prev.professionalClientType,
-      location: locationParam || prev.location,
-    }));
+    if (service || matter || clientType || locationParam) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setFormData((prev) => {
+        const nextMatter = service === "process-serving" ? "PROCESS_SERVING" : prev.matterType;
+        const nextDoc = matter || prev.documentType;
+        const nextClient = clientType ? clientType.toUpperCase() : prev.professionalClientType;
+        const nextLoc = locationParam || prev.location;
+        if (
+          prev.matterType === nextMatter &&
+          prev.documentType === nextDoc &&
+          prev.professionalClientType === nextClient &&
+          prev.location === nextLoc
+        ) {
+          return prev;
+        }
+        return {
+          ...prev,
+          matterType: nextMatter,
+          documentType: nextDoc,
+          professionalClientType: nextClient,
+          location: nextLoc,
+        };
+      });
+    }
   }, [searchParams]);
 
   const updateField = (field: keyof EnquiryFormData, value: unknown) => {
@@ -574,12 +605,12 @@ export default function ConfidentialEnquiryWorkflow() {
             >
               LODGE ANOTHER ENQUIRY
             </button>
-            <a
+            <Link
               href="/"
               className="bg-brass text-obsidian text-xs tracking-widest uppercase font-medium px-6 py-3 hover:bg-brass/90 transition-colors"
             >
               RETURN TO FIRM OVERVIEW
-            </a>
+            </Link>
           </div>
         </div>
       )}

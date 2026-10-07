@@ -134,7 +134,7 @@ export default function HowWeWorkPage() {
               <span className="text-[10px] font-mono uppercase text-brass block">STATUTE 01</span>
               <h3 className="text-lg font-light text-warmWhite font-serif">Data Protection Act 2018 / UK GDPR</h3>
               <p className="leading-relaxed font-light">
-                All data gathering operations are governed by documented Legitimate Interests Assessments (Article 6(1)(f)). We do not engage in pretexting, 'blagging', or unlawful intercept.
+                All data gathering operations are governed by documented Legitimate Interests Assessments (Article 6(1)(f)). We do not engage in pretexting, &apos;blagging&apos;, or unlawful intercept.
               </p>
             </div>
 
@@ -150,7 +150,7 @@ export default function HowWeWorkPage() {
               <span className="text-[10px] font-mono uppercase text-brass block">STATUTE 03</span>
               <h3 className="text-lg font-light text-warmWhite font-serif">RIPA Principles of Necessity</h3>
               <p className="leading-relaxed font-light">
-                Surveillance deployments are evaluated against proportionality and necessity tests, balancing our client's commercial rights against Article 8 privacy expectations.
+                Surveillance deployments are evaluated against proportionality and necessity tests, balancing our client&apos;s commercial rights against Article 8 privacy expectations.
               </p>
             </div>
 

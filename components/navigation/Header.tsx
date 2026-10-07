@@ -1,14 +1,24 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, ArrowUpRight } from "lucide-react";
+import { Menu } from "lucide-react";
 import EditorialMenu from "./EditorialMenu";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+
+  // Scroll-aware header state
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > 80);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const navLinks = [
     { label: "SERVICES", href: "/services" },
@@ -21,23 +31,41 @@ export default function Header() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-40 bg-paper/95 backdrop-blur-md border-b border-rule transition-colors">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 h-16 md:h-20 flex items-center justify-between">
-          {/* Brand Establishment Mark */}
+      <header
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-700 ${
+          scrolled
+            ? "bg-paper/96 backdrop-blur-md border-b border-rule/60"
+            : "bg-transparent border-b border-transparent"
+        }`}
+      >
+        <div className="max-w-[1680px] mx-auto px-6 lg:px-12 xl:px-16 h-16 md:h-20 flex items-center justify-between">
+
+          {/* Brand mark */}
           <Link
             href="/"
             className="group flex flex-col justify-center text-left py-1"
           >
-            <span className="text-sm md:text-base tracking-[0.24em] uppercase font-[200] text-ink group-hover:text-ink-muted transition-colors">
+            <span
+              className={`text-sm md:text-base tracking-[0.28em] uppercase font-[200] transition-colors duration-500 ${
+                scrolled ? "text-ink" : "text-ink"
+              }`}
+            >
               TFTS
             </span>
-            <span className="text-[9px] md:text-[10px] tracking-[0.22em] uppercase font-[300] text-ink-muted group-hover:text-ink transition-colors">
+            <span
+              className={`text-[9px] md:text-[10px] tracking-[0.22em] uppercase font-[300] transition-all duration-700 overflow-hidden ${
+                scrolled ? "max-h-0 opacity-0" : "max-h-6 opacity-100 text-ink-muted"
+              }`}
+            >
               Tactical Field Intelligence Service
             </span>
           </Link>
 
-          {/* Desktop Primary Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8 text-xs font-[300] tracking-[0.18em] text-ink-muted">
+          {/* Desktop navigation */}
+          <nav
+            className="hidden lg:flex items-center space-x-10 text-[11px] font-[300] tracking-[0.2em]"
+            aria-label="Primary navigation"
+          >
             {navLinks.map((link) => {
               const isActive =
                 pathname === link.href ||
@@ -46,8 +74,10 @@ export default function Header() {
                 <Link
                   key={link.label}
                   href={link.href}
-                  className={`transition-colors py-1 relative ${
-                    isActive ? "text-ink" : "hover:text-ink"
+                  className={`transition-all duration-300 py-1 relative ${
+                    isActive
+                      ? "text-ink"
+                      : "text-ink/40 hover:text-ink"
                   }`}
                 >
                   {link.label}
@@ -59,40 +89,37 @@ export default function Header() {
             })}
           </nav>
 
-          {/* Right Action Cluster */}
-          <div className="flex items-center space-x-5 md:space-x-6">
-            {/* Full-Screen Directory Reveal Button */}
+          {/* Right cluster */}
+          <div className="flex items-center space-x-6 md:space-x-8">
+            {/* Directory — text on desktop */}
             <button
               onClick={() => setIsMenuOpen(true)}
-              className="text-xs font-[300] tracking-[0.18em] uppercase text-ink-muted hover:text-ink transition-colors"
-              title="Open firm directory"
-              aria-label="Open directory"
+              className="hidden lg:block text-[11px] font-[300] tracking-[0.2em] uppercase text-ink/40 hover:text-ink transition-colors duration-300"
+              aria-label="Open firm directory"
             >
               DIRECTORY
             </button>
 
-            {/* Primary Action: Confidential Enquiry */}
+            {/* Confidential enquiry — primary CTA */}
             <Link
               href="/confidential-enquiry"
-              className="inline-flex items-center space-x-1.5 border border-ink px-4 py-2 text-[11px] md:text-xs tracking-[0.2em] uppercase font-[300] text-ink hover:bg-ink hover:text-paper transition-colors rounded-none"
+              className="hidden sm:inline-flex items-center border border-ink/70 hover:border-ink px-4 py-2 text-[11px] tracking-[0.22em] uppercase font-[300] text-ink hover:bg-ink hover:text-paper transition-all duration-300 rounded-none"
             >
-              <span>CONFIDENTIAL ENQUIRY</span>
-              <ArrowUpRight className="w-3 h-3" />
+              CONFIDENTIAL ENQUIRY
             </Link>
 
-            {/* Mobile Menu Icon */}
+            {/* Mobile menu icon */}
             <button
               onClick={() => setIsMenuOpen(true)}
-              className="lg:hidden p-1 text-ink hover:text-ink-muted"
+              className="lg:hidden p-1 text-ink hover:text-ink-muted transition-colors"
               aria-label="Open menu"
             >
-              <Menu className="w-5 h-5 text-ink" />
+              <Menu className="w-5 h-5" />
             </button>
           </div>
         </div>
       </header>
 
-      {/* Architectural Directory Reveal */}
       <EditorialMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
     </>
   );

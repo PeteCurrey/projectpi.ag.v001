@@ -107,6 +107,20 @@ const config: Config = {
         widest: "0.22em",
         ultra: "0.32em",
       },
+      spacing: {
+        "96": "24rem",
+        "112": "28rem",
+        "128": "32rem",
+        "144": "36rem",
+        "160": "40rem",
+      },
+      fontSize: {
+        // Viewport-relative display type for cinematic headlines
+        "display-sm": ["clamp(3rem, 6vw, 5rem)", { lineHeight: "1.04", letterSpacing: "-0.02em" }],
+        "display-md": ["clamp(4rem, 7.5vw, 7rem)", { lineHeight: "1.02", letterSpacing: "-0.025em" }],
+        "display-lg": ["clamp(4.5rem, 9vw, 9rem)", { lineHeight: "1.0", letterSpacing: "-0.03em" }],
+        "display-xl": ["clamp(5rem, 11vw, 11rem)", { lineHeight: "0.96", letterSpacing: "-0.03em" }],
+      },
       boxShadow: {
         subtle: "0 1px 3px 0 rgba(0, 0, 0, 0.4)",
         etched: "inset 0 1px 0 0 rgba(255, 255, 255, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.6)",

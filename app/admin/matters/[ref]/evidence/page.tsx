@@ -49,7 +49,7 @@ export default async function MatterEvidencePage({ params }: EvidenceProps) {
           <ShieldCheck className="w-8 h-8 text-admin-text-faint mx-auto" />
           <h3 className="text-sm font-medium text-admin-text">No Evidence Logged</h3>
           <p className="text-xs text-admin-text-muted max-w-md mx-auto">
-            Log physical exhibits, digital recordings, photographs, or official documents into this Matter's custody register.
+            Log physical exhibits, digital recordings, photographs, or official documents into this Matter&apos;s custody register.
           </p>
         </div>
       ) : (

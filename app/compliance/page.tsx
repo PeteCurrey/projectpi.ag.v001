@@ -48,7 +48,7 @@ export default function CompliancePage() {
             <h2 className="text-xl font-light text-warmWhite font-serif">2. Regulation of Investigatory Powers Act (RIPA)</h2>
             <p>
               While RIPA 2000 formally regulates surveillance conducted by public authorities, our private
-              practice voluntarily adopts RIPA's foundational principles—namely the twin tests of
+              practice voluntarily adopts RIPA&apos;s foundational principles—namely the twin tests of
               <strong>Necessity</strong> and <strong>Proportionality</strong>.
             </p>
             <p>
@@ -76,7 +76,7 @@ export default function CompliancePage() {
             <ul className="list-disc pl-5 space-y-1 text-stone-light">
               <li>Unlawful computer access or hacking (Computer Misuse Act 1990)</li>
               <li>Unauthorized interception of live telecommunications (Investigatory Powers Act 2016)</li>
-              <li>Procuring bank statements or private financial records through social engineering / 'blagging' (Section 170 DPA 2018)</li>
+              <li>Procuring bank statements or private financial records through social engineering / &apos;blagging&apos; (Section 170 DPA 2018)</li>
               <li>Trespass onto private residential curtilage or planting unauthorized tracking devices</li>
             </ul>
           </section>
