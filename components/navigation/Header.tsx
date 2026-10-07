@@ -29,12 +29,17 @@ export default function Header() {
     { label: "INSIGHTS", href: "/insights" },
   ];
 
+  const isHome = pathname === "/";
+  const isLightNav = !scrolled && isHome;
+
   return (
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-700 ${
           scrolled
             ? "bg-paper/96 backdrop-blur-md border-b border-rule/60"
+            : isHome
+            ? "bg-gradient-to-b from-black/80 via-black/25 to-transparent border-b border-transparent"
             : "bg-transparent border-b border-transparent"
         }`}
       >
@@ -47,14 +52,20 @@ export default function Header() {
           >
             <span
               className={`text-sm md:text-base tracking-[0.28em] uppercase font-[200] transition-colors duration-500 ${
-                scrolled ? "text-ink" : "text-ink"
+                isLightNav
+                  ? "text-warmWhite drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]"
+                  : "text-ink"
               }`}
             >
               TFTS
             </span>
             <span
               className={`text-[9px] md:text-[10px] tracking-[0.22em] uppercase font-[300] transition-all duration-700 overflow-hidden ${
-                scrolled ? "max-h-0 opacity-0" : "max-h-6 opacity-100 text-ink-muted"
+                scrolled
+                  ? "max-h-0 opacity-0"
+                  : isLightNav
+                  ? "max-h-6 opacity-100 text-warmWhite/75 drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]"
+                  : "max-h-6 opacity-100 text-ink-muted"
               }`}
             >
               Tactical Field Intelligence Service
@@ -75,14 +86,22 @@ export default function Header() {
                   key={link.label}
                   href={link.href}
                   className={`transition-all duration-300 py-1 relative ${
-                    isActive
+                    isLightNav
+                      ? isActive
+                        ? "text-warmWhite font-[400] drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]"
+                        : "text-warmWhite/75 hover:text-warmWhite drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]"
+                      : isActive
                       ? "text-ink"
                       : "text-ink/40 hover:text-ink"
                   }`}
                 >
                   {link.label}
                   {isActive && (
-                    <span className="absolute bottom-0 left-0 right-0 h-[1px] bg-ink" />
+                    <span
+                      className={`absolute bottom-0 left-0 right-0 h-[1px] ${
+                        isLightNav ? "bg-warmWhite" : "bg-ink"
+                      }`}
+                    />
                   )}
                 </Link>
               );
@@ -94,7 +113,11 @@ export default function Header() {
             {/* Directory — text on desktop */}
             <button
               onClick={() => setIsMenuOpen(true)}
-              className="hidden lg:block text-[11px] font-[300] tracking-[0.2em] uppercase text-ink/40 hover:text-ink transition-colors duration-300"
+              className={`hidden lg:block text-[11px] font-[300] tracking-[0.2em] uppercase transition-colors duration-300 ${
+                isLightNav
+                  ? "text-warmWhite/75 hover:text-warmWhite drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]"
+                  : "text-ink/40 hover:text-ink"
+              }`}
               aria-label="Open firm directory"
             >
               DIRECTORY
@@ -103,7 +126,11 @@ export default function Header() {
             {/* Confidential enquiry — primary CTA */}
             <Link
               href="/confidential-enquiry"
-              className="hidden sm:inline-flex items-center border border-ink/70 hover:border-ink px-4 py-2 text-[11px] tracking-[0.22em] uppercase font-[300] text-ink hover:bg-ink hover:text-paper transition-all duration-300 rounded-none"
+              className={`hidden sm:inline-flex items-center px-4 py-2 text-[11px] tracking-[0.22em] uppercase font-[300] transition-all duration-300 rounded-none ${
+                isLightNav
+                  ? "border border-warmWhite/70 text-warmWhite hover:bg-warmWhite hover:text-obsidian bg-black/20 backdrop-blur-[2px] drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]"
+                  : "border border-ink/70 hover:border-ink text-ink hover:bg-ink hover:text-paper"
+              }`}
             >
               CONFIDENTIAL ENQUIRY
             </Link>
@@ -111,7 +138,11 @@ export default function Header() {
             {/* Mobile menu icon */}
             <button
               onClick={() => setIsMenuOpen(true)}
-              className="lg:hidden p-1 text-ink hover:text-ink-muted transition-colors"
+              className={`lg:hidden p-1 transition-colors ${
+                isLightNav
+                  ? "text-warmWhite hover:text-warmWhite/80 drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]"
+                  : "text-ink hover:text-ink-muted"
+              }`}
               aria-label="Open menu"
             >
               <Menu className="w-5 h-5" />

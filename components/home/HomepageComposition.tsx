@@ -145,62 +145,68 @@ export default function HomepageComposition() {
 
       {/* ═══════════════════════════════════════════════════════════════════════
           ACT I — MASTHEAD
-          Full-viewport composition. Enormous thin headline.
-          Image fills lower portion of viewport.
-          Header is transparent here — see Header.tsx.
+          Full-viewport composition with full-screen architectural background.
+          Multi-layer contrast shielding guarantees flawless legibility.
           ═══════════════════════════════════════════════════════════════════════ */}
       <div
         ref={mastheadRef}
-        className="relative min-h-screen flex flex-col"
+        className="relative min-h-screen min-h-[100dvh] w-full flex flex-col justify-between overflow-hidden bg-obsidian-pure"
         aria-label="TFTS — Masthead"
       >
-        {/* Top text zone — sits above the image */}
-        <div className="relative z-10 max-w-[1680px] mx-auto w-full px-6 lg:px-12 xl:px-16 pt-32 md:pt-40 pb-0 flex-shrink-0">
-          <span className="masthead-badge block text-[10px] tracking-[0.28em] uppercase font-[300] text-ink-muted mb-8 md:mb-12">
+        {/* Full-screen background image covering 100% of the viewport */}
+        <div className="absolute inset-0 w-full h-full z-0 overflow-hidden pointer-events-none">
+          <TFTSViewportMedia
+            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2800&q=90"
+            alt="City of London commercial architecture — glass and concrete towers"
+            aspectClass="h-full"
+            scaleOnScroll={true}
+            priority={true}
+            imageFilter="grayscale(100%) contrast(1.15) brightness(0.68)"
+            sizes="100vw"
+            className="h-full w-full"
+          />
+        </div>
+
+        {/* Multi-layer contrast shielding overlays */}
+        {/* 1. Base dark tint */}
+        <div className="absolute inset-0 bg-obsidian-pure/60 z-[1] pointer-events-none" />
+        {/* 2. Top-to-bottom vignette: darker at top for header & bottom for body, slightly lighter in middle */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/50 to-black/90 z-[2] pointer-events-none" />
+        {/* 3. Horizontal directional wash on the left to maximize contrast behind the typography */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent z-[2] pointer-events-none" />
+
+        {/* Top & middle text zone */}
+        <div className="relative z-10 max-w-[1680px] mx-auto w-full px-6 lg:px-12 xl:px-16 pt-32 md:pt-40 lg:pt-44 pb-8 flex-shrink-0">
+          <span className="masthead-badge inline-block text-[10px] tracking-[0.28em] uppercase font-[300] text-brass-light mb-8 md:mb-12 drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">
             Independent Practice · Central London & UK-Wide
           </span>
 
           {/* Display headline — split into lines for individual reveal */}
-          <h1 className="font-[200] text-ink max-w-[1100px]">
-            <span className="masthead-line block text-display-md lg:text-display-lg leading-[1.02]">
+          <h1 className="font-[200] max-w-[1100px]">
+            <span className="masthead-line block text-display-md lg:text-display-lg leading-[1.02] text-warmWhite drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]">
               Tactical field
             </span>
-            <span className="masthead-line block text-display-md lg:text-display-lg leading-[1.02]">
+            <span className="masthead-line block text-display-md lg:text-display-lg leading-[1.02] text-warmWhite drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]">
               intelligence and
             </span>
-            <span className="masthead-line block text-display-md lg:text-display-lg leading-[1.02] text-ink/50">
+            <span className="masthead-line block text-display-md lg:text-display-lg leading-[1.02] text-warmWhite/60 drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]">
               bespoke investigations.
             </span>
           </h1>
         </div>
 
-        {/* Image zone — overlaps with headline at bottom edge */}
-        <div className="relative flex-grow mt-8 lg:mt-0">
-          {/* The image fills the lower 60–65% of the viewport via absolute positioning */}
-          <div className="absolute inset-0 top-0 lg:-top-16">
-            <TFTSViewportMedia
-              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2800&q=90"
-              alt="City of London commercial architecture — glass and concrete towers"
-              aspectClass="h-full"
-              scaleOnScroll={true}
-              priority={true}
-              imageFilter="grayscale(100%) contrast(1.04) brightness(0.96)"
-              sizes="100vw"
-              className="h-full"
-            />
-          </div>
+        {/* Bottom text zone — floats over lower hero section */}
+        <div className="relative z-10 max-w-[1680px] mx-auto w-full px-6 lg:px-12 xl:px-16 pb-12 md:pb-16 lg:pb-20">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-t border-white/10 pt-6">
+            <p className="masthead-body text-sm md:text-base font-[300] text-warmWhite/90 max-w-xl leading-relaxed drop-shadow-[0_1px_8px_rgba(0,0,0,0.8)]">
+              Instructed by corporate leadership, commercial dispute litigators,
+              insolvency practitioners, and private offices facing critical
+              information asymmetry.
+            </p>
 
-          {/* Gradient mask — top of image merges into paper */}
-          <div className="absolute top-0 left-0 right-0 h-48 bg-gradient-to-b from-paper to-transparent z-10 pointer-events-none" />
-
-          {/* Body text — floats over image at bottom-left */}
-          <div className="absolute bottom-0 left-0 right-0 z-10">
-            <div className="max-w-[1680px] mx-auto px-6 lg:px-12 xl:px-16 pb-12 md:pb-16">
-              <p className="masthead-body text-sm md:text-base font-[300] text-paper/80 max-w-xl leading-relaxed">
-                Instructed by corporate leadership, commercial dispute litigators,
-                insolvency practitioners, and private offices facing critical
-                information asymmetry.
-              </p>
+            <div className="masthead-body hidden md:flex items-center gap-3 text-[10px] tracking-[0.24em] uppercase font-[300] text-stone-muted/80 font-mono">
+              <span className="w-1.5 h-1.5 rounded-full bg-brass animate-pulse" />
+              <span>Central London & UK-Wide Operations</span>
             </div>
           </div>
         </div>
