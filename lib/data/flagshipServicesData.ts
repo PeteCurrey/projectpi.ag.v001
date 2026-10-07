@@ -1938,4 +1938,1447 @@ export const FLAGSHIP_SERVICES: Record<string, FlagshipServiceConfig> = {
     metaDescription:
       "Expert fraud investigations in London and across the UK. Unmasking investment scams, asset stripping, civil deceit, and international financial crime for legal recovery.",
   },
+
+  // ──────────────────────────────────────────────────────────────────────────
+  // PHASE 2 — FIELD & SURVEILLANCE OPERATIONS
+  // ──────────────────────────────────────────────────────────────────────────
+
+  "private-surveillance": {
+    slug: "private-surveillance",
+    disciplineNumber: "04",
+    category: "FIELD",
+    semanticH1: "Private Surveillance Operations",
+    displayHeadline: "CERTAINTY WHERE UNCERTAINTY IS INTOLERABLE.",
+    subProposition:
+      "Discreet, disciplined physical surveillance conducted by career field specialists to document real-world movements, associations, and activities.",
+    eyebrow: "ROOM IV · FIELD OPERATIONS",
+    image: {
+      src: "https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=2400&q=85",
+      alt: "Quiet London street at twilight with distant ambient building illumination",
+      caption: "Mobile field surveillance deployment, London metropolitan area",
+    },
+    accentColor: "oliveGrey",
+    theProblem: {
+      heading: "Speculation is dangerous when material interests are at stake.",
+      statement:
+        "When serious personal, financial, or commercial decisions depend on what occurs outside the boardroom or public view, only contemporaneous visual evidence provides absolute certainty.",
+      narrative: [
+        "Digital communications, electronic registries, and second-hand accounts can suggest patterns of behaviour, but they cannot prove physical presence, clandestine meetings, or real-time activities. When counterparties or individuals operate with deceit, they deliberately avoid leaving digital trails.",
+        "Unprofessional or amateur surveillance attempts carry severe consequences: compromised operations, destroyed confidentiality, and inadmissible evidence. In high-stakes disputes, a single burned operative can permanently alert the subject and foreclose any future opportunity to uncover the truth.",
+        "TFTS deploys disciplined field teams operating with calibrated tradecraft, rotating vehicles, and rigorous proportionality assessments, securing definitive visual records that withstand forensic and judicial examination.",
+      ],
+      scenarios: [
+        "Verifying whether a commercial partner or director is secretly meeting with hostile competitors or unauthorized third parties",
+        "Documenting asset dissipation, undisclosed luxury lifestyle patterns, and concealed cohabitation during contentious high-value financial remedy proceedings",
+        "Investigating physical breaches of restrictive covenants, non-compete agreements, and intellectual property custody",
+        "Confirming the physical safety, routine movements, and potential vulnerability of high-net-worth family members or heirs",
+        "Establishing whether a client or corporate principal is subject to third-party hostile surveillance or stalking",
+      ],
+    },
+    capabilities: {
+      title: "Field Surveillance Capabilities",
+      summary:
+        "Discreet, multi-vector mobile and static observation deployed across London, regional UK, and international transport hubs.",
+      items: [
+        {
+          number: "01",
+          title: "Mobile Foot & Vehicular Surveillance",
+          detail:
+            "Tracking target movements across complex urban environments and regional transit corridors using rotating operatives and low-profile vehicles to prevent pattern recognition.",
+        },
+        {
+          number: "02",
+          title: "Static Observation & Premises Monitoring",
+          detail:
+            "Long-range optical monitoring of commercial yards, private residences, and logistical hubs to record ingress, egress, vehicle registrations, and visiting associates.",
+        },
+        {
+          number: "03",
+          title: "Discreet Association & Meeting Verification",
+          detail:
+            "Documenting attendee identities, handover exchanges, and interaction chronologies within hospitality venues, private members' clubs, and corporate campuses.",
+        },
+        {
+          number: "04",
+          title: "Counter-Surveillance Auditing",
+          detail:
+            "Conducting dedicated hostile reconnaissance detection to establish whether an executive, family office principal, or corporate team is under adversary surveillance.",
+        },
+      ],
+    },
+    approach: {
+      title: "Surveillance Deployment Methodology",
+      summary:
+        "Strict adherence to operational planning, legal proportionality, and secure evidential management at every stage of deployment.",
+      steps: [
+        {
+          number: "01",
+          name: "Operational Briefing & Route Reconnaissance",
+          description:
+            "Analyzing target schedules, transport habits, choke points, and environmental risk parameters to design an airtight operational plan.",
+        },
+        {
+          number: "02",
+          name: "Discreet Multi-Unit Deployment",
+          description:
+            "Positioning balanced mobile teams, foot operatives, and observation posts to execute seamless handoffs without proximity compromise.",
+        },
+        {
+          number: "03",
+          name: "Contemporaneous Operational Logging",
+          description:
+            "Recording minute-by-minute target movements, interactions, and photographic stills using encrypted operational channels.",
+        },
+        {
+          number: "04",
+          name: "Evidentiary Post-Production",
+          description:
+            "Synthesizing raw footage into an indexed chronological bundle with time-stamped video exhibits and sworn investigator statements.",
+        },
+      ],
+    },
+    evidence: {
+      title: "Surveillance Deliverables",
+      standards:
+        "All visual evidence is gathered in strict compliance with UK data protection legislation, the Human Rights Act 1998, and CPR Part 32 evidentiary standards.",
+      deliverables: [
+        "Minute-by-minute Daily Operational Log detailing timestamps, locations, weather, and observed activities",
+        "High-definition video recordings with verified embedded timestamps and GPS coordinates",
+        "High-resolution still imagery identifying faces, licence plates, and meeting interactions",
+        "CPR Part 32 compliant Investigator Witness Statement signed with a Statement of Truth",
+        "Executive debrief summarizing key behavioral patterns and strategic implications for instructing counsel",
+      ],
+    },
+    audience: {
+      title: "Who Instructs Private Surveillance",
+      summary:
+        "Private surveillance operations are instructed by legal counsel, family offices, and corporate directors requiring irrefutable factual evidence.",
+      profiles: [
+        {
+          role: "Family Offices & Private Clients",
+          context:
+            "Discreet inquiries into sensitive domestic governance, high-value divorce financial disclosure, and personal security concerns.",
+          slug: "family-offices",
+        },
+        {
+          role: "Commercial Dispute Solicitors",
+          context:
+            "Gathering definitive visual proof of restrictive covenant breaches, commercial deceit, and undisclosed commercial trading.",
+          slug: "commercial-litigation",
+        },
+        {
+          role: "Corporate Security & Risk Directors",
+          context:
+            "Investigating internal executive misconduct, competitor collusion, and safeguarding corporate assets from physical exfiltration.",
+          slug: "compliance-risk",
+        },
+        {
+          role: "Insolvency Practitioners",
+          context:
+            "Establishing the real-world trading locations, lifestyle assets, and undisclosed activities of bankrupts or errant company directors.",
+          slug: "insolvency-practitioners",
+        },
+      ],
+    },
+    processServingBridge: {
+      heading: "Concurrent Process Serving & Surveillance",
+      body:
+        "When an elusive subject needs to be served with court process, freezing orders, or statutory demands, TFTS surveillance teams establish the target's physical pattern of life before executing personal service at the optimal moment.",
+      linkText: "View Process Serving for Evasive Subjects",
+      href: "/services/process-serving/evasive-subjects",
+    },
+    insightSlugs: [
+      "when-is-surveillance-lawful-in-the-uk",
+      "what-evidence-can-a-private-investigator-obtain",
+    ],
+    relatedSlugs: [
+      "covert-surveillance",
+      "undercover-investigations",
+      "insurance-investigations",
+      "employee-investigations",
+      "people-tracing",
+      "evidence-gathering",
+    ],
+    faqs: [
+      {
+        question: "Is private surveillance legal in the United Kingdom?",
+        answer:
+          "Yes. Physical surveillance conducted in public places or visible areas without trespass is lawful under UK law, provided it is conducted pursuant to a legitimate interest and complies with GDPR, data privacy principles, and Article 8 of the ECHR.",
+      },
+      {
+        question: "How many operatives are deployed on a typical surveillance task?",
+        answer:
+          "Team composition depends on terrain complexity, target mobility, and operational risk. Standard deployments utilise two to four operatives with multiple rotating vehicles to guarantee unbroken observation while eliminating the risk of detection.",
+      },
+      {
+        question: "Can surveillance evidence be used in English court proceedings?",
+        answer:
+          "Yes. Lawfully gathered surveillance footage, supported by contemporaneous investigator logs and CPR-compliant witness statements, is routinely admitted in the High Court, County Courts, and Family Court.",
+      },
+      {
+        question: "How do you protect client confidentiality during field operations?",
+        answer:
+          "All operational communications are encrypted, case files are stored on isolated zero-knowledge architectures, and operatives on the ground are briefed solely on necessary tactical parameters without access to client identity.",
+      },
+    ],
+    metaTitle: "Private Surveillance London & UK | Discreet Field Operations | TFTS",
+    metaDescription:
+      "Discreet private surveillance operations across London and the UK. Elite field teams, time-stamped visual evidence, and CPR-compliant reporting for legal and private mandates.",
+  },
+
+  "covert-surveillance": {
+    slug: "covert-surveillance",
+    disciplineNumber: "04",
+    category: "FIELD",
+    semanticH1: "Covert Surveillance Services",
+    displayHeadline: "WHEN DISCOVERY IS NOT AN OPTION.",
+    subProposition:
+      "Elite covert surveillance operations for targets who actively check their environment, hostile terrain, and environments where standard methods will fail.",
+    eyebrow: "ROOM IV · FIELD OPERATIONS",
+    image: {
+      src: "https://images.unsplash.com/photo-1516912481808-3406841bd33c?auto=format&fit=crop&w=2400&q=85",
+      alt: "Sparse urban street at dawn, mist between buildings, single figure walking",
+      caption: "Mobile covert deployment, low-footprint urban environment",
+    },
+    accentColor: "oliveGrey",
+    theProblem: {
+      heading: "Standard observation fails against the prepared target.",
+      statement:
+        "A target who checks mirrors, varies routes, and knows the neighbourhood will burn a conventional team within the first hour.",
+      narrative: [
+        "Sophisticated individuals — executives under legal threat, organized theft ring operatives, individuals with prior investigation experience — develop an instinct for surveillance presence. Familiar vehicles, repeated faces, inexperienced positioning: all trigger abort.",
+        "Certain physical environments impose their own constraints. In rural estates, a car parked on a country lane is immediately conspicuous. In a private members' club or luxury hotel, an operative out of place destroys the operation within minutes.",
+        "When the stakes are high enough that a single compromise ruins the entire investigative mandate, operational design must match the threat.",
+      ],
+      scenarios: [
+        "Targets who actively employ counter-surveillance awareness or travel with personal protection",
+        "Rural and semi-rural operations where unfamiliar vehicles attract immediate local attention",
+        "Corporate campus and secure facility environments requiring technical concealment",
+        "Organized criminal networks operating with lookouts, radio communication, and counter-teams",
+        "International travel legs and private aviation environments requiring specialist coverage",
+      ],
+    },
+    capabilities: {
+      title: "Specialist Covert Capabilities",
+      summary:
+        "Purpose-built operational assets and tradecraft matched to the target environment, not the average case.",
+      items: [
+        {
+          number: "01",
+          title: "Urban Multi-Unit Handoff Operations",
+          detail:
+            "Rotating multiple operatives and vehicle types across dense urban environments to prevent pattern recognition and maintain unbroken coverage.",
+        },
+        {
+          number: "02",
+          title: "Rural & Low-Density Terrain Coverage",
+          detail:
+            "Operating across open countryside, private estate roads, and semi-rural commuter zones with stand-off distances and long-range optical systems.",
+        },
+        {
+          number: "03",
+          title: "Counter-Surveillance Detection",
+          detail:
+            "Identifying whether a target is protected by a third-party security detail or operating their own surveillance awareness protocol.",
+        },
+        {
+          number: "04",
+          title: "Long-Range Thermal & Low-Light Optics",
+          detail:
+            "Gathering high-clarity evidence in complete darkness, adverse weather, and across distances that standard equipment cannot bridge.",
+        },
+      ],
+    },
+    approach: {
+      title: "Tactical Deployment Methodology",
+      summary:
+        "Every covert operation is designed from first principles: target, environment, and objective drive the operational architecture.",
+      steps: [
+        {
+          number: "01",
+          name: "Target Vulnerability Analysis",
+          description:
+            "Mapping schedule predictability, counter-surveillance awareness indicators, vehicle habits, and known associates to calibrate operational risk before deployment.",
+        },
+        {
+          number: "02",
+          name: "Bespoke Asset Allocation",
+          description:
+            "Selecting the precise mix of operatives, vehicle types, optical systems, and stand-off positions based on the operational environment and target profile.",
+        },
+        {
+          number: "03",
+          name: "Dynamic Phased Deployment",
+          description:
+            "Employing parallel observation lanes, staggered handoffs, and rotating forward positions to maintain continuous coverage without repetition.",
+        },
+        {
+          number: "04",
+          name: "Secure Evidential Processing",
+          description:
+            "Processing and authenticating footage on air-gapped systems before delivery to instructing counsel or principals via encrypted physical media.",
+        },
+      ],
+    },
+    evidence: {
+      title: "Operational Deliverables",
+      standards:
+        "All covert surveillance materials are prepared to civil court evidentiary standards, with full chain of custody documentation and sworn investigator statements.",
+      deliverables: [
+        "Forensic-grade covert surveillance footage with synchronized timestamps and GPS coordinate overlays",
+        "Full operational deployment log detailing environmental conditions, operative positions, and observed target behaviours",
+        "Sworn investigator witness statement prepared for civil, regulatory, or criminal proceedings",
+        "Counter-surveillance assessment confirming whether the target was, or was not, operating active detection measures",
+        "Tactical risk recommendations for any subsequent operational phases",
+      ],
+    },
+    audience: {
+      title: "Who Instructs Covert Surveillance",
+      summary:
+        "Specialist covert operations are instructed where standard field methods carry unacceptable operational risk.",
+      profiles: [
+        {
+          role: "Fraud & Commercial Litigation Solicitors",
+          context:
+            "Securing definitive visual evidence in multi-million pound commercial disputes where targets are legally aware and counter-surveillance conscious.",
+          slug: "commercial-litigation",
+        },
+        {
+          role: "High-Net-Worth Family Offices",
+          context:
+            "Protecting family assets and reputation by documenting lifestyle, associations, and activities of individuals involved in contentious financial proceedings.",
+          slug: "family-offices",
+        },
+        {
+          role: "Corporate Fraud & Compliance Teams",
+          context:
+            "Gathering incontrovertible evidence of internal collusion, organized theft, and illicit competitor engagement in high-security commercial environments.",
+          slug: "compliance-risk",
+        },
+        {
+          role: "Insurers & Special Investigation Units",
+          context:
+            "Documenting physical capability and lifestyle activities of high-value claimants operating counter-surveillance in claims exceeding policy thresholds.",
+          slug: "insurers",
+        },
+      ],
+    },
+    processServingBridge: {
+      heading: "Serving Documents on Evasive Subjects",
+      body:
+        "When the target of covert surveillance also needs to be personally served with legal proceedings — injunctions, claims, or contempt notices — TFTS coordinates both operations concurrently, removing the window for evasion.",
+      linkText: "View Process Serving for Evasive Subjects",
+      href: "/services/process-serving/evasive-subjects",
+    },
+    insightSlugs: [
+      "when-is-surveillance-lawful-in-the-uk",
+      "what-evidence-can-a-private-investigator-obtain",
+    ],
+    relatedSlugs: [
+      "undercover-investigations",
+      "evidence-gathering",
+      "corporate-fraud-investigations",
+      "employee-investigations",
+      "asset-tracing",
+      "litigation-support",
+    ],
+    faqs: [
+      {
+        question: "What makes covert surveillance different from standard private investigation surveillance?",
+        answer:
+          "Covert surveillance employs multiple rotating operatives, specialist covert vehicle configurations, long-range optical systems, and military-grade anti-detection tradecraft specifically designed for targets who actively check their environment.",
+      },
+      {
+        question: "Is covert surveillance lawful under UK human rights law?",
+        answer:
+          "Yes, provided the operation is necessary, proportionate, and conducted with a documented legitimate commercial or legal interest, balancing the subject's reasonable expectation of privacy under Article 8 ECHR.",
+      },
+      {
+        question: "How do you manage operations in exclusive private members' clubs or luxury hotels?",
+        answer:
+          "Our operatives carry the profile, professional presentation, and personal resources to integrate into exclusive London and international environments without attracting the scrutiny that would compromise the operation.",
+      },
+      {
+        question: "What happens if a target detects the surveillance?",
+        answer:
+          "Operatives are trained in immediate abort protocols. If counter-surveillance detection is confirmed, contact is broken instantly to protect the client relationship and preserve the potential for a future deployment.",
+      },
+    ],
+    metaTitle: "Covert Surveillance UK | Elite Field Intelligence Operations | TFTS",
+    metaDescription:
+      "Specialist covert surveillance operations across London and the UK. Multi-unit deployments, long-range optics, and court-grade evidence for complex legal and commercial mandates.",
+  },
+
+  "undercover-investigations": {
+    slug: "undercover-investigations",
+    disciplineNumber: "04",
+    category: "FIELD",
+    semanticH1: "Undercover & Infiltration Investigations",
+    displayHeadline: "WHEN THE PROBLEM IS HIDDEN ON THE INSIDE.",
+    subProposition:
+      "Placing trained investigative operatives directly inside commercial environments to expose theft rings, sabotage, and systemic corruption that external methods cannot reach.",
+    eyebrow: "ROOM IV · FIELD OPERATIONS",
+    image: {
+      src: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=2400&q=85",
+      alt: "Industrial warehouse interior, high racking, single shaft of natural light",
+      caption: "Distribution environment, internal operational perimeter",
+    },
+    accentColor: "oliveGrey",
+    theProblem: {
+      heading: "Sophisticated internal fraud is invisible from the outside.",
+      statement:
+        "Organized internal theft, industrial sabotage, and workplace narcotics distribution operate in the blind spots that audits and management oversight cannot penetrate.",
+      narrative: [
+        "The most damaging internal threats operate deliberately within the margins of management visibility. Stock shrinkage is explained away. Incident logs are falsified. Informal networks of ringleaders, lookouts, and external receivers have been cultivated over months or years.",
+        "External audits and HR interviews frequently trigger immediate cover-ups. When management makes its concerns known, evidence is moved, communications are deleted, and patterns shift. The problem does not stop — it simply hides more carefully.",
+        "The only reliable method of penetrating a functioning criminal network within a commercial environment is to position a trained operative inside it, under complete cover, with an independent encrypted handler, and extract the incontrovertible proof that legal proceedings require.",
+      ],
+      scenarios: [
+        "Significant and unexplained inventory shrinkage across manufacturing plants or regional distribution hubs",
+        "Internal collusion between warehouse operatives, logistics drivers, and external criminal receivers",
+        "Industrial sabotage, intentional machinery damage, or product contamination",
+        "Widespread workplace narcotics distribution affecting safety compliance and corporate liability",
+        "Trade secret leakage, customer list exfiltration, and illicit side-businesses operated during company time",
+      ],
+    },
+    capabilities: {
+      title: "Infiltration Capabilities",
+      summary:
+        "Controlled human intelligence operations within commercial environments, governed by legal oversight and strict ethical parameters.",
+      items: [
+        {
+          number: "01",
+          title: "Organized Internal Theft Networks",
+          detail:
+            "Identifying ringleaders, mapping logistical methods, exposing concealed hiding locations, and documenting off-site buyer arrangements.",
+        },
+        {
+          number: "02",
+          title: "Collusive Supply Chain Fraud",
+          detail:
+            "Documenting unmanifested stock loading, falsified weighbridge records, driver kickback arrangements, and supplier collusion.",
+        },
+        {
+          number: "03",
+          title: "Health, Safety & Regulatory Violations",
+          detail:
+            "Gathering firsthand evidence of systemic compliance breaches, falsified inspection logs, and intentional safety negligence.",
+        },
+        {
+          number: "04",
+          title: "Trade Secret & IP Exfiltration",
+          detail:
+            "Uncovering internal operatives copying commercial schematics, client databases, proprietary software, and pricing intelligence.",
+        },
+      ],
+    },
+    approach: {
+      title: "Controlled Operational Design",
+      summary:
+        "Undercover operations demand more planning than any other investigative method. Every element is stress-tested before deployment.",
+      steps: [
+        {
+          number: "01",
+          name: "Legend Creation & Placement Strategy",
+          description:
+            "Constructing an airtight commercial cover identity, verifiable employment documentation, and a credible placement channel that withstands internal vetting.",
+        },
+        {
+          number: "02",
+          name: "Controlled Infiltration",
+          description:
+            "Deploying the operative under complete cover, communicating exclusively through an encrypted off-site handler to maintain total separation.",
+        },
+        {
+          number: "03",
+          name: "Intelligence Collection & Verification",
+          description:
+            "Securing corroborated audio, visual, and documentary evidence while maintaining unbroken cover and avoiding any conduct that could constitute entrapment.",
+        },
+        {
+          number: "04",
+          name: "Lawful Extraction & Resolution Coordination",
+          description:
+            "Withdrawing the operative safely and coordinating with management, legal counsel, and — where appropriate — law enforcement before enforcement action commences.",
+        },
+      ],
+    },
+    evidence: {
+      title: "Undercover Operation Deliverables",
+      standards:
+        "All undercover materials are compiled for use in employment dismissal, civil recovery, or criminal prosecution proceedings, with strict entrapment safeguards throughout.",
+      deliverables: [
+        "Comprehensive Undercover Operational Log documenting daily observations, admissions, and witnessed transactions",
+        "Corroborative covert audio and visual recordings captured lawfully within operational parameters",
+        "Culpability schedule identifying all involved employees, suppliers, and third-party receivers by role",
+        "Legal action briefing note: recommended steps for dismissals, civil recovery, and police liaison",
+        "Full operational disclosure package formatted for employment tribunal or court proceedings",
+      ],
+    },
+    audience: {
+      title: "Who Instructs Undercover Operations",
+      summary:
+        "Undercover mandates are instructed when the scale, organization, and insider knowledge of a fraud exceeds what conventional investigation can address.",
+      profiles: [
+        {
+          role: "Supply Chain & Logistics Directors",
+          context:
+            "Eliminating multi-million pound inventory shrinkage across regional distribution networks where internal audits have failed to identify the mechanism.",
+        },
+        {
+          role: "Chief Executive Officers & General Counsel",
+          context:
+            "Neutralizing existential internal threats including intellectual property exfiltration, coordinated sabotage, and senior management collusion.",
+        },
+        {
+          role: "Manufacturing & Industrial Operators",
+          context:
+            "Restoring operational integrity, safety compliance, and workforce trust in environments where systemic criminal behaviour has embedded itself.",
+        },
+        {
+          role: "Employment Litigation Solicitors",
+          context:
+            "Obtaining incontrovertible evidence to support gross misconduct dismissals that will withstand employment tribunal challenge.",
+          slug: "commercial-litigation",
+        },
+      ],
+    },
+    insightSlugs: [
+      "how-to-investigate-suspected-employee-fraud",
+      "what-evidence-can-a-private-investigator-obtain",
+    ],
+    relatedSlugs: [
+      "covert-surveillance",
+      "employee-investigations",
+      "corporate-fraud-investigations",
+      "evidence-gathering",
+      "digital-investigations",
+      "intelligence",
+    ],
+    faqs: [
+      {
+        question: "Is undercover infiltration lawful in a UK workplace?",
+        answer:
+          "Yes, when the investigation targets serious criminal conduct or gross misconduct, is conducted under proper legal oversight, and is strictly designed to observe rather than entrap. The operative never facilitates or encourages activity that would not otherwise have occurred.",
+      },
+      {
+        question: "How do you avoid entrapment during an undercover operation?",
+        answer:
+          "Our operatives act exclusively as passive observers. They never encourage, solicit, or facilitate any criminal act. All operational parameters are reviewed by legal counsel prior to deployment to ensure compliance.",
+      },
+      {
+        question: "Who within our organisation needs to know about the operation?",
+        answer:
+          "Only the absolute minimum required: typically the CEO and General Counsel. Restricting knowledge to the essential circle is critical to maintaining total operational containment and preventing internal leakage.",
+      },
+      {
+        question: "Can undercover evidence support criminal prosecution?",
+        answer:
+          "Yes. Where the evidence reveals criminal conduct — theft, fraud, narcotics supply — the evidentiary package can be submitted to law enforcement, formatted to criminal investigation standards.",
+      },
+    ],
+    metaTitle: "Undercover Investigations UK | Workplace Infiltration Specialists | TFTS",
+    metaDescription:
+      "Professional undercover corporate investigations across the UK. Exposing organized internal theft, supply chain fraud, workplace sabotage, and illicit criminal networks inside commercial environments.",
+  },
+
+  "insurance-investigations": {
+    slug: "insurance-investigations",
+    disciplineNumber: "04",
+    category: "FIELD",
+    semanticH1: "Insurance Fraud Investigations",
+    displayHeadline: "PROOF OVER ASSERTION. FACTS OVER CLAIMS.",
+    subProposition:
+      "Evidence-led investigation of exaggerated injuries, staged losses, and fraudulent commercial claims for UK insurers, syndicates, and self-insured corporate entities.",
+    eyebrow: "ROOM IV · FIELD OPERATIONS",
+    image: {
+      src: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=2400&q=85",
+      alt: "Empty corporate boardroom, papers on table, morning light through floor-length windows",
+      caption: "Claims review environment, commercial evidence assessment",
+    },
+    accentColor: "brass",
+    theProblem: {
+      heading: "Fraudulent claims cost the industry billions. The evidence dismantles them.",
+      statement:
+        "Between the medical report and the courtroom exists a factual gap. Our role is to fill it — objectively, lawfully, and with evidence that stands scrutiny.",
+      narrative: [
+        "Insurance fraud in the UK accounts for significant losses annually across personal injury, commercial property, and specialist lines. The most costly claims are frequently the most carefully constructed: multiple expert reports, consistent witness coaching, and a claimant who knows the system.",
+        "The difference between a settled fraudulent claim and a defeated one is almost always investigative evidence gathered at the right moment, in the right location, documenting the reality that the medical reports describe as impossible.",
+        "Our investigators operate strictly within the legal framework — public areas, legitimate interest assessments, proportional deployment — producing surveillance files designed specifically for Section 57 and CPR strike-out applications.",
+      ],
+      scenarios: [
+        "Claimants asserting catastrophic mobility loss while engaging in physically demanding activity",
+        "Staged commercial fires, deliberate water damage, and orchestrated property damage claims",
+        "High-value transit, marine, and cargo losses where declared items were never dispatched",
+        "Exaggerated business interruption claims supported by manipulated management accounts",
+        "Organised crash-for-cash networks and coordinated staged motor incidents",
+      ],
+    },
+    capabilities: {
+      title: "Claims Investigation Capabilities",
+      summary:
+        "Multi-vector investigation combining field surveillance, desktop intelligence, and digital forensics to challenge the evidential basis of disputed claims.",
+      items: [
+        {
+          number: "01",
+          title: "Activity & Physical Capability Verification",
+          detail:
+            "Lawful covert surveillance documenting true functional capacity and physical activity against declared medical restrictions.",
+        },
+        {
+          number: "02",
+          title: "Circumstance & Locus Reconstruction",
+          detail:
+            "Reconstructing accident scenes, vehicle trajectories, environmental conditions, and witness sight lines to challenge staged incident claims.",
+        },
+        {
+          number: "03",
+          title: "Financial & Background Profiling",
+          detail:
+            "Investigating claimant indebtedness, previous insurance claim history, undeclared business activities, and concealed employment.",
+        },
+        {
+          number: "04",
+          title: "Social OSINT & Digital Footprint Analysis",
+          detail:
+            "Extracting social media evidence of physical activities, sporting participation, employment, and travel inconsistent with declared incapacity.",
+        },
+      ],
+    },
+    approach: {
+      title: "Fraud Deconstruction Protocol",
+      summary:
+        "Each mandate is structured around the specific claim type, legal framework, and evidential threshold required for Section 57 or CPR applications.",
+      steps: [
+        {
+          number: "01",
+          name: "Claim File & Medical Analysis",
+          description:
+            "Benchmarking declared medical restrictions and expert report parameters to establish the precise surveillance evidential objectives.",
+        },
+        {
+          number: "02",
+          name: "Desktop Intelligence & Social OSINT",
+          description:
+            "Extracting social media footprints, sports club memberships, commercial business listings, and digital activity inconsistent with claimed disability.",
+        },
+        {
+          number: "03",
+          name: "Targeted Field Surveillance",
+          description:
+            "Deploying lawful multi-day covert observation across domestic routines, leisure activities, and commercial operations to document genuine physical capacity.",
+        },
+        {
+          number: "04",
+          name: "Section 57-Ready Evidential Pack",
+          description:
+            "Assembling the complete evidentiary file — footage, timestamps, GPS data, and sworn statements — formatted for IFED referral, CPR strike-out, or Section 57 hearings.",
+        },
+      ],
+    },
+    evidence: {
+      title: "Claims Investigation Deliverables",
+      standards:
+        "All insurance investigation outputs are formatted to satisfy Section 57 of the Criminal Justice and Courts Act 2015 and CPR strike-out requirements, with certified chain of custody throughout.",
+      deliverables: [
+        "Comprehensive Claims Investigation Dossier contrasting medical declarations with documented physical reality",
+        "High-definition surveillance footage with verified timestamps, GPS coordinates, and unbroken chain of custody",
+        "Certified Investigator Witness Statement ready for High Court and County Court hearings",
+        "Social media and OSINT digital evidence exhibit pack formatted for court disclosure",
+        "IFED referral brief and criminal prosecution disclosure package where applicable",
+      ],
+    },
+    audience: {
+      title: "Who We Work With",
+      summary:
+        "We partner with insurance legal departments, syndicates, and specialist litigation teams handling high-value and pattern fraud exposures.",
+      profiles: [
+        {
+          role: "Special Investigation Units (SIU)",
+          context:
+            "Major UK and international composite underwriters investigating high-exposure personal injury, disability, and commercial property claims.",
+          slug: "insurers",
+        },
+        {
+          role: "Lloyd's Syndicates & Reinsurers",
+          context:
+            "Investigating high-value marine, aviation, cargo, and specialty risk losses for both primary and reinsurance layers.",
+        },
+        {
+          role: "Defendant Insurance Litigators",
+          context:
+            "Supplying Section 57 fundamental dishonesty evidence to strike out fraudulent personal injury claims and recover defendant costs.",
+          slug: "commercial-litigation",
+        },
+        {
+          role: "Self-Insured Corporate Risk Managers",
+          context:
+            "Investigating fraudulent employee liability, public liability, and commercial property claims where retentions are substantial.",
+          slug: "compliance-risk",
+        },
+      ],
+    },
+    processServingBridge: {
+      heading: "Serving Fraud Proceedings on Evasive Claimants",
+      body:
+        "When identified fraudulent claimants need to be personally served with counter-proceedings, strike-out applications, or contempt notices, TFTS executes personal service across the UK — including for individuals who are actively evading receipt.",
+      linkText: "View Process Serving Solutions",
+      href: "/services/process-serving",
+    },
+    insightSlugs: [
+      "when-is-surveillance-lawful-in-the-uk",
+      "what-evidence-can-a-private-investigator-obtain",
+    ],
+    relatedSlugs: [
+      "covert-surveillance",
+      "evidence-gathering",
+      "litigation-support",
+      "corporate-fraud-investigations",
+      "asset-tracing",
+      "people-tracing",
+    ],
+    faqs: [
+      {
+        question: "Can surveillance evidence support a Section 57 'Fundamental Dishonesty' ruling?",
+        answer:
+          "Yes. Our surveillance files are specifically structured to satisfy Section 57 of the Criminal Justice and Courts Act 2015, enabling courts to dismiss the entirety of a dishonest claim and award full defendant costs.",
+      },
+      {
+        question: "How do you ensure surveillance does not breach Article 8 privacy rights?",
+        answer:
+          "All operations are strictly confined to public areas or exteriors visible from public space. Prior to deployment we document the legitimate interest basis, necessity, and proportionality assessment to satisfy ECHR Article 8 balancing requirements.",
+      },
+      {
+        question: "Do your investigators testify in court?",
+        answer:
+          "Yes. Our investigators regularly provide witness testimony in High Court and County Court proceedings, supporting their surveillance methods, equipment, and observations under cross-examination.",
+      },
+      {
+        question: "Can you investigate claims where the claimant is based abroad?",
+        answer:
+          "Yes. We operate international networks enabling surveillance in European, Middle Eastern, and further jurisdictions where claimants relocate or conduct their activities away from the UK.",
+      },
+    ],
+    metaTitle: "Insurance Fraud Investigations UK | Surveillance for Insurers & Syndicates | TFTS",
+    metaDescription:
+      "Evidence-led insurance fraud investigations for UK insurers, Lloyd's syndicates, and litigation solicitors. Fundamental dishonesty surveillance, Section 57 evidence, and staged loss investigations.",
+  },
+
+  // ──────────────────────────────────────────────────────────────────────────
+  // PHASE 2 — LEGAL & LITIGATION VERTICALS
+  // ──────────────────────────────────────────────────────────────────────────
+
+  "litigation-support": {
+    slug: "litigation-support",
+    disciplineNumber: "03",
+    category: "LEGAL",
+    semanticH1: "Litigation Support Services",
+    displayHeadline: "CASES ARE WON ON EVIDENCE, NOT PROSE.",
+    subProposition:
+      "Tactical investigative support throughout the civil litigation lifecycle — from pre-action intelligence to trial-day evidence — for solicitors and advocates in the English courts.",
+    eyebrow: "ROOM III · LEGAL INTELLIGENCE",
+    image: {
+      src: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=2400&q=85",
+      alt: "Marble columns of a London court building at dusk, clean geometric lines",
+      caption: "The Royal Courts of Justice, Strand, London",
+    },
+    accentColor: "brass",
+    theProblem: {
+      heading: "An adversary who conceals evidence changes the entire equation.",
+      statement:
+        "Legal arguments depend on facts. When an opponent misrepresents, conceals, or fabricates, the case is lost before it reaches court — unless the truth can be independently established.",
+      narrative: [
+        "The most dangerous phase of complex commercial litigation is not the trial itself but the period before formal disclosure: the window in which an opposing party moves assets, conditions witnesses, and sanitises electronic records.",
+        "Solicitors and advocates who instruct TFTS at the pre-action stage gain a material intelligence advantage — understanding the opponent's true financial position, locating witnesses before they disappear, and identifying evidential inconsistencies before they harden into disputed trial issues.",
+        "Our investigators operate under legal professional privilege when instructed by solicitors in contemplation of litigation, maintaining the sanctity of the client relationship throughout.",
+      ],
+      scenarios: [
+        "Pre-action assessment of defendant financial capacity before committing to expensive litigation",
+        "Gathering corroborative evidence to rebut fabricated witness statements and spurious counterclaims",
+        "Locating and interviewing former employees holding critical internal knowledge",
+        "Tracing assets to support freezing injunction applications under CPR Part 25",
+        "Investigating jury or witness interference in sensitive ongoing proceedings",
+      ],
+    },
+    capabilities: {
+      title: "Litigation Support Scope",
+      summary:
+        "Intelligence, investigation, and evidence gathering calibrated to pleadings, disclosure obligations, and court timetables.",
+      items: [
+        {
+          number: "01",
+          title: "Opponent Asset Tracing & Solvency Assessment",
+          detail:
+            "Establishing defendant wealth, hidden asset structures, and overseas holdings to ensure litigation is economically viable and to underpin freezing injunction applications.",
+        },
+        {
+          number: "02",
+          title: "Electronic & Physical Evidence Discovery",
+          detail:
+            "Sourcing external documentary proof, physical records, and publicly accessible electronic evidence to corroborate pleaded claims.",
+        },
+        {
+          number: "03",
+          title: "Witness Location & Statement Taking",
+          detail:
+            "Tracing elusive witnesses and obtaining admissible proofs of evidence to CPR Part 32 standards under cognitive interview protocols.",
+        },
+        {
+          number: "04",
+          title: "Witness & Jury Interference Inquiries",
+          detail:
+            "Investigating improper coaching, covert inducement, and intimidation of witnesses or jurors in sensitive proceedings.",
+        },
+      ],
+    },
+    approach: {
+      title: "Case Integration Methodology",
+      summary:
+        "We work directly to the pleadings — not as a generic intelligence service, but as an extension of the legal team's factual preparation.",
+      steps: [
+        {
+          number: "01",
+          name: "Pleadings Analysis & Evidentiary Mapping",
+          description:
+            "Reviewing Particulars of Claim, Defences, and existing witness statements to identify the critical evidentiary voids that investigative work must fill.",
+        },
+        {
+          number: "02",
+          name: "Targeted Field & Open-Source Research",
+          description:
+            "Executing focused inquiries across international corporate registries, court archives, land registers, and digital intelligence sources.",
+        },
+        {
+          number: "03",
+          name: "Evidentiary Synthesis",
+          description:
+            "Constructing objective comparative matrices contrasting opposing statements against verified facts, surfacing material contradictions.",
+        },
+        {
+          number: "04",
+          name: "Delivery to Counsel",
+          description:
+            "Submitting exhibits, affidavits, and briefing memoranda directly to the instructing legal team in trial bundle compatible formats.",
+        },
+      ],
+    },
+    evidence: {
+      title: "Litigation Support Outputs",
+      standards:
+        "All deliverables are prepared to CPR Part 31 and Part 32 standards, formatted for direct integration into trial bundles and freezing injunction applications.",
+      deliverables: [
+        "Court-compliant witness statements sworn or signed with a Statement of Truth",
+        "Indexed evidence bundles formatted to trial bundle specifications",
+        "Comparative inconsistency reports highlighting contradictions between opposing evidence and verified facts",
+        "Asset schedules supporting freezing injunctions under CPR Part 25",
+        "Investigator court attendance for cross-examination testimony where required",
+      ],
+    },
+    audience: {
+      title: "Who Instructs Litigation Support",
+      summary:
+        "We work exclusively with legal professionals and institutions conducting high-stakes proceedings in the English courts.",
+      profiles: [
+        {
+          role: "Dispute Resolution Partners",
+          context:
+            "High-value commercial disputes in the Chancery Division, Commercial Court, and Technology and Construction Court.",
+          slug: "commercial-litigation",
+        },
+        {
+          role: "Insolvency Litigators",
+          context:
+            "Investigating misfeasance, fraudulent trading, antecedent transactions, and director disqualification proceedings.",
+          slug: "insolvency-practitioners",
+        },
+        {
+          role: "Specialist Defamation & Privacy Lawyers",
+          context:
+            "Attributing anonymous digital publishers, investigating coordinated cyber-libel campaigns, and establishing the factual record for serious privacy violations.",
+          slug: "corporate-legal",
+        },
+        {
+          role: "General Counsel & In-House Legal Teams",
+          context:
+            "Pre-action viability assessments and independent factual investigations within regulatory dispute and contractual enforcement mandates.",
+          slug: "corporate-legal",
+        },
+      ],
+    },
+    processServingBridge: {
+      heading: "Serving Process in Parallel with Investigation",
+      body:
+        "When investigative work identifies that a defendant or third party requires formal service — particularly individuals who are avoiding proceedings — TFTS executes personal service across the UK and coordinates international service through established partners.",
+      linkText: "View Litigation Process Serving",
+      href: "/services/process-serving/litigation",
+    },
+    insightSlugs: [
+      "what-evidence-can-a-private-investigator-obtain",
+      "asset-tracing-in-commercial-disputes",
+      "corporate-due-diligence-before-acquiring-a-business",
+    ],
+    relatedSlugs: [
+      "evidence-gathering",
+      "witness-enquiries",
+      "asset-tracing",
+      "people-tracing",
+      "fraud-investigations",
+      "corporate-fraud-investigations",
+    ],
+    faqs: [
+      {
+        question: "Is your work product protected under Legal Professional Privilege?",
+        answer:
+          "When instructed directly by solicitors or barristers in contemplation of litigation, our work falls under litigation privilege, protecting it from disclosure obligations subject to the specific circumstances of the mandate.",
+      },
+      {
+        question: "Can you assist during active trial proceedings?",
+        answer:
+          "Yes. We regularly support trial teams during active hearings by verifying witness credibility, investigating surprise factual assertions, and conducting urgent overnight field inquiries.",
+      },
+      {
+        question: "How do you handle sensitive cross-border disputes?",
+        answer:
+          "Through established international partnerships and secure communication frameworks, we gather evidence lawfully in overseas jurisdictions for use in UK proceedings under applicable Hague Convention protocols.",
+      },
+      {
+        question: "Can you assist with Norwich Pharmacal or Bankers Trust applications?",
+        answer:
+          "Yes. We conduct the preliminary investigative groundwork — establishing the evidential case for third-party disclosure orders — and prepare the factual foundations needed to support these applications.",
+      },
+    ],
+    metaTitle: "Litigation Support Services UK | Investigative Evidence for Law Firms | TFTS",
+    metaDescription:
+      "Professional litigation support for UK solicitors, barristers, and corporate counsel. Asset intelligence, witness proofs, disclosure evidence, and trial-ready investigative packages.",
+  },
+
+  "evidence-gathering": {
+    slug: "evidence-gathering",
+    disciplineNumber: "03",
+    category: "LEGAL",
+    semanticH1: "Civil Evidence Gathering",
+    displayHeadline: "SUSPICION IS NOT PROOF. PROOF IS PROOF.",
+    subProposition:
+      "Procuring admissible, court-ready evidence to establish civil claims, prove commercial torts, and document IP infringement across English law proceedings.",
+    eyebrow: "ROOM III · LEGAL INTELLIGENCE",
+    image: {
+      src: "https://images.unsplash.com/photo-1568667256549-094345857b23?auto=format&fit=crop&w=2400&q=85",
+      alt: "Close-up of archival document files, neutral tones, precise organisation",
+      caption: "Evidence classification and chain of custody management",
+    },
+    accentColor: "brass",
+    theProblem: {
+      heading: "In the English legal system, the burden of proof rests with the claimant.",
+      statement:
+        "Knowing that a wrong has been committed is not the same as being able to prove it. The distance between these two positions is where cases are won and lost.",
+      narrative: [
+        "Commercial disputes, IP infringement cases, and tortious claims frequently fail not because they lack legal merit but because the claimant cannot produce sufficient admissible evidence at the relevant moment. Solicitors know the law; investigators know how to find the facts.",
+        "Evidence must be relevant, lawfully obtained, and accompanied by a verifiable chain of custody. Evidence gathered incorrectly — through entrapment, trespass, or in breach of GDPR — risks being excluded entirely, or worse, turning the proceedings against the instructing party.",
+        "Our evidence gathering operations are structured from the outset around admissibility, with every collection step documented, timestamped, and prepared for forensic authentication.",
+      ],
+      scenarios: [
+        "Proving breaches of commercial contracts, delivery failures, or substandard industrial performance",
+        "Documenting intellectual property infringement, counterfeit distribution, and trademark dilution",
+        "Establishing tortious interference, inducing breach of contract, and commercial slander",
+        "Evidencing boundary disputes, right-of-way violations, and unauthorized land occupation",
+        "Proving environmental contamination, illegal dumping, and planning regulation breaches",
+      ],
+    },
+    capabilities: {
+      title: "Evidence Collection Capabilities",
+      summary:
+        "Systematic, lawful procurement of physical, digital, and documentary evidence — each item authenticated and chained from collection to court.",
+      items: [
+        {
+          number: "01",
+          title: "Physical & Environmental Verification",
+          detail:
+            "Contemporaneous photographic and video documentation of physical sites, conditions, goods, and activities with verified timestamps and geolocation data.",
+        },
+        {
+          number: "02",
+          title: "Commercial & Transactional Proof",
+          detail:
+            "Test purchases, delivery verification, product sampling, and procurement of commercial documentation establishing breach or infringement.",
+        },
+        {
+          number: "03",
+          title: "Digital & Communications Evidence",
+          detail:
+            "Forensic capture of online infringement, defamatory content, counterfeit listings, and electronic communications through legally compliant methods.",
+        },
+        {
+          number: "04",
+          title: "Chain of Custody Management",
+          detail:
+            "Securing physical and digital exhibits under documented custody protocols to prevent any credible allegation of tampering, loss, or spoliation.",
+        },
+      ],
+    },
+    approach: {
+      title: "Evidentiary Rigor Protocol",
+      summary:
+        "Every evidence gathering mandate is governed by a legal parameter check before any collection activity commences.",
+      steps: [
+        {
+          number: "01",
+          name: "Legal Parameter Verification",
+          description:
+            "Confirming the evidential requirements of the specific cause of action, relevant statutory boundaries, and applicable court rules before any collection begins.",
+        },
+        {
+          number: "02",
+          name: "Systematic Procurement",
+          description:
+            "Deploying lawful collection methods — test purchases, physical inspections, timestamped capture — with contemporaneous documentation at every step.",
+        },
+        {
+          number: "03",
+          name: "Forensic Authentication",
+          description:
+            "Validating provenance, metadata integrity, and physical chain of custody for every exhibit before it enters the formal evidence file.",
+        },
+        {
+          number: "04",
+          name: "Court-Ready Exhibit File",
+          description:
+            "Compiling indexed exhibit schedules cross-referenced with formal statements of truth, formatted for direct integration into the pleadings bundle.",
+        },
+      ],
+    },
+    evidence: {
+      title: "Evidence File Deliverables",
+      standards:
+        "All evidence is collected in compliance with the Civil Procedure Rules, PACE where applicable, GDPR, and the Investigatory Powers Act 2016, with full chain of custody documentation.",
+      deliverables: [
+        "Certified Exhibit Dossier containing all physical and digital evidence, properly indexed and cross-referenced",
+        "Investigator Witness Statements detailing exact methods, times, dates, and observations for each collection act",
+        "Complete chain of custody log ensuring evidential integrity against any spoliation or tampering challenge",
+        "High-definition video and photographic evidence with verified embedded timestamps and geographic metadata",
+        "Digital forensics exhibit package with metadata extraction reports for electronically stored evidence",
+      ],
+    },
+    audience: {
+      title: "Who We Work With",
+      summary:
+        "Evidence gathering mandates are instructed across IP litigation, commercial disputes, property law, and regulatory enforcement.",
+      profiles: [
+        {
+          role: "IP & Brand Protection Solicitors",
+          context:
+            "Evidencing trademark infringement, product counterfeiting, passing off, and online marketplace violations for enforcement proceedings.",
+          slug: "corporate-legal",
+        },
+        {
+          role: "Property & Commercial Litigators",
+          context:
+            "Documenting lease breaches, boundary infringements, unauthorized occupation, and planning violations with court-admissible physical evidence.",
+          slug: "property",
+        },
+        {
+          role: "Corporate Risk & Compliance Directors",
+          context:
+            "Establishing proof of contract breach, regulatory non-compliance, or tortious conduct before issuing formal default or enforcement notices.",
+          slug: "compliance-risk",
+        },
+        {
+          role: "Forensic Accountants",
+          context:
+            "Obtaining physical corroboration of financial transaction records, asset existence, and commercial activity supporting expert accounting reports.",
+          slug: "forensic-accountants",
+        },
+      ],
+    },
+    insightSlugs: [
+      "what-evidence-can-a-private-investigator-obtain",
+      "when-is-surveillance-lawful-in-the-uk",
+    ],
+    relatedSlugs: [
+      "litigation-support",
+      "witness-enquiries",
+      "covert-surveillance",
+      "digital-investigations",
+      "corporate-fraud-investigations",
+      "asset-tracing",
+    ],
+    faqs: [
+      {
+        question: "What makes evidence admissible in UK civil courts?",
+        answer:
+          "Evidence must be relevant to the pleaded issues, lawfully obtained without entrapment or trespass, and accompanied by a verifiable chain of custody and authenticated provenance. GDPR compliance is also required for any evidence involving personal data.",
+      },
+      {
+        question: "Can you perform test purchases for intellectual property infringement cases?",
+        answer:
+          "Yes. We execute test purchases adhering strictly to trading standards guidelines, documenting the full purchase transaction to establish counterfeit supply channels without inducing any conduct that would not otherwise have occurred.",
+      },
+      {
+        question: "How do you ensure video and photographic evidence cannot be challenged?",
+        answer:
+          "All visual evidence is captured with verified time, date, and geolocation stamps, preserved in uncompressed master formats, and documented with a continuous chain of custody log from capture to court submission.",
+      },
+      {
+        question: "Can evidence gathered by TFTS be used in regulatory proceedings as well as civil courts?",
+        answer:
+          "Yes. Our evidence files are regularly used in FCA, CMA, ICO, and HMRC regulatory proceedings, as well as civil and criminal court matters, when properly structured from the outset for the relevant forum.",
+      },
+    ],
+    metaTitle: "Civil Evidence Gathering UK | Admissible Court Proof | TFTS",
+    metaDescription:
+      "Professional evidence gathering for UK civil litigation, IP infringement, contract breaches, and commercial torts. Certified chain of custody and court-ready exhibits for solicitors and barristers.",
+  },
+
+  "witness-enquiries": {
+    slug: "witness-enquiries",
+    disciplineNumber: "03",
+    category: "LEGAL",
+    semanticH1: "Witness Enquiries & Statement Taking",
+    displayHeadline: "THE CASE OFTEN TURNS ON THE WITNESS NO ONE CAN FIND.",
+    subProposition:
+      "Ethical, skilled tracing, discreet approach, and CPR-compliant statement taking from critical witnesses for civil litigation, commercial arbitration, and contentious proceedings.",
+    eyebrow: "ROOM III · LEGAL INTELLIGENCE",
+    image: {
+      src: "https://images.unsplash.com/photo-1444653614773-995cb1ef9efa?auto=format&fit=crop&w=2400&q=85",
+      alt: "Two individuals in conversation across a minimal table, neutral interior, late afternoon light",
+      caption: "Witness interview environment, formal statement taking",
+    },
+    accentColor: "brass",
+    theProblem: {
+      heading: "Witnesses move, disengage, and — when improperly approached — refuse.",
+      statement:
+        "The difference between finding a witness and securing their testimony is the difference between a strong case and one built on incomplete evidence.",
+      narrative: [
+        "In complex commercial disputes, industrial inquiries, and contentious family proceedings, the critical witness is frequently the one who has left the organisation, relocated overseas, or is reluctant to become involved in proceedings they consider not their concern.",
+        "When approached incorrectly — by a party to the dispute, through legal correspondence perceived as threatening, or by an investigator without appropriate interpersonal skill — witnesses close down. They will not engage, cannot be compelled easily, and may become hostile to the instructing party's interests.",
+        "Professional witness enquiry combines careful pre-interview profiling, neutral discreet approach, and cognitive interviewing technique to produce statements that are both forensically complete and legally unimpeachable.",
+      ],
+      scenarios: [
+        "Locating former corporate employees who observed internal misconduct, fraud, or safety failures",
+        "Approaching third-party eyewitnesses to commercial, transport, or industrial incidents",
+        "Taking formal proofs of evidence from reluctant witnesses in contentious proceedings",
+        "Evaluating the credibility, demeanour, and cross-examination vulnerability of potential witnesses",
+        "Securing statements under urgent time constraints before memories degrade or parties make improper contact",
+      ],
+    },
+    capabilities: {
+      title: "Witness Enquiry Capabilities",
+      summary:
+        "End-to-end witness engagement — from initial tracing through to signed CPR-compliant statements and court attendance support.",
+      items: [
+        {
+          number: "01",
+          title: "Witness Tracing & Location",
+          detail:
+            "Finding witnesses across the UK and internationally when historical contact information is expired, outdated, or deliberately withheld.",
+        },
+        {
+          number: "02",
+          title: "Sensitive Approach & Engagement",
+          detail:
+            "Overcoming reluctance through professional, ethical engagement — without coercion, improper incentive, or any conduct that could constitute witness interference.",
+        },
+        {
+          number: "03",
+          title: "Cognitive Interviewing & Statement Drafting",
+          detail:
+            "Extracting detailed, accurate chronological recollections using non-leading technique, drafted to CPR Part 32 standards in the witness's own words.",
+        },
+        {
+          number: "04",
+          title: "Credibility & Vulnerability Assessment",
+          detail:
+            "Evaluating potential witness bias, undisclosed relationships with opposing parties, prior convictions, and credibility risks before formal statements are obtained.",
+        },
+      ],
+    },
+    approach: {
+      title: "Witness Interviewing Methodology",
+      summary:
+        "Structured cognitive interview protocol designed to maximise evidential quality while maintaining complete ethical and legal compliance.",
+      steps: [
+        {
+          number: "01",
+          name: "Witness Mapping & Pre-Interview Profiling",
+          description:
+            "Reviewing known facts, conducting background verification, and assessing independence, credibility indicators, and potential opposing party associations.",
+        },
+        {
+          number: "02",
+          name: "Discreet Approach",
+          description:
+            "Making initial contact at an appropriate time and location selected to ensure the witness is comfortable, unobserved by other parties, and open to engagement.",
+        },
+        {
+          number: "03",
+          name: "Neutral Cognitive Interview",
+          description:
+            "Employing open-ended, non-leading questioning technique to elicit comprehensive, unvarnished, and chronologically structured factual recollection.",
+        },
+        {
+          number: "04",
+          name: "Statement Formulation & Execution",
+          description:
+            "Drafting the formal CPR Part 32 witness statement in the witness's own words, reviewed by the witness, and executed with a signed Statement of Truth.",
+        },
+      ],
+    },
+    evidence: {
+      title: "Witness Enquiry Deliverables",
+      standards:
+        "All witness statements are produced to CPR Part 32 standards, drafted in the witness's own words, signed with a Statement of Truth, and supported by detailed interview memoranda.",
+      deliverables: [
+        "CPR Part 32-compliant signed Witness Statements with Statement of Truth",
+        "Comprehensive Interview Memoranda detailing witness demeanour, reliability indicators, and potential trial vulnerabilities",
+        "Recorded audio files and verbatim transcripts where authorised by the witness and instructing counsel",
+        "Credibility assessment note evaluating independence, bias risk, and cross-examination exposure",
+        "Witness availability coordination and ongoing liaison support through listing dates",
+      ],
+    },
+    audience: {
+      title: "Who We Work With",
+      summary:
+        "Witness enquiry mandates are instructed by solicitors, barristers, and insurers requiring both the location and the formal statement from elusive or reluctant witnesses.",
+      profiles: [
+        {
+          role: "Litigation Solicitors & Barristers",
+          context:
+            "Locating former employees, third-party eyewitnesses, and reluctant witnesses to secure admissible proofs of evidence for complex commercial and civil proceedings.",
+          slug: "commercial-litigation",
+        },
+        {
+          role: "Insurers & Claims Counsel",
+          context:
+            "Investigating liability disputes, large-loss commercial claims, and witness accounts that contradict the claimant's account of events.",
+          slug: "insurers",
+        },
+        {
+          role: "Forensic Accountants & Expert Witnesses",
+          context:
+            "Obtaining factual corroboration from witnesses with direct knowledge of financial transactions, management decisions, or commercial conduct under investigation.",
+          slug: "forensic-accountants",
+        },
+        {
+          role: "Public Inquiry & Regulatory Investigation Teams",
+          context:
+            "Gathering widespread witness testimony and discreet interview coverage across complex institutional, regulatory, or public interest reviews.",
+        },
+      ],
+    },
+    insightSlugs: [
+      "what-evidence-can-a-private-investigator-obtain",
+      "when-is-surveillance-lawful-in-the-uk",
+    ],
+    relatedSlugs: [
+      "litigation-support",
+      "evidence-gathering",
+      "people-tracing",
+      "corporate-fraud-investigations",
+      "employee-investigations",
+      "intelligence",
+    ],
+    faqs: [
+      {
+        question: "How do you ensure a witness statement cannot be challenged for coaching?",
+        answer:
+          "Our investigators use strictly non-leading, open-ended cognitive questioning. The entire approach and interview process is documented, and statements are drafted in the witness's own words — not paraphrased or restructured by the investigator.",
+      },
+      {
+        question: "What if a witness refuses to speak to us?",
+        answer:
+          "We document the approach and the refusal in detail. This allows instructing solicitors to consider witness summons applications where appropriate, and provides a contemporaneous record of the attempt for the purposes of proceedings.",
+      },
+      {
+        question: "Can you interview non-English speaking witnesses?",
+        answer:
+          "Yes. We work with certified interpreters and multilingual investigators to ensure accuracy, legal compliance, and the precise evidential quality that witness statements require.",
+      },
+      {
+        question: "Can witness enquiry work begin before proceedings have been issued?",
+        answer:
+          "Yes, and it is frequently more effective when instructed at the pre-action stage. Memories are fresher, witnesses are more willing to engage before formal proceedings create an adversarial atmosphere, and the intelligence gathered can shape the structure of the pleadings.",
+      },
+    ],
+    metaTitle: "Witness Enquiries & Statement Taking UK | Litigation Investigators | TFTS",
+    metaDescription:
+      "Professional witness tracing, cognitive interviewing, and CPR Part 32-compliant statement taking for UK solicitors, barristers, insurers, and corporate legal teams.",
+  },
+
+  // ──────────────────────────────────────────────────────────────────────────
+  // PHASE 2 — TRACING & BACKGROUND CLUSTER
+  // ──────────────────────────────────────────────────────────────────────────
+
+  "background-investigations": {
+    slug: "background-investigations",
+    disciplineNumber: "02",
+    category: "INTELLIGENCE",
+    semanticH1: "Executive Background Investigations",
+    displayHeadline: "BEYOND THE POLISHED RESUME.",
+    subProposition:
+      "Rigorous, discreet verification of executive credentials, personal integrity, financial history, and undisclosed risks — for board appointments, partnership decisions, and high-stakes personal commitments.",
+    eyebrow: "ROOM II · INTELLIGENCE SERVICES",
+    image: {
+      src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=2400&q=85",
+      alt: "Executive portrait environment, neutral Mayfair office, controlled natural light",
+      caption: "Executive vetting: the gap between presentation and substance",
+    },
+    accentColor: "brass",
+    theProblem: {
+      heading: "The professional surface is precisely what it is designed to be.",
+      statement:
+        "Standard screening checks verify what a candidate chooses to disclose. Our investigations uncover what they have chosen not to.",
+      narrative: [
+        "Automated pre-employment screening agencies check boxes: stated qualifications, declared criminal convictions, and Companies House entries that the candidate has provided. They do not interrogate what has been omitted, what has been embellished, or what lies behind dissolved companies and departed partnerships.",
+        "For board-level appointments, significant partnership decisions, and sensitive family or private commitments, the stakes of misplaced trust are existential. The legal liability of appointing a director who carries undisclosed insolvency proceedings, regulatory sanctions, or a history of serious civil litigation falls entirely on the appointing entity.",
+        "Our background investigations are led by experienced intelligence analysts who cross-examine records, uncover hidden corporate associations, and detect deliberate concealment — not automated software producing a tick-box report within the hour.",
+      ],
+      scenarios: [
+        "Appointing a new CEO, CFO, or non-executive director to a public or private board",
+        "Vetting prospective co-founders, hedge fund managers, or private equity operating partners",
+        "Evaluating high-value business intermediaries, sovereign advisors, or key commercial agents",
+        "Discreetly vetting prospective partners or significant relationships within high-net-worth families",
+        "Assessing individuals in sensitive roles involving access to classified commercial information",
+      ],
+    },
+    capabilities: {
+      title: "Investigation Elements",
+      summary:
+        "Multi-vector vetting that examines every dimension of professional, financial, and reputational history — not merely what appears in a single database search.",
+      items: [
+        {
+          number: "01",
+          title: "Academic & Professional Credential Verification",
+          detail:
+            "Primary source verification of academic qualifications, professional certifications, directorship tenures, and claimed achievements with the issuing institution.",
+        },
+        {
+          number: "02",
+          title: "Litigation & Dispute History",
+          detail:
+            "Comprehensive search of County Court Judgments, High Court claims, employment tribunal records, insolvency filings, and overseas court proceedings.",
+        },
+        {
+          number: "03",
+          title: "Corporate Track Record & Governance",
+          detail:
+            "Examining dissolved companies, director disqualification orders, administration and liquidation histories, regulatory sanctions, and undisclosed corporate associations.",
+        },
+        {
+          number: "04",
+          title: "Reputational & Integrity Scrutiny",
+          detail:
+            "Deep mining of adverse media archives, historical web footprints, professional community intelligence, and OSINT indicators of character inconsistency.",
+        },
+      ],
+    },
+    approach: {
+      title: "Multi-Vector Vetting Methodology",
+      summary:
+        "Structured in phases, with each layer of inquiry informing the next — from public record audit through to discreet reputational assessment.",
+      steps: [
+        {
+          number: "01",
+          name: "Public Record & Civil Registry Audit",
+          description:
+            "Verifying identity, historical residential addresses, corporate register entries, electoral history, and all publicly accessible professional registrations.",
+        },
+        {
+          number: "02",
+          name: "Financial & Regulatory Search",
+          description:
+            "Screening insolvency registers, sanctions lists, PEP databases, and regulatory registries including FCA, SRA, GMC, and overseas equivalents.",
+        },
+        {
+          number: "03",
+          name: "OSINT & Digital Archaeology",
+          description:
+            "Deep mining of historical web archives, forum footprints, deleted social content, media associations, and digital identity inconsistencies.",
+        },
+        {
+          number: "04",
+          name: "Executive Dossier Compilation",
+          description:
+            "Producing a structured, objective risk profile categorising verified facts, identified discrepancies, and areas requiring further clarification.",
+        },
+      ],
+    },
+    evidence: {
+      title: "Background Investigation Deliverables",
+      standards:
+        "All background investigation reports are compiled as objective intelligence products — factual, referenced, and structured for use in board governance, legal due diligence, or personal decision-making contexts.",
+      deliverables: [
+        "In-depth Executive Background Report covering full career history, corporate record, and financial standing",
+        "Discrepancy matrix identifying embellishments, omissions, and factual misrepresentations against stated profile",
+        "Adverse media and litigation dossier with primary court documents and regulatory filings",
+        "Reputational intelligence summary synthesising professional standing and integrity indicators",
+        "Strategic brief on any areas warranting deeper investigation or direct clarification with the subject",
+      ],
+    },
+    audience: {
+      title: "Who Instructs Background Investigations",
+      summary:
+        "Background investigation mandates come from boards, investors, and high-net-worth principals making decisions where the cost of misplaced trust is material.",
+      profiles: [
+        {
+          role: "Nomination & Remuneration Committees",
+          context:
+            "Performing discreet pre-appointment vetting of C-suite candidates and non-executive director nominees before formal announcement.",
+        },
+        {
+          role: "Private Equity Sponsors",
+          context:
+            "Vetting management teams, portfolio company executives, and operating partners in pre-acquisition and turnaround situations.",
+          slug: "private-equity",
+        },
+        {
+          role: "Family Office Principals",
+          context:
+            "Protecting high-net-worth families from sophisticated social, financial, and reputational predators — including individuals pursuing romantic or business connections.",
+          slug: "family-offices",
+        },
+        {
+          role: "Banks & Lenders",
+          context:
+            "Vetting guarantors, beneficial owners, and key management teams before extending significant credit facilities.",
+          slug: "banks-lenders",
+        },
+      ],
+    },
+    insightSlugs: [
+      "corporate-due-diligence-before-acquiring-a-business",
+      "what-is-an-osint-investigation",
+    ],
+    relatedSlugs: [
+      "due-diligence",
+      "osint-investigations",
+      "people-tracing",
+      "intelligence",
+      "corporate-investigations",
+      "asset-tracing",
+    ],
+    faqs: [
+      {
+        question: "Is the subject notified that a background investigation is taking place?",
+        answer:
+          "Not unless required by a specific statutory framework. In private commercial instructions, we conduct passive, non-intrusive public-source and registry inquiries with no direct contact with the subject.",
+      },
+      {
+        question: "How does this differ from standard HR background screening?",
+        answer:
+          "Standard HR screening uses automated software to verify what a candidate has already declared. Our investigations are conducted by experienced intelligence analysts who cross-examine records to uncover what has been omitted, concealed, or deliberately misrepresented.",
+      },
+      {
+        question: "Can you investigate candidates based outside the UK?",
+        answer:
+          "Yes. We regularly investigate individuals across Europe, North America, the Middle East, and offshore jurisdictions, using established international research networks and jurisdiction-specific data sources.",
+      },
+      {
+        question: "What level of risk categorisation do your reports include?",
+        answer:
+          "Our reports present findings factually and categorise identified issues by type — financial, legal, reputational, credential — without making unsubstantiated risk ratings. Instructing parties apply their own governance thresholds to the factual record presented.",
+      },
+    ],
+    metaTitle: "Executive Background Investigations UK | Director Vetting Intelligence | TFTS",
+    metaDescription:
+      "Comprehensive executive background checks and integrity vetting for board appointments, private equity partners, family offices, and high-value personal decisions. Discreet, analyst-led intelligence.",
+  },
 };

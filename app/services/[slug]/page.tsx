@@ -58,7 +58,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
     notFound();
   }
 
-  // If this service is one of the ten flagship commercial services, render the elevated editorial container
+  // If this service has a bespoke flagship configuration, render the elevated editorial container
   if (flagship) {
     return <FlagshipPageContainer service={flagship} />;
   }

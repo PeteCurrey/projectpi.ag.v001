@@ -1,5 +1,5 @@
 import React from "react";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { ShieldCheck, Lock, Building, Scale, ArrowRight, Award } from "lucide-react";

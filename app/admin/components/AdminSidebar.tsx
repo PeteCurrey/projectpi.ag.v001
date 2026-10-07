@@ -101,14 +101,37 @@ const NAV_GROUPS: NavGroup[] = [
     items: [
       { label: "Research Workspace", href: "/admin/research", icon: FlaskConical },
       { label: "Research Tools", href: "/admin/tools", icon: Globe },
+      { label: "Intelligence Notes", href: "/admin/intelligence/notes", icon: BookText },
+      { label: "Relationships", href: "/admin/intelligence/relationships", icon: Network },
+    ],
+  },
+  {
+    label: "Field Operations",
+    defaultOpen: false,
+    items: [
+      { label: "Surveillance", href: "/admin/operations/surveillance", icon: Eye },
+      { label: "Field Assignments", href: "/admin/operations/assignments", icon: MapPin },
+    ],
+  },
+  {
+    label: "Commercial",
+    defaultOpen: false,
+    items: [
+      { label: "Invoices", href: "/admin/commercial/invoices", icon: Receipt },
+      { label: "Payments", href: "/admin/commercial/payments", icon: CreditCard },
+      { label: "Quotes", href: "/admin/commercial/quotes", icon: FileText },
+      { label: "Revenue", href: "/admin/commercial/revenue", icon: BarChart3 },
     ],
   },
   {
     label: "Administration",
     defaultOpen: false,
     items: [
-      { label: "Users & Team", href: "/admin/users", icon: Users },
-      { label: "Audit Log", href: "/admin/audit", icon: ScrollText },
+      { label: "Users & Team", href: "/admin/system/users", icon: Users },
+      { label: "Roles & Permissions", href: "/admin/system/roles", icon: Lock },
+      { label: "Audit Log", href: "/admin/system/audit", icon: ScrollText },
+      { label: "Data Retention", href: "/admin/system/retention", icon: ArchiveRestore },
+      { label: "Security", href: "/admin/system/security", icon: ShieldCheck },
       { label: "Firm Settings", href: "/admin/settings", icon: Settings2 },
     ],
   },

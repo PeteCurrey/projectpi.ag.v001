@@ -21,14 +21,22 @@ export default function FlagshipRelatedServices({
   const allSlugs = [
     "corporate-investigations",
     "corporate-fraud-investigations",
+    "fraud-investigations",
+    "employee-investigations",
+    "due-diligence",
     "intelligence",
     "osint-investigations",
-    "due-diligence",
-    "people-tracing",
-    "asset-tracing",
     "digital-investigations",
-    "employee-investigations",
-    "fraud-investigations",
+    "asset-tracing",
+    "people-tracing",
+    "background-investigations",
+    "litigation-support",
+    "evidence-gathering",
+    "witness-enquiries",
+    "private-surveillance",
+    "covert-surveillance",
+    "undercover-investigations",
+    "insurance-investigations",
   ];
   const currentIndex = allSlugs.indexOf(currentSlug);
   const prevSlug = currentIndex > 0 ? allSlugs[currentIndex - 1] : allSlugs[allSlugs.length - 1];
