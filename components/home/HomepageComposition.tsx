@@ -369,8 +369,8 @@ export default function HomepageComposition() {
           <div className="relative w-full h-full min-h-[80vh]">
             <TFTSImageReveal mode="wipe-right" className="absolute inset-0 w-full h-full">
               <Image
-                src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=2800&q=90"
-                alt="Corporate legal environment — interior architecture"
+                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2800&q=90"
+                alt="City of London financial district — monolithic steel and stone commercial architecture"
                 fill
                 className="object-cover"
                 style={{ filter: "grayscale(100%) contrast(1.06) brightness(0.75)" }}
