@@ -4,6 +4,7 @@ import AdminPageHeader from "../components/AdminPageHeader";
 import StatusBadge from "../components/StatusBadge";
 import PriorityIndicator from "../components/PriorityIndicator";
 import { FIXTURE_CASES, FIXTURE_CLIENTS, FIXTURE_USERS } from "@/lib/admin/fixtures";
+import { Plus, FolderOpen } from "lucide-react";
 
 export const metadata = {
   title: "Investigation Matters | PI Operations",
@@ -23,9 +24,16 @@ export default function AdminMattersPage() {
         description="Master index of legal, intelligence, process serving and corporate casework."
         actions={
           <div className="flex items-center gap-2">
-            <span className="text-[11px] font-mono text-admin-text-muted">
+            <span className="text-[11px] font-mono text-admin-text-muted mr-2">
               {matters.length} Total Matters Recorded
             </span>
+            <Link
+              href="/admin/matters/new"
+              className="px-3 py-1.5 text-xs font-mono bg-admin-accent text-white rounded-xs hover:bg-admin-accent/90 transition-colors flex items-center gap-1.5 font-medium shadow-xs"
+            >
+              <Plus className="w-3.5 h-3.5" />
+              Instruct New Matter
+            </Link>
           </div>
         }
       />
@@ -52,6 +60,7 @@ export default function AdminMattersPage() {
                 <th className="p-3 font-medium">Title & Instructing Client</th>
                 <th className="p-3 font-medium">Vertical</th>
                 <th className="p-3 font-medium">Priority</th>
+                <th className="p-3 font-medium">Confidentiality</th>
                 <th className="p-3 font-medium">Status</th>
                 <th className="p-3 font-medium">Lead Operative</th>
                 <th className="p-3 font-medium">Target Date</th>
@@ -65,15 +74,28 @@ export default function AdminMattersPage() {
                   ? FIXTURE_USERS.find((u) => u.id === matter.lead_investigator_id)
                   : null;
 
+                const conf = matter.confidentiality || "STANDARD";
+                const confStyles =
+                  conf === "HIGHLY_CONFIDENTIAL"
+                    ? "bg-red-50 text-red-700 border-red-200"
+                    : conf === "CONFIDENTIAL"
+                    ? "bg-amber-50 text-amber-700 border-amber-200"
+                    : "bg-admin-surface text-admin-text-secondary border-admin-border";
+
                 return (
                   <tr key={matter.id} className="hover:bg-admin-surface/40 transition-colors">
                     <td className="p-3 font-mono font-medium text-admin-text">
-                      <Link href={`/admin/matters/${matter.id}`} className="hover:text-admin-accent">
+                      <Link href={`/admin/matters/${matter.reference}`} className="hover:text-admin-accent hover:underline">
                         {matter.reference}
                       </Link>
                     </td>
                     <td className="p-3">
-                      <p className="font-medium text-admin-text">{matter.title}</p>
+                      <Link
+                        href={`/admin/matters/${matter.reference}`}
+                        className="font-medium text-admin-text hover:text-admin-accent hover:underline block"
+                      >
+                        {matter.title}
+                      </Link>
                       <p className="text-[11px] text-admin-text-muted">
                         {client ? client.legal_name : "Private Client"}
                       </p>
@@ -83,6 +105,11 @@ export default function AdminMattersPage() {
                     </td>
                     <td className="p-3">
                       <PriorityIndicator priority={matter.priority} showLabel />
+                    </td>
+                    <td className="p-3">
+                      <span className={`text-[10px] font-mono px-2 py-0.5 border rounded-xs uppercase tracking-wider font-semibold ${confStyles}`}>
+                        {conf.replace(/_/g, " ")}
+                      </span>
                     </td>
                     <td className="p-3">
                       <StatusBadge status={matter.status} />
@@ -97,10 +124,10 @@ export default function AdminMattersPage() {
                     </td>
                     <td className="p-3 text-right">
                       <Link
-                        href={`/admin/matters/${matter.id}`}
+                        href={`/admin/matters/${matter.reference}`}
                         className="px-2.5 py-1 text-[11px] font-mono uppercase bg-admin-surface border border-admin-border hover:border-admin-accent text-admin-text rounded-xs transition-colors"
                       >
-                        Enter Case
+                        Enter Matter
                       </Link>
                     </td>
                   </tr>

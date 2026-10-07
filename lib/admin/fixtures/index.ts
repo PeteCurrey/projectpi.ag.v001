@@ -11,3 +11,6 @@ export * from "./tasks";
 export * from "./evidence";
 export * from "./notifications";
 export * from "./audit";
+export * from "./assignments";
+export * from "./documents";
+export * from "./messages";

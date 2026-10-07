@@ -164,7 +164,7 @@ export default function AdminDashboardPage() {
                     >
                       <td className="px-4 py-2.5">
                         <Link
-                          href={`/admin/matters/${c.caseId}`}
+                          href={`/admin/matters/${c.reference}`}
                           className="text-[11px] font-mono text-admin-accent hover:underline"
                         >
                           {c.reference}
@@ -173,7 +173,7 @@ export default function AdminDashboardPage() {
                       <td className="px-4 py-2.5">
                         <div>
                           <Link
-                            href={`/admin/matters/${c.caseId}`}
+                            href={`/admin/matters/${c.reference}`}
                             className="text-[12px] text-admin-text hover:text-admin-accent transition-colors line-clamp-1"
                           >
                             {c.title}

@@ -2,11 +2,11 @@ import React from "react";
 import { FlagshipServiceConfig } from "@/lib/data/flagshipServicesData";
 import { EDITORIAL_SERVICE_IMAGES, ServiceEditorialImages } from "@/lib/data/editorialImagesData";
 import { getSiteUrl, BRAND_PREFERRED, TELEPHONE } from "@/lib/config/brand";
-import InvestigationsLayout from "../editorial/layouts/InvestigationsLayout";
-import IntelligenceLayout from "../editorial/layouts/IntelligenceLayout";
-import TracingLayout from "../editorial/layouts/TracingLayout";
-import FieldOperationsLayout from "../editorial/layouts/FieldOperationsLayout";
-import LegalEvidenceLayout from "../editorial/layouts/LegalEvidenceLayout";
+import InvestigationsComposition from "../compositions/InvestigationsComposition";
+import IntelligenceComposition from "../compositions/IntelligenceComposition";
+import TracingComposition from "../compositions/TracingComposition";
+import FieldOperationsComposition from "../compositions/FieldOperationsComposition";
+import LegalEvidenceComposition from "../compositions/LegalEvidenceComposition";
 
 interface FlagshipPageContainerProps {
   service: FlagshipServiceConfig;
@@ -16,30 +16,30 @@ const LAYOUT_FAMILY_MAP: Record<
   string,
   "INVESTIGATIONS" | "INTELLIGENCE" | "TRACING" | "FIELD_OPERATIONS" | "LEGAL_EVIDENCE"
 > = {
-  // Investigations Family (Rule 10)
+  // Investigations Family
   "corporate-investigations": "INVESTIGATIONS",
   "corporate-fraud-investigations": "INVESTIGATIONS",
   "fraud-investigations": "INVESTIGATIONS",
   "employee-investigations": "INVESTIGATIONS",
 
-  // Intelligence Family (Rule 10)
+  // Intelligence Family
   intelligence: "INTELLIGENCE",
   "osint-investigations": "INTELLIGENCE",
   "digital-investigations": "INTELLIGENCE",
   "background-investigations": "INTELLIGENCE",
 
-  // Tracing Family (Rule 10)
+  // Tracing Family
   "people-tracing": "TRACING",
   "asset-tracing": "TRACING",
   "due-diligence": "TRACING",
 
-  // Field Operations Family (Rule 10)
+  // Field Operations Family
   "private-surveillance": "FIELD_OPERATIONS",
   "covert-surveillance": "FIELD_OPERATIONS",
   "undercover-investigations": "FIELD_OPERATIONS",
   "insurance-investigations": "FIELD_OPERATIONS",
 
-  // Legal & Evidence Family (Rule 10)
+  // Legal & Evidence Family
   "litigation-support": "LEGAL_EVIDENCE",
   "evidence-gathering": "LEGAL_EVIDENCE",
   "witness-enquiries": "LEGAL_EVIDENCE",
@@ -152,21 +152,21 @@ export default function FlagshipPageContainer({ service }: FlagshipPageContainer
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
-      {/* Dispatch to the appropriate editorial layout family (Rule 10) */}
+      {/* Dispatch to the appropriate editorial composition */}
       {layoutFamily === "INVESTIGATIONS" && (
-        <InvestigationsLayout service={service} images={images} />
+        <InvestigationsComposition service={service} images={images} />
       )}
       {layoutFamily === "INTELLIGENCE" && (
-        <IntelligenceLayout service={service} images={images} />
+        <IntelligenceComposition service={service} images={images} />
       )}
       {layoutFamily === "TRACING" && (
-        <TracingLayout service={service} images={images} />
+        <TracingComposition service={service} images={images} />
       )}
       {layoutFamily === "FIELD_OPERATIONS" && (
-        <FieldOperationsLayout service={service} images={images} />
+        <FieldOperationsComposition service={service} images={images} />
       )}
       {layoutFamily === "LEGAL_EVIDENCE" && (
-        <LegalEvidenceLayout service={service} images={images} />
+        <LegalEvidenceComposition service={service} images={images} />
       )}
     </>
   );

@@ -124,7 +124,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </head>
-      <body className="bg-obsidian text-warmWhite min-h-screen selection:bg-brass selection:text-obsidian flex flex-col antialiased">
+      <body className="bg-paper text-ink min-h-screen selection:bg-ink selection:text-paper flex flex-col antialiased">
         <Header />
         <main className="flex-grow pt-20 md:pt-24">{children}</main>
         <Footer />

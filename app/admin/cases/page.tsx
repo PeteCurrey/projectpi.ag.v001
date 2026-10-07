@@ -170,7 +170,7 @@ export default function CasesPage() {
                 >
                   <td className="px-3 py-2.5">
                     <Link
-                      href={`/admin/cases/${c.reference}`}
+                      href={`/admin/matters/${c.reference}`}
                       className="font-mono text-xs text-admin-accent hover:underline"
                     >
                       {c.reference}
@@ -220,7 +220,7 @@ export default function CasesPage() {
                   </td>
                   <td className="px-3 py-2.5 text-right">
                     <Link
-                      href={`/admin/cases/${c.reference}`}
+                      href={`/admin/matters/${c.reference}`}
                       className="inline-flex items-center gap-1 text-[11px] text-admin-text-faint hover:text-admin-accent transition-colors"
                     >
                       Open

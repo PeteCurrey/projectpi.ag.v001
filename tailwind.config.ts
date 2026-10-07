@@ -76,6 +76,20 @@ const config: Config = {
           brass: "#A58A5C",
           oxblood: "#7D2424",
         },
+        paper: {
+          DEFAULT: "#F5F3EE",
+          stone: "#ECEAE4",
+          contrast: "#111111",
+        },
+        ink: {
+          DEFAULT: "#111111",
+          muted: "#666661",
+          faint: "#999893",
+        },
+        rule: {
+          DEFAULT: "#D8D5CD",
+          subtle: "#E5E3DC",
+        },
       },
       borderRadius: {
         none: "0px",

@@ -50,6 +50,12 @@ export default async function CaseWorkspaceLayout({
         description={`Client: ${client?.legal_name || "Confidential"} · Lead Investigator: ${leadInvestigator?.name || "Unassigned"}`}
         actions={
           <div className="flex items-center gap-2">
+            <Link
+              href={`/admin/matters/${currentCase.reference}`}
+              className="px-2.5 py-1 text-xs font-mono bg-admin-accent text-white rounded-xs hover:bg-admin-accent/90 transition-colors flex items-center gap-1 font-medium"
+            >
+              Enter Matter Workspace →
+            </Link>
             <StatusBadge status={currentCase.status} />
             <span className="text-[11px] font-mono px-2 py-0.5 border border-admin-border bg-white text-admin-text-secondary rounded-xs">
               PRIORITY: {currentCase.priority}

@@ -16,7 +16,8 @@ import {
 import AdminPageHeader from "../../components/AdminPageHeader";
 import StatusBadge from "../../components/StatusBadge";
 import PriorityIndicator from "../../components/PriorityIndicator";
-import { getLeadById, getUserById, FIXTURE_USERS } from "@/lib/admin/fixtures";
+import ConvertToMatterButton from "../components/ConvertToMatterButton";
+import { getLeadById, getUserById, getCaseById, FIXTURE_USERS } from "@/lib/admin/fixtures";
 
 export const metadata = {
   title: "Triage Enquiry | PI Operations",
@@ -53,16 +54,14 @@ export default async function AdminEnquiryDetailPage({
             </Link>
             {enquiry.converted_to_matter_id ? (
               <Link
-                href={`/admin/matters/${enquiry.converted_to_matter_id}`}
-                className="px-3 py-1.5 text-xs font-mono bg-emerald-600 text-white rounded-xs hover:bg-emerald-700 transition-colors flex items-center gap-1.5"
+                href={`/admin/matters/${getCaseById(enquiry.converted_to_matter_id)?.reference || enquiry.converted_to_matter_id}`}
+                className="px-3 py-1.5 text-xs font-mono bg-emerald-700 text-white rounded-xs hover:bg-emerald-800 transition-colors flex items-center gap-1.5 font-medium shadow-xs"
               >
                 <CheckCircle2 className="w-3.5 h-3.5" />
                 View Converted Matter
               </Link>
             ) : (
-              <button className="px-3 py-1.5 text-xs font-mono uppercase font-medium bg-admin-accent text-white rounded-xs hover:bg-admin-accent/90 transition-colors">
-                Convert to Matter
-              </button>
+              <ConvertToMatterButton enquiryId={enquiry.id} />
             )}
           </div>
         }

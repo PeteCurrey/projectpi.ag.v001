@@ -1,13 +1,14 @@
 "use client";
 
+import React from "react";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 interface ConfidentialEnquiryCTAProps {
   heading?: string;
   body?: string;
   ctaLabel?: string;
-  origin?: string; // for pre-populating the enquiry form
+  origin?: string;
   variant?: "dark" | "light";
 }
 
@@ -16,52 +17,37 @@ export default function ConfidentialEnquiryCTA({
   body = "Instructions are received in confidence. All initial enquiries are without obligation.",
   ctaLabel = "BEGIN A CONFIDENTIAL ENQUIRY",
   origin,
-  variant = "dark",
 }: ConfidentialEnquiryCTAProps) {
   const href = origin
     ? `/confidential-enquiry?from=${encodeURIComponent(origin)}`
     : "/confidential-enquiry";
 
-  if (variant === "light") {
-    return (
-      <section className="border border-stone/20 bg-obsidian-surface/40 px-8 py-10 md:px-12 md:py-14">
-        <div className="max-w-2xl">
-          <p className="font-light text-2xl text-warmWhite leading-snug mb-3">
+  return (
+    <section className="bg-paper-stone border-t border-rule px-6 py-20 lg:px-12 lg:py-28 text-ink">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-baseline justify-between gap-8">
+        <div className="max-w-xl space-y-3">
+          <span className="text-[11px] tracking-[0.22em] uppercase font-[300] text-ink-muted block">
+            Direct Consultation
+          </span>
+          <h2 className="text-2xl sm:text-4xl font-[200] text-ink tracking-tight">
             {heading}
+          </h2>
+          <p className="text-xs sm:text-sm font-[300] text-ink-muted leading-relaxed">
+            {body}
           </p>
-          <p className="text-stone text-sm leading-relaxed mb-8">{body}</p>
+        </div>
+        <div className="space-y-4 shrink-0">
           <Link
             href={href}
-            className="inline-flex items-center gap-3 bg-brass text-obsidian text-xs tracking-widest uppercase font-light px-7 py-4 hover:bg-brass/90 transition-colors"
+            className="inline-flex items-center space-x-2 border border-ink px-6 py-3 text-xs tracking-[0.2em] uppercase font-[300] text-ink hover:bg-ink hover:text-paper transition-colors rounded-none"
           >
-            {ctaLabel}
-            <ArrowRight className="w-3.5 h-3.5" />
+            <span>{ctaLabel}</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
           </Link>
+          <div className="text-[11px] text-ink-muted font-[300]">
+            Mayfair Consulting Suite · enquiries@tfts.co.uk
+          </div>
         </div>
-      </section>
-    );
-  }
-
-  return (
-    <section className="bg-obsidian border-t border-stone/10 px-8 py-16 md:px-16 md:py-24">
-      <div className="max-w-4xl mx-auto text-center">
-        <div className="w-px h-12 bg-brass mx-auto mb-10" />
-        <h2 className="font-light text-3xl md:text-4xl text-warmWhite leading-tight mb-5">
-          {heading}
-        </h2>
-        <p className="text-stone text-sm md:text-base leading-relaxed mb-10 max-w-xl mx-auto">
-          {body}
-        </p>
-        <Link
-          href={href}
-          className="inline-flex items-center gap-3 bg-brass text-obsidian text-xs tracking-widest uppercase font-light px-9 py-5 hover:bg-brass/90 transition-colors"
-        >
-          {ctaLabel}
-          <ArrowRight className="w-3.5 h-3.5" />
-        </Link>
-        <p className="text-stone/40 text-xs mt-8 tracking-wider uppercase">
-          All enquiries handled in strict confidence
-        </p>
       </div>
     </section>
   );

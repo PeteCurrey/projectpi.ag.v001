@@ -4,11 +4,12 @@
 
 @layer base {
   :root {
-    --bg-obsidian: #111111;
-    --text-warm-white: #F5F3EE;
-    --text-stone: #DCD8CF;
+    --bg-paper: #F5F3EE;
+    --bg-paper-stone: #ECEAE4;
+    --text-ink: #111111;
+    --text-ink-muted: #666661;
+    --border-rule: #D8D5CD;
     --border-brass: #A58A5C;
-    --border-structural: #343832;
 
     /* Admin OS custom properties */
     --admin-sidebar-width: 256px;
@@ -16,8 +17,8 @@
   }
 
   body {
-    background-color: #111111;
-    color: #F5F3EE;
+    background-color: #F5F3EE;
+    color: #111111;
     font-family: var(--font-work-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     letter-spacing: -0.01em;
     -webkit-font-smoothing: antialiased;
@@ -31,33 +32,40 @@
     height: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #0B0C0C;
+    background: #F5F3EE;
   }
   ::-webkit-scrollbar-thumb {
-    background: #343832;
-    border-radius: 1px;
+    background: #D8D5CD;
+    border-radius: 0px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #A58A5C;
+    background: #999893;
   }
 
   ::selection {
-    background-color: #A58A5C;
-    color: #111111;
+    background-color: #111111;
+    color: #F5F3EE;
   }
 
-  /* Public typography lock — Work Sans 200/300 exclusively (Rule 01) */
+  /* Public typography lock — Work Sans 200/300 exclusively */
   h1 {
-    font-weight: 200;
+    font-family: var(--font-work-sans), -apple-system, BlinkMacSystemFont, sans-serif !important;
+    font-weight: 200 !important;
+    letter-spacing: -0.02em;
   }
   h2 {
-    font-weight: 200;
+    font-family: var(--font-work-sans), -apple-system, BlinkMacSystemFont, sans-serif !important;
+    font-weight: 200 !important;
+    letter-spacing: -0.02em;
   }
   h3, h4, h5, h6 {
-    font-weight: 300;
+    font-family: var(--font-work-sans), -apple-system, BlinkMacSystemFont, sans-serif !important;
+    font-weight: 300 !important;
+    letter-spacing: -0.01em;
   }
-  p, span, nav, button, input, textarea, label {
-    font-weight: 300;
+  p, span, nav, button, input, textarea, label, a {
+    font-family: var(--font-work-sans), -apple-system, BlinkMacSystemFont, sans-serif !important;
+    font-weight: 300 !important;
   }
 }
 

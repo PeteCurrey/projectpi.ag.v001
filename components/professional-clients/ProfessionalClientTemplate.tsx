@@ -1,10 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, FileText } from "lucide-react";
-import Breadcrumbs from "@/components/shared/Breadcrumbs";
-import TrustStrip from "@/components/shared/TrustStrip";
-import FAQSection from "@/components/shared/FAQSection";
-import ConfidentialEnquiryCTA from "@/components/shared/ConfidentialEnquiryCTA";
+import { ArrowUpRight } from "lucide-react";
 import { ProfessionalClientPage } from "@/lib/data/professionalClientsData";
 import { getSiteUrl, BRAND_PREFERRED } from "@/lib/config/brand";
 
@@ -27,213 +23,143 @@ export default function ProfessionalClientTemplate({ data }: ProfessionalClientT
     areaServed: "United Kingdom",
   };
 
-
   return (
-    <div className="bg-obsidian min-h-screen text-warmWhite">
+    <article className="bg-paper text-ink selection:bg-ink selection:text-paper min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* Hero */}
-      <section className="pt-28 pb-16 md:pt-36 md:pb-24 border-b border-oliveGrey/70 bg-gradient-to-b from-obsidian-surface/60 to-obsidian">
+      {/* 1. MASTHEAD */}
+      <section className="pt-12 pb-16 md:pt-20 md:pb-24 border-b border-rule">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 space-y-8">
-          <Breadcrumbs
-            items={[
-              { label: "PROFESSIONAL CLIENTS", href: "/professional-clients" },
-              { label: data.clientType.toUpperCase() },
-            ]}
-          />
+          <div className="flex items-center space-x-2 text-xs font-[300] text-ink-muted">
+            <Link href="/professional-clients" className="hover:text-ink transition-colors">
+              Professional Clients
+            </Link>
+            <span>/</span>
+            <span className="text-ink">{data.clientType}</span>
+          </div>
 
-          <div className="max-w-4xl space-y-6">
-            <span className="text-[10px] font-mono tracking-ultra uppercase text-brass bg-brass/10 border border-brass/30 px-3 py-1 inline-block">
-              INSTITUTIONAL CLIENT PARTNERSHIP
+          <div className="max-w-5xl space-y-6">
+            <span className="text-[11px] tracking-[0.22em] uppercase font-[300] text-ink-muted block">
+              Institutional Partnership · {data.clientType}
             </span>
-
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-light font-serif text-warmWhite leading-[1.15]">
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-[200] tracking-tight leading-[1.06] text-ink">
               {data.headline}
             </h1>
-
-            <p className="text-base sm:text-xl font-light text-stone-light max-w-3xl leading-relaxed">
+            <p className="text-base sm:text-lg font-[300] text-ink-muted max-w-3xl leading-relaxed">
               {data.subheadline}
             </p>
+          </div>
+        </div>
+      </section>
 
-            <div className="pt-4 flex flex-wrap items-center gap-4">
-              <Link
-                href={`/confidential-enquiry?clientType=${encodeURIComponent(data.slug)}`}
-                className="inline-flex items-center gap-3 bg-brass text-obsidian text-xs tracking-widest uppercase font-medium px-8 py-4 hover:bg-brass/90 transition-colors"
-              >
-                {data.cta}
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-              <Link
-                href="/professional-clients"
-                className="inline-flex items-center gap-2 border border-oliveGrey/80 hover:border-brass/60 text-stone-light text-xs tracking-widest uppercase px-6 py-4 transition-colors"
-              >
-                ALL PROFESSIONAL DISCIPLINES
-              </Link>
+      {/* 2. THE PROFESSIONAL MANDATE */}
+      <section className="py-20 md:py-28 border-b border-rule">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          <div className="lg:col-span-4 space-y-4">
+            <span className="text-[11px] tracking-[0.22em] uppercase font-[300] text-ink-muted block">
+              The Mandate
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-[200] text-ink tracking-tight">
+              Operational Scope & Legal Context
+            </h2>
+          </div>
+          <div className="lg:col-span-8 space-y-6 text-sm sm:text-base font-[300] text-ink-muted leading-relaxed">
+            <p>{data.intro}</p>
+            <p>{data.context}</p>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. PRIMARY ENGAGEMENT DISCIPLINES */}
+      <section className="py-20 md:py-28 border-b border-rule bg-paper-stone">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 space-y-12">
+          <div className="max-w-3xl space-y-2">
+            <span className="text-[11px] tracking-[0.22em] uppercase font-[300] text-ink-muted block">
+              Engagement Disciplines
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-[200] text-ink tracking-tight">
+              Tailored Services for {data.clientType}
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            {data.servicesUsed.map((srv, idx) => (
+              <div key={idx} className="space-y-3 border-t border-rule pt-6">
+                <Link
+                  href={srv.slug}
+                  className="group flex items-baseline justify-between text-xl font-[200] text-ink hover:text-ink-muted transition-colors"
+                >
+                  <span>{srv.title}</span>
+                  <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </Link>
+                <p className="text-xs sm:text-sm font-[300] text-ink-muted leading-relaxed">
+                  {srv.body}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. METHODOLOGY & DELIVERABLES */}
+      <section className="py-20 md:py-28 border-b border-rule">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-baseline">
+          <div className="lg:col-span-5 space-y-4">
+            <span className="text-[11px] tracking-[0.22em] uppercase font-[300] text-ink-muted block">
+              Engagement Framework
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-[200] text-ink tracking-tight">
+              Reporting & Evidentiary Standards
+            </h2>
+            <p className="text-xs sm:text-sm font-[300] text-ink-muted leading-relaxed">
+              {data.howWeWork}
+            </p>
+          </div>
+
+          <div className="lg:col-span-7 space-y-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-xs font-[300]">
+              {data.whatYouReceive.map((item, idx) => (
+                <div key={idx} className="border-t border-rule pt-4 space-y-1.5">
+                  <div className="text-sm font-[200] text-ink">Work Product {idx + 1}</div>
+                  <div className="text-ink-muted leading-relaxed">{item}</div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      <TrustStrip />
-
-      {/* Content Body */}
-      <section className="py-20 lg:py-28 max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-          <div className="lg:col-span-8 space-y-16">
-            {/* Intro Narrative */}
-            <div className="space-y-6">
-              <span className="text-[10px] font-mono tracking-ultra uppercase text-brass block">
-                01 · THE PROFESSIONAL MANDATE
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-light font-serif text-warmWhite">
-                Context & Operational Need
-              </h2>
-              <p className="text-stone-light text-sm sm:text-base leading-relaxed font-light">
-                {data.intro}
-              </p>
-              <p className="text-stone-muted text-xs sm:text-sm leading-relaxed font-light">
-                {data.context}
-              </p>
-            </div>
-
-            {/* Services Utilised */}
-            <div className="space-y-6">
-              <span className="text-[10px] font-mono tracking-ultra uppercase text-brass block">
-                02 · PRIMARY ENGAGEMENT DISCIPLINES
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-light font-serif text-warmWhite">
-                Tailored Services for {data.clientType}
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {data.servicesUsed.map((srv, idx) => (
-                  <Link
-                    key={idx}
-                    href={srv.slug}
-                    className="p-6 bg-obsidian-surface/50 border border-oliveGrey/60 hover:border-brass/60 transition-all flex flex-col justify-between group"
-                  >
-                    <div className="space-y-3">
-                      <div className="flex items-center justify-between">
-                        <span className="text-[10px] font-mono text-brass">
-                          SERVICE {String(idx + 1).padStart(2, "0")}
-                        </span>
-                        <ArrowRight className="w-3.5 h-3.5 text-stone-muted group-hover:text-brass transition-colors" />
-                      </div>
-                      <h3 className="text-lg font-serif text-warmWhite group-hover:text-brass transition-colors">
-                        {srv.title}
-                      </h3>
-                      <p className="text-xs text-stone-muted font-light leading-relaxed">
-                        {srv.body}
-                      </p>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            {/* How We Work */}
-            <div className="space-y-6">
-              <span className="text-[10px] font-mono tracking-ultra uppercase text-brass block">
-                03 · GOVERNANCE & METHODOLOGY
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-light font-serif text-warmWhite">
-                Engagement Framework
-              </h2>
-              <div className="p-8 bg-obsidian-surface/60 border border-oliveGrey/80">
-                <p className="text-xs sm:text-sm text-stone-light leading-relaxed font-light">
-                  {data.howWeWork}
-                </p>
-              </div>
-            </div>
-
-            {/* Deliverables */}
-            <div className="space-y-6">
-              <span className="text-[10px] font-mono tracking-ultra uppercase text-brass block">
-                04 · REPORTING & EVIDENTIARY STANDARDS
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-light font-serif text-warmWhite">
-                What You Receive
-              </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {data.whatYouReceive.map((item, idx) => (
-                  <div
-                    key={idx}
-                    className="flex items-start gap-3 p-4 bg-obsidian-surface/40 border border-oliveGrey/40"
-                  >
-                    <CheckCircle2 className="w-4 h-4 text-brass shrink-0 mt-0.5" />
-                    <span className="text-xs sm:text-sm text-stone-light font-light leading-snug">
-                      {item}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
+      {/* 5. DIRECT INSTRUCTION */}
+      <section className="py-20 md:py-28">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row md:items-baseline justify-between gap-8">
+          <div className="max-w-xl space-y-3">
+            <span className="text-[11px] tracking-[0.22em] uppercase font-[300] text-ink-muted block">
+              Confidential Instruction
+            </span>
+            <h2 className="text-2xl sm:text-4xl font-[200] text-ink tracking-tight">
+              Instruct our practice for {data.clientType}.
+            </h2>
+            <p className="text-xs sm:text-sm font-[300] text-ink-muted leading-relaxed">
+              Direct consultation with practice partners. Initial assessment under mutual non-disclosure.
+            </p>
           </div>
-
-          {/* Right Rail Sidebar */}
-          <div className="lg:col-span-4 space-y-8">
-            <div className="p-6 sm:p-8 bg-obsidian-surface border border-brass/40 space-y-6">
-              <div className="space-y-2">
-                <span className="text-[10px] font-mono text-brass uppercase tracking-ultra block">
-                  PROFESSIONAL DESK
-                </span>
-                <h3 className="text-xl font-serif text-warmWhite">
-                  Instruct Our Practice
-                </h3>
-                <p className="text-xs text-stone-muted font-light leading-relaxed">
-                  Confidential briefing for {data.clientType.toLowerCase()}. We sign NDAs and provide immediate case analysis.
-                </p>
-              </div>
-
-              <div className="space-y-3 pt-2 text-xs font-mono text-stone-light border-y border-oliveGrey/60 py-4">
-                <div className="flex justify-between">
-                  <span className="text-stone-muted">ENGAGEMENT:</span>
-                  <span className="text-warmWhite font-medium">Direct or Sub-Agency</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-stone-muted">COMPLIANCE:</span>
-                  <span className="text-warmWhite font-medium">CPR & DPA 2018</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-stone-muted">PRIVILEGE:</span>
-                  <span className="text-warmWhite font-medium">Litigation Structure</span>
-                </div>
-              </div>
-
-              <Link
-                href={`/confidential-enquiry?clientType=${encodeURIComponent(data.slug)}`}
-                className="block text-center bg-brass text-obsidian text-xs tracking-widest uppercase font-medium py-3.5 hover:bg-brass/90 transition-colors"
-              >
-                BEGIN CONFIDENTIAL INSTRUCTION
-              </Link>
-            </div>
-
-            <div className="p-6 bg-obsidian-surface/40 border border-oliveGrey/60 space-y-4">
-              <div className="flex items-center gap-2 text-stone-light">
-                <FileText className="w-4 h-4 text-brass" />
-                <h4 className="text-xs font-mono uppercase tracking-wider text-warmWhite">
-                  Sector Verification
-                </h4>
-              </div>
-              <p className="text-xs text-stone-muted font-light leading-relaxed">
-                We accept instructions strictly from verified professional practices, corporate entities, regulated firms, or vetted private clients.
-              </p>
+          <div className="space-y-4 shrink-0">
+            <Link
+              href={`/confidential-enquiry?clientType=${encodeURIComponent(data.slug)}`}
+              className="inline-flex items-center space-x-2 border border-ink px-6 py-3 text-xs tracking-[0.2em] uppercase font-[300] text-ink hover:bg-ink hover:text-paper transition-colors rounded-none"
+            >
+              <span>{data.cta || "Begin Confidential Instruction"}</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </Link>
+            <div className="text-[11px] text-ink-muted font-[300]">
+              Mayfair Consulting Suite · enquiries@tfts.co.uk
             </div>
           </div>
         </div>
       </section>
-
-      {/* FAQs */}
-      <FAQSection faqs={data.faqs} />
-
-      {/* CTA */}
-      <ConfidentialEnquiryCTA
-        heading={`INSTRUCT US FOR ${data.clientType.toUpperCase()}`}
-        body="Submit your matter confidentially. A partner or case director will contact you promptly."
-        origin={`/professional-clients/${data.slug}`}
-      />
-    </div>
+    </article>
   );
 }
