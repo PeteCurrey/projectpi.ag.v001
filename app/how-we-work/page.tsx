@@ -1,10 +1,13 @@
 import React from "react";
 import { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 
 import { getCanonicalUrl } from "@/lib/config/brand";
 import TFTSTextReveal from "@/components/experience/TFTSTextReveal";
 import TFTSViewportMedia from "@/components/experience/TFTSViewportMedia";
+import TFTSImageReveal from "@/components/experience/TFTSImageReveal";
+import TFTSParallax from "@/components/experience/TFTSParallax";
 
 export const metadata: Metadata = {
   title: "How We Work & Standards | TFTS Operating Methodology",
@@ -22,6 +25,8 @@ const lifecycle = [
     title: "Mandate Scoping, Legal Privilege & Objectives",
     body: "Every instruction begins by establishing the core question, operational constraints, and required legal threshold. We evaluate whether the instruction can be structured under Legal Professional Privilege through instructing solicitors, complete a formal Conflict of Interest check, and conduct a documented Legitimate Interests Assessment (LIA) pursuant to the Data Protection Act 2018.",
     deliverable: "Instruction Mandate & Compliance Assessment",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=85",
+    imageAlt: "Scoping conference papers and legitimate interests assessment documents",
   },
   {
     num: "02",
@@ -29,6 +34,8 @@ const lifecycle = [
     title: "Source Identification & Opportunity Mapping",
     body: "Our analytical desk interrogates global corporate registries, historical records, property databases, and technical web telemetry. We cross-reference disparate data fragments to map beneficial ownership, establish relational links, and isolate critical evidentiary voids that require targeted field, digital, or human investigation.",
     deliverable: "Relational Matrix & Target Intelligence Dossier",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=85",
+    imageAlt: "Global technical telemetry and relational data mapping",
   },
   {
     num: "03",
@@ -36,6 +43,8 @@ const lifecycle = [
     title: "Lawful, Proportionate Operational Deployment",
     body: "Appropriate investigative vectors—covert surveillance, digital forensic analysis, witness interviews, or site inspections—are deployed strictly in accordance with UK law. Operatives maintain unbroken operational security, avoid entrapment, and preserve evidence using cryptographic hashing and verified timestamps conforming to ISO/IEC 27037.",
     deliverable: "Contemporaneous Logs & Raw Master Evidence Bundles",
+    image: "https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=1200&q=85",
+    imageAlt: "Mobile field surveillance deployment in London urban perimeter",
   },
   {
     num: "04",
@@ -43,6 +52,8 @@ const lifecycle = [
     title: "Evidentiary Synthesis & Decision Briefing",
     body: "Findings are distilled into objective, court-ready dossiers indexed for immediate filing under Civil Procedure Rules Part 31 and Part 32. We present facts without embellishment, quantify confidence levels, and provide strategic counsel to assist legal advocates and boards in deciding their next move.",
     deliverable: "CPR-Compliant Investigation Report & Witness Statements",
+    image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1200&q=85",
+    imageAlt: "Court-ready witness statement and litigation exhibit bundles",
   },
 ];
 
@@ -78,7 +89,7 @@ export default function HowWeWorkPage() {
     <div className="bg-paper text-ink min-h-screen">
 
       {/* ── 1. OPENING MASTHEAD ── */}
-      <section className="pt-12 pb-20 md:pt-20 md:pb-28 border-b border-rule">
+      <section className="pt-20 pb-20 md:pt-32 md:pb-28 border-b border-rule">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <TFTSTextReveal mode="lines">
             <div className="max-w-5xl space-y-6">
@@ -96,7 +107,7 @@ export default function HowWeWorkPage() {
         </div>
       </section>
 
-      {/* ── 2. THE 4-STAGE LIFECYCLE — Scroll sequence ── */}
+      {/* ── 2. THE 4-STAGE LIFECYCLE — Spatial Scroll Sequence ── */}
       <section className="py-20 md:py-28 border-b border-rule">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <TFTSTextReveal mode="lines">
@@ -112,43 +123,65 @@ export default function HowWeWorkPage() {
 
           <div className="space-y-0 divide-y divide-rule">
             {lifecycle.map((stage, idx) => (
-              <TFTSTextReveal key={idx} mode="lines">
-                <div className="py-16 md:py-20 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+              <div key={idx} className="py-16 md:py-20">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+                  {/* Huge Stage Number */}
                   <div className="lg:col-span-2">
-                    <span className="text-[80px] md:text-[120px] font-[200] text-ink/[0.08] leading-none select-none">
+                    <span className="text-[80px] md:text-[110px] font-[200] text-ink/[0.08] leading-none select-none block">
                       {stage.num}
                     </span>
                   </div>
-                  <div className="lg:col-span-4 space-y-2">
-                    <span className="text-[11px] tracking-[0.22em] uppercase font-[300] text-ink-muted block">
-                      {stage.label}
+
+                  {/* Stage Headline & Label */}
+                  <div className="lg:col-span-4 space-y-3">
+                    <span className="text-[11px] tracking-[0.22em] uppercase font-[300] text-brass block">
+                      STAGE {stage.num} · {stage.label}
                     </span>
-                    <h3 className="text-2xl sm:text-3xl font-[200] text-ink">
+                    <h3 className="text-2xl sm:text-3xl font-[200] text-ink leading-snug">
                       {stage.title}
                     </h3>
                   </div>
-                  <div className="lg:col-span-6 space-y-4 text-sm font-[300] text-ink-muted leading-relaxed">
-                    <p>{stage.body}</p>
-                    <div className="border-t border-rule pt-4 text-xs font-[300] text-ink">
-                      <span className="text-[10px] tracking-[0.18em] uppercase text-ink-muted mr-3">Deliverable</span>
-                      {stage.deliverable}
+
+                  {/* Stage Narrative + Deliverable + Contextual Visual */}
+                  <div className="lg:col-span-6 space-y-6">
+                    <p className="text-sm font-[300] text-ink-muted leading-relaxed">
+                      {stage.body}
+                    </p>
+
+                    <div className="border-t border-rule pt-4 text-xs font-[300] text-ink flex items-baseline justify-between">
+                      <span className="text-[10px] tracking-[0.18em] uppercase text-ink-muted">Deliverable</span>
+                      <span className="text-ink font-[400]">{stage.deliverable}</span>
+                    </div>
+
+                    {/* Operational Miniature Plate */}
+                    <div className="relative aspect-[21/9] w-full overflow-hidden border border-rule/50">
+                      <TFTSImageReveal mode="wipe-right" className="absolute inset-0 w-full h-full">
+                        <Image
+                          src={stage.image}
+                          alt={stage.imageAlt}
+                          fill
+                          sizes="(max-width: 1024px) 100vw, 50vw"
+                          className="object-cover"
+                          style={{ filter: "contrast(1.08) brightness(0.85) saturate(0.85)" }}
+                        />
+                      </TFTSImageReveal>
                     </div>
                   </div>
                 </div>
-              </TFTSTextReveal>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── 3. EDITORIAL IMAGE — Royal Courts of Justice ── */}
+      {/* ── 3. CINEMATIC EDITORIAL PLATE — Royal Courts of Justice ── */}
       <div className="border-t border-rule">
         <TFTSViewportMedia
           src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=2800&q=90"
           alt="Royal Courts of Justice — The Strand, London. Marble columns and Gothic Revival facade"
           aspectClass="aspect-[21/9]"
           scaleOnScroll={true}
-          imageFilter="grayscale(100%) contrast(1.08) brightness(0.72)"
+          imageFilter="contrast(1.08) brightness(0.72) saturate(0.85)"
           caption="The Royal Courts of Justice, Strand, London"
           sizes="100vw"
         />

@@ -7,6 +7,7 @@ import { getCanonicalUrl } from "@/lib/config/brand";
 import TFTSTextReveal from "@/components/experience/TFTSTextReveal";
 import TFTSImageReveal from "@/components/experience/TFTSImageReveal";
 import TFTSParallax from "@/components/experience/TFTSParallax";
+import TFTSViewportMedia from "@/components/experience/TFTSViewportMedia";
 
 export const metadata: Metadata = {
   title: "The Firm & Establishment | TFTS — Tactical Field Intelligence Service",
@@ -40,26 +41,26 @@ export default function AboutPage() {
   return (
     <div className="bg-paper text-ink min-h-screen">
 
-      {/* ── 1. OPENING — Full-viewport hero image ── */}
+      {/* ── 1. OPENING — Full-viewport hero image with natural atmospheric grading ── */}
       <section className="relative h-screen overflow-hidden">
         <TFTSParallax speed={40} className="absolute inset-0">
           <TFTSImageReveal mode="wipe-right" className="absolute inset-0 w-full h-full">
             <Image
               src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=2800&q=90"
-              alt="London Thames panorama — Canary Wharf financial district from the river"
+              alt="London Thames panorama — Canary Wharf financial district from the river in atmospheric evening light"
               fill
               className="object-cover"
-              style={{ filter: "grayscale(100%) contrast(1.06) brightness(0.72)" }}
+              style={{ filter: "contrast(1.08) brightness(0.76) saturate(0.85)" }}
               sizes="100vw"
               priority
             />
           </TFTSImageReveal>
         </TFTSParallax>
-        <div className="absolute inset-0 bg-gradient-to-t from-paper/90 via-paper/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-paper/95 via-paper/30 to-black/40" />
         <div className="absolute bottom-0 left-0 right-0 max-w-7xl mx-auto px-6 lg:px-12 pb-20">
           <TFTSTextReveal mode="lines">
             <div className="space-y-4">
-              <span className="text-[11px] tracking-[0.22em] uppercase font-[300] text-paper/60 block">
+              <span className="text-[11px] tracking-[0.22em] uppercase font-[300] text-paper/80 block">
                 THE ESTABLISHMENT · LONDON
               </span>
               <h1 className="text-display-xl font-[200] text-paper/95 tracking-tight leading-[1.04]">
@@ -110,7 +111,7 @@ export default function AboutPage() {
 
             {/* Right 5 cols */}
             <div className="lg:col-span-5 space-y-4">
-              <div className="relative aspect-[4/5] w-full overflow-hidden">
+              <div className="relative aspect-[4/5] w-full overflow-hidden border border-rule/50">
                 <TFTSImageReveal mode="wipe-up" className="absolute inset-0 w-full h-full">
                   <Image
                     src="https://images.unsplash.com/photo-1529655683826-aba9b3e77383?auto=format&fit=crop&w=1200&q=80"
@@ -118,7 +119,7 @@ export default function AboutPage() {
                     fill
                     sizes="(max-width: 1024px) 100vw, 40vw"
                     className="object-cover"
-                    style={{ filter: "grayscale(100%) contrast(1.05) brightness(0.82)" }}
+                    style={{ filter: "contrast(1.08) brightness(0.85) saturate(0.85)" }}
                   />
                 </TFTSImageReveal>
               </div>
@@ -131,7 +132,20 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── 3. FOUR PILLARS — Typographic ledger ── */}
+      {/* ── 3. CINEMATIC SPATIAL BREAK — Operational Review Suite ── */}
+      <div className="border-b border-rule">
+        <TFTSViewportMedia
+          src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2800&q=90"
+          alt="Quiet contemporary corporate governance and intelligence review suite with clean linear architectural perspective"
+          aspectClass="aspect-[21/9]"
+          scaleOnScroll={true}
+          imageFilter="contrast(1.08) brightness(0.78) saturate(0.85)"
+          caption="Corporate governance & investigative review suite · Mayfair consulting rooms"
+          sizes="100vw"
+        />
+      </div>
+
+      {/* ── 4. FOUR PILLARS — Typographic ledger ── */}
       <section className="py-20 md:py-28 border-b border-rule">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <TFTSTextReveal mode="lines">
@@ -165,7 +179,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── 4. CTA — Editorial, bg-paper-stone ── */}
+      {/* ── 5. CTA — Editorial, bg-paper-stone ── */}
       <section className="py-24 md:py-32 bg-paper-stone border-t border-rule">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <TFTSTextReveal mode="lines">
