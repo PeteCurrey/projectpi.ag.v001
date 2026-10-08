@@ -91,11 +91,11 @@ export default function ProcessServingHubPage() {
         <TFTSParallax speed={40} className="absolute inset-0">
           <TFTSImageReveal mode="wipe-right" className="absolute inset-0 w-full h-full">
             <Image
-              src="https://images.unsplash.com/photo-1761052840462-21e1a3d81c40?auto=format&fit=crop&w=2800&q=90"
-              alt="The Royal Courts of Justice on the Strand in London at dusk — gothic court architecture, glowing lamps, and rain-slicked streets"
+              src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=2800&q=90"
+              alt="The Royal Courts of Justice on the Strand in London — gothic stonework and institutional authority"
               fill
               className="object-cover"
-              style={{ filter: "grayscale(100%) contrast(1.1) brightness(0.68)" }}
+              style={{ filter: "contrast(1.08) brightness(0.72) saturate(0.85)" }}
               sizes="100vw"
               priority
             />
@@ -109,7 +109,7 @@ export default function ProcessServingHubPage() {
         <div className="absolute bottom-0 left-0 right-0 max-w-7xl mx-auto px-6 lg:px-12 pb-20 md:pb-28">
           <TFTSTextReveal mode="lines">
             <div className="space-y-4">
-              <span className="text-[11px] tracking-[0.28em] uppercase font-[300] text-paper/60 block">
+              <span className="text-[11px] tracking-[0.28em] uppercase font-[300] text-bronze block">
                 CPR Part 6 — Civil Procedure Rules
               </span>
               <h1 className="text-display-xl font-[200] text-paper/95 tracking-tight leading-[1.04]">
@@ -225,7 +225,7 @@ export default function ProcessServingHubPage() {
               <TFTSTextReveal key={idx} mode="lines">
                 <div className="py-16 md:py-20 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                   <div className="lg:col-span-2">
-                    <span className="text-[80px] md:text-[120px] font-[200] text-ink/10 leading-none">
+                    <span className="text-[80px] md:text-[120px] font-[200] text-britishGreen/15 leading-none">
                       {stage.num}
                     </span>
                   </div>
@@ -322,7 +322,7 @@ export default function ProcessServingHubPage() {
               </p>
               <Link
                 href="/confidential-enquiry?service=process-serving"
-                className="inline-block border border-ink px-6 py-3 text-xs tracking-[0.2em] uppercase font-[300] text-ink hover:bg-ink hover:text-paper transition-colors rounded-none"
+                className="inline-block border border-britishGreen px-6 py-3 text-xs tracking-[0.2em] uppercase font-[300] text-ink hover:bg-britishGreen hover:text-paper transition-colors duration-300 rounded-none"
               >
                 Discuss the requirement confidentially →
               </Link>

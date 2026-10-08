@@ -182,7 +182,7 @@ export default function ServicesIndexPage() {
             </div>
             <Link
               href="/services/process-serving"
-              className="inline-flex items-center space-x-2 border border-ink px-5 py-2.5 text-xs tracking-[0.2em] uppercase font-[300] text-ink hover:bg-ink hover:text-paper transition-colors rounded-none shrink-0"
+              className="inline-flex items-center space-x-2 border border-britishGreen px-5 py-2.5 text-xs tracking-[0.2em] uppercase font-[300] text-ink hover:bg-britishGreen hover:text-paper transition-colors duration-300 rounded-none shrink-0"
             >
               <span>View Process Serving Hub</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
@@ -208,7 +208,7 @@ export default function ServicesIndexPage() {
           <div className="space-y-3 shrink-0">
             <Link
               href="/confidential-enquiry"
-              className="inline-flex items-center space-x-2 border border-ink px-6 py-3 text-xs tracking-[0.2em] uppercase font-[300] text-ink hover:bg-ink hover:text-paper transition-colors rounded-none"
+              className="inline-flex items-center space-x-2 border border-britishGreen px-6 py-3 text-xs tracking-[0.2em] uppercase font-[300] text-ink hover:bg-britishGreen hover:text-paper transition-colors duration-300 rounded-none"
             >
               <span>Initiate Confidential Instruction</span>
               <ArrowUpRight className="w-3.5 h-3.5" />

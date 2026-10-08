@@ -27,7 +27,7 @@ export default function EditorialImage({
                 alt={image.alt}
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover object-center grayscale contrast-105"
+                className="object-cover object-center contrast-105"
               />
             </div>
             {image.caption && (
@@ -45,7 +45,7 @@ export default function EditorialImage({
                 alt={secondaryImage.alt}
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover object-center grayscale contrast-105"
+                className="object-cover object-center contrast-105"
               />
             </div>
             {secondaryImage.caption && (
@@ -69,7 +69,7 @@ export default function EditorialImage({
               alt={image.alt}
               fill
               sizes="(max-width: 1024px) 100vw, 80vw"
-              className="object-cover object-center grayscale contrast-105"
+              className="object-cover object-center contrast-105"
             />
           </div>
           {image.caption && (
@@ -92,7 +92,7 @@ export default function EditorialImage({
             alt={image.alt}
             fill
             sizes="100vw"
-            className="object-cover object-center grayscale contrast-105"
+            className="object-cover object-center contrast-105"
           />
         </div>
         {image.caption && (

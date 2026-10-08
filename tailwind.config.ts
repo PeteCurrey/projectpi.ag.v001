@@ -34,6 +34,19 @@ const config: Config = {
           subtle: "rgba(165, 138, 92, 0.18)",
           glow: "rgba(165, 138, 92, 0.35)",
         },
+        britishGreen: {
+          DEFAULT: "#173F38",
+          light: "#2B5A50",
+          dark: "#0E2722",
+          subtle: "rgba(23, 63, 56, 0.08)",
+          border: "rgba(23, 63, 56, 0.25)",
+        },
+        bronze: {
+          DEFAULT: "#B39A6B",
+          light: "#C9B388",
+          dark: "#8C7449",
+          subtle: "rgba(179, 154, 107, 0.15)",
+        },
         oliveGrey: {
           DEFAULT: "#343832",
           light: "#4A4F47",

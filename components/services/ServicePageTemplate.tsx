@@ -218,7 +218,7 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
           <div className="shrink-0">
             <Link
               href="/confidential-enquiry"
-              className="inline-flex items-center space-x-2 border border-ink px-8 py-4 text-[11px] tracking-[0.24em] uppercase font-[300] text-ink hover:bg-ink hover:text-paper transition-all duration-300 rounded-none"
+              className="inline-flex items-center space-x-2 border border-britishGreen px-8 py-4 text-[11px] tracking-[0.24em] uppercase font-[300] text-ink hover:bg-britishGreen hover:text-paper transition-all duration-300 rounded-none"
             >
               <span>Begin Confidential Instruction</span>
               <ArrowUpRight className="w-3.5 h-3.5" />

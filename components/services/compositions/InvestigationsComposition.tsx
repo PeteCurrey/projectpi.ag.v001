@@ -66,7 +66,7 @@ export default function InvestigationsComposition({ service, images }: Compositi
                     scaleOnScroll={true}
                     priority={true}
                     caption={images.hero.caption}
-                    imageFilter="grayscale(100%) contrast(1.05)"
+                    imageFilter="contrast(1.08) brightness(0.76) saturate(0.85)"
                   />
                 </div>
               </TFTSParallax>
@@ -309,7 +309,7 @@ export default function InvestigationsComposition({ service, images }: Compositi
             <div className="lg:col-span-4 flex flex-col justify-end space-y-4">
               <Link
                 href="/confidential-enquiry"
-                className="inline-flex items-center justify-between border border-ink px-8 py-4 text-[11px] tracking-[0.24em] uppercase font-[300] text-ink hover:bg-ink hover:text-paper transition-all duration-300 rounded-none w-full"
+                className="inline-flex items-center justify-between border border-britishGreen px-8 py-4 text-[11px] tracking-[0.24em] uppercase font-[300] text-ink hover:bg-britishGreen hover:text-paper transition-all duration-300 rounded-none w-full"
               >
                 <span>Submit Confidential Mandate</span>
                 <ArrowUpRight className="w-4 h-4" />

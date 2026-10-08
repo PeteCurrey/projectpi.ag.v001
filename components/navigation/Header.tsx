@@ -55,7 +55,7 @@ export default function Header() {
               className={`text-sm md:text-base tracking-[0.28em] uppercase font-[200] transition-colors duration-500 ${
                 isLightNav
                   ? "text-warmWhite drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]"
-                  : "text-ink"
+                  : "text-ink group-hover:text-britishGreen transition-colors duration-300"
               }`}
             >
               TFTS
@@ -86,21 +86,32 @@ export default function Header() {
                 <Link
                   key={link.label}
                   href={link.href}
-                  className={`transition-all duration-300 py-1 relative ${
+                  className={`transition-all duration-300 py-1 relative group/navlink ${
                     isLightNav
                       ? isActive
                         ? "text-warmWhite font-[400] drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]"
                         : "text-warmWhite/75 hover:text-warmWhite drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]"
                       : isActive
-                      ? "text-ink"
+                      ? "text-britishGreen"
                       : "text-ink/40 hover:text-ink"
                   }`}
                 >
                   {link.label}
-                  {isActive && (
+                  {/* Active indicator */}
+                  <span
+                    className={`absolute bottom-0 left-0 right-0 h-[1px] transition-all duration-300 ${
+                      isActive
+                        ? isLightNav
+                          ? "bg-warmWhite opacity-100"
+                          : "bg-britishGreen opacity-100"
+                        : "opacity-0"
+                    }`}
+                  />
+                  {/* Hover underline (non-active) */}
+                  {!isActive && (
                     <span
-                      className={`absolute bottom-0 left-0 right-0 h-[1px] ${
-                        isLightNav ? "bg-warmWhite" : "bg-ink"
+                      className={`absolute bottom-0 left-0 h-[1px] w-0 group-hover/navlink:w-full transition-all duration-300 ${
+                        isLightNav ? "bg-warmWhite/60" : "bg-ink/30"
                       }`}
                     />
                   )}
@@ -114,7 +125,7 @@ export default function Header() {
             {/* Directory — text on desktop */}
             <button
               onClick={() => setIsMenuOpen(true)}
-              className={`hidden lg:block text-[11px] font-[300] tracking-[0.2em] uppercase transition-colors duration-300 ${
+              className={`hidden lg:block text-[11px] font-[300] tracking-[0.2em] uppercase transition-all duration-300 relative group/dir ${
                 isLightNav
                   ? "text-warmWhite/75 hover:text-warmWhite drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]"
                   : "text-ink/40 hover:text-ink"
@@ -122,15 +133,20 @@ export default function Header() {
               aria-label="Open firm directory"
             >
               DIRECTORY
+              <span
+                className={`absolute bottom-0 left-0 h-[1px] w-0 group-hover/dir:w-full transition-all duration-300 ${
+                  isLightNav ? "bg-warmWhite/60" : "bg-ink/30"
+                }`}
+              />
             </button>
 
             {/* Confidential enquiry — primary CTA */}
             <Link
               href="/confidential-enquiry"
-              className={`hidden sm:inline-flex items-center px-4 py-2 text-[11px] tracking-[0.22em] uppercase font-[300] transition-all duration-300 rounded-none ${
+              className={`hidden sm:inline-flex items-center px-4 py-2 text-[11px] tracking-[0.22em] uppercase font-[300] transition-all duration-300 rounded-none group/cta ${
                 isLightNav
                   ? "border border-warmWhite/70 text-warmWhite hover:bg-warmWhite hover:text-obsidian bg-black/20 backdrop-blur-[2px] drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]"
-                  : "border border-ink/70 hover:border-ink text-ink hover:bg-ink hover:text-paper"
+                  : "border border-britishGreen/60 text-ink hover:bg-britishGreen hover:text-paper hover:border-britishGreen"
               }`}
             >
               CONFIDENTIAL ENQUIRY

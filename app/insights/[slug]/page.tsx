@@ -185,7 +185,7 @@ export default async function InsightArticlePage({ params }: Props) {
           <div className="pt-2">
             <Link
               href="/confidential-enquiry"
-              className="inline-flex items-center space-x-3 border border-ink px-8 py-3.5 text-xs tracking-[0.2em] uppercase font-[300] text-ink hover:bg-ink hover:text-paper transition-colors"
+              className="inline-flex items-center space-x-3 border border-britishGreen px-8 py-3.5 text-xs tracking-[0.2em] uppercase font-[300] text-ink hover:bg-britishGreen hover:text-paper transition-colors duration-300"
             >
               <span>BEGIN CONFIDENTIAL CONSULTATION</span>
               <span>→</span>

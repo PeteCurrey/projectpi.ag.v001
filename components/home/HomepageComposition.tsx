@@ -186,7 +186,7 @@ export default function HomepageComposition() {
 
         {/* Top & middle text zone */}
         <div className="relative z-10 max-w-[1680px] mx-auto w-full px-6 lg:px-12 xl:px-16 pt-32 md:pt-40 lg:pt-44 pb-8 flex-shrink-0">
-          <span className="masthead-badge inline-block text-[10px] tracking-[0.28em] uppercase font-[300] text-brass-light mb-8 md:mb-12 drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">
+          <span className="masthead-badge inline-block text-[10px] tracking-[0.28em] uppercase font-[300] text-bronze mb-8 md:mb-12 drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">
             Independent Practice · Central London & UK-Wide
           </span>
 
@@ -213,9 +213,12 @@ export default function HomepageComposition() {
               information asymmetry.
             </p>
 
-            <div className="masthead-body hidden md:flex items-center gap-3 text-[10px] tracking-[0.24em] uppercase font-[300] text-stone-muted/80">
-              <span className="w-1.5 h-1.5 bg-brass" />
-              <span>Central London &amp; UK-Wide Operations</span>
+            <div className="masthead-body hidden md:flex flex-col items-end gap-1.5 text-[9px] tracking-[0.22em] uppercase font-[300] text-stone-muted/60">
+              <div className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 bg-britishGreen" />
+                <span>51°30′N 0°07′W — Central London</span>
+              </div>
+              <span className="text-stone-muted/40">TFTS Field Operations</span>
             </div>
           </div>
         </div>
@@ -578,7 +581,7 @@ export default function HomepageComposition() {
             <TFTSTextReveal as="div" mode="line" delay={0.4}>
               <Link
                 href="/confidential-enquiry"
-                className="inline-flex items-center border border-ink px-8 py-4 text-[11px] tracking-[0.24em] uppercase font-[300] text-ink hover:bg-ink hover:text-paper transition-all duration-300 rounded-none"
+                className="inline-flex items-center border border-britishGreen px-8 py-4 text-[11px] tracking-[0.24em] uppercase font-[300] text-ink hover:bg-britishGreen hover:text-paper transition-all duration-300 rounded-none"
               >
                 Submit Confidential Instruction
               </Link>

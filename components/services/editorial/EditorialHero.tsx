@@ -65,7 +65,7 @@ export default function EditorialHero({
             fill
             priority
             sizes="100vw"
-            className="object-cover object-center grayscale contrast-105"
+            className="object-cover object-center contrast-105"
           />
         </div>
 

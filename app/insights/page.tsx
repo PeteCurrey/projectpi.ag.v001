@@ -105,7 +105,7 @@ export default function InsightsPage() {
                 <div className="pt-2">
                   <Link
                     href={`/insights/${featured.slug}`}
-                    className="inline-block border border-ink px-6 py-3 text-xs tracking-[0.2em] uppercase font-[300] text-ink hover:bg-ink hover:text-paper transition-colors rounded-none"
+                    className="inline-block border border-britishGreen px-6 py-3 text-xs tracking-[0.2em] uppercase font-[300] text-ink hover:bg-britishGreen hover:text-paper transition-colors duration-300 rounded-none"
                   >
                     Read Complete Monograph →
                   </Link>

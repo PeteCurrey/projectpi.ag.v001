@@ -35,7 +35,7 @@ export default function FieldOperationsComposition({ service, images }: Composit
               aspectClass="h-full"
               scaleOnScroll={true}
               priority={true}
-              imageFilter="grayscale(100%) contrast(1.1) brightness(0.65)"
+              imageFilter="contrast(1.08) brightness(0.72) saturate(0.85)"
               className="h-full"
             />
           </div>
@@ -312,7 +312,7 @@ export default function FieldOperationsComposition({ service, images }: Composit
             <div className="lg:col-span-4 flex flex-col justify-end space-y-4">
               <Link
                 href="/confidential-enquiry"
-                className="inline-flex items-center justify-between border border-ink px-8 py-4 text-[11px] tracking-[0.24em] uppercase font-[300] text-ink hover:bg-ink hover:text-paper transition-all duration-300 rounded-none w-full"
+                className="inline-flex items-center justify-between border border-britishGreen px-8 py-4 text-[11px] tracking-[0.24em] uppercase font-[300] text-ink hover:bg-britishGreen hover:text-paper transition-all duration-300 rounded-none w-full"
               >
                 <span>Submit Field Instruction</span>
                 <ArrowUpRight className="w-4 h-4" />

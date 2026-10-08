@@ -21,7 +21,7 @@ export default function FlagshipHero({ service }: FlagshipHeroProps) {
           priority
           sizes="100vw"
           className="object-cover object-center"
-          style={{ filter: "grayscale(100%) contrast(1.1) brightness(0.55)" }}
+          style={{ filter: "contrast(1.1) brightness(0.68) saturate(0.85)" }}
         />
         {/* Multi-layer contrast shielding — matches homepage masthead */}
         <div className="absolute inset-0 bg-obsidian-pure/50" />

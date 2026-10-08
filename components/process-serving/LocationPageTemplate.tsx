@@ -170,7 +170,7 @@ export default function LocationPageTemplate({ data }: LocationPageTemplateProps
             <div className="space-y-4 pt-2">
               <Link
                 href={`/confidential-enquiry?service=process-serving&location=${encodeURIComponent(data.cityName)}`}
-                className="inline-block border border-ink px-6 py-3 text-xs tracking-[0.2em] uppercase font-[300] text-ink hover:bg-ink hover:text-paper transition-colors rounded-none"
+                className="inline-block border border-britishGreen px-6 py-3 text-xs tracking-[0.2em] uppercase font-[300] text-ink hover:bg-britishGreen hover:text-paper transition-colors duration-300 rounded-none"
               >
                 Request Service Quotation
               </Link>
