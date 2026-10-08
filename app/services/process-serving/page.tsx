@@ -91,11 +91,11 @@ export default function ProcessServingHubPage() {
         <TFTSParallax speed={40} className="absolute inset-0">
           <TFTSImageReveal mode="wipe-right" className="absolute inset-0 w-full h-full">
             <Image
-              src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=2800&q=90"
-              alt="Royal Courts of Justice, London — process serving jurisdiction"
+              src="https://images.unsplash.com/photo-1761052840462-21e1a3d81c40?auto=format&fit=crop&w=2800&q=90"
+              alt="The Royal Courts of Justice on the Strand in London at dusk — gothic court architecture, glowing lamps, and rain-slicked streets"
               fill
               className="object-cover"
-              style={{ filter: "grayscale(100%) contrast(1.06) brightness(0.72)" }}
+              style={{ filter: "grayscale(100%) contrast(1.1) brightness(0.68)" }}
               sizes="100vw"
               priority
             />
