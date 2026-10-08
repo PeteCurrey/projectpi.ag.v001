@@ -30,7 +30,7 @@ export default function FlagshipInsightsBridge({
                 DOCTRINE &amp; ANALYSIS
               </span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-light font-serif text-warmWhite">
+            <h2 className="text-3xl sm:text-4xl font-[300] text-warmWhite">
               From the TFTS Intelligence Library
             </h2>
           </div>
@@ -56,7 +56,7 @@ export default function FlagshipInsightsBridge({
                   <span>{article.readTime}</span>
                 </div>
 
-                <h3 className="text-lg font-light text-warmWhite font-serif group-hover:text-brass transition-colors leading-snug">
+                <h3 className="text-lg font-[200] text-warmWhite group-hover:text-brass transition-colors leading-snug">
                   {article.title}
                 </h3>
 

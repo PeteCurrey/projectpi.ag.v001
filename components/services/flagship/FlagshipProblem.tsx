@@ -27,7 +27,7 @@ export default function FlagshipProblem({ problem, accentColor }: FlagshipProble
               </span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light font-serif text-warmWhite leading-[1.18]">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-[300] text-warmWhite leading-[1.18]">
               {problem.heading}
             </h2>
 

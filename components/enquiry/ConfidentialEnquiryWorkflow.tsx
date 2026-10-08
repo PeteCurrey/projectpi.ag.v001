@@ -170,7 +170,7 @@ export default function ConfidentialEnquiryWorkflow() {
       {step === 1 && (
         <div className="space-y-6">
           <div className="space-y-2">
-            <h2 className="text-2xl font-serif text-warmWhite">
+            <h2 className="text-2xl font-[200] text-warmWhite">
               Select Matter Classification
             </h2>
             <p className="text-xs text-stone-muted font-light leading-relaxed">
@@ -241,7 +241,7 @@ export default function ConfidentialEnquiryWorkflow() {
       {step === 2 && (
         <div className="space-y-6">
           <div className="space-y-2">
-            <h2 className="text-2xl font-serif text-warmWhite">
+            <h2 className="text-2xl font-[200] text-warmWhite">
               Matter Narrative & Objectives
             </h2>
             <p className="text-xs text-stone-muted font-light leading-relaxed">
@@ -294,7 +294,7 @@ export default function ConfidentialEnquiryWorkflow() {
       {step === 3 && (
         <div className="space-y-6">
           <div className="space-y-2">
-            <h2 className="text-2xl font-serif text-warmWhite">
+            <h2 className="text-2xl font-[200] text-warmWhite">
               Timing, Urgency & Location
             </h2>
             <p className="text-xs text-stone-muted font-light leading-relaxed">
@@ -386,7 +386,7 @@ export default function ConfidentialEnquiryWorkflow() {
       {step === 4 && (
         <div className="space-y-6">
           <div className="space-y-2">
-            <h2 className="text-2xl font-serif text-warmWhite">
+            <h2 className="text-2xl font-[200] text-warmWhite">
               Instructing Party Information
             </h2>
             <p className="text-xs text-stone-muted font-light leading-relaxed">
@@ -495,7 +495,7 @@ export default function ConfidentialEnquiryWorkflow() {
       {step === 5 && (
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="space-y-2">
-            <h2 className="text-2xl font-serif text-warmWhite">
+            <h2 className="text-2xl font-[200] text-warmWhite">
               Review Confidential Instruction
             </h2>
             <p className="text-xs text-stone-muted font-light leading-relaxed">
@@ -575,7 +575,7 @@ export default function ConfidentialEnquiryWorkflow() {
             <span className="text-[10px] font-mono tracking-ultra text-brass uppercase block">
               TRANSMISSION SECURED & LOGGED
             </span>
-            <h2 className="text-3xl font-serif text-warmWhite">
+            <h2 className="text-3xl font-[200] text-warmWhite">
               Confidential Instruction Received
             </h2>
             <p className="text-xs sm:text-sm text-stone-light font-light max-w-lg mx-auto leading-relaxed">

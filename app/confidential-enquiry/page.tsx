@@ -1,7 +1,6 @@
 import React, { Suspense } from "react";
 import { Metadata } from "next";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
-import TrustStrip from "@/components/shared/TrustStrip";
 import ConfidentialEnquiryWorkflow from "@/components/enquiry/ConfidentialEnquiryWorkflow";
 import { getCanonicalUrl } from "@/lib/config/brand";
 
@@ -27,7 +26,7 @@ export default function ConfidentialEnquiryPage() {
               Confidential Instruction Intake
             </span>
 
-            <h1 className="text-4xl sm:text-6xl font-[200] text-ink tracking-tight leading-[1.08]">
+            <h1 className="text-display-md font-[200] text-ink tracking-tight leading-[1.08]">
               Begin a Confidential Enquiry
             </h1>
 
@@ -37,8 +36,6 @@ export default function ConfidentialEnquiryPage() {
           </div>
         </div>
       </section>
-
-      <TrustStrip />
 
       {/* Main Workflow Form Container */}
       <section className="py-16 sm:py-24 px-6 lg:px-12 max-w-7xl mx-auto">

@@ -19,7 +19,7 @@ export default function FlagshipCTA({ serviceTitle, serviceSlug }: FlagshipCTAPr
             </span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-light font-serif text-warmWhite leading-[1.2]">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-[300] text-warmWhite leading-[1.2]">
             Discuss {serviceTitle.toLowerCase()} in strict confidence.
           </h2>
 

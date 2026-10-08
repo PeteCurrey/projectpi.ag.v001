@@ -19,7 +19,7 @@ export default function FlagshipAudience({ audience }: FlagshipAudienceProps) {
               INSTRUCTING BODIES · PROFESSIONAL CONTEXT
             </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-light font-serif text-warmWhite">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-[300] text-warmWhite">
             {audience.title}
           </h2>
           <p className="text-sm sm:text-base text-stone-muted font-light leading-relaxed">
@@ -44,7 +44,7 @@ export default function FlagshipAudience({ audience }: FlagshipAudienceProps) {
                   )}
                 </div>
 
-                <h3 className="text-xl font-light text-warmWhite font-serif">
+                <h3 className="text-xl font-[200] text-warmWhite">
                   {profile.role}
                 </h3>
 

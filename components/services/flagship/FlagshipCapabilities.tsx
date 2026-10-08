@@ -17,7 +17,7 @@ export default function FlagshipCapabilities({ capabilities }: FlagshipCapabilit
               DETAILED CAPABILITIES · OPERATIONAL SCOPE
             </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-light font-serif text-warmWhite">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-[300] text-warmWhite">
             {capabilities.title}
           </h2>
           <p className="text-sm sm:text-base text-stone-muted font-light leading-relaxed">
@@ -39,7 +39,7 @@ export default function FlagshipCapabilities({ capabilities }: FlagshipCapabilit
                 </span>
               </div>
 
-              <h3 className="text-xl sm:text-2xl font-light text-warmWhite font-serif group-hover:text-brass transition-colors">
+              <h3 className="text-xl sm:text-2xl font-[200] text-warmWhite group-hover:text-brass transition-colors">
                 {item.title}
               </h3>
 

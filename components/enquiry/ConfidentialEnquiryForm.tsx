@@ -48,7 +48,7 @@ export default function ConfidentialEnquiryForm() {
           <span className="text-[10px] font-mono uppercase tracking-ultra text-brass">
             ENCRYPTED DISPATCH CONFIRMED
           </span>
-          <h3 className="text-2xl sm:text-3xl font-light text-warmWhite font-serif uppercase">
+          <h3 className="text-2xl sm:text-3xl font-[200] text-warmWhite uppercase">
             Mandate Received In Confidence
           </h3>
           <p className="text-xs font-mono text-stone-muted">
@@ -91,7 +91,7 @@ export default function ConfidentialEnquiryForm() {
             STRICTLY CONFIDENTIAL
           </span>
         </div>
-        <h2 className="text-2xl sm:text-4xl font-light text-warmWhite font-serif uppercase tracking-tight">
+        <h2 className="text-2xl sm:text-4xl font-[200] text-warmWhite uppercase tracking-tight">
           Some matters should not be discussed in public.
         </h2>
         <p className="text-xs sm:text-sm text-stone font-light leading-relaxed">

@@ -1,7 +1,5 @@
 import React from "react";
 import { Metadata } from "next";
-import Link from "next/link";
-import { Lock, ShieldCheck } from "lucide-react";
 import { BRAND_PREFERRED, EMAIL_DPO, getCanonicalUrl } from "@/lib/config/brand";
 
 export const metadata: Metadata = {
@@ -14,23 +12,23 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <div className="bg-obsidian min-h-screen text-warmWhite py-24 md:py-32">
+    <div className="bg-paper min-h-screen text-ink py-20 md:py-32 selection:bg-ink selection:text-paper">
       <div className="max-w-4xl mx-auto px-6 lg:px-12 space-y-12">
-        <div className="space-y-4 border-b border-oliveGrey/70 pb-8">
-          <span className="text-[10px] font-mono uppercase tracking-ultra text-brass block">
+        <div className="space-y-4 border-b border-rule pb-8">
+          <span className="text-[11px] tracking-[0.22em] uppercase font-[300] text-ink-muted block">
             REGULATORY COMPLIANCE NOTICE
           </span>
-          <h1 className="text-3xl sm:text-5xl font-light text-warmWhite font-serif uppercase">
+          <h1 className="text-3xl sm:text-5xl font-[200] text-ink tracking-tight">
             Data Protection & Privacy Notice
           </h1>
-          <p className="text-xs font-mono text-stone-muted">
+          <p className="text-xs font-[300] text-ink-muted">
             LAST REVISED: OCTOBER 2024 · ICO REGISTRATION ACTIVE
           </p>
         </div>
 
-        <div className="space-y-8 text-xs sm:text-sm text-stone font-light leading-relaxed">
+        <div className="space-y-10 text-sm font-[300] text-ink-muted leading-relaxed">
           <section className="space-y-3">
-            <h2 className="text-xl font-light text-warmWhite font-serif">1. Regulatory Framework & Data Controller</h2>
+            <h2 className="text-xl font-[200] text-ink">1. Regulatory Framework & Data Controller</h2>
             <p>
               {BRAND_PREFERRED} operates as a registered data controller under the
               Data Protection Act 2018 (DPA 2018) and the UK General Data Protection Regulation (UK GDPR).
@@ -39,18 +37,18 @@ export default function PrivacyPage() {
           </section>
 
           <section className="space-y-3">
-            <h2 className="text-xl font-light text-warmWhite font-serif">2. Lawful Basis for Processing (Article 6 UK GDPR)</h2>
+            <h2 className="text-xl font-[200] text-ink">2. Lawful Basis for Processing (Article 6 UK GDPR)</h2>
             <p>
               Investigative and intelligence processing is conducted primarily under the lawful basis of:
             </p>
-            <ul className="list-disc pl-5 space-y-1.5 text-stone-light">
-              <li><strong>Legitimate Interests (Article 6(1)(f)):</strong> Processing is necessary for the purposes of legitimate commercial, legal, or fraud-prevention interests pursued by our instructing clients or a third party, where such interests are not overridden by the fundamental rights of the data subject.</li>
-              <li><strong>Legal Obligation & Legal Claims (Article 9(2)(f)):</strong> Processing necessary for the establishment, exercise, or defense of legal claims, whether in court proceedings or in an administrative or out-of-court procedure.</li>
+            <ul className="list-disc pl-5 space-y-2 text-ink">
+              <li><span className="font-[400]">Legitimate Interests (Article 6(1)(f)):</span> Processing is necessary for the purposes of legitimate commercial, legal, or fraud-prevention interests pursued by our instructing clients or a third party, where such interests are not overridden by the fundamental rights of the data subject.</li>
+              <li><span className="font-[400]">Legal Obligation & Legal Claims (Article 9(2)(f)):</span> Processing necessary for the establishment, exercise, or defense of legal claims, whether in court proceedings or in an administrative or out-of-court procedure.</li>
             </ul>
           </section>
 
           <section className="space-y-3">
-            <h2 className="text-xl font-light text-warmWhite font-serif">3. Legitimate Interests Assessment (LIA)</h2>
+            <h2 className="text-xl font-[200] text-ink">3. Legitimate Interests Assessment (LIA)</h2>
             <p>
               Prior to commencing any investigation, a formal Legitimate Interests Assessment is documented.
               This assessment rigorously balances the necessity and proportionality of the proposed inquiry against
@@ -59,7 +57,7 @@ export default function PrivacyPage() {
           </section>
 
           <section className="space-y-3">
-            <h2 className="text-xl font-light text-warmWhite font-serif">4. Data Security & Cryptographic Handling</h2>
+            <h2 className="text-xl font-[200] text-ink">4. Data Security & Cryptographic Handling</h2>
             <p>
               All client communications and investigative materials are held on encrypted, access-controlled systems.
               Physical and digital evidence is isolated, hashed using SHA-256 algorithms, and archived in accordance
@@ -68,10 +66,10 @@ export default function PrivacyPage() {
           </section>
 
           <section className="space-y-3">
-            <h2 className="text-xl font-light text-warmWhite font-serif">5. Enquiries</h2>
+            <h2 className="text-xl font-[200] text-ink">5. Enquiries</h2>
             <p>
               For any regulatory inquiries regarding data processing, contact our Data Protection Officer at:{" "}
-              <span className="text-warmWhite font-mono">{EMAIL_DPO}</span>.
+              <span className="text-ink font-mono">{EMAIL_DPO}</span>.
             </p>
           </section>
         </div>

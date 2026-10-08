@@ -69,7 +69,7 @@ export default function FlagshipHero({ service }: FlagshipHeroProps) {
               {service.semanticH1}
             </h1>
             {/* Display Headline */}
-            <p className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-warmWhite tracking-tight leading-[1.08] font-serif uppercase">
+            <p className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-[300] text-warmWhite tracking-tight leading-[1.08] uppercase">
               {service.displayHeadline}
             </p>
           </div>

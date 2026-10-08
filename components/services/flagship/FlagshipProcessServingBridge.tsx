@@ -22,7 +22,7 @@ export default function FlagshipProcessServingBridge({
               </span>
             </div>
 
-            <h3 className="text-2xl sm:text-3xl font-light font-serif text-warmWhite">
+            <h3 className="text-2xl sm:text-3xl font-[200] text-warmWhite">
               {bridge.heading}
             </h3>
 

@@ -25,7 +25,7 @@ export default function FlagshipEvidenceBundle({
               </span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-light font-serif text-warmWhite">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-[300] text-warmWhite">
               {evidence.title}
             </h2>
 

@@ -28,7 +28,7 @@ export default function FlagshipFAQ({ faqs }: FlagshipFAQProps) {
               </span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-light font-serif text-warmWhite">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-[300] text-warmWhite">
               Frequently Asked Questions
             </h2>
 
@@ -60,7 +60,7 @@ export default function FlagshipFAQ({ faqs }: FlagshipFAQProps) {
                   >
                     <div className="flex items-start space-x-3">
                       <HelpCircle className="w-4 h-4 text-brass/80 mt-1 flex-shrink-0" />
-                      <h3 className="text-base sm:text-lg font-light text-warmWhite font-serif">
+                      <h3 className="text-base sm:text-lg font-[200] text-warmWhite">
                         {faq.question}
                       </h3>
                     </div>

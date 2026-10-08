@@ -2,166 +2,193 @@ import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { ShieldCheck, Lock, Building, Scale, ArrowRight, Award } from "lucide-react";
 
 import { getCanonicalUrl } from "@/lib/config/brand";
+import TFTSTextReveal from "@/components/experience/TFTSTextReveal";
+import TFTSImageReveal from "@/components/experience/TFTSImageReveal";
+import TFTSParallax from "@/components/experience/TFTSParallax";
 
 export const metadata: Metadata = {
   title: "The Firm & Establishment | TFTS — Tactical Field Intelligence Service",
-  description: "An established UK private intelligence and investigations consultancy operating from central London. Discretion, proportionality, and empirical certainty for serious matters.",
+  description:
+    "An established UK private intelligence and investigations consultancy operating from central London. Discretion, proportionality, and empirical certainty for serious matters.",
   alternates: {
     canonical: getCanonicalUrl("/about"),
   },
 };
 
+const pillars = [
+  {
+    title: "Absolute Discretion",
+    body: "Work product structured to support Legal Professional Privilege. Compartmentalised operatives with zero operational exposure for the client.",
+  },
+  {
+    title: "Evidentiary Rigour",
+    body: "All evidence procured strictly within the Civil Procedure Rules (CPR 31/32), ensuring complete admissibility in High Court proceedings.",
+  },
+  {
+    title: "Statutory Compliance",
+    body: "Full alignment with the Data Protection Act 2018, UK GDPR, RIPA principles, and the British Standard BS 102000 code of conduct.",
+  },
+  {
+    title: "Institutional Scope",
+    body: "Serving solicitors, insurers, boards, insolvency practitioners, and family offices on mandates ranging from £1,000 to £25,000+.",
+  },
+];
 
 export default function AboutPage() {
   return (
-    <div className="bg-obsidian min-h-screen text-warmWhite">
-      {/* Editorial Header */}
-      <section className="py-24 md:py-36 border-b border-oliveGrey/70 bg-gradient-to-b from-obsidian-surface to-obsidian">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="max-w-4xl space-y-6">
-            <span className="text-[11px] uppercase font-mono tracking-ultra text-brass block">
-              THE ESTABLISHMENT · LONDON HEADQUARTERS
-            </span>
-            <h1 className="text-4xl sm:text-6xl md:text-7xl font-light text-warmWhite tracking-tight font-serif uppercase">
-              The Firm
-            </h1>
-            <p className="text-xl sm:text-2xl text-stone-light font-light leading-relaxed max-w-3xl">
-              A private firm you have discovered, not a service that is trying to sell itself to you.
-            </p>
-          </div>
+    <div className="bg-paper text-ink min-h-screen">
+
+      {/* ── 1. OPENING — Full-viewport hero image ── */}
+      <section className="relative h-screen overflow-hidden">
+        <TFTSParallax speed={40} className="absolute inset-0">
+          <TFTSImageReveal mode="wipe-right" className="absolute inset-0 w-full h-full">
+            <Image
+              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2800&q=90"
+              alt="City of London financial district skyline"
+              fill
+              className="object-cover"
+              style={{ filter: "grayscale(100%) contrast(1.06) brightness(0.75)" }}
+              sizes="100vw"
+              priority
+            />
+          </TFTSImageReveal>
+        </TFTSParallax>
+        <div className="absolute inset-0 bg-gradient-to-t from-paper/90 via-paper/20 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 max-w-7xl mx-auto px-6 lg:px-12 pb-20">
+          <TFTSTextReveal mode="lines">
+            <div className="space-y-4">
+              <span className="text-[11px] tracking-[0.22em] uppercase font-[300] text-paper/60 block">
+                THE ESTABLISHMENT · LONDON
+              </span>
+              <h1 className="text-display-xl font-[200] text-paper/95 tracking-tight leading-[1.04]">
+                The Firm.
+              </h1>
+            </div>
+          </TFTSTextReveal>
         </div>
       </section>
 
-      {/* Narrative & Architectural Presence */}
-      <section className="py-20 md:py-28 border-b border-oliveGrey/70">
+      {/* ── 2. MANDATE NARRATIVE — Asymmetric 12-col grid ── */}
+      <section className="py-20 md:py-28 border-b border-rule">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            {/* Left Narrative */}
-            <div className="lg:col-span-7 space-y-6 text-sm sm:text-base text-stone font-light leading-relaxed">
-              <h2 className="text-2xl sm:text-4xl font-light text-warmWhite font-serif tracking-tight">
-                Operating where conventional research ends and certainty is required.
-              </h2>
-              <p>
-                Founded to bridge the divide between commercial risk advisory, forensic intelligence,
-                and real-world field tradecraft, our firm exists to establish empirical truth in complex,
-                high-exposure situations.
-              </p>
-              <p>
-                We do not operate as a volume consumer agency. We handle instructions where the commercial,
-                legal, or reputational stakes are severe: multi-million-pound commercial disputes,
-                cross-border asset dissipation, systemic insider fraud, and sensitive family office governance.
-              </p>
-              <p className="text-warmWhite font-normal">
-                Our ethos is defined by quiet restraint, architectural precision, and absolute discretion.
-                We believe that the most formidable intelligence firms leave no public footprint,
-                safeguard client identity at all costs, and deliver evidence that is unassailable under judicial cross-examination.
-              </p>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+
+            {/* Left 7 cols */}
+            <div className="lg:col-span-7 space-y-8">
+              <TFTSTextReveal mode="lines">
+                <div className="space-y-6">
+                  <span className="text-[11px] tracking-[0.22em] uppercase font-[300] text-ink-muted block">
+                    Operating where conventional research ends
+                  </span>
+                  <h2 className="text-display-sm font-[200] text-ink leading-tight">
+                    A private firm you have discovered, not a service trying to sell itself to you.
+                  </h2>
+                </div>
+              </TFTSTextReveal>
+              <TFTSTextReveal mode="lines">
+                <div className="space-y-5 text-sm sm:text-base font-[300] text-ink-muted leading-relaxed">
+                  <p>
+                    Founded to bridge the divide between commercial risk advisory, forensic intelligence,
+                    and real-world field tradecraft, our firm exists to establish empirical truth in complex,
+                    high-exposure situations.
+                  </p>
+                  <p>
+                    We do not operate as a volume consumer agency. We handle instructions where the commercial,
+                    legal, or reputational stakes are severe: multi-million-pound commercial disputes,
+                    cross-border asset dissipation, systemic insider fraud, and sensitive family office governance.
+                  </p>
+                  <p className="text-ink font-[300]">
+                    Our ethos is defined by quiet restraint, architectural precision, and absolute discretion.
+                    We believe that the most formidable intelligence firms leave no public footprint,
+                    safeguard client identity at all costs, and deliver evidence that is unassailable under judicial cross-examination.
+                  </p>
+                </div>
+              </TFTSTextReveal>
             </div>
 
-            {/* Right Architectural Plaque Frame */}
-            <div className="lg:col-span-5 relative">
-              <div className="relative aspect-[4/5] w-full border border-oliveGrey bg-obsidian-surface p-2 rounded-xs">
-                <div className="relative w-full h-full overflow-hidden">
+            {/* Right 5 cols */}
+            <div className="lg:col-span-5 space-y-4">
+              <div className="relative aspect-[4/5] w-full overflow-hidden">
+                <TFTSImageReveal mode="wipe-up" className="absolute inset-0 w-full h-full">
                   <Image
                     src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=1200&q=80"
                     alt="Mayfair London establishment facade"
                     fill
                     sizes="(max-width: 1024px) 100vw, 40vw"
-                    className="object-cover grayscale contrast-125 opacity-70"
+                    className="object-cover"
+                    style={{ filter: "grayscale(100%) contrast(1.05) brightness(0.82)" }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-85" />
+                </TFTSImageReveal>
+              </div>
+              <p className="text-[11px] tracking-[0.18em] uppercase font-[300] text-ink-muted">
+                Mayfair, London W1 · Strictly By Appointment
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ── 3. FOUR PILLARS — Typographic ledger ── */}
+      <section className="py-20 md:py-28 border-b border-rule">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <TFTSTextReveal mode="lines">
+            <div className="max-w-3xl mb-16 space-y-4">
+              <span className="text-[11px] tracking-[0.22em] uppercase font-[300] text-ink-muted block">
+                Operational Governance
+              </span>
+              <h2 className="text-display-sm font-[200] text-ink">
+                Foundational Principles
+              </h2>
+            </div>
+          </TFTSTextReveal>
+
+          <div className="divide-y divide-rule">
+            {pillars.map((pillar, idx) => (
+              <TFTSTextReveal key={idx} mode="lines">
+                <div className="py-8 grid grid-cols-1 md:grid-cols-12 gap-6 items-baseline">
+                  <span className="md:col-span-1 text-xs font-[300] text-ink-muted">
+                    {String(idx + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="md:col-span-4 text-xl font-[200] text-ink">
+                    {pillar.title}
+                  </h3>
+                  <p className="md:col-span-7 text-sm font-[300] text-ink-muted leading-relaxed">
+                    {pillar.body}
+                  </p>
                 </div>
-                <div className="absolute bottom-6 left-6 right-6 p-5 bg-obsidian/95 border border-oliveGrey/90 backdrop-blur-md rounded-xs">
-                  <div className="text-[10px] font-mono uppercase tracking-ultra text-brass mb-1">
-                    CENTRAL LONDON CONSULTING SUITE
-                  </div>
-                  <div className="text-xs text-warmWhite font-light">
-                    Mayfair, London W1 · Strictly By Appointment
-                  </div>
-                  <div className="text-[10px] font-mono text-stone-muted pt-2 border-t border-oliveGrey/60 mt-2">
-                    CONFIDENTIALITY AGREEMENTS EXECUTED PRIOR TO INTAKE
-                  </div>
-                </div>
+              </TFTSTextReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 4. CTA — Editorial, bg-paper-stone ── */}
+      <section className="py-24 md:py-32 bg-paper-stone border-t border-rule">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <TFTSTextReveal mode="lines">
+            <div className="max-w-3xl space-y-8">
+              <h2 className="text-display-sm font-[200] text-ink">
+                Initiate a Discreet Consultation.
+              </h2>
+              <p className="text-sm font-[300] text-ink-muted leading-relaxed max-w-xl">
+                Discuss your requirements in complete confidence with our senior consulting directors.
+              </p>
+              <div>
+                <Link
+                  href="/confidential-enquiry"
+                  className="inline-block border border-ink px-6 py-3 text-xs tracking-[0.2em] uppercase font-[300] text-ink hover:bg-ink hover:text-paper transition-colors rounded-none"
+                >
+                  Begin Confidential Consultation
+                </Link>
               </div>
             </div>
-          </div>
+          </TFTSTextReveal>
         </div>
       </section>
 
-      {/* Disciplinary Standards & Pillars */}
-      <section className="py-20 md:py-28 border-b border-oliveGrey/70 bg-obsidian-pure">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="max-w-3xl mb-16 space-y-3">
-            <span className="text-[10px] font-mono uppercase tracking-ultra text-brass block">
-              OPERATIONAL GOVERNANCE
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-light text-warmWhite font-serif">
-              Our Foundational Pillars
-            </h2>
-            <p className="text-sm text-stone font-light">
-              How we distinguish our practice from traditional commercial detective agencies.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-obsidian-surface/60 border border-oliveGrey/80 p-8 rounded-xs space-y-4">
-              <Lock className="w-5 h-5 text-brass" />
-              <h3 className="text-lg font-light text-warmWhite font-serif">Absolute Discretion</h3>
-              <p className="text-xs text-stone leading-relaxed font-light">
-                Work product structured to support Legal Professional Privilege. Compartmentalised operatives with zero operational exposure for the client.
-              </p>
-            </div>
-
-            <div className="bg-obsidian-surface/60 border border-oliveGrey/80 p-8 rounded-xs space-y-4">
-              <Scale className="w-5 h-5 text-brass" />
-              <h3 className="text-lg font-light text-warmWhite font-serif">Evidentiary Rigour</h3>
-              <p className="text-xs text-stone leading-relaxed font-light">
-                All evidence procured strictly within the Civil Procedure Rules (CPR 31/32), ensuring complete admissibility in High Court proceedings.
-              </p>
-            </div>
-
-            <div className="bg-obsidian-surface/60 border border-oliveGrey/80 p-8 rounded-xs space-y-4">
-              <ShieldCheck className="w-5 h-5 text-brass" />
-              <h3 className="text-lg font-light text-warmWhite font-serif">Statutory Compliance</h3>
-              <p className="text-xs text-stone leading-relaxed font-light">
-                Full alignment with the Data Protection Act 2018, UK GDPR, RIPA principles, and the British Standard BS 102000 code of conduct.
-              </p>
-            </div>
-
-            <div className="bg-obsidian-surface/60 border border-oliveGrey/80 p-8 rounded-xs space-y-4">
-              <Building className="w-5 h-5 text-brass" />
-              <h3 className="text-lg font-light text-warmWhite font-serif">Institutional Scope</h3>
-              <p className="text-xs text-stone leading-relaxed font-light">
-                Serving solicitors, insurers, boards, insolvency practitioners, and family offices on mandates ranging from £1,000 to £25,000+.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-24 bg-obsidian text-center">
-        <div className="max-w-3xl mx-auto px-6 space-y-6">
-          <h2 className="text-3xl font-light text-warmWhite font-serif uppercase">
-            Initiate a Discreet Consultation
-          </h2>
-          <p className="text-xs sm:text-sm text-stone font-light leading-relaxed">
-            Discuss your requirements in complete confidence with our senior consulting directors.
-          </p>
-          <div className="pt-2">
-            <Link
-              href="/contact"
-              className="inline-flex items-center space-x-3 bg-brass hover:bg-brass-light text-obsidian px-8 py-3.5 text-xs tracking-widest uppercase font-medium rounded-xs shadow-etched"
-            >
-              <span>BEGIN CONFIDENTIAL CONSULTATION</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

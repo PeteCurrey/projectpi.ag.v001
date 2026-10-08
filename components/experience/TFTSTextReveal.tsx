@@ -11,8 +11,8 @@ interface TFTSTextRevealProps {
   children: ReactNode;
   /** HTML element to render */
   as?: "h1" | "h2" | "h3" | "h4" | "p" | "span" | "div";
-  /** Reveal by 'line' or 'word' */
-  mode?: "line" | "word";
+  /** Reveal by 'line'/'lines' or 'word'/'words' */
+  mode?: "line" | "lines" | "word" | "words";
   /** Animation duration in seconds */
   duration?: number;
   /** Stagger between items in seconds */
@@ -63,10 +63,12 @@ export default function TFTSTextReveal({
 
     gsap.registerPlugin(ScrollTrigger);
 
+    const isWord = mode === "word" || mode === "words";
+
     // We animate the wrapper element itself if mode is "line" on a single block
     // For word mode, we need to split by words
     const ctx = gsap.context(() => {
-      if (mode === "line") {
+      if (!isWord) {
         // Animate the whole block as one line reveal
         gsap.from(el, {
           y: yOffset,
@@ -104,9 +106,11 @@ export default function TFTSTextReveal({
     return () => ctx.revert();
   }, [prefersReduced, mode, duration, stagger, triggerStart, yOffset, delay]);
 
+  const isWord = mode === "word" || mode === "words";
+
   // For word mode, wrap each word in a span for GSAP targeting
   const content =
-    mode === "word" && typeof children === "string"
+    isWord && typeof children === "string"
       ? children.split(" ").map((word, i, arr) => (
           <span
             key={i}
@@ -125,7 +129,7 @@ export default function TFTSTextReveal({
       className={className}
       // Keep text accessible even when word mode wraps in spans
       aria-label={
-        mode === "word" && typeof children === "string" ? children : undefined
+        isWord && typeof children === "string" ? children : undefined
       }
     >
       {content}

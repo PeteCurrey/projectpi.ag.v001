@@ -1,13 +1,12 @@
 import React from "react";
 import { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import Breadcrumbs from "@/components/shared/Breadcrumbs";
-import TrustStrip from "@/components/shared/TrustStrip";
-import ConfidentialEnquiryCTA from "@/components/shared/ConfidentialEnquiryCTA";
+import Image from "next/image";
 import { professionalClientsHub } from "@/lib/data/professionalClientsData";
-
 import { getCanonicalUrl } from "@/lib/config/brand";
+import TFTSParallax from "@/components/experience/TFTSParallax";
+import TFTSImageReveal from "@/components/experience/TFTSImageReveal";
+import TFTSTextReveal from "@/components/experience/TFTSTextReveal";
 
 export const metadata: Metadata = {
   title: professionalClientsHub.metaTitle,
@@ -17,88 +16,108 @@ export const metadata: Metadata = {
   },
 };
 
-
 export default function ProfessionalClientsHubPage() {
   return (
-    <div className="bg-obsidian min-h-screen text-warmWhite">
-      {/* Hero */}
-      <section className="pt-28 pb-16 md:pt-36 md:pb-24 border-b border-oliveGrey/70 bg-gradient-to-b from-obsidian-surface/60 to-obsidian">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 space-y-8">
-          <Breadcrumbs items={[{ label: "PROFESSIONAL CLIENTS" }]} />
+    <div className="bg-paper min-h-screen text-ink">
 
-          <div className="max-w-4xl space-y-6">
-            <span className="text-[10px] font-mono tracking-ultra uppercase text-brass bg-brass/10 border border-brass/30 px-3 py-1 inline-block">
-              INSTITUTIONAL & LEGAL SECTORS
-            </span>
+      {/* ── MASTHEAD — full-viewport image with type ──────────────────── */}
+      <section className="relative h-[60vh] overflow-hidden">
+        <TFTSParallax speed={30} className="absolute inset-0">
+          <TFTSImageReveal mode="wipe-right" className="absolute inset-0 w-full h-full">
+            <Image
+              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2800&q=90"
+              alt="City of London skyline — institutional and legal client hub"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
+              style={{ filter: "grayscale(100%) contrast(1.06) brightness(0.75)" }}
+            />
+          </TFTSImageReveal>
+        </TFTSParallax>
 
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-light font-serif text-warmWhite leading-[1.15]">
-              {professionalClientsHub.headline}
-            </h1>
+        {/* Gradient — bleeds into paper below */}
+        <div className="absolute inset-0 bg-gradient-to-t from-paper/90 via-paper/30 to-transparent" />
 
-            <p className="text-base sm:text-xl font-light text-stone-light max-w-3xl leading-relaxed">
+        {/* Type anchored to bottom */}
+        <div className="absolute bottom-0 left-0 right-0 max-w-7xl mx-auto px-6 lg:px-12 pb-16">
+          <TFTSTextReveal mode="lines">
+            <div className="space-y-3">
+              <span className="text-[11px] tracking-[0.22em] uppercase font-[300] text-paper/60 block">
+                INSTITUTIONAL &amp; LEGAL SECTORS
+              </span>
+              <h1 className="text-display-xl font-[200] text-paper/95 tracking-tight leading-[1.04]">
+                {professionalClientsHub.headline}
+              </h1>
+            </div>
+          </TFTSTextReveal>
+        </div>
+      </section>
+
+      {/* ── INTRO ─────────────────────────────────────────────────────── */}
+      <section className="bg-paper py-16 border-b border-rule">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <TFTSTextReveal mode="lines">
+            <p className="text-lg sm:text-xl font-[200] text-ink max-w-3xl leading-relaxed">
               {professionalClientsHub.intro}
             </p>
+          </TFTSTextReveal>
+        </div>
+      </section>
 
-            <div className="pt-4 flex flex-wrap items-center gap-4">
+      {/* ── SECTOR LEDGER ─────────────────────────────────────────────── */}
+      <section className="bg-paper py-20 lg:py-28">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 space-y-12">
+
+          <TFTSTextReveal mode="lines">
+            <h2 className="text-display-sm font-[200] text-ink">
+              Select Your Practice Area
+            </h2>
+          </TFTSTextReveal>
+
+          <div className="divide-y divide-rule border-t border-rule">
+            {professionalClientsHub.sectors.map((sector, idx) => (
               <Link
-                href="/confidential-enquiry"
-                className="inline-flex items-center gap-3 bg-brass text-obsidian text-xs tracking-widest uppercase font-medium px-8 py-4 hover:bg-brass/90 transition-colors"
+                key={idx}
+                href={`/professional-clients/${sector.slug}`}
+                className="group flex items-baseline justify-between py-6 hover:bg-paper-stone/40 transition-colors px-1"
               >
-                BEGIN A CONFIDENTIAL ENQUIRY
-                <ArrowRight className="w-3.5 h-3.5" />
+                <span className="text-2xl sm:text-3xl font-[200] text-ink group-hover:text-ink-muted transition-colors">
+                  {sector.title}
+                </span>
+                <span className="text-xl text-ink-muted group-hover:text-ink transition-colors select-none">
+                  →
+                </span>
               </Link>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      <TrustStrip />
-
-      {/* Sectors Grid */}
-      <section className="py-20 lg:py-28 max-w-7xl mx-auto px-6 lg:px-12 space-y-12">
-        <div className="max-w-3xl space-y-3">
-          <span className="text-[10px] font-mono tracking-ultra uppercase text-brass block">
-            CLIENT DIRECTORY
-          </span>
-          <h2 className="text-2xl sm:text-4xl font-light font-serif text-warmWhite">
-            Select Your Practice Area or Entity
-          </h2>
-          <p className="text-stone-muted text-xs sm:text-sm font-light">
-            We operate seamlessly alongside solicitors, corporate leadership, fraud investigators, and investment committees.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {professionalClientsHub.sectors.map((sector, idx) => (
-            <Link
-              key={idx}
-              href={`/professional-clients/${sector.slug}`}
-              className="group p-8 bg-obsidian-surface/60 border border-oliveGrey/70 hover:border-brass/70 transition-all flex flex-col justify-between"
-            >
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-xl">{sector.icon}</span>
-                  <ArrowRight className="w-4 h-4 text-stone-muted group-hover:text-brass transition-colors group-hover:translate-x-1 duration-200" />
-                </div>
-                <h3 className="text-xl font-serif text-warmWhite group-hover:text-brass transition-colors">
-                  {sector.title}
-                </h3>
+      {/* ── CTA ───────────────────────────────────────────────────────── */}
+      <section className="bg-paper-stone border-t border-rule py-20">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <TFTSTextReveal mode="lines">
+            <div className="space-y-6 max-w-3xl">
+              <h2 className="text-display-sm font-[200] text-ink">
+                Engage Our Firm Professionally.
+              </h2>
+              <p className="text-sm font-[300] text-ink-muted leading-relaxed">
+                Whether a single urgent service or complex contentious litigation support, our team delivers complete certainty.
+              </p>
+              <div className="pt-2">
+                <Link
+                  href="/confidential-enquiry"
+                  className="inline-block border border-ink px-6 py-3 text-xs tracking-[0.2em] uppercase font-[300] text-ink hover:bg-ink hover:text-paper transition-colors rounded-none"
+                >
+                  Begin a Confidential Enquiry
+                </Link>
               </div>
-
-              <div className="pt-6 mt-6 border-t border-oliveGrey/40 flex items-center justify-between text-[11px] font-mono text-stone-muted group-hover:text-warmWhite">
-                <span>VIEW ENGAGEMENT MODEL</span>
-                <span>→</span>
-              </div>
-            </Link>
-          ))}
+            </div>
+          </TFTSTextReveal>
         </div>
       </section>
 
-      <ConfidentialEnquiryCTA
-        heading="ENGAGE OUR FIRM PROFESSIONALLY"
-        body="Whether a single urgent service or complex contentious litigation support, our team delivers complete certainty."
-        origin="/professional-clients"
-      />
     </div>
   );
 }

@@ -6,26 +6,25 @@ export const metadata: Metadata = {
   description: "Standard terms of professional instruction, confidentiality obligations, and fee structures for private intelligence services.",
 };
 
-
 export default function TermsPage() {
   return (
-    <div className="bg-obsidian min-h-screen text-warmWhite py-24 md:py-32">
+    <div className="bg-paper min-h-screen text-ink py-20 md:py-32 selection:bg-ink selection:text-paper">
       <div className="max-w-4xl mx-auto px-6 lg:px-12 space-y-12">
-        <div className="space-y-4 border-b border-oliveGrey/70 pb-8">
-          <span className="text-[10px] font-mono uppercase tracking-ultra text-brass block">
+        <div className="space-y-4 border-b border-rule pb-8">
+          <span className="text-[11px] tracking-[0.22em] uppercase font-[300] text-ink-muted block">
             PROFESSIONAL ENGAGEMENT TERMS
           </span>
-          <h1 className="text-3xl sm:text-5xl font-light text-warmWhite font-serif uppercase">
+          <h1 className="text-3xl sm:text-5xl font-[200] text-ink tracking-tight">
             Terms of Instruction
           </h1>
-          <p className="text-xs font-mono text-stone-muted">
+          <p className="text-xs font-[300] text-ink-muted">
             COMMERCIAL CONDITIONS PRECEDENT FOR PROFESSIONAL CLIENT ENGAGEMENTS
           </p>
         </div>
 
-        <div className="space-y-8 text-xs sm:text-sm text-stone font-light leading-relaxed">
+        <div className="space-y-10 text-sm font-[300] text-ink-muted leading-relaxed">
           <section className="space-y-3">
-            <h2 className="text-xl font-light text-warmWhite font-serif">1. Mandate & Scope of Services</h2>
+            <h2 className="text-xl font-[200] text-ink">1. Mandate & Scope of Services</h2>
             <p>
               All instructions are accepted pursuant to a formally signed Letter of Instruction (LOI)
               defining the scope of inquiries, operational parameters, fee structures, and agreed deliverables.
@@ -34,7 +33,7 @@ export default function TermsPage() {
           </section>
 
           <section className="space-y-3">
-            <h2 className="text-xl font-light text-warmWhite font-serif">2. Mutual Confidentiality & Privilege</h2>
+            <h2 className="text-xl font-[200] text-ink">2. Mutual Confidentiality & Privilege</h2>
             <p>
               Both parties agree to hold all information, communications, and work product in strict
               confidence. Where instructed by legal counsel in contemplation of litigation, our work product
@@ -43,7 +42,7 @@ export default function TermsPage() {
           </section>
 
           <section className="space-y-3">
-            <h2 className="text-xl font-light text-warmWhite font-serif">3. Professional Fees & Retainer</h2>
+            <h2 className="text-xl font-[200] text-ink">3. Professional Fees & Retainer</h2>
             <p>
               Instructions are billed on either an agreed fixed-fee mandate or a staged retainer basis.
               Due to the operational nature of field deployment and analytical resourcing, an initial retainer
@@ -52,7 +51,7 @@ export default function TermsPage() {
           </section>
 
           <section className="space-y-3">
-            <h2 className="text-xl font-light text-warmWhite font-serif">4. Governing Law & Jurisdiction</h2>
+            <h2 className="text-xl font-[200] text-ink">4. Governing Law & Jurisdiction</h2>
             <p>
               All contracts of instruction are governed by and construed in accordance with the laws
               of England and Wales, and subject to the exclusive jurisdiction of the English courts.

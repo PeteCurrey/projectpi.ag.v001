@@ -1,16 +1,69 @@
 import React from "react";
 import { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, FileCheck, Scale, ShieldCheck, MapPin, Clock } from "lucide-react";
-import Breadcrumbs from "@/components/shared/Breadcrumbs";
-import TrustStrip from "@/components/shared/TrustStrip";
-import ConfidentialEnquiryCTA from "@/components/shared/ConfidentialEnquiryCTA";
 import { processServingHub } from "@/lib/data/processServingData";
+import TFTSTextReveal from "@/components/experience/TFTSTextReveal";
+import TFTSImageReveal from "@/components/experience/TFTSImageReveal";
+import TFTSParallax from "@/components/experience/TFTSParallax";
 
 export const metadata: Metadata = {
   title: processServingHub.metaTitle,
   description: processServingHub.metaDescription,
 };
+
+const stages = [
+  {
+    num: "01",
+    label: "INSTRUCT",
+    title: "Formal Instruction",
+    body: "Formal instruction is received, scoped and documented. Matter type, respondent identity, address for service, deadline and procedural context are confirmed.",
+    deliverable: "Instruction confirmation & matter reference issued within the hour.",
+  },
+  {
+    num: "02",
+    label: "LOCATE",
+    title: "Address Verification",
+    body: "The respondent's current address is verified before every attendance. Where address is uncertain, intelligence methodology is applied to establish a serviceable location.",
+    deliverable: "Location report or confirmed address for service prior to attendance.",
+  },
+  {
+    num: "03",
+    label: "ATTEMPT",
+    title: "Service Execution",
+    body: "Our agents attend at the service address and execute service in accordance with the applicable Rules — CPR Part 6 or the Insolvency Rules 2016 as appropriate.",
+    deliverable: "Contemporaneous attendance log produced at point of service.",
+  },
+  {
+    num: "04",
+    label: "DOCUMENT",
+    title: "Contemporaneous Record",
+    body: "Every attendance is recorded contemporaneously: time, date, location, method, identity confirmation, outcome. Nothing is reconstructed after the event.",
+    deliverable: "Timestamped photographic and written record of each attendance.",
+  },
+  {
+    num: "05",
+    label: "REPORT",
+    title: "Court-Ready Evidence",
+    body: "A court-ready proof of service and attendance record is provided. Where required, we prepare a witness statement or affidavit of service for use in proceedings.",
+    deliverable: "Sworn affidavit or CPR-compliant certificate of service delivered.",
+  },
+];
+
+const professionalClients = [
+  { label: "Solicitors", href: "/professional-clients/solicitors" },
+  { label: "Insolvency Practitioners", href: "/professional-clients/insolvency-practitioners" },
+  { label: "Debt Recovery Firms", href: "/professional-clients/debt-recovery" },
+  { label: "Corporate Creditors", href: "/professional-clients/corporate-clients" },
+  { label: "Commercial Landlords", href: "/professional-clients/commercial-landlords" },
+];
+
+const relatedServices = [
+  { label: "People Tracing", href: "/services/people-tracing" },
+  { label: "Witness Enquiries", href: "/services/witness-enquiries" },
+  { label: "Litigation Support", href: "/services/litigation-support" },
+  { label: "Evidence Gathering", href: "/services/evidence-gathering" },
+];
 
 export default function ProcessServingHubPage() {
   const jsonLd = {
@@ -27,130 +80,125 @@ export default function ProcessServingHubPage() {
   };
 
   return (
-    <div className="bg-obsidian min-h-screen text-warmWhite">
+    <div className="bg-paper text-ink min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* Hero */}
-      <section className="pt-28 pb-16 md:pt-36 md:pb-24 border-b border-oliveGrey/70 bg-gradient-to-b from-obsidian-surface/60 to-obsidian">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 space-y-8">
-          <Breadcrumbs
-            items={[
-              { label: "SERVICES", href: "/services" },
-              { label: "PROCESS SERVING" },
-            ]}
-          />
+      {/* ── 1. OPENING ACT ── Full-viewport hero image */}
+      <section className="relative h-[100svh] overflow-hidden">
+        <TFTSParallax speed={40} className="absolute inset-0">
+          <TFTSImageReveal mode="wipe-right" className="absolute inset-0 w-full h-full">
+            <Image
+              src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=2800&q=90"
+              alt="Royal Courts of Justice, London — process serving jurisdiction"
+              fill
+              className="object-cover"
+              style={{ filter: "grayscale(100%) contrast(1.06) brightness(0.72)" }}
+              sizes="100vw"
+              priority
+            />
+          </TFTSImageReveal>
+        </TFTSParallax>
 
-          <div className="max-w-4xl space-y-6">
-            <span className="text-[10px] font-mono tracking-ultra uppercase text-brass bg-brass/10 border border-brass/30 px-3 py-1 inline-block">
-              COMMERCIAL LEGAL VERTICAL
-            </span>
+        {/* Gradient fade to paper at base */}
+        <div className="absolute inset-0 bg-gradient-to-t from-paper/95 via-paper/20 to-transparent" />
 
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-light font-serif text-warmWhite leading-[1.15]">
-              Process Serving Division
-            </h1>
+        {/* Bottom-anchored headline */}
+        <div className="absolute bottom-0 left-0 right-0 max-w-7xl mx-auto px-6 lg:px-12 pb-20 md:pb-28">
+          <TFTSTextReveal mode="lines">
+            <div className="space-y-4">
+              <span className="text-[11px] tracking-[0.28em] uppercase font-[300] text-paper/60 block">
+                CPR Part 6 — Civil Procedure Rules
+              </span>
+              <h1 className="text-display-xl font-[200] text-paper/95 tracking-tight leading-[1.04]">
+                Process Serving
+              </h1>
+              <p className="text-display-sm font-[200] text-paper/70 leading-[1.1]">
+                When service cannot fail.
+              </p>
+            </div>
+          </TFTSTextReveal>
+        </div>
+      </section>
 
-            <p className="text-base sm:text-xl font-light text-stone-light max-w-3xl leading-relaxed">
-              {processServingHub.intro}
-            </p>
+      {/* ── 2. STATEMENT SECTION ── Asymmetric editorial layout */}
+      <section className="border-b border-rule">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20 md:py-28">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
+            {/* Left: 7/12 */}
+            <div className="md:col-span-7 space-y-8">
+              <TFTSTextReveal mode="lines">
+                <div className="space-y-6">
+                  <span className="text-[11px] tracking-[0.22em] uppercase font-[300] text-ink-muted block">
+                    CPR Part 6 — Civil Procedure Rules
+                  </span>
+                  <h2 className="text-display-sm font-[200] text-ink leading-[1.08]">
+                    Serving documents is not simply about delivery.
+                  </h2>
+                  <p className="text-sm font-[300] text-ink-muted leading-relaxed max-w-xl">
+                    {processServingHub.position}
+                  </p>
+                </div>
+              </TFTSTextReveal>
+            </div>
 
-            <div className="pt-4 flex flex-wrap items-center gap-4">
-              <Link
-                href="/confidential-enquiry?service=process-serving"
-                className="inline-flex items-center gap-3 bg-brass text-obsidian text-xs tracking-widest uppercase font-medium px-8 py-4 hover:bg-brass/90 transition-colors"
-              >
-                REQUEST AN INSTRUCTION QUOTE
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-              <Link
-                href="#documents"
-                className="inline-flex items-center gap-2 border border-oliveGrey/80 hover:border-brass/60 text-stone-light text-xs tracking-widest uppercase px-6 py-4 transition-colors"
-              >
-                EXPLORE DOCUMENT TYPES
-              </Link>
+            {/* Right: 5/12 */}
+            <div className="md:col-span-5 space-y-10">
+              <TFTSTextReveal mode="lines">
+                <p className="text-base font-[300] text-ink-muted leading-relaxed">
+                  {processServingHub.intro}
+                </p>
+              </TFTSTextReveal>
+
+              {/* Trust points — rule-separated list, no icons */}
+              <div className="divide-y divide-rule">
+                {processServingHub.trustPoints.map((point, idx) => (
+                  <div key={idx} className="py-4">
+                    <p className="text-sm font-[300] text-ink leading-relaxed">{point}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <TrustStrip />
+      {/* ── 3. SERVICE TYPES ── Open typographic ledger */}
+      <section className="border-b border-rule">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20 md:py-28">
+          <TFTSTextReveal mode="lines">
+            <div className="mb-14 space-y-3">
+              <span className="text-[11px] tracking-[0.22em] uppercase font-[300] text-ink-muted block">
+                Service Catalogue
+              </span>
+              <h2 className="text-display-sm font-[200] text-ink">
+                Document Types &amp; Services
+              </h2>
+            </div>
+          </TFTSTextReveal>
 
-      {/* Strategic Positioning */}
-      <section className="py-20 max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-7 space-y-6">
-            <span className="text-[10px] font-mono tracking-ultra uppercase text-brass block">
-              PRECISION LITIGATION SUPPORT
-            </span>
-            <h2 className="text-2xl sm:text-4xl font-light font-serif text-warmWhite">
-              When Service Cannot Fail
-            </h2>
-            <p className="text-stone-light text-sm sm:text-base leading-relaxed font-light">
-              {processServingHub.position}
-            </p>
-            <p className="text-stone-muted text-xs sm:text-sm leading-relaxed font-light">
-              Under Civil Procedure Rules Part 6 and the Insolvency Rules 2016, technical defects in service can cause fatal procedural delays, invalidation of statutory demands, and substantial wasted cost orders. We provide immediate, auditable, and unassailable evidence of service across London and the UK.
-            </p>
-          </div>
-
-          <div className="lg:col-span-5 bg-obsidian-surface border border-oliveGrey/70 p-8 space-y-4">
-            <h3 className="text-xs font-mono uppercase tracking-ultra text-brass">
-              OPERATIONAL GUARANTEES
-            </h3>
-            <ul className="space-y-3">
-              {processServingHub.trustPoints.map((tp, idx) => (
-                <li key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-stone-light font-light">
-                  <span className="w-1.5 h-1.5 bg-brass rounded-full mt-1.5 shrink-0" />
-                  <span>{tp}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* Document Types Cluster */}
-      <section id="documents" className="py-20 bg-obsidian-surface/30 border-t border-oliveGrey/60">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 space-y-12">
-          <div className="max-w-3xl space-y-3">
-            <span className="text-[10px] font-mono tracking-ultra uppercase text-brass block">
-              DOCUMENT CLUSTERS & WORKFLOWS
-            </span>
-            <h2 className="text-2xl sm:text-4xl font-light font-serif text-warmWhite">
-              Specialist Service Categories
-            </h2>
-            <p className="text-stone-muted text-xs sm:text-sm font-light">
-              Each document type adheres to specific statutory requirements and evidentiary thresholds. Select your matter requirement below.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="divide-y divide-rule">
             {processServingHub.documentTypes.map((doc, idx) => (
               <Link
                 key={idx}
                 href={`/services/process-serving/${doc.slug}`}
-                className="group p-8 bg-obsidian-surface/60 border border-oliveGrey/70 hover:border-brass/70 transition-all flex flex-col justify-between"
+                className="group py-8 grid grid-cols-1 md:grid-cols-12 gap-4 items-baseline hover:bg-paper-stone/50 transition-colors -mx-6 px-6 lg:-mx-12 lg:px-12"
               >
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-mono text-brass tracking-wider">
-                      DOC {String(idx + 1).padStart(2, "0")}
-                    </span>
-                    <ArrowRight className="w-4 h-4 text-stone-muted group-hover:text-brass transition-colors group-hover:translate-x-1 duration-200" />
-                  </div>
-                  <h3 className="text-xl font-serif text-warmWhite group-hover:text-brass transition-colors">
-                    {doc.title}
-                  </h3>
-                  <p className="text-xs text-stone-muted leading-relaxed font-light">
-                    {doc.body}
-                  </p>
-                </div>
-
-                <div className="pt-6 mt-6 border-t border-oliveGrey/40 flex items-center justify-between text-[11px] font-mono text-stone-muted group-hover:text-warmWhite">
-                  <span>VIEW SPECIFICATION</span>
-                  <span>→</span>
+                <span className="md:col-span-1 text-xs font-[300] text-ink-muted">
+                  {String(idx + 1).padStart(2, "0")}
+                </span>
+                <h3 className="md:col-span-4 text-xl font-[200] text-ink group-hover:text-ink transition-colors">
+                  {doc.title}
+                </h3>
+                <p className="md:col-span-6 text-sm font-[300] text-ink-muted leading-relaxed">
+                  {doc.body}
+                </p>
+                <div className="md:col-span-1 flex justify-end">
+                  <span className="text-lg font-[200] text-ink-muted group-hover:text-ink transition-colors">
+                    →
+                  </span>
                 </div>
               </Link>
             ))}
@@ -158,71 +206,130 @@ export default function ProcessServingHubPage() {
         </div>
       </section>
 
-      {/* Geographical Hubs */}
-      <section className="py-20 max-w-7xl mx-auto px-6 lg:px-12 space-y-12">
-        <div className="max-w-3xl space-y-3">
-          <span className="text-[10px] font-mono tracking-ultra uppercase text-brass block">
-            REGIONAL CENTRES & COURT JURISDICTIONS
-          </span>
-          <h2 className="text-2xl sm:text-4xl font-light font-serif text-warmWhite">
-            Key Regional Process Serving Hubs
-          </h2>
-          <p className="text-stone-muted text-xs sm:text-sm font-light">
-            Dedicated field coverage across the major Business & Property Courts centres of England and Wales.
-          </p>
-        </div>
+      {/* ── 4. HOW IT WORKS ── Scroll-driven numbered sequence */}
+      <section className="border-b border-rule">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20 md:py-28">
+          <TFTSTextReveal mode="lines">
+            <div className="mb-16 space-y-3">
+              <span className="text-[11px] tracking-[0.22em] uppercase font-[300] text-ink-muted block">
+                Methodology
+              </span>
+              <h2 className="text-display-sm font-[200] text-ink">
+                Operational Protocol
+              </h2>
+            </div>
+          </TFTSTextReveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {[
-            {
-              city: "London",
-              slug: "london",
-              desc: "Rolls Building, Royal Courts of Justice, Chancery Lane, Greater London.",
-            },
-            {
-              city: "Manchester",
-              slug: "manchester",
-              desc: "Business & Property Courts Manchester, Greater Manchester, Cheshire.",
-            },
-            {
-              city: "Birmingham",
-              slug: "birmingham",
-              desc: "BPC Birmingham, West Midlands, Coventry, Black Country.",
-            },
-            {
-              city: "Leeds",
-              slug: "leeds",
-              desc: "BPC Leeds, West Yorkshire, Bradford, Harrogate, York.",
-            },
-          ].map((loc, idx) => (
-            <Link
-              key={idx}
-              href={`/process-server/${loc.slug}`}
-              className="group p-6 bg-obsidian-surface/40 border border-oliveGrey/60 hover:border-brass/70 transition-all space-y-3"
-            >
-              <div className="flex items-center gap-2 text-brass">
-                <MapPin className="w-3.5 h-3.5" />
-                <span className="text-[10px] font-mono uppercase tracking-wider">
-                  REGIONAL JURISDICTION
-                </span>
-              </div>
-              <h3 className="text-lg font-serif text-warmWhite group-hover:text-brass transition-colors">
-                {loc.city} Process Server
-              </h3>
-              <p className="text-xs text-stone-muted font-light leading-relaxed">
-                {loc.desc}
-              </p>
-            </Link>
-          ))}
+          <div className="space-y-0 divide-y divide-rule">
+            {stages.map((stage, idx) => (
+              <TFTSTextReveal key={idx} mode="lines">
+                <div className="py-16 md:py-20 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                  <div className="lg:col-span-2">
+                    <span className="text-[80px] md:text-[120px] font-[200] text-ink/10 leading-none">
+                      {stage.num}
+                    </span>
+                  </div>
+                  <div className="lg:col-span-4 space-y-2">
+                    <span className="text-[11px] tracking-[0.22em] uppercase font-[300] text-ink-muted block">
+                      {stage.label}
+                    </span>
+                    <h3 className="text-2xl sm:text-3xl font-[200] text-ink">{stage.title}</h3>
+                  </div>
+                  <div className="lg:col-span-6 space-y-4 text-sm font-[300] text-ink-muted leading-relaxed">
+                    <p>{stage.body}</p>
+                    <div className="border-t border-rule pt-4 text-xs font-[300] text-ink">
+                      {stage.deliverable}
+                    </div>
+                  </div>
+                </div>
+              </TFTSTextReveal>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <ConfidentialEnquiryCTA
-        heading="INSTRUCT OUR PROCESS SERVING DIVISION"
-        body="Submit your documents with complete confidence. Same-day emergency attendance available."
-        origin="/services/process-serving"
-      />
+      {/* ── 5. PROFESSIONAL CLIENTS ── Large typographic list */}
+      <section className="border-b border-rule">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20 md:py-28">
+          <TFTSTextReveal mode="lines">
+            <div className="mb-14 space-y-3">
+              <span className="text-[11px] tracking-[0.22em] uppercase font-[300] text-ink-muted block">
+                Client Base
+              </span>
+              <h2 className="text-display-sm font-[200] text-ink">Who We Work With</h2>
+            </div>
+          </TFTSTextReveal>
+
+          <div className="divide-y divide-rule">
+            {professionalClients.map((client, idx) => (
+              <Link
+                key={idx}
+                href={client.href}
+                className="group flex items-baseline justify-between py-7 hover:bg-paper-stone/50 transition-colors -mx-6 px-6 lg:-mx-12 lg:px-12"
+              >
+                <span className="text-2xl font-[200] text-ink group-hover:text-ink transition-colors">
+                  {client.label}
+                </span>
+                <span className="text-lg font-[200] text-ink-muted group-hover:text-ink transition-colors">
+                  →
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 6. RELATED SERVICES ── Typographic index */}
+      <section className="border-b border-rule">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16 md:py-20">
+          <TFTSTextReveal mode="lines">
+            <div className="mb-10">
+              <span className="text-[11px] tracking-[0.22em] uppercase font-[300] text-ink-muted block">
+                Related Investigations
+              </span>
+            </div>
+          </TFTSTextReveal>
+
+          <div className="divide-y divide-rule">
+            {relatedServices.map((svc, idx) => (
+              <Link
+                key={idx}
+                href={svc.href}
+                className="group flex items-baseline justify-between py-5 hover:bg-paper-stone/50 transition-colors -mx-6 px-6 lg:-mx-12 lg:px-12"
+              >
+                <div className="flex items-baseline gap-6">
+                  <span className="text-xs font-[300] text-ink-muted w-6">
+                    {String(idx + 1).padStart(2, "0")}
+                  </span>
+                  <span className="text-base font-[300] text-ink">{svc.label}</span>
+                </div>
+                <span className="text-base font-[200] text-ink-muted group-hover:text-ink transition-colors">
+                  →
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 7. FINAL CTA ── Full-bleed editorial */}
+      <section className="bg-paper-stone border-t border-rule">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-24 md:py-32">
+          <TFTSTextReveal mode="lines">
+            <div className="space-y-10 max-w-4xl">
+              <p className="text-display-md font-[200] text-ink leading-[1.06]">
+                When service cannot fail.
+              </p>
+              <Link
+                href="/confidential-enquiry?service=process-serving"
+                className="inline-block border border-ink px-6 py-3 text-xs tracking-[0.2em] uppercase font-[300] text-ink hover:bg-ink hover:text-paper transition-colors rounded-none"
+              >
+                Discuss the requirement confidentially →
+              </Link>
+            </div>
+          </TFTSTextReveal>
+        </div>
+      </section>
     </div>
   );
 }

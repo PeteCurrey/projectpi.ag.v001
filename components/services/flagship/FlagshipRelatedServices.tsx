@@ -54,7 +54,7 @@ export default function FlagshipRelatedServices({
             <span className="text-[10px] font-mono tracking-ultra uppercase text-brass block">
               PRACTICE NETWORK · CROSS-DISCIPLINARY
             </span>
-            <h2 className="text-3xl sm:text-4xl font-light font-serif text-warmWhite">
+            <h2 className="text-3xl sm:text-4xl font-[300] text-warmWhite">
               Related Capabilities
             </h2>
           </div>
@@ -79,7 +79,7 @@ export default function FlagshipRelatedServices({
                   {service.category} · DISCIPLINE {service.disciplineNumber}
                 </span>
 
-                <h3 className="text-xl font-light text-warmWhite font-serif group-hover:text-brass transition-colors">
+                <h3 className="text-xl font-[200] text-warmWhite group-hover:text-brass transition-colors">
                   {service.title}
                 </h3>
 
@@ -108,7 +108,7 @@ export default function FlagshipRelatedServices({
                 <span className="text-[9px] font-mono uppercase text-stone-muted tracking-widest block">
                   PREVIOUS CAPABILITY
                 </span>
-                <span className="text-sm font-light text-warmWhite font-serif group-hover:text-brass transition-colors">
+                <span className="text-sm font-[200] text-warmWhite group-hover:text-brass transition-colors">
                   {prevService.title}
                 </span>
               </div>
@@ -124,7 +124,7 @@ export default function FlagshipRelatedServices({
                 <span className="text-[9px] font-mono uppercase text-stone-muted tracking-widest block">
                   NEXT CAPABILITY
                 </span>
-                <span className="text-sm font-light text-warmWhite font-serif group-hover:text-brass transition-colors">
+                <span className="text-sm font-[200] text-warmWhite group-hover:text-brass transition-colors">
                   {nextService.title}
                 </span>
               </div>
