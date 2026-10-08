@@ -25,13 +25,13 @@ export default function ProfessionalClientsHubPage() {
         <TFTSParallax speed={30} className="absolute inset-0">
           <TFTSImageReveal mode="wipe-right" className="absolute inset-0 w-full h-full">
             <Image
-              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2800&q=90"
-              alt="City of London skyline — institutional and legal client hub"
+              src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=2800&q=90"
+              alt="City of London financial institution architectural entrance — institutional client advisory"
               fill
               priority
               sizes="100vw"
               className="object-cover"
-              style={{ filter: "grayscale(100%) contrast(1.06) brightness(0.75)" }}
+              style={{ filter: "grayscale(100%) contrast(1.06) brightness(0.72)" }}
             />
           </TFTSImageReveal>
         </TFTSParallax>

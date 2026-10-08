@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { servicesData } from "@/lib/data/servicesData";
 import { getCanonicalUrl } from "@/lib/config/brand";
+import TFTSTextReveal from "@/components/experience/TFTSTextReveal";
 
 export const metadata: Metadata = {
   title: "Specialist Capabilities & Practice Index | TFTS",
@@ -56,16 +57,20 @@ export default function ServicesIndexPage() {
     <div className="bg-paper text-ink selection:bg-ink selection:text-paper">
       {/* Services Masthead */}
       <section className="pt-16 pb-20 md:pt-24 md:pb-28 border-b border-rule">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 space-y-6">
-          <span className="text-[11px] uppercase tracking-[0.22em] font-[300] text-ink-muted block">
-            Practice Catalogue · 20 Specialist Capabilities
-          </span>
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-[200] tracking-tight leading-[1.06] text-ink">
-            Investigative Capabilities & Disciplines
-          </h1>
-          <p className="text-base sm:text-lg text-ink-muted font-[300] leading-relaxed max-w-3xl">
-            Every capability operates under strict British legal standards, Civil Procedure Rules, and absolute procedural integrity. We design bespoke mandates to establish definitive facts.
-          </p>
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <TFTSTextReveal mode="lines">
+            <div className="space-y-6 max-w-4xl">
+              <span className="text-[11px] uppercase tracking-[0.22em] font-[300] text-ink-muted block">
+                Practice Catalogue · 20 Specialist Capabilities
+              </span>
+              <h1 className="text-display-md font-[200] tracking-tight leading-[1.04] text-ink">
+                Investigative Capabilities &amp; Disciplines
+              </h1>
+              <p className="text-base sm:text-lg text-ink-muted font-[300] leading-relaxed max-w-3xl">
+                Every capability operates under strict British legal standards, Civil Procedure Rules, and absolute procedural integrity. We design bespoke mandates to establish definitive facts.
+              </p>
+            </div>
+          </TFTSTextReveal>
         </div>
       </section>
 

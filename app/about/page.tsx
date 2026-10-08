@@ -45,11 +45,11 @@ export default function AboutPage() {
         <TFTSParallax speed={40} className="absolute inset-0">
           <TFTSImageReveal mode="wipe-right" className="absolute inset-0 w-full h-full">
             <Image
-              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2800&q=90"
-              alt="City of London financial district skyline"
+              src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=2800&q=90"
+              alt="London Thames panorama — Canary Wharf financial district from the river"
               fill
               className="object-cover"
-              style={{ filter: "grayscale(100%) contrast(1.06) brightness(0.75)" }}
+              style={{ filter: "grayscale(100%) contrast(1.06) brightness(0.72)" }}
               sizes="100vw"
               priority
             />
@@ -113,8 +113,8 @@ export default function AboutPage() {
               <div className="relative aspect-[4/5] w-full overflow-hidden">
                 <TFTSImageReveal mode="wipe-up" className="absolute inset-0 w-full h-full">
                   <Image
-                    src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=1200&q=80"
-                    alt="Mayfair London establishment facade"
+                    src="https://images.unsplash.com/photo-1529655683826-aba9b3e77383?auto=format&fit=crop&w=1200&q=80"
+                    alt="London classical colonnade and stone architectural perspective"
                     fill
                     sizes="(max-width: 1024px) 100vw, 40vw"
                     className="object-cover"

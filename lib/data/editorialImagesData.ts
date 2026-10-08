@@ -53,7 +53,7 @@ export const EDITORIAL_SERVICE_IMAGES: Record<string, ServiceEditorialImages> = 
       caption: "Commercial supply chain scrutiny and vendor auditing",
     },
     tertiary: {
-      src: "https://images.unsplash.com/photo-1568667256549-094345857b23?auto=format&fit=crop&w=2400&q=85",
+      src: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=2400&q=85",
       alt: "Archival documentary dossiers in quiet neutral tones",
       caption: "Evidence preservation and exhibit formatting",
     },
@@ -128,7 +128,7 @@ export const EDITORIAL_SERVICE_IMAGES: Record<string, ServiceEditorialImages> = 
       caption: "Corporate registry and beneficial ownership correlation",
     },
     tertiary: {
-      src: "https://images.unsplash.com/photo-1568667256549-094345857b23?auto=format&fit=crop&w=2400&q=85",
+      src: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=2400&q=85",
       alt: "Structured documentary evidence in clean layout",
       caption: "Archival internet records and historical digital footprints",
     },
@@ -146,7 +146,7 @@ export const EDITORIAL_SERVICE_IMAGES: Record<string, ServiceEditorialImages> = 
       caption: "Communication attribution and digital pathway tracing",
     },
     tertiary: {
-      src: "https://images.unsplash.com/photo-1568667256549-094345857b23?auto=format&fit=crop&w=2400&q=85",
+      src: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=2400&q=85",
       alt: "Archival exhibit documentation in neutral tone",
       caption: "Cryptographic hashing and chain of custody documentation",
     },
@@ -159,7 +159,7 @@ export const EDITORIAL_SERVICE_IMAGES: Record<string, ServiceEditorialImages> = 
       caption: "Executive vetting and integrity verification suite",
     },
     secondary: {
-      src: "https://images.unsplash.com/photo-1568667256549-094345857b23?auto=format&fit=crop&w=2400&q=85",
+      src: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=2400&q=85",
       alt: "Civil registry records and legal documents",
       caption: "Court civil litigation registry and regulatory checks",
     },
@@ -185,7 +185,7 @@ export const EDITORIAL_SERVICE_IMAGES: Record<string, ServiceEditorialImages> = 
       caption: "Cross-referenced electoral, property, and civil databases",
     },
     tertiary: {
-      src: "https://images.unsplash.com/photo-1568667256549-094345857b23?auto=format&fit=crop&w=2400&q=85",
+      src: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=2400&q=85",
       alt: "Physical documents and trace reports",
       caption: "Verified current residential address confirmations",
     },
@@ -203,7 +203,7 @@ export const EDITORIAL_SERVICE_IMAGES: Record<string, ServiceEditorialImages> = 
       caption: "Real estate and commercial holding identification",
     },
     tertiary: {
-      src: "https://images.unsplash.com/photo-1568667256549-094345857b23?auto=format&fit=crop&w=2400&q=85",
+      src: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=2400&q=85",
       alt: "Land registry filings and corporate share registers",
       caption: "Asset schedules prepared for CPR Part 25 freezing applications",
     },
@@ -312,7 +312,7 @@ export const EDITORIAL_SERVICE_IMAGES: Record<string, ServiceEditorialImages> = 
       caption: "The Royal Courts of Justice, Strand, London",
     },
     secondary: {
-      src: "https://images.unsplash.com/photo-1568667256549-094345857b23?auto=format&fit=crop&w=2400&q=85",
+      src: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=2400&q=85",
       alt: "Litigation case files and indexed documentation",
       caption: "Pleadings analysis and evidential void identification",
     },
@@ -325,7 +325,7 @@ export const EDITORIAL_SERVICE_IMAGES: Record<string, ServiceEditorialImages> = 
 
   "evidence-gathering": {
     hero: {
-      src: "https://images.unsplash.com/photo-1568667256549-094345857b23?auto=format&fit=crop&w=2400&q=85",
+      src: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=2400&q=85",
       alt: "Archival evidence files and clean indexed documentation",
       caption: "Evidence classification and chain of custody management",
     },
@@ -353,7 +353,7 @@ export const EDITORIAL_SERVICE_IMAGES: Record<string, ServiceEditorialImages> = 
       caption: "CPR Part 32 witness statement drafting and Statement of Truth execution",
     },
     tertiary: {
-      src: "https://images.unsplash.com/photo-1568667256549-094345857b23?auto=format&fit=crop&w=2400&q=85",
+      src: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=2400&q=85",
       alt: "Archival legal papers and witness proofs",
       caption: "Credibility assessment and trial cross-examination vulnerability auditing",
     },

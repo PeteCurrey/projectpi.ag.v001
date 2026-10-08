@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import { getCanonicalUrl } from "@/lib/config/brand";
 import TFTSTextReveal from "@/components/experience/TFTSTextReveal";
+import TFTSViewportMedia from "@/components/experience/TFTSViewportMedia";
 
 export const metadata: Metadata = {
   title: "How We Work & Standards | TFTS Operating Methodology",
@@ -140,7 +141,20 @@ export default function HowWeWorkPage() {
         </div>
       </section>
 
-      {/* ── 3. STATUTORY FRAMEWORK — Typographic ledger ── */}
+      {/* ── 3. EDITORIAL IMAGE — Royal Courts of Justice ── */}
+      <div className="border-t border-rule">
+        <TFTSViewportMedia
+          src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=2800&q=90"
+          alt="Royal Courts of Justice — The Strand, London. Marble columns and Gothic Revival facade"
+          aspectClass="aspect-[21/9]"
+          scaleOnScroll={true}
+          imageFilter="grayscale(100%) contrast(1.08) brightness(0.72)"
+          caption="The Royal Courts of Justice, Strand, London"
+          sizes="100vw"
+        />
+      </div>
+
+      {/* ── 4. STATUTORY FRAMEWORK — Typographic ledger ── */}
       <section className="py-20 md:py-28 border-b border-rule">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <TFTSTextReveal mode="lines">
@@ -177,7 +191,7 @@ export default function HowWeWorkPage() {
         </div>
       </section>
 
-      {/* ── 4. CTA ── */}
+      {/* ── 5. CTA ── */}
       <section className="py-24 md:py-32 bg-paper-stone border-t border-rule">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <TFTSTextReveal mode="lines">

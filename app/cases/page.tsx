@@ -129,23 +129,24 @@ export default function CasesPage() {
       </section>
 
       {/* Confidential Consultation Prompt */}
-      <section className="py-20 border-t border-rule bg-paper-stone">
-        <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center space-y-6">
-          <h2 className="text-2xl sm:text-4xl font-[200] text-ink tracking-tight">
-            Have a Comparable High-Exposure Scenario?
-          </h2>
-          <p className="text-xs sm:text-sm text-ink-muted max-w-xl mx-auto font-[300] leading-relaxed">
-            Our directors evaluate incoming instructions within hours. We ensure your matter
-            is handled under strict confidentiality from the very first conversation.
-          </p>
-          <div className="pt-2">
-            <Link
-              href="/confidential-enquiry"
-              className="inline-flex items-center space-x-3 border border-ink px-8 py-3.5 text-xs tracking-[0.2em] uppercase font-[300] text-ink hover:bg-ink hover:text-paper transition-colors"
-            >
-              <span>DISCUSS THE MATTER IN CONFIDENCE</span>
-              <span>→</span>
-            </Link>
+      <section className="py-24 md:py-32 bg-paper-stone border-t border-rule">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="max-w-3xl space-y-8">
+            <h2 className="text-display-sm font-[200] text-ink leading-[1.08]">
+              Have a Comparable High-Exposure Scenario?
+            </h2>
+            <p className="text-sm font-[300] text-ink-muted leading-relaxed max-w-xl">
+              Our directors evaluate incoming instructions within hours. We ensure your matter
+              is handled under strict confidentiality from the very first conversation.
+            </p>
+            <div>
+              <Link
+                href="/confidential-enquiry"
+                className="inline-block border border-ink px-6 py-3 text-xs tracking-[0.2em] uppercase font-[300] text-ink hover:bg-ink hover:text-paper transition-colors rounded-none"
+              >
+                Discuss the Matter in Confidence →
+              </Link>
+            </div>
           </div>
         </div>
       </section>

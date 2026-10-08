@@ -9,6 +9,7 @@ import EditorialMenu from "./EditorialMenu";
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const triggerRef = React.useRef<HTMLButtonElement>(null);
   const pathname = usePathname();
 
   // Scroll-aware header state
@@ -137,6 +138,7 @@ export default function Header() {
 
             {/* Mobile menu icon */}
             <button
+              ref={triggerRef}
               onClick={() => setIsMenuOpen(true)}
               className={`lg:hidden p-1 transition-colors ${
                 isLightNav
@@ -151,7 +153,7 @@ export default function Header() {
         </div>
       </header>
 
-      <EditorialMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
+      <EditorialMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} triggerRef={triggerRef} />
     </>
   );
 }

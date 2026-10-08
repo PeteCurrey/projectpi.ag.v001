@@ -2862,7 +2862,7 @@ export const FLAGSHIP_SERVICES: Record<string, FlagshipServiceConfig> = {
       "Procuring admissible, court-ready evidence to establish civil claims, prove commercial torts, and document IP infringement across English law proceedings.",
     eyebrow: "ROOM III · LEGAL INTELLIGENCE",
     image: {
-      src: "https://images.unsplash.com/photo-1568667256549-094345857b23?auto=format&fit=crop&w=2400&q=85",
+      src: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=2400&q=85",
       alt: "Close-up of archival document files, neutral tones, precise organisation",
       caption: "Evidence classification and chain of custody management",
     },
